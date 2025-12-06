@@ -187,56 +187,33 @@ int maxLoanProfit(int W, vector<int>& loans, vector<int>& returns, int n){
 }
   </pre>
 </div>
-
-<!-- MODULE 4: Retail Inventory Management -->
+<!-- MODULE 4: Gaming & Entertainment Allocation -->
 <div id="m4" class="module-content">
-  <h2>Retail Inventory Management</h2>
+  <h2>Gaming & Entertainment Allocation</h2>
 
   <p><strong>Business Problem:</strong><br>
-  Commercial retailers in Vishalnagari struggle with overstocking and stockouts.<br>
-  Overstock ties up capital, while shortages lead to lost sales and unhappy customers.<br>
-  Optimized inventory management is needed to balance supply with demand.</p>
+  Vishalnagari needs efficient allocation of gaming servers and entertainment resources.<br>
+  Without optimization, some zones face overload while others remain underutilized.<br>
+  A smart allocation system ensures fair distribution and smooth user experience.</p>
 
   <p><strong>Algorithm:</strong><br>
-  Economic Order Quantity (EOQ) combined with demand forecasting ensures optimal stock levels.<br>
-  Uses dynamic programming to minimize holding and shortage costs.<br>
-  Efficiency: O(n) for demand scanning and adjustment.</p>
+  AVL Tree + Segment Tree for managing user bookings and seat/server allocation.<br>
+  📊 Efficiency: AVL operations O(log n), Segment Tree build O(n), query/update O(log n).</p>
 
   <pre>
-// C++ Implementation (15+ lines)
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;cmath&gt;
-using namespace std;
-
-struct Product {
-    string name;
-    int demand;
-    double holdingCost;
-    double orderingCost;
-};
-
-double calculateEOQ(Product p) {
-    return sqrt((2 * p.demand * p.orderingCost) / p.holdingCost);
-}
-
-int main() {
-    vector&lt;Product&gt; products = {
-        {"Shirts", 1000, 2.0, 50.0},
-        {"Shoes", 500, 3.0, 40.0},
-        {"Bags", 300, 1.5, 30.0}
-    };
-
-    for (auto &p : products) {
-        double eoq = calculateEOQ(p);
-        cout &lt;&lt; "Product: " &lt;&lt; p.name 
-             &lt;&lt; " | EOQ = " &lt;&lt; eoq &lt;&lt; endl;
-    }
-    return 0;
-}
+// Gaming & Entertainment Allocation
+AVLTree bookingTree; SegmentTree seatBlocks;
+bookingTree.insert(userBooking);              // insert booking by user ID or preference
+seatBlocks.build(seatData);                   // build segment tree for seat zones/prices
+int zoneL=1, zoneR=3, priceL=200, priceR=500;
+int available = seatBlocks.query(zoneL, zoneR, priceL, priceR);
+if (available > 0) allocateSeat(userBooking, available);
+cout << "Entertainment booking confirmed!";
   </pre>
 
-  <p><strong>Conclusion:</strong> EOQ-based inventory management reduces costs, avoids shortages, and improves customer satisfaction.</p>
+  <p><strong>Conclusion:</strong><br>
+  This approach ensures fair seat allocation across zones and price ranges.<br>
+  Vishalnagari can deliver smooth entertainment experiences while optimizing server and seating resources.</p>
 </div>
 
 <!-- MODULE 5: E-Commerce Order Fulfillment -->
