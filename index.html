@@ -15,7 +15,8 @@
 
     body.light {
       background: #f0f4ff; /* soft light background */
-      color: #222;
+      color: #111;
+      transition: background 0.5s, color 0.5s;
     }
 
     body {
@@ -30,10 +31,8 @@
       transition: color 0.8s ease;
     }
 
-    /* ---------------- Wave Layers (Keep Original) ---------------- */
-    body::before,
-    body::after,
-    body .wave-layer3 {
+    /* ---------------- Waves (unchanged) ---------------- */
+    body::before, body::after, body .wave-layer3 {
       content: "";
       position: fixed;
       left: 0;
@@ -44,7 +43,6 @@
       pointer-events: none;
     }
 
-    /* Dark theme waves */
     body.dark::before {
       background: rgba(138, 43, 226, 0.7);
       box-shadow: 0 0 60px rgba(138, 43, 226, 0.6);
@@ -64,7 +62,6 @@
       top: -55%;
     }
 
-    /* Light theme waves */
     body.light::before {
       background: rgba(135, 206, 250, 0.8);
       box-shadow: 0 0 50px rgba(135, 206, 250, 0.6);
@@ -84,31 +81,16 @@
       top: -55%;
     }
 
-    /* Keyframes remain the same as before */
-    @keyframes wave1 {0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);}}
-    @keyframes wave2 {0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);}}
-    @keyframes wave3 {0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);}}
-    @keyframes wave1Light {0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);}}
-    @keyframes wave2Light {0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);}}
-    @keyframes wave3Light {0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);}}
+    /* ---------------- Wave Keyframes ---------------- */
+    @keyframes wave1 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
+    @keyframes wave2 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
+    @keyframes wave3 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
 
-    /* ---------------- Theme Toggle Button ---------------- */
-    .theme-toggle {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      background: #ff79c6;
-      color: #fff;
-      transition: background 0.3s;
-      z-index: 2;
-      position: relative;
-    }
-    .theme-toggle:hover { background: #ff4c60; }
+    @keyframes wave1Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
+    @keyframes wave2Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
+    @keyframes wave3Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
 
-    /* ---------------- Navigation Bar ---------------- */
+    /* ---------------- Navigation ---------------- */
     nav {
       position: fixed;
       top: 20px;
@@ -119,201 +101,151 @@
     }
     nav a {
       text-decoration: none;
-      color: #fff;
-      font-weight: 600;
       padding: 8px 14px;
       border-radius: 6px;
+      font-weight: 600;
       transition: background 0.3s;
+    }
+    body.dark nav a {
+      color: #fff;
       background: rgba(0,0,0,0.3);
     }
-    nav a:hover { background: rgba(0,0,0,0.6); }
-    body.light nav a { color: #222; background: rgba(255,255,255,0.6); }
+    body.dark nav a:hover { background: rgba(0,0,0,0.6); }
+
+    body.light nav a {
+      color: #111;
+      background: rgba(255,255,255,0.6);
+    }
     body.light nav a:hover { background: rgba(255,255,255,0.9); }
 
-    /* ---------------- Main Title ---------------- */
+    /* ---------------- Portfolio Heading ---------------- */
     .portfolio-heading {
       margin-top: 40px;
       font-size: 48px;
       font-weight: 900;
       letter-spacing: 2px;
       text-align: center;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
       z-index: 2;
       position: relative;
     }
+    body.light .portfolio-heading { color: #111; }
 
-    /* ---------------- Course Card ---------------- */
-    .course-card {
-      padding: 40px 30px;
-      border-radius: 20px;
-      max-width: 420px;
-      width: 90%;
-      margin-top: 30px;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(8px);
-      transition: background 0.4s;
+    /* ---------------- Theme Toggle ---------------- */
+    .theme-toggle {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      color: #fff;
+      background: #ff79c6;
+      transition: background 0.3s;
       z-index: 2;
       position: relative;
     }
-    body.light .course-card { background: rgba(255,255,255,0.8); }
+    .theme-toggle:hover { background: #ff4c60; }
+    body.light .theme-toggle { color: #111; }
+    /* ---------------- Cards, Boxes & Glow ---------------- */
+    .course-card, .course-box, .team-card, img, .project-overview p, .city-text {
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
 
+    /* Card Glow Class */
+    .card-glow {
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    /* Dark Mode Glow */
+    body.dark .card-glow:hover {
+      box-shadow: 0 0 20px #00ff80, 0 0 40px #00ffff, 0 0 60px #ff2d95;
+      transform: translateY(-3px);
+    }
+    body.dark .card-glow:active {
+      box-shadow: 0 0 30px #00ff80, 0 0 60px #00ffff, 0 0 90px #ff2d95;
+      transform: scale(1.05);
+      animation: pulseGlowDark 1s infinite;
+    }
+
+    @keyframes pulseGlowDark {
+      0%,100% { transform: scale(1.05); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* Light Mode Glow */
+    body.light .card-glow:hover {
+      box-shadow: 0 0 15px #1e90ff, 0 0 30px #32cd32, 0 0 45px #ff1493;
+      transform: translateY(-2px);
+    }
+    body.light .card-glow:active {
+      box-shadow: 0 0 25px #1e90ff, 0 0 50px #32cd32, 0 0 80px #ff1493;
+      transform: scale(1.04);
+      animation: pulseGlowLight 1s infinite;
+    }
+
+    @keyframes pulseGlowLight {
+      0%,100% { transform: scale(1.04); }
+      50% { transform: scale(1.07); }
+    }
+
+    /* Team Cards Transparent in Light Theme */
+    body.light .team-card {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(0,0,0,0.1);
+      color: #111;
+    }
+
+    /* Course Cards Light Mode Background */
+    body.light .course-card, body.light .course-box, body.light .project-overview p, body.light .city-text {
+      background: rgba(255,255,255,0.8);
+      color: #111;
+    }
+
+    /* Course Boxes */
     .course-box {
       padding: 15px 20px;
       margin-bottom: 15px;
-      border-radius: 12px;
       background: rgba(255,255,255,0.05);
       border-left: 4px solid #ff4c60;
-      transition: background 0.3s, transform 0.3s;
     }
     .course-box:hover { transform: scale(1.03); }
-    body.light .course-box { background: #f9f9f9; }
 
-    .course-box h3 { font-size: 20px; font-weight: 700; color: #ff79c6; margin: 0 0 8px; }
-    .course-box p { margin: 0; font-size: 16px; }
-    .course-box.division-d { border-left: 4px solid #27ae60; }
+    /* Division D */
+    .division-d { border-left: 4px solid #27ae60; }
 
-    /* ---------------- Course Overview ---------------- */
-    .course-overview {
-      margin-top: 60px;
-      text-align: center;
-      max-width: 900px;
-      padding: 20px;
-    }
-    .course-overview h2 {
+    /* Project Sections */
+    .project-overview h2, .course-overview h2 {
       font-size: 36px;
       font-weight: 900;
       margin-bottom: 20px;
       color: #ff79c6;
     }
-    .course-overview p {
-      font-size: 18px;
-      line-height: 1.6;
-      background: rgba(255,255,255,0.05);
-      padding: 25px;
-      border-radius: 15px;
-      margin: 0 auto 30px;
-      transition: background 0.4s;
-    }
-    body.light .course-overview p { background: #f9f9f9; }
-        /* ---------------- Vision Section ---------------- */
-    .project-overview {
-      margin-top: 60px;
-      text-align: center;
-      max-width: 900px;
-      padding: 0 20px;
-    }
-    .project-overview h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; color: #ff79c6; }
+
     .city-motto { font-size: 20px; font-weight: 700; color: #ffdd57; margin-bottom: 20px; }
-    .city-text {
-      font-size: 18px;
-      line-height: 1.6;
-      background: rgba(255,255,255,0.05);
-      padding: 25px;
-      border-radius: 15px;
-      margin: 0 auto 30px;
-      transition: background 0.4s;
-    }
-    body.light .city-text { background: #f9f9f9; }
 
-    /* ---------------- Team Section ---------------- */
-    #meet-the-team {
-      padding: 40px;
-      text-align: center;
-    }
-    #meet-the-team h2 {
-      font-size: 32px;
-      font-weight: 900;
-      margin-bottom: 30px;
-      color: #ff79c6;
-    }
+    /* Images */
+    img { max-width: 100%; border-radius: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.4); }
+
+    /* Team Section */
+    #meet-the-team { padding: 40px; text-align: center; }
+    #meet-the-team h2 { font-size: 32px; font-weight: 900; margin-bottom: 30px; color: #ff79c6; }
     .team-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .team-card { padding: 20px; width: 250px; text-align: left; transition: transform 0.3s, box-shadow 0.4s; }
+    .team-card:hover { transform: scale(1.05); }
 
-    /* Team Cards - Transparent & Glow Ready */
-    .team-card {
-      border-radius: 12px;
-      padding: 20px;
-      width: 250px;
-      text-align: left;
-      transition: transform 0.3s, box-shadow 0.4s, background 0.4s;
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.8);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.2);
-      position: relative;
-      cursor: pointer;
-    }
-    body.light .team-card {
-      background: rgba(0,0,0,0.05);
-      color: #222;
-      border: 1px solid rgba(0,0,0,0.1);
-    }
-
+    /* Links */
     .team-card a { color: inherit; font-weight: bold; text-decoration: none; }
     .team-card a:hover { text-decoration: underline; }
 
-    /* ---------------- Glow Effects ---------------- */
-    .course-card, .course-box, .theme-toggle, .portfolio-heading, .team-card {
-      transition: all 0.3s ease;
-      position: relative;
-      cursor: pointer;
-    }
-
-    /* Dark Hover */
-    body.dark .course-card:hover,
-    body.dark .course-box:hover,
-    body.dark .theme-toggle:hover,
-    body.dark .portfolio-heading:hover,
-    body.dark .team-card:hover {
-      box-shadow: 0 0 15px #00ff80, 0 0 30px #00ffff, 0 0 45px #ff2d95;
-      transform: translateY(-3px);
-    }
-
-    /* Dark Click */
-    body.dark .course-card:active,
-    body.dark .course-box:active,
-    body.dark .theme-toggle:active,
-    body.dark .portfolio-heading:active,
-    body.dark .team-card:active {
-      box-shadow: 0 0 20px #00ff80, 0 0 40px #00ffff, 0 0 60px #ff2d95;
-      transform: scale(1.05);
-      animation: pulseGlowDark 1s infinite;
-    }
-
-    /* Light Hover */
-    body.light .course-card:hover,
-    body.light .course-box:hover,
-    body.light .theme-toggle:hover,
-    body.light .portfolio-heading:hover,
-    body.light .team-card:hover {
-      box-shadow: 0 0 10px #87cefa, 0 0 20px #32cd32, 0 0 25px #ff69b4;
-      transform: translateY(-2px);
-    }
-
-    /* Light Click */
-    body.light .course-card:active,
-    body.light .course-box:active,
-    body.light .theme-toggle:active,
-    body.light .portfolio-heading:active,
-    body.light .team-card:active {
-      box-shadow: 0 0 15px #87cefa, 0 0 35px #32cd32, 0 0 50px #ff69b4;
-      transform: scale(1.04);
-      animation: pulseGlowLight 1s infinite;
-    }
-
-    /* Optional: Pulse animation for click */
-    @keyframes pulseGlowDark {
-      0%,100% { transform: scale(1.05); }
-      50% { transform: scale(1.08); }
-    }
-    @keyframes pulseGlowLight {
-      0%,100% { transform: scale(1.04); }
-      50% { transform: scale(1.07); }
-    }
   </style>
 </head>
-
 <body class="dark">
-  <!-- Extra wave layer -->
+
+  <!-- Wave Layer -->
   <div class="wave-layer3"></div>
 
   <!-- Navigation -->
@@ -323,23 +255,24 @@
     <a href="vasavi_port.html">Vasavi</a>
     <a href="akshata_port.html">Akshata</a>
     <a href="isha_port.html">Isha</a>
+     <a href="collabs.html">Collaborators</a>
   </nav>
 
   <!-- Theme Toggle -->
-  <button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()">Switch to Light Mode</button>
+  <button class="theme-toggle card-glow" id="toggleBtn" onclick="toggleTheme()">Switch to Light Mode</button>
 
   <!-- Portfolio Heading -->
-  <div class="portfolio-heading">
-    VISHALNAGARI – THE INTELLIGENT & SUSTAINABLE CITY PORTFOLIO
+  <div class="portfolio-heading card-glow">
+    VISHALNAGARI – ALGORITHMS IN THE STREETS,HERITAGE IN THE ROOTS
   </div>
 
   <!-- Course Card -->
-  <div class="course-card">
-    <div class="course-box"><h3>Course Name</h3><p>Design & Analysis of Algorithms</p></div>
-    <div class="course-box"><h3>Course Code</h3><p>24ECS205</p></div>
-    <div class="course-box"><h3>Institution</h3><p>KLE Technological University</p></div>
-    <div class="course-box"><h3>Guide</h3><p>Prof. Prakash Hegade</p></div>
-    <div class="course-box division-d">
+  <div class="course-card card-glow">
+    <div class="course-box card-glow"><h3>Course Name</h3><p>Design & Analysis of Algorithms</p></div>
+    <div class="course-box card-glow"><h3>Course Code</h3><p>24ECS205</p></div>
+    <div class="course-box card-glow"><h3>Institution</h3><p>KLE Technological University</p></div>
+    <div class="course-box card-glow"><h3>Guide</h3><p>Prof. Prakash Hegade</p></div>
+    <div class="course-box division-d card-glow">
       <h3>Team Members</h3>
       <p>Sanmathi Hegde</p>
       <p>Vasavi Kabbur</p>
@@ -349,76 +282,72 @@
   </div>
 
   <!-- Course Overview -->
-  <section class="course-overview">
+  <section class="course-overview card-glow">
     <h2>Course Overview</h2>
-    <p>
+    <p class="card-glow">
       Algorithms are the heart of computer science and play a crucial role in solving real-world problems efficiently. 
-      They provide a structured approach to processing data, optimizing workflows, and making decisions. 
-      From traffic routing and supply chain management to healthcare diagnostics and financial analysis, 
-      algorithms enable automation, reduce human error, and improve resource utilization. 
-      Studying algorithms equips students with critical thinking, problem-solving skills, and the ability 
+      They provide a structured approach to processing data, optimizing workflows, and making decisions.
+      From traffic routing and supply chain management to healthcare diagnostics and financial analysis,
+      algorithms enable automation, reduce human error, and improve resource utilization.
+      Studying algorithms equips students with critical thinking, problem-solving skills, and the ability
       to design scalable and efficient solutions for complex systems.
     </p>
   </section>
 
   <!-- Vision Section -->
-  <section class="project-overview">
+  <section class="project-overview card-glow">
     <h2>Our Vision</h2>
-    <p class="city-motto"><strong>Designing Tomorrow, One Algorithm at a Time</strong></p>
-    <p class="city-text">
-      Vishalanagari, located in Maharashtra’s Vidarbha region between Amravati and Akola, is a next-generation smart city built on the fertile lands of the Deccan Plateau...
+    <p class="city-motto card-glow"><strong>Designing Tomorrow, One Algorithm at a Time</strong></p>
+    <p class="city-text card-glow">
+   Vishalanagari, located in Maharashtra’s Vidarbha region between Amravati and Akola, is a next-generation smart city built on the fertile lands of the Deccan Plateau. The Purna River supports rich agriculture, making the region India’s premier cotton-growing and textile hub with strong export networks. Designed for 28 million people with a density of 18,000/km², the city operates on an annual budget of ₹18,000 crore and is recognized nationwide as India’s capital of civic innovation. Within city limits, 100% electric vehicles ensure zero-emission transport, while smart algorithms manage traffic, distribute civic resources, and maintain flourishing green spaces — creating a clean, efficient, and future-ready urban ecosystem.
     </p>
   </section>
 
-  <!-- City Design Images -->
-  <section class="project-overview">
+  <!-- City Design Section -->
+  <section class="project-overview card-glow">
     <h2>Design of City</h2>
-    <img src="Image1.jpg" alt="City Design"
-         style="width: 45%; max-width: 450px; border-radius: 20px; margin-top: 20px; margin-right: 10px; box-shadow: 0 6px 25px rgba(0,0,0,0.4); display: inline-block;">
-    <img src="Image2.jpg" alt="City Design 2"
-         style="width: 45%; max-width: 450px; border-radius: 20px; margin-top: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.4); display: inline-block;">
+    <img src="Image1.jpg" alt="City Design" class="card-glow" style="width:45%; margin-right:10px;">
+    <img src="Image2.jpg" alt="City Description" class="card-glow" style="width:45%;">
   </section>
 
-  <!-- Team Section -->
+  <!-- Meet the Team -->
   <section id="meet-the-team">
     <h2>Meet the Team</h2>
     <div class="team-container">
-      <div class="team-card">
+      <div class="team-card card-glow">
         <h3>Sanmathi Hegde</h3>
         <p><strong>Roll No:</strong> 407</p>
         <p><strong>USN:</strong> 01fe24bcs269</p>
-        <p><strong>Domain:</strong> Industrial and Manufacturing Systems</p>
-        <p>Optimization through Linear Programming and Flow Networks</p>
+        <p><strong>Domain:</strong> Industrial, Infrastructure & Tourism Development</p>
         <a href="sanmathi_port.html" target="_blank">View Portfolio</a>
       </div>
-      <div class="team-card">
+      <div class="team-card card-glow">
         <h3>Vasavi Kabbur</h3>
         <p><strong>Roll No:</strong> 415</p>
         <p><strong>USN:</strong> 01fe24bcs278</p>
-        <p><strong>Domain:</strong> Commerce and Governance</p>
-        <p>Graph Matching & Greedy allocation for fair resource distribution</p>
+        <p><strong>Domain:</strong> Economic & Administrative Systems</p>
         <a href="vasavi_port.html" target="_blank">View Portfolio</a>
       </div>
-      <div class="team-card">
+      <div class="team-card card-glow">
         <h3>Akshata Pawar</h3>
         <p><strong>Roll No:</strong> 434</p>
         <p><strong>USN:</strong> 01fe24bcs297</p>
-        <p><strong>Domain:</strong> Traffic and Mobility</p>
+        <p><strong>Domain:</strong> Traffic & Transit Management</p>
         <p>Shortest Path algorithms (Dijkstra’s, A*) for smooth routing</p>
         <a href="akshata_port.html" target="_blank">View Portfolio</a>
       </div>
-      <div class="team-card">
+      <div class="team-card card-glow">
         <h3>Isha Shet</h3>
         <p><strong>Roll No:</strong> 418</p>
         <p><strong>USN:</strong> 01fe24bcs281</p>
-        <p><strong>Domain:</strong> Agriculture and Sustainability</p>
+        <p><strong>Domain:</strong> Agriculture & Eco-Innovation</p>
         <p>Dynamic Programming & Graph models for optimized irrigation</p>
         <a href="isha_port.html" target="_blank">View Portfolio</a>
       </div>
     </div>
   </section>
 
-  <!-- ---------------- Theme Toggle Script ---------------- -->
+  <!-- ---------------- Script for Theme Toggle ---------------- -->
   <script>
     function toggleTheme() {
       document.body.classList.toggle("light");
@@ -426,8 +355,5 @@
       btn.textContent = document.body.classList.contains("light") ? "Switch to Dark Mode" : "Switch to Light Mode";
     }
   </script>
-
 </body>
 </html>
-
-
