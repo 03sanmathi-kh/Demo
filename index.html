@@ -15,11 +15,11 @@
       align-items: center;
       position: relative;
       overflow-x: hidden;
-      color: #000;
+      color: #fff;
       transition: color 0.8s ease, background 0.8s ease;
-      background-color: #fff; /* White background */
+      background-color: #000000; /* pitch black background */
     }
-    body.light { color: #000; background-color: #fff; }
+    body.light { color: #e0e0e0; background-color: #ffffff; }
 
     /* Multi-layer wavy background */
     body::before,
@@ -36,15 +36,15 @@
       filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
     }
 
-    /* Dark theme waves - slightly transparent */
-    body.dark::before { background: rgba(10,10,40,0.5); animation: wave1 30s linear infinite; top: -50%; }
-    body.dark::after { background: rgba(20,20,60,0.4); animation: wave2 40s linear infinite; top: -60%; }
-    body.dark .wave-layer3 { background: rgba(30,30,90,0.3); animation: wave3 50s linear infinite; top: -55%; }
+    /* Dark theme waves - very dark tones */
+    body.dark::before { background: rgba(10,10,40,0.6); animation: wave1 30s linear infinite; top: -50%; }
+    body.dark::after { background: rgba(20,20,60,0.5); animation: wave2 40s linear infinite; top: -60%; }
+    body.dark .wave-layer3 { background: rgba(30,30,90,0.4); animation: wave3 50s linear infinite; top: -55%; }
 
-    /* Light theme waves - slightly transparent */
-    body.light::before { background: rgba(15,15,50,0.5); animation: wave1Light 30s linear infinite; top: -50%; }
-    body.light::after { background: rgba(25,25,70,0.4); animation: wave2Light 40s linear infinite; top: -60%; }
-    body.light .wave-layer3 { background: rgba(35,35,100,0.3); animation: wave3Light 50s linear infinite; top: -55%; }
+    /* Light theme waves - still dark tones */
+    body.light::before { background: rgba(15,15,50,0.6); animation: wave1Light 30s linear infinite; top: -50%; }
+    body.light::after { background: rgba(25,25,70,0.5); animation: wave2Light 40s linear infinite; top: -60%; }
+    body.light .wave-layer3 { background: rgba(35,35,100,0.4); animation: wave3Light 50s linear infinite; top: -55%; }
 
     /* Keyframes */
     @keyframes wave1 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
@@ -81,28 +81,16 @@
     }
     nav a {
       text-decoration: none;
-      color: #000;
+      color: #fff;
       font-weight: 600;
       padding: 8px 14px;
       border-radius: 6px;
       transition: background 0.3s;
-      background: rgba(0,0,0,0.1);
+      background: rgba(0,0,0,0.3);
     }
-    nav a:hover { background: rgba(0,0,0,0.2); }
-    body.light nav a { color: #000; background: rgba(0,0,0,0.1); }
-    body.light nav a:hover { background: rgba(0,0,0,0.2); }
-
-    /* Hover Glow for titles and cards */
-    .portfolio-heading, h2, .course-card, .course-box, .team-card {
-      transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
-    }
-    .portfolio-heading:hover, h2:hover {
-      text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff, 0 0 45px #c0c0ff;
-    }
-    .course-card:hover, .course-box:hover, .team-card:hover {
-      box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff, 0 0 45px #c0c0ff;
-      transform: scale(1.03);
-    }
+    nav a:hover { background: rgba(0,0,0,0.6); }
+    body.light nav a { color: #000; background: rgba(200,200,200,0.6); }
+    body.light nav a:hover { background: rgba(150,150,150,0.9); }
 
     /* Headings */
     .portfolio-heading { 
@@ -111,11 +99,12 @@
       font-weight: 900; 
       letter-spacing: 2px; 
       text-align: center; 
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.2); 
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
       z-index: 2; 
       position: relative; 
+      transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
     }
-    h2 { text-align: center; color: #ff79c6; }
+    h2 { text-align: center; color: #ff79c6; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
 
     /* Course Card */
     .course-card {
@@ -124,27 +113,27 @@
       max-width: 420px;
       width: 90%;
       margin-top: 30px;
-      background: rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.05);
       backdrop-filter: blur(8px);
-      transition: background 0.4s;
+      transition: background 0.4s, box-shadow 0.3s ease, transform 0.3s ease;
       z-index: 2;
       position: relative;
-      color: #000;
+      color: #fff;
     }
-    body.light .course-card { background: rgba(0,0,0,0.05); color: #000; }
+    body.light .course-card { background: rgba(255,255,255,0.1); color: #000; }
 
     .course-box {
       padding: 15px 20px;
       margin-bottom: 15px;
       border-radius: 12px;
-      background: rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.05);
       border-left: 4px solid #ff4c60;
-      transition: background 0.3s, transform 0.3s;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s ease;
     }
-    .course-box:hover { transform: scale(1.03); }
-    body.light .course-box { background: rgba(0,0,0,0.05); }
-    .course-box h3 { font-size: 20px; font-weight: 700; color: #ff79c6; margin: 0 0 8px; }
-    .course-box p { margin: 0; font-size: 16px; color: #000; text-shadow: 0 0 6px #0ff; }
+    body.light .course-box { background: rgba(255,255,255,0.1); }
+    .course-box h3 { font-size: 20px; font-weight: 700; color: #ff79c6; margin: 0 0 8px; transition: text-shadow 0.3s ease; }
+    .course-box p { margin: 0; font-size: 16px; color: #fff; text-shadow: 0 0 6px #0ff; transition: text-shadow 0.3s ease; }
+    body.light .course-box p { color: #000; text-shadow: 0 0 6px #0ff; }
 
     .division-d { border-left: 4px solid #27ae60; }
 
@@ -156,18 +145,18 @@
       padding: 20px;
     }
     .course-overview h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; color: #ff79c6; }
-
     .course-overview p {
       font-size: 18px;
       line-height: 1.6;
-      background: rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.05);
       padding: 25px;
       border-radius: 15px;
       margin: 0 auto 30px;
-      transition: background 0.4s;
       text-shadow: 0 0 6px #0ff;
-      color: #000;
+      color: #fff;
+      transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
     }
+    body.light .course-overview p { background: rgba(255,255,255,0.1); color: #000; text-shadow: 0 0 6px #0ff; }
 
     /* Vision Section */
     .project-overview {
@@ -181,17 +170,18 @@
     .city-text {
       font-size: 18px;
       line-height: 1.6;
-      background: rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.05);
       padding: 25px;
       border-radius: 15px;
       margin: 0 auto 30px;
-      transition: background 0.4s;
       text-shadow: 0 0 6px #0ff;
-      color: #000;
+      color: #fff;
+      transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
     }
+    body.light .city-text { background: rgba(255,255,255,0.1); color: #000; text-shadow: 0 0 6px #0ff; }
 
     /* Design of City */
-    .project-overview img { width: 90%; max-width: 900px; border-radius: 20px; margin-top: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.3); }
+    .project-overview img { width: 90%; max-width: 900px; border-radius: 20px; margin-top: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.6); transition: box-shadow 0.3s ease; }
 
     /* Team Section */
     #meet-the-team { padding: 40px; text-align: center; }
@@ -204,21 +194,47 @@
       padding: 20px;
       width: 250px;
       text-align: center;
-      transition: transform 0.3s, background 0.4s;
+      transition: transform 0.3s, background 0.4s, box-shadow 0.3s ease;
       backdrop-filter: blur(8px);
-      color: #000;
+      color: #fff;
       text-shadow: 0 0 6px #fff;
-      background: rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.05);
     }
-    .team-card:hover { transform: scale(1.05); }
-
-    .team-card a { color: #00ffff; font-weight: bold; text-decoration: none; text-shadow: 0 0 6px #0ff; transition: 0.3s; }
+    .team-card a { color: #0ff; font-weight: bold; text-decoration: none; text-shadow: 0 0 6px #0ff; transition: 0.3s; }
     .team-card a:hover { text-shadow: 0 0 12px #0ff; }
 
     .team-card.traffic { background: rgba(255,0,60,0.3); }
     .team-card.industry { background: rgba(255,200,0,0.3); }
     .team-card.commerce { background: rgba(0,255,80,0.3); }
     .team-card.sustainability { background: rgba(200,100,255,0.3); }
+
+    /* Hover Glow Effect for Titles, Cards, Boxes */
+    .portfolio-heading:hover,
+    h2:hover,
+    .course-card:hover,
+    .course-box:hover,
+    .team-card:hover,
+    .course-overview p:hover,
+    .city-text:hover,
+    .project-overview img:hover {
+      box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #c0f0ff;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #c0f0ff, 0 0 30px #a0f0ff;
+      transform: scale(1.02);
+    }
+
+    /* Normal state no glow */
+    .portfolio-heading,
+    h2,
+    .course-card,
+    .course-box,
+    .team-card,
+    .course-overview p,
+    .city-text,
+    .project-overview img {
+      box-shadow: none;
+      text-shadow: none;
+      transform: scale(1);
+    }
 
   </style>
 </head>
@@ -240,7 +256,7 @@
 <button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()">Switch to Light Mode</button>
 
 <div class="portfolio-heading">
-  VISHALNAGARI – THE INTELLIGENT & SUSTAINABLE CITY PORTFOLIO
+  VISHALNAGARI – ALGORITHMS IN THE STREETS,HERITAGE IN THE ROOTS
 </div>
 
 <!-- Course Card -->
