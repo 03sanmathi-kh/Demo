@@ -237,8 +237,105 @@ int main(){
 
 </div>
 
-<!-- Other modules -->
-<div id="a2" class="module-content"><h2>Signal Scheduling</h2><p>Same as before…</p></div>
+<!-- MODULE 2 -->
+<div id="a2" class="module-content">
+<h2>Signal Scheduling System</h2>
+
+<h3>Problem</h3>
+<p>Traffic signals often run on fixed timers, causing long waits on busy roads and underutilized green lights on less crowded streets. Manual adjustments are inefficient, leading to congestion and poor EV flow.</p>
+
+<h3>Solution</h3>
+<p>A real-time adaptive signal scheduling system that dynamically adjusts green/red timings based on live traffic data, prioritizing congested roads and emergency or EV lanes.</p>
+
+<h3>Data Structures Used</h3>
+<ul>
+<li>Array → Store vehicle counts per signal.</li>
+<li>Priority Queue → Decide which signal gets green next.</li>
+<li>Graph → Represent intersections and signal connectivity.</li>
+<li>Queue → Manage waiting vehicles per lane.</li>
+</ul>
+
+<h3>Algorithms Used</h3>
+<ul>
+<li>Heap Operations → Pick the most congested signal first.</li>
+<li>Greedy Scheduling → Assign green time proportionally to congestion.</li>
+<li>BFS → Spread updates across connected intersections.</li>
+</ul>
+
+<h3>Step-by-Step Process</h3>
+<p>1. Sensors at each intersection count vehicles → stored in arrays.</p>
+<p>2. Priority Queue ranks signals by current congestion.</p>
+<p>3. Greedy algorithm assigns green times based on queue size.</p>
+<p>4. BFS updates neighboring intersections about signal changes.</p>
+<p>5. Real-time dashboard updates users and EV routing systems.</p>
+
+<hr>
+
+<!-- ARRAY FOR SIGNALS -->
+<button class="code-btn" onclick="openCodeViewer('Array – Store Signal Vehicle Counts', 
+`#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int signals[] = {12, 25, 7, 30, 10};
+    int n = 5;
+    cout &lt;&lt; &quot;Vehicle counts stored for &quot; &lt;&lt; n &lt;&lt; &quot; signals.&quot;;
+}`)">📌 Array – Vehicle Counts</button>
+
+<!-- PRIORITY QUEUE / HEAP -->
+<button class="code-btn" onclick="openCodeViewer('Priority Queue – Select Next Green Signal',
+`#include &lt;iostream&gt;
+#include &lt;queue&gt;
+using namespace std;
+
+int main(){
+    priority_queue&lt;int&gt; pq;
+    int vehicles[] = {12,25,7,30,10};
+    int n=5;
+    for(int i=0;i&lt;n;i++) pq.push(vehicles[i]);
+    cout &lt;&lt; &quot;Next green signal has &quot; &lt;&lt; pq.top() &lt;&lt; &quot; vehicles waiting.&quot;;
+}`)">📌 Priority Queue – Next Green</button>
+
+<!-- GREEDY ALLOCATION -->
+<button class="code-btn" onclick="openCodeViewer('Greedy – Green Time Allocation', 
+`#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    int congestion = 30; // max vehicles
+    int greenTime = 10 + congestion/2;
+    cout &lt;&lt; &quot;Assigned Green Time: &quot; &lt;&lt; greenTime &lt;&lt; &quot; sec&quot;;
+}`)">📌 Greedy – Green Time Allocation</button>
+
+<!-- BFS FOR SIGNAL UPDATES -->
+<button class="code-btn" onclick="openCodeViewer('BFS – Spread Signal Updates', 
+`#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+using namespace std;
+
+void BFS(int s, vector&lt;int&gt; adj[], int n){
+    vector&lt;bool&gt; visited(n,false);
+    queue&lt;int&gt; q;
+    q.push(s); visited[s]=true;
+    while(!q.empty()){
+        int u=q.front(); q.pop();
+        cout &lt;&lt; &quot;Signal &quot; &lt;&lt; u &lt;&lt; &quot; updated.&quot;&lt;&lt;endl;
+        for(int v: adj[u])
+            if(!visited[v]){ q.push(v); visited[v]=true; }
+    }
+}
+
+int main(){
+    int n=5; // signals
+    vector&lt;int&gt; adj[n];
+    adj[0]={1,2}; adj[1]={0,3}; adj[2]={0,3}; adj[3]={1,2,4}; adj[4]={3};
+    BFS(0,adj,n);
+}`)">📌 BFS – Spread Updates</button>
+
+</div>
+
+<!-- Other modules unchanged -->
 <div id="a3" class="module-content"><h2>Accident Detection</h2><p>Same as before…</p></div>
 <div id="a4" class="module-content"><h2>Parking Allocation</h2><p>Same as before…</p></div>
 <div id="a5" class="module-content"><h2>Emergency Routing</h2><p>Same as before…</p></div>
