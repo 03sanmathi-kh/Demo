@@ -15,11 +15,11 @@
       align-items: center;
       position: relative;
       overflow-x: hidden;
-      color: #fff;
+      color: #000;
       transition: color 0.8s ease, background 0.8s ease;
-      background-color: #0a0a0a;
+      background-color: #fff; /* White background */
     }
-    body.light { color: #e0e0e0; background-color: #111111; }
+    body.light { color: #000; background-color: #fff; }
 
     /* Multi-layer wavy background */
     body::before,
@@ -36,15 +36,15 @@
       filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
     }
 
-    /* Dark theme waves - very dark tones */
-    body.dark::before { background: rgba(10,10,40,0.8); animation: wave1 30s linear infinite; top: -50%; }
-    body.dark::after { background: rgba(20,20,60,0.7); animation: wave2 40s linear infinite; top: -60%; }
-    body.dark .wave-layer3 { background: rgba(30,30,90,0.6); animation: wave3 50s linear infinite; top: -55%; }
+    /* Dark theme waves - slightly transparent */
+    body.dark::before { background: rgba(10,10,40,0.5); animation: wave1 30s linear infinite; top: -50%; }
+    body.dark::after { background: rgba(20,20,60,0.4); animation: wave2 40s linear infinite; top: -60%; }
+    body.dark .wave-layer3 { background: rgba(30,30,90,0.3); animation: wave3 50s linear infinite; top: -55%; }
 
-    /* Light theme waves - still dark tones */
-    body.light::before { background: rgba(15,15,50,0.8); animation: wave1Light 30s linear infinite; top: -50%; }
-    body.light::after { background: rgba(25,25,70,0.7); animation: wave2Light 40s linear infinite; top: -60%; }
-    body.light .wave-layer3 { background: rgba(35,35,100,0.6); animation: wave3Light 50s linear infinite; top: -55%; }
+    /* Light theme waves - slightly transparent */
+    body.light::before { background: rgba(15,15,50,0.5); animation: wave1Light 30s linear infinite; top: -50%; }
+    body.light::after { background: rgba(25,25,70,0.4); animation: wave2Light 40s linear infinite; top: -60%; }
+    body.light .wave-layer3 { background: rgba(35,35,100,0.3); animation: wave3Light 50s linear infinite; top: -55%; }
 
     /* Keyframes */
     @keyframes wave1 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
@@ -67,7 +67,6 @@
       transition: background 0.3s;
       z-index: 2;
       position: relative;
-      box-shadow: 0 0 15px #0ff, 0 0 25px #0ff, 0 0 35px #0ff; /* glow */
     }
     .theme-toggle:hover { background: #ff4c60; }
 
@@ -82,18 +81,28 @@
     }
     nav a {
       text-decoration: none;
-      color: #fff;
+      color: #000;
       font-weight: 600;
       padding: 8px 14px;
       border-radius: 6px;
       transition: background 0.3s;
-      background: rgba(0,0,0,0.3);
-      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+      background: rgba(0,0,0,0.1);
     }
-    nav a:hover { background: rgba(0,0,0,0.6); }
+    nav a:hover { background: rgba(0,0,0,0.2); }
+    body.light nav a { color: #000; background: rgba(0,0,0,0.1); }
+    body.light nav a:hover { background: rgba(0,0,0,0.2); }
 
-    body.light nav a { color: #e0e0e0; background: rgba(20,20,20,0.6); }
-    body.light nav a:hover { background: rgba(50,50,50,0.9); }
+    /* Hover Glow for titles and cards */
+    .portfolio-heading, h2, .course-card, .course-box, .team-card {
+      transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .portfolio-heading:hover, h2:hover {
+      text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff, 0 0 45px #c0c0ff;
+    }
+    .course-card:hover, .course-box:hover, .team-card:hover {
+      box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff, 0 0 45px #c0c0ff;
+      transform: scale(1.03);
+    }
 
     /* Headings */
     .portfolio-heading { 
@@ -102,19 +111,11 @@
       font-weight: 900; 
       letter-spacing: 2px; 
       text-align: center; 
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.2); 
       z-index: 2; 
       position: relative; 
     }
-    h2 { 
-      text-align: center; 
-      color: #ff79c6; 
-      text-shadow: 0 0 8px #0ff, 0 0 15px #0ff;
-    }
-
-    .city-motto {
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-    }
+    h2 { text-align: center; color: #ff79c6; }
 
     /* Course Card */
     .course-card {
@@ -123,31 +124,27 @@
       max-width: 420px;
       width: 90%;
       margin-top: 30px;
-      background: rgba(255,255,255,0.05);
+      background: rgba(0,0,0,0.05);
       backdrop-filter: blur(8px);
       transition: background 0.4s;
       z-index: 2;
       position: relative;
-      color: #fff;
-      box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 50px #0ff; /* glow */
+      color: #000;
     }
-    body.light .course-card { background: rgba(255,255,255,0.1); color: #e0e0e0; }
+    body.light .course-card { background: rgba(0,0,0,0.05); color: #000; }
 
     .course-box {
       padding: 15px 20px;
       margin-bottom: 15px;
       border-radius: 12px;
-      background: rgba(255,255,255,0.05);
+      background: rgba(0,0,0,0.05);
       border-left: 4px solid #ff4c60;
-      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff; /* glow */
+      transition: background 0.3s, transform 0.3s;
     }
     .course-box:hover { transform: scale(1.03); }
-    body.light .course-box { background: rgba(255,255,255,0.1); }
-
-    .course-box h3 { font-size: 20px; font-weight: 700; color: #ff79c6; margin: 0 0 8px; text-shadow: 0 0 8px #0ff; }
-    .course-box p { margin: 0; font-size: 16px; color: #fff; text-shadow: 0 0 6px #0ff, 0 0 12px #0ff; }
-    body.light .course-box p { color: #e0e0e0; }
+    body.light .course-box { background: rgba(0,0,0,0.05); }
+    .course-box h3 { font-size: 20px; font-weight: 700; color: #ff79c6; margin: 0 0 8px; }
+    .course-box p { margin: 0; font-size: 16px; color: #000; text-shadow: 0 0 6px #0ff; }
 
     .division-d { border-left: 4px solid #27ae60; }
 
@@ -158,17 +155,18 @@
       max-width: 900px;
       padding: 20px;
     }
+    .course-overview h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; color: #ff79c6; }
+
     .course-overview p {
       font-size: 18px;
       line-height: 1.6;
-      background: rgba(255,255,255,0.05);
+      background: rgba(0,0,0,0.05);
       padding: 25px;
       border-radius: 15px;
       margin: 0 auto 30px;
       transition: background 0.4s;
-      text-shadow: 0 0 6px #0ff, 0 0 12px #0ff;
-      color: #fff;
-      box-shadow: 0 0 15px #0ff, 0 0 25px #0ff; /* glow */
+      text-shadow: 0 0 6px #0ff;
+      color: #000;
     }
 
     /* Vision Section */
@@ -178,25 +176,44 @@
       max-width: 900px;
       padding: 0 20px;
     }
-    .project-overview img { width: 90%; max-width: 900px; border-radius: 20px; margin-top: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.6), 0 0 15px #0ff; }
+    .project-overview h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; color: #ff79c6; }
+    .city-motto { font-size: 20px; font-weight: 700; color: #ffdd57; margin-bottom: 20px; text-align: center; }
+    .city-text {
+      font-size: 18px;
+      line-height: 1.6;
+      background: rgba(0,0,0,0.05);
+      padding: 25px;
+      border-radius: 15px;
+      margin: 0 auto 30px;
+      transition: background 0.4s;
+      text-shadow: 0 0 6px #0ff;
+      color: #000;
+    }
+
+    /* Design of City */
+    .project-overview img { width: 90%; max-width: 900px; border-radius: 20px; margin-top: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.3); }
 
     /* Team Section */
+    #meet-the-team { padding: 40px; text-align: center; }
+    #meet-the-team h2 { font-size: 32px; font-weight: 900; margin-bottom: 30px; color: #ff79c6; }
+
+    .team-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+
     .team-card {
       border-radius: 12px;
       padding: 20px;
       width: 250px;
       text-align: center;
-      transition: transform 0.3s, background 0.4s, box-shadow 0.3s;
+      transition: transform 0.3s, background 0.4s;
       backdrop-filter: blur(8px);
-      color: #fff;
+      color: #000;
       text-shadow: 0 0 6px #fff;
-      background: rgba(255,255,255,0.05);
-      box-shadow: 0 0 15px #0ff, 0 0 30px #0ff; /* glow */
+      background: rgba(0,0,0,0.05);
     }
     .team-card:hover { transform: scale(1.05); }
 
-    .team-card a { color: #0ff; font-weight: bold; text-decoration: none; text-shadow: 0 0 6px #0ff, 0 0 12px #0ff; transition: 0.3s; }
-    .team-card a:hover { text-shadow: 0 0 12px #0ff, 0 0 25px #0ff; }
+    .team-card a { color: #00ffff; font-weight: bold; text-decoration: none; text-shadow: 0 0 6px #0ff; transition: 0.3s; }
+    .team-card a:hover { text-shadow: 0 0 12px #0ff; }
 
     .team-card.traffic { background: rgba(255,0,60,0.3); }
     .team-card.industry { background: rgba(255,200,0,0.3); }
