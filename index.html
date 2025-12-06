@@ -1,237 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vishalanagari – Intelligent & Sustainable City Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vishalanagari – Intelligent & Sustainable City Portfolio</title>
 
-  <style>
-    /* ----- Body & Themes ----- */
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      overflow-x: hidden;
-      transition: background 0.5s, color 0.5s;
-    }
+<style>
+/* ----- Body & Themes ----- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+  transition: background 0.5s, color 0.5s;
+}
 
-    body.dark {
-      background: #01010a; /* near black */
-      color: #fff;
-    }
+body.dark {
+  background: #01010a; /* near black */
+  color: #fff;
+}
 
-    body.light {
-      background: #f0f4ff; 
-      color: #222;
-    }
+body.light {
+  background: #f0f4ff;
+  color: #222;
+}
 
-    /* ----- Waves (keep original) ----- */
-    body::before,
-    body::after,
-    body .wave-layer3 {
-      content: "";
-      position: fixed;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      border-radius: 45%;
-      z-index: -1;
-      pointer-events: none;
-    }
+/* ----- Waves (original) ----- */
+body::before,
+body::after,
+body .wave-layer3 {
+  content: "";
+  position: fixed;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  border-radius: 45%;
+  z-index: -1;
+  pointer-events: none;
+}
 
-    body.dark::before {
-      background: rgba(138, 43, 226, 0.7);
-      box-shadow: 0 0 60px rgba(138, 43, 226, 0.6);
-      animation: wave1 30s linear infinite;
-      top: -50%;
-    }
-    body.dark::after {
-      background: rgba(75, 0, 130, 0.6);
-      box-shadow: 0 0 80px rgba(75, 0, 130, 0.5);
-      animation: wave2 40s linear infinite;
-      top: -60%;
-    }
-    body.dark .wave-layer3 {
-      background: rgba(0, 255, 128, 0.5);
-      box-shadow: 0 0 100px rgba(0, 255, 128, 0.5);
-      animation: wave3 50s linear infinite;
-      top: -55%;
-    }
+body.dark::before {
+  background: rgba(138, 43, 226, 0.7);
+  box-shadow: 0 0 60px rgba(138, 43, 226, 0.6);
+  animation: wave1 30s linear infinite;
+  top: -50%;
+}
+body.dark::after {
+  background: rgba(75, 0, 130, 0.6);
+  box-shadow: 0 0 80px rgba(75, 0, 130, 0.5);
+  animation: wave2 40s linear infinite;
+  top: -60%;
+}
+body.dark .wave-layer3 {
+  background: rgba(0, 255, 128, 0.5);
+  box-shadow: 0 0 100px rgba(0, 255, 128, 0.5);
+  animation: wave3 50s linear infinite;
+  top: -55%;
+}
 
-    body.light::before {
-      background: rgba(135, 206, 250, 0.8);
-      box-shadow: 0 0 50px rgba(135, 206, 250, 0.6);
-      animation: wave1Light 30s linear infinite;
-      top: -50%;
-    }
-    body.light::after {
-      background: rgba(186, 85, 211, 0.6);
-      box-shadow: 0 0 70px rgba(186, 85, 211, 0.5);
-      animation: wave2Light 40s linear infinite;
-      top: -60%;
-    }
-    body.light .wave-layer3 {
-      background: rgba(60, 179, 113, 0.5);
-      box-shadow: 0 0 90px rgba(60, 179, 113, 0.5);
-      animation: wave3Light 50s linear infinite;
-      top: -55%;
-    }
+body.light::before {
+  background: rgba(135, 206, 250, 0.8);
+  box-shadow: 0 0 50px rgba(135, 206, 250, 0.6);
+  animation: wave1Light 30s linear infinite;
+  top: -50%;
+}
+body.light::after {
+  background: rgba(186, 85, 211, 0.6);
+  box-shadow: 0 0 70px rgba(186, 85, 211, 0.5);
+  animation: wave2Light 40s linear infinite;
+  top: -60%;
+}
+body.light .wave-layer3 {
+  background: rgba(60, 179, 113, 0.5);
+  box-shadow: 0 0 90px rgba(60, 179, 113, 0.5);
+  animation: wave3Light 50s linear infinite;
+  top: -55%;
+}
 
-    /* ----- Keyframes ----- */
-    @keyframes wave1 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave2 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave3 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
+/* ----- Keyframes ----- */
+@keyframes wave1 {0%{transform:translateX(0) rotate(0deg);}50%{transform:translateX(20%) rotate(3deg);}100%{transform:translateX(0) rotate(0deg);}}
+@keyframes wave2 {0%{transform:translateX(0) rotate(0deg);}50%{transform:translateX(-15%) rotate(-3deg);}100%{transform:translateX(0) rotate(0deg);}}
+@keyframes wave3 {0%{transform:translateX(0) rotate(0deg);}50%{transform:translateX(10%) rotate(1deg);}100%{transform:translateX(0) rotate(0deg);}}
 
-    @keyframes wave1Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave2Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave3Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
+@keyframes wave1Light {0%{transform:translateX(0) rotate(0deg);}50%{transform:translateX(20%) rotate(3deg);}100%{transform:translateX(0) rotate(0deg);}}
+@keyframes wave2Light {0%{transform:translateX(0) rotate(0deg);}50%{transform:translateX(-15%) rotate(-3deg);}100%{transform:translateX(0) rotate(0deg);}}
+@keyframes wave3Light {0%{transform:translateX(0) rotate(0deg);}50%{transform:translateX(10%) rotate(1deg);}100%{transform:translateX(0) rotate(0deg);}}
 
-    /* ----- Navigation ----- */
-    nav {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      gap: 15px;
-      z-index: 3;
-    }
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 6px;
-      transition: background 0.3s;
-      background: rgba(0,0,0,0.3);
-    }
-    nav a:hover { background: rgba(0,0,0,0.6); }
-    body.light nav a { color: #222; background: rgba(255,255,255,0.6); }
-    body.light nav a:hover { background: rgba(255,255,255,0.9); }
+/* ----- Navigation ----- */
+nav {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+  z-index: 3;
+}
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.3s;
+  background: rgba(0,0,0,0.3);
+}
+nav a:hover { background: rgba(0,0,0,0.6); }
+body.light nav a { color: #222; background: rgba(255,255,255,0.6); }
+body.light nav a:hover { background: rgba(255,255,255,0.9); }
 
-    /* ----- Theme Toggle ----- */
-    .theme-toggle {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      background: #ff79c6;
-      color: #fff;
-      transition: background 0.3s;
-      z-index: 2;
-      position: relative;
-    }
-    .theme-toggle:hover { background: #ff4c60; }
+/* ----- Theme Toggle ----- */
+.theme-toggle {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: #ff79c6;
+  color: #fff;
+  transition: background 0.3s;
+  z-index: 2;
+  position: relative;
+}
+.theme-toggle:hover { background: #ff4c60; }
 
-    /* ----- Portfolio Heading ----- */
-    .portfolio-heading {
-      margin-top: 40px;
-      font-size: 48px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-align: center;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-      z-index: 2;
-      position: relative;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      cursor: pointer;
-    }
-    .card-glow.clicked {
-      box-shadow: 0 0 40px #00ff80, 0 0 80px #00ffff, 0 0 120px #ff2d95;
-      transform: scale(1.06);
-      animation: pulseGlowDark 1s infinite;
-    }
-    body.light .card-glow.clicked {
-      box-shadow: 0 0 25px #1e90ff, 0 0 50px #32cd32, 0 0 80px #ff1493;
-      transform: scale(1.05);
-      animation: pulseGlowLight 1s infinite;
-    }
-  /* ----- Course & Text Cards ----- */
-  .course-card {
-    padding: 30px 25px;
-    border-radius: 20px;
-    max-width: 420px;
-    width: 90%;
-    margin: 30px auto;
-    background: rgba(20, 30, 60, 0.8);
-    backdrop-filter: blur(8px);
-    transition: background 0.4s, transform 0.3s;
-    z-index: 2;
-    position: relative;
-    cursor: pointer;
-  }
-
-  body.light .course-card { background: #f9f9f9; color: #222; }
-
-  .course-box {
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.05);
-    border-left: 4px solid #ff4c60;
-    transition: background 0.3s, transform 0.3s;
-  }
-
-  body.light .course-box { background: #f0f0f0; }
-
-  .course-box h3 { font-size: 20px; font-weight: 700; color: #ff79c6; margin: 0 0 8px; }
-  .course-box p { margin: 0; font-size: 16px; }
-
-  .division-d { border-left: 4px solid #27ae60; }
-
-  .course-overview p,
-  .project-overview .city-text {
-    max-width: 850px;
-    margin: 0 auto 30px;
-    padding: 20px;
-    border-radius: 15px;
-    background: rgba(20, 30, 60, 0.6);
-    color: #e0e0ff;
-    line-height: 1.6;
-    transition: background 0.4s, color 0.4s;
-    cursor: pointer;
-  }
-
-  body.light .course-overview p,
-  body.light .project-overview .city-text { background: #f9f9f9; color: #222; }
-
-  /* ----- Team Cards ----- */
-  .team-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-
-  .team-card {
-    border-radius: 12px;
-    padding: 20px;
-    width: 250px;
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.4s;
-    color: #fff;
-    background: rgba(20, 30, 60, 0.5);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.8);
-    cursor: pointer;
-  }
-
-  body.light .team-card { background: rgba(255,255,255,0.8); color: #222; }
-
-  .team-card:hover { transform: scale(1.05); box-shadow: 0 0 25px 5px rgba(255,255,255,0.7); }
-
-  /* ----- Card Glow Animation ----- */
-  @keyframes pulseGlowDark {
-    0%, 100% { box-shadow: 0 0 40px #00ff80, 0 0 80px #00ffff, 0 0 120px #ff2d95; }
-    50% { box-shadow: 0 0 60px #00ff80, 0 0 100px #00ffff, 0 0 150px #ff2d95; }
-  }
-  @keyframes pulseGlowLight {
-    0%, 100% { box-shadow: 0 0 25px #1e90ff, 0 0 50px #32cd32, 0 0 80px #ff1493; }
-    50% { box-shadow: 0 0 40px #1e90ff, 0 0 70px #32cd32, 0 0 100px #ff1493; }
-  }
-  </style>
-</head>
+/* ----- Portfolio Heading ----- */
+.portfolio-heading {
+  margin-top: 40px;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  z-index: 2;
+  position: relative;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
 <body class="dark">
   <!-- Extra wave layer -->
   <div class="wave-layer3"></div>
@@ -250,7 +161,9 @@
   <button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()">Switch to Light Mode</button>
 
   <!-- Portfolio Heading -->
-  <div class="portfolio-heading card-glow">VISHALNAGARI – ALGORITHMS IN THE STREETS,HERITAGE IN THE STREETS</div>
+  <div class="portfolio-heading card-glow">
+    VISHALNAGARI – ALGORITHMS IN THE STREETS, HERITAGE IN THE STREETS
+  </div>
 
   <!-- Course Card -->
   <div class="course-card card-glow">
@@ -288,6 +201,7 @@
       Vishalanagari, located in Maharashtra’s Vidarbha region between Amravati and Akola, is a next-generation smart city built on the fertile lands of the Deccan Plateau. The Purna River supports rich agriculture, making the region India’s premier cotton-growing and textile hub with strong export networks. Designed for 28 million people with a density of 18,000/km², the city operates on an annual budget of ₹18,000 crore and is recognized nationwide as India’s capital of civic innovation. Within city limits, 100% electric vehicles ensure zero-emission transport, while smart algorithms manage not only traffic and civic resources but also agriculture, industrial zones, urban infrastructure, government operations, commercial activities, and sustainability systems — creating a clean, efficient, and future-ready urban ecosystem.
     </p>
   </section>
+
   <!-- City Design Section -->
   <section class="project-overview card-glow">
     <h2>Design of City</h2>
@@ -296,12 +210,11 @@
     <img src="Image2.jpg" alt="City Design 2"
          style="width: 45%; max-width: 450px; border-radius: 20px; margin-top: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.4); display: inline-block; cursor: pointer;">
   </section>
-
   <!-- Meet the Team Section -->
   <section id="meet-the-team" class="card-glow">
     <h2>Meet the Team</h2>
     <div class="team-container">
-      <div class="team-card">
+      <div class="team-card card-glow">
         <h3>Sanmathi Hegde</h3>
         <p><strong>Roll No:</strong> 407</p>
         <p><strong>USN:</strong> 01fe24bcs269</p>
@@ -309,7 +222,7 @@
         <p>Optimization through Linear Programming and Flow Networks</p>
         <a href="sanmathi_port.html" target="_blank">View Portfolio</a>
       </div>
-      <div class="team-card">
+      <div class="team-card card-glow">
         <h3>Vasavi Kabbur</h3>
         <p><strong>Roll No:</strong> 415</p>
         <p><strong>USN:</strong> 01fe24bcs278</p>
@@ -317,7 +230,7 @@
         <p>Graph Matching & Greedy allocation for fair resource distribution</p>
         <a href="vasavi_port.html" target="_blank">View Portfolio</a>
       </div>
-      <div class="team-card">
+      <div class="team-card card-glow">
         <h3>Akshata Pawar</h3>
         <p><strong>Roll No:</strong> 434</p>
         <p><strong>USN:</strong> 01fe24bcs297</p>
@@ -325,7 +238,7 @@
         <p>Shortest Path algorithms (Dijkstra’s, A*) for smooth routing</p>
         <a href="akshata_port.html" target="_blank">View Portfolio</a>
       </div>
-      <div class="team-card">
+      <div class="team-card card-glow">
         <h3>Isha Shet</h3>
         <p><strong>Roll No:</strong> 418</p>
         <p><strong>USN:</strong> 01fe24bcs281</p>
@@ -353,7 +266,7 @@
       });
     });
 
-    // Also make images clickable for glow
+    // Images clickable for glow
     document.querySelectorAll('img').forEach(img => {
       img.addEventListener('click', () => {
         img.classList.add('clicked');
