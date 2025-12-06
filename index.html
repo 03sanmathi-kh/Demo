@@ -17,7 +17,7 @@
       overflow-x: hidden;
       color: #fff;
       transition: color 0.8s ease, background 0.8s ease;
-      background-color: #0a0a0a; /* Very dark background for both modes */
+      background-color: #0a0a0a;
     }
     body.light { color: #e0e0e0; background-color: #111111; }
 
@@ -67,6 +67,7 @@
       transition: background 0.3s;
       z-index: 2;
       position: relative;
+      box-shadow: 0 0 15px #0ff, 0 0 25px #0ff, 0 0 35px #0ff; /* glow */
     }
     .theme-toggle:hover { background: #ff4c60; }
 
@@ -87,8 +88,10 @@
       border-radius: 6px;
       transition: background 0.3s;
       background: rgba(0,0,0,0.3);
+      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
     }
     nav a:hover { background: rgba(0,0,0,0.6); }
+
     body.light nav a { color: #e0e0e0; background: rgba(20,20,20,0.6); }
     body.light nav a:hover { background: rgba(50,50,50,0.9); }
 
@@ -99,11 +102,19 @@
       font-weight: 900; 
       letter-spacing: 2px; 
       text-align: center; 
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
       z-index: 2; 
       position: relative; 
     }
-    h2 { text-align: center; color: #ff79c6; }
+    h2 { 
+      text-align: center; 
+      color: #ff79c6; 
+      text-shadow: 0 0 8px #0ff, 0 0 15px #0ff;
+    }
+
+    .city-motto {
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
 
     /* Course Card */
     .course-card {
@@ -118,6 +129,7 @@
       z-index: 2;
       position: relative;
       color: #fff;
+      box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 50px #0ff; /* glow */
     }
     body.light .course-card { background: rgba(255,255,255,0.1); color: #e0e0e0; }
 
@@ -127,13 +139,15 @@
       border-radius: 12px;
       background: rgba(255,255,255,0.05);
       border-left: 4px solid #ff4c60;
-      transition: background 0.3s, transform 0.3s;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff; /* glow */
     }
     .course-box:hover { transform: scale(1.03); }
     body.light .course-box { background: rgba(255,255,255,0.1); }
-    .course-box h3 { font-size: 20px; font-weight: 700; color: #ff79c6; margin: 0 0 8px; }
-    .course-box p { margin: 0; font-size: 16px; color: #fff; text-shadow: 0 0 6px #0ff; }
-    body.light .course-box p { color: #e0e0e0; text-shadow: 0 0 6px #0ff; }
+
+    .course-box h3 { font-size: 20px; font-weight: 700; color: #ff79c6; margin: 0 0 8px; text-shadow: 0 0 8px #0ff; }
+    .course-box p { margin: 0; font-size: 16px; color: #fff; text-shadow: 0 0 6px #0ff, 0 0 12px #0ff; }
+    body.light .course-box p { color: #e0e0e0; }
 
     .division-d { border-left: 4px solid #27ae60; }
 
@@ -144,8 +158,6 @@
       max-width: 900px;
       padding: 20px;
     }
-    .course-overview h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; color: #ff79c6; }
-
     .course-overview p {
       font-size: 18px;
       line-height: 1.6;
@@ -154,10 +166,10 @@
       border-radius: 15px;
       margin: 0 auto 30px;
       transition: background 0.4s;
-      text-shadow: 0 0 6px #0ff;
+      text-shadow: 0 0 6px #0ff, 0 0 12px #0ff;
       color: #fff;
+      box-shadow: 0 0 15px #0ff, 0 0 25px #0ff; /* glow */
     }
-    body.light .course-overview p { background: rgba(255,255,255,0.1); color: #e0e0e0; text-shadow: 0 0 6px #0ff; }
 
     /* Vision Section */
     .project-overview {
@@ -166,45 +178,25 @@
       max-width: 900px;
       padding: 0 20px;
     }
-    .project-overview h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; color: #ff79c6; }
-    .city-motto { font-size: 20px; font-weight: 700; color: #ffdd57; margin-bottom: 20px; text-align: center; }
-    .city-text {
-      font-size: 18px;
-      line-height: 1.6;
-      background: rgba(255,255,255,0.05);
-      padding: 25px;
-      border-radius: 15px;
-      margin: 0 auto 30px;
-      transition: background 0.4s;
-      text-shadow: 0 0 6px #0ff;
-      color: #fff;
-    }
-    body.light .city-text { background: rgba(255,255,255,0.1); color: #e0e0e0; text-shadow: 0 0 6px #0ff; }
-
-    /* Design of City */
-    .project-overview img { width: 90%; max-width: 900px; border-radius: 20px; margin-top: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.6); }
+    .project-overview img { width: 90%; max-width: 900px; border-radius: 20px; margin-top: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.6), 0 0 15px #0ff; }
 
     /* Team Section */
-    #meet-the-team { padding: 40px; text-align: center; }
-    #meet-the-team h2 { font-size: 32px; font-weight: 900; margin-bottom: 30px; color: #ff79c6; }
-
-    .team-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-
     .team-card {
       border-radius: 12px;
       padding: 20px;
       width: 250px;
       text-align: center;
-      transition: transform 0.3s, background 0.4s;
+      transition: transform 0.3s, background 0.4s, box-shadow 0.3s;
       backdrop-filter: blur(8px);
       color: #fff;
       text-shadow: 0 0 6px #fff;
       background: rgba(255,255,255,0.05);
+      box-shadow: 0 0 15px #0ff, 0 0 30px #0ff; /* glow */
     }
     .team-card:hover { transform: scale(1.05); }
 
-    .team-card a { color: #0ff; font-weight: bold; text-decoration: none; text-shadow: 0 0 6px #0ff; transition: 0.3s; }
-    .team-card a:hover { text-shadow: 0 0 12px #0ff; }
+    .team-card a { color: #0ff; font-weight: bold; text-decoration: none; text-shadow: 0 0 6px #0ff, 0 0 12px #0ff; transition: 0.3s; }
+    .team-card a:hover { text-shadow: 0 0 12px #0ff, 0 0 25px #0ff; }
 
     .team-card.traffic { background: rgba(255,0,60,0.3); }
     .team-card.industry { background: rgba(255,200,0,0.3); }
@@ -274,6 +266,7 @@
 <!-- City Design Section -->
 <section class="project-overview">
   <h2>Design of City</h2>
+  <img src="Image1.jpg" alt="City Design">
   <img src="Image2.jpg" alt="City Design">
 </section>
 
