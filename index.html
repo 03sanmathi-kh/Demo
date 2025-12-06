@@ -202,36 +202,42 @@
     }
     body.light .city-text { background: #f9f9f9; }
 
-    /* Team Section */
-    #meet-the-team {
-      padding: 40px;
-      text-align: center;
-    }
-    #meet-the-team h2 { font-size: 32px; font-weight: 900; margin-bottom: 30px; color: #ff79c6; }
+  <style>
+  /* Team Section */
+  #meet-the-team {
+    padding: 40px;
+    text-align: center;
+  }
+  #meet-the-team h2 { font-size: 32px; font-weight: 900; margin-bottom: 30px; color: #ff79c6; }
 
-    .team-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .team-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
 
-    .team-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 20px;
-      width: 250px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-      text-align: left;
-      transition: transform 0.3s, background 0.4s;
-    }
-    .team-card:hover { transform: scale(1.03); }
-    body.light .team-card { background: #fff; }
+  .team-card {
+    border-radius: 12px;
+    padding: 20px;
+    width: 250px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.4s;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+  }
 
-    .team-card a { color: #ff79c6; font-weight: bold; text-decoration: none; }
-    .team-card a:hover { text-decoration: underline; }
+  .team-card:hover { 
+    transform: scale(1.05); 
+    box-shadow: 0 0 25px 5px rgba(255,255,255,0.7);
+  }
 
-    .traffic { border-top: 6px solid #e74c3c; }
-    .industry { border-top: 6px solid #f39c12; }
-    .commerce { border-top: 6px solid #27ae60; }
-    .sustainability { border-top: 6px solid #8e44ad; }
+  /* Distinct vibrant colors */
+  .team-card.industry { background: linear-gradient(135deg, #ff6b6b, #ff4757); }
+  .team-card.commerce { background: linear-gradient(135deg, #ffa502, #ff7f50); }
+  .team-card.traffic { background: linear-gradient(135deg, #1e90ff, #00bfff); }
+  .team-card.sustainability { background: linear-gradient(135deg, #2ed573, #1eae61); }
 
-  </style>
+  .team-card a { color: #fff; font-weight: bold; text-decoration: none; }
+  .team-card a:hover { text-decoration: underline; }
+
+</style>
+
 </head>
 
 <body class="dark">
