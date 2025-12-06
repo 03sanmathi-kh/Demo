@@ -1,1 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sanmathi – Industries and Infrastructure</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<style>
+body { 
+    margin:0; 
+    font-family:'Segoe UI',sans-serif; 
+    transition:background 0.3s,color 0.3s; 
+    min-height:100vh; 
+    overflow-x:hidden; 
+}
+body.dark{background:#0a0a0a;color:#fff;}
+body.light{background:#f5f5f5;color:#000;}
+
+/* Background Waves */
+.wave-bg{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    z-index:-1;
+    overflow:hidden;
+}
+.wave{
+    position:absolute;
+    width:200%;height:200%;
+    opacity:0.5;
+    animation:waveMove 30s linear infinite;
+}
+.wave1{fill:#e67e22;}
+.wave2{fill:#16a085;}
+.wave3{fill:#2980b9;}
+body.light .wave1{fill:#f8c291;}
+body.light .wave2{fill:#a3e4d7;}
+body.light .wave3{fill:#85c1e9;}
+
+@keyframes waveMove{
+  0%{transform:translateX(0) translateY(0) rotate(0deg);}
+  50%{transform:translateX(10%) translateY(5%) rotate(2deg);}
+  100%{transform:translateX(0) translateY(0) rotate(0deg);}
+}
+
+/* Header */
+header{text-align:center;padding:40px 20px;}
+header h1{font-size:42px;font-weight:900;color:#e67e22;}
+header h3{font-size:22px;font-weight:600;color:#16a085;}
+header p{max-width:800px;margin:20px auto;font-size:16px;line-height:1.6;color:inherit;}
+
+/* Hex Buttons */
+.hex-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+    padding:30px;
+}
+.hex{
+    position:relative;width:160px;height:90px;
+    display:flex;
+    align-items:center;justify-content:center;
+    font-weight:600;text-align:center;
+    cursor:pointer;transition:transform 0.3s ease;
+    color:#fff;border-radius:12px;
+}
+.hex:hover{transform:scale(1.08);}
+
+.machinery{background:#e67e22;}
+.production{background:#16a085;}
+.finance{background:#2980b9;}
+.logistics{background:#8e44ad;}
+.infrastructure{background:#27ae60;}
+.tech{background:#ff69b4;}
+
+/* Module Box */
+.module-content{
+  display:none;
+  margin:20px auto;
+  padding:20px;
+  border-radius:15px;
+  max-width:900px;
+  background:rgba(255,255,255,0.08);
+  position:relative;
+  z-index:20; /* FIX: Always above waves */
+}
+
+.module-content h2{font-size:24px;margin-bottom:10px;}
+.module-content p{font-size:16px;line-height:1.6;margin-bottom:10px;}
+
+pre{
+  background:rgba(0,0,0,0.45);
+  padding:15px;
+  border-radius:10px;
+  overflow-x:auto;
+  font-size:15px;
+  white-space:pre;
+  position:relative;
+  z-index:50; /* FIX: Code always visible */
+  color:#fff;
+}
+
+/* Buttons */
+#themeBtn,#homeBtn{
+  position:fixed;top:20px;
+  padding:10px 20px;font-size:14px;
+  cursor:pointer;border:none;border-radius:8px;
+  color:#fff;transition:background 0.3s;
+  z-index:100;
+}
+#themeBtn{right:20px;background:#e67e22;} 
+#themeBtn:hover{background:#2980b9;}
+#homeBtn{left:20px;background:#27ae60;} 
+#homeBtn:hover{background:#1e8449;}
+</style>
+</head>
+
+<body class="dark">
+
+<!-- Waves -->
+<div class="wave-bg">
+<svg class="wave wave1" viewBox="0 0 1440 320"><path d="M0,192 C480,320 960,64 1440,192 L1440,320 L0,320 Z"></path></svg>
+<svg class="wave wave2" viewBox="0 0 1440 320"><path d="M0,256 C480,128 960,384 1440,256 L1440,320 L0,320 Z"></path></svg>
+<svg class="wave wave3" viewBox="0 0 1440 320"><path d="M0,224 C480,96 960,352 1440,224 L1440,320 L0,320 Z"></path></svg>
+</div>
+
+<button id="homeBtn" onclick="goHome()">🏠 Home</button>
+<button id="themeBtn" onclick="toggleTheme()">🌙 Dark Mode</button>
+
+<header>
+<h1>Sanmathi</h1>
+<h3>Industrial Management – Vishalnagari</h3>
+<p>Vishalnagari’s industrial sector ensures optimized production, logistics and strong infrastructure to support sustainable growth.</p>
+</header>
+
+<div class="hex-container">
+<div class="hex machinery" onclick="toggleModule('m1')">Machinery Management</div>
+<div class="hex production" onclick="toggleModule('m2')">Production Planning</div>
+<div class="hex finance" onclick="toggleModule('m3')">Finance & Budget</div>
+<div class="hex logistics" onclick="toggleModule('m4')">Logistics & Supply</div>
+<div class="hex infrastructure" onclick="toggleModule('m5')">Infrastructure</div>
+<div class="hex tech" onclick="toggleModule('m6')">Maintenance Scheduling</div>
+<div class="hex tech" onclick="toggleModule('m7')">Technology Upgrades</div>
+</div>
+
+<!-- MODULES -->
+
+<div id="m1" class="module-content">
+<h2>Machinery Management</h2>
+<p><strong>Algorithm:</strong> Maintenance Scheduling — O(n log n)</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main() {
+    vector&lt;int&gt; machines = {101, 102, 103};
+
+    for(int m : machines){
+        cout &lt;&lt; "Checking machine " &lt;&lt; m &lt;&lt; endl;
+        cout &lt;&lt; "Running diagnostics and lubrication" &lt;&lt; endl;
+    }
+    cout &lt;&lt; "All machinery verified" &lt;&lt; endl;
+}
+</pre>
+</div>
+
+<div id="m2" class="module-content">
+<h2>Production Planning</h2>
+<p><strong>Algorithm:</strong> Resource Allocation — O(n²)</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int items = 5;
+
+    for(int i = 1; i <= items; i++){
+        cout &lt;&lt; "Plan item " &lt;&lt; i &lt;&lt; endl;
+        cout &lt;&lt; "Assign manpower and materials" &lt;&lt; endl;
+    }
+    cout &lt;&lt; "Production plan ready" &lt;&lt; endl;
+}
+</pre>
+</div>
+
+<div id="m3" class="module-content">
+<h2>Finance & Budget</h2>
+<p><strong>Algorithm:</strong> Budget Distribution — O(n)</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    double dept[3] = {50000, 60000, 40000};
+
+    for(int i = 0; i < 3; i++){
+        cout &lt;&lt; "Dept " &lt;&lt; i+1 &lt;&lt; " gets: " &lt;&lt; dept[i] &lt;&lt; endl;
+    }
+    cout &lt;&lt; "Budget completed" &lt;&lt; endl;
+}
+</pre>
+</div>
+
+<div id="m4" class="module-content">
+<h2>Logistics & Supply</h2>
+<p><strong>Algorithm:</strong> Shortest Route Estimation — O(E + V log V)</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int route[4] = {12, 18, 15, 20};
+
+    for(int i = 0; i < 4; i++){
+        cout &lt;&lt; "Route " &lt;&lt; i+1 
+             &lt;&lt; " time " &lt;&lt; route[i] 
+             &lt;&lt; " mins" &lt;&lt; endl;
+    }
+
+    cout &lt;&lt; "Optimized" &lt;&lt; endl;
+}
+</pre>
+</div>
+
+<div id="m5" class="module-content">
+<h2>Infrastructure</h2>
+<p><strong>Algorithm:</strong> Project Allocation — O(n log n)</p>
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    for(int p = 1; p <= 3; p++){
+        cout &lt;&lt; "Project " &lt;&lt; p &lt;&lt; " inspection" &lt;&lt; endl;
+        cout &lt;&lt; "Allocating manpower" &lt;&lt; endl;
+    }
+
+    cout &lt;&lt; "Infrastructure updated" &lt;&lt; endl;
+}
+</pre>
+</div>
+
+<div id="m6" class="module-content">
+<h2>Maintenance Scheduling</h2>
+<p><strong>Algorithm:</strong> Priority Queue Scheduling — O(n log n)</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+using namespace std;
+
+int main() {
+    priority_queue&lt;int&gt; q;
+
+    q.push(3);
+    q.push(1);
+    q.push(2);
+
+    while(!q.empty()) {
+        cout &lt;&lt; "Task priority " &lt;&lt; q.top() &lt;&lt; endl;
+        q.pop();
+    }
+
+    cout &lt;&lt; "Maintenance done" &lt;&lt; endl;
+}
+</pre>
+</div>
+
+<div id="m7" class="module-content">
+<h2>Technology Upgrades</h2>
+<p><strong>Algorithm:</strong> System Update Tracking — O(n²)</p>
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string sys[3] = {"Automation", "Smart Sensors", "IoT"};
+
+    for(string s : sys){
+        cout &lt;&lt; "Upgrading " &lt;&lt; s &lt;&lt; endl;
+    }
+
+    cout &lt;&lt; "Tech upgrade complete" &lt;&lt; endl;
+}
+</pre>
+</div>
+
+<script>
+function toggleModule(id){
+  document.querySelectorAll('.module-content')
+      .forEach(m => m.style.display = 'none');
+
+  document.getElementById(id).style.display = 'block';
+}
+
+function goHome(){
+  window.location.href = "index.html";
+}
+
+function toggleTheme(){
+  const body = document.body;
+  body.classList.toggle('dark');
+  body.classList.toggle('light');
+
+  document.getElementById('themeBtn').textContent =
+    body.classList.contains('dark') ? "🌙 Dark Mode" : "☀ Light Mode";
+}
+</script>
+
+</body>
+</html>
