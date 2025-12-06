@@ -43,6 +43,10 @@ header p{max-width:800px;margin:20px auto;font-size:16px;line-height:1.6;color:i
 .accident{background:#f1c40f;}
 .parking{background:#2ecc71;}
 .emergency{background:#9b59b6;}
+.evpriority{background:#1abc9c;}
+.trie{background:#e84393;}
+.infra{background:#2d3436;}
+.roadquality{background:#d63031;}
 
 .module-content{display:none;margin:20px auto;padding:20px;border-radius:15px;
  max-width:900px;background:rgba(255,255,255,0.05);}
@@ -98,12 +102,16 @@ header p{max-width:800px;margin:20px auto;font-size:16px;line-height:1.6;color:i
 
 <div class="hex-container">
 <div class="hex flow" onclick="toggleModule('a1')">Intelligent Traffic Density Management</div>
-<div class="hex signal" onclick="toggleModule('a2')">Smart EV only Road Routing System</div>
-<div class="hex accident" onclick="toggleModule('a3')">Accident Detection</div>
-<div class="hex parking" onclick="toggleModule('a4')">Parking Allocation</div>
-<div class="hex emergency" onclick="toggleModule('a5')">Emergency Routing</div>
+<div class="hex signal" onclick="toggleModule('a2')">Smart EV-Only Road Routing</div>
+<div class="hex accident" onclick="toggleModule('a3')">Visitor Vehicle Bypass</div>
+<div class="hex parking" onclick="toggleModule('a4')">Multi-Lane Road Separation</div>
+<div class="hex roadquality" onclick="toggleModule('a5')">Road Quality Monitoring</div>
+<div class="hex evpriority" onclick="toggleModule('a6')">Traffic Signal EV Priority</div>
+<div class="hex trie" onclick="toggleModule('a7')">Smart Search System (Trie)</div>
+<div class="hex infra" onclick="toggleModule('a8')">Urban Infrastructure Maintenance</div>
 </div>
 
+<!-- MODULES -->
 <!-- MODULE 1 -->
 <div id="a1" class="module-content">
 <h2>Intelligent Traffic Density Management System</h2>
@@ -236,8 +244,7 @@ int main(){
 }`)">📌 BFS</button>
 
 </div>
-
- <div id="a2" class="module-content">
+<div id="a2" class="module-content">
 <h2>Smart EV-Only Road Routing System</h2>
 
 <h3>Problem</h3>
@@ -270,9 +277,8 @@ int main(){
 
 <!-- GRAPH REPRESENTATION -->
 <button class="code-btn" onclick="openCodeViewer('Graph Representation',
-`#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;queue&gt;
+`#include <iostream>
+#include <vector>
 using namespace std;
 
 int main(){
@@ -295,9 +301,9 @@ int main(){
 
 <!-- DIJKSTRA -->
 <button class="code-btn" onclick="openCodeViewer('Dijkstra’s Algorithm',
-`#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;queue&gt;
+`#include <iostream>
+#include <vector>
+#include <queue>
 using namespace std;
 
 int main(){
@@ -329,9 +335,9 @@ int main(){
 
 <!-- BFS INTERSECTION MONITORING -->
 <button class="code-btn" onclick="openCodeViewer('BFS – Monitor Connected Intersections',
-`#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;queue&gt;
+`#include <iostream>
+#include <vector>
+#include <queue>
 using namespace std;
 
 int main(){
@@ -360,9 +366,7 @@ int main(){
 }`)">📌 BFS Monitoring</button>
 
 </div>
-
-
-     <div id="a3" class="module-content">
+<div id="a3" class="module-content">
 <h2>Visitor Vehicle Bypass Routing & Control System</h2>
 
 <h3>Problem</h3>
@@ -510,8 +514,7 @@ int main() {
 }`)">📌 BFS</button>
 
 </div>
-
-         <div id="a4" class="module-content">
+<div id="a4" class="module-content">
 <h2>Multi-Lane Road Separation + Smart Gate Control System</h2>
 
 <h3>Problem</h3>
@@ -671,9 +674,7 @@ int main() {
 }`)">📌 Selection Sort</button>
 
 </div>
-
-
-     <div id="a5" class="module-content">
+<div id="a5" class="module-content">
 <h2>Road Quality Monitoring & Smart Construction Analytics System</h2>
 
 <h3>Problem</h3>
@@ -805,10 +806,9 @@ int main() {
 }`)">📌 BFS</button>
 
 </div>
-<!-- Other modules -->
-
-
-
+<div id="a6" class="module-content"><h2>Module 6 – Traffic Signal Optimization Using EV Priority</h2><p>Content + C++ codes…</p></div>
+<div id="a7" class="module-content"><h2>Module 7 – Smart City Search (Trie-Based)</h2><p>Content + C++ codes…</p></div>
+<div id="a8" class="module-content"><h2>Module 8 – Urban Infrastructure Maintenance & Planning</h2><p>Content + C++ codes…</p></div>
 
 <!-- FULLSCREEN CODE VIEWER -->
 <div id="codeViewer">
@@ -840,7 +840,6 @@ function toggleTheme(){
    body.classList.contains('dark') ? "🌙 Dark Mode" : "☀ Light Mode";
 }
 
-/* FULLSCREEN CODE VIEWER */
 function openCodeViewer(title, code){
   document.getElementById("codeViewer").style.display = "block";
   document.getElementById("codeTitle").textContent = title;
