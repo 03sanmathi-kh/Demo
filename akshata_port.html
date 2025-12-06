@@ -55,13 +55,6 @@ header p{max-width:800px;margin:20px auto;font-size:16px;line-height:1.6;color:i
 }
 .code-btn:hover{background:#d35400;}
 
-.code-box{
- display:none;background:rgba(255,255,255,0.08);
- padding:15px;border-radius:10px;margin-top:10px;
- overflow-x:auto;
-}
-pre{color:inherit;font-size:14px;}
-
 #themeBtn,#homeBtn{
  position:fixed;top:20px;padding:10px 20px;font-size:14px;cursor:pointer;
  border:none;border-radius:8px;color:#fff;transition:background 0.3s;
@@ -99,98 +92,54 @@ pre{color:inherit;font-size:14px;}
 <div class="hex emergency" onclick="toggleModule('a5')">Emergency Routing</div>
 </div>
 
-
-<!-- ============= MODULE 1 UPDATED COMPLETELY =============== -->
-
+<!-- MODULE 1 -->
 <div id="a1" class="module-content">
 <h2>Intelligent Traffic Density Management System</h2>
 
 <h3>Problem</h3>
-<p>Traffic becomes highly congested on certain roads while others remain free. Manual monitoring fails during peak hours, causing delays.</p>
+<p>Traffic becomes highly congested on certain roads while others remain free.</p>
 
 <h3>Solution</h3>
-<p>A smart system that collects traffic density in real time, sorts it, identifies busy roads, and adjusts signals automatically.</p>
+<p>A smart system collects density in real time, sorts it, identifies busy roads, and adjusts signals.</p>
 
 <h3>Data Structures Used</h3>
 <ul>
-<li>Array → stores density values</li>
-<li>Max Heap → pick highest congestion</li>
-<li>Queue → simulate waiting vehicles</li>
-<li>Graph → represent intersections</li>
+<li>Array</li>
+<li>Max Heap</li>
+<li>Queue</li>
+<li>Graph</li>
 </ul>
 
 <h3>Algorithms Used</h3>
 <ul>
-<li>Merge Sort → sort densities</li>
-<li>Greedy Allocation → assign green time</li>
-<li>BFS → network update</li>
+<li>Merge Sort</li>
+<li>Greedy Allocation</li>
+<li>BFS</li>
 </ul>
-
-<h3>Step-by-Step Process</h3>
-<p>1. Sensors collect density values into an array.</p>
-<p>2. Merge Sort arranges roads by density.</p>
-<p>3. Max Heap gets the most congested road.</p>
-<p>4. BFS spreads updates to neighbouring signals.</p>
-<p>5. Greedy logic increases green time for top-density road.</p>
 
 <hr>
 
-<!-- ARRAY CODE BUTTON -->
-<button class="code-btn" onclick="toggleCode('code_array')">📌 Array – Store Traffic Density</button>
-<div id="code_array" class="code-box">
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
+<!-- OPEN GITHUB LINKS INSTEAD OF LOCAL CODE -->
 
-int main() {
-    int density[] = {45, 80, 20, 62, 10};
-    int n = 5;
-}
-</pre>
-</div>
+<button class="code-btn" onclick="window.open('https://github.com/YourName/YourRepo/array.cpp', '_blank')">
+📌 Array – Store Traffic Density
+</button>
 
-<!-- MERGE SORT CODE BUTTON -->
-<button class="code-btn" onclick="toggleCode('code_merge')">📌 Merge Sort – Sort Density</button>
-<div id="code_merge" class="code-box">
-<pre>
-auto mergeSort = [&](auto&& self, int arr[], int l, int r) -> void {
-    if(l >= r) return;
-    int mid = (l + r) / 2;
-    self(self, arr, l, mid);
-    self(self, arr, mid + 1, r);
+<button class="code-btn" onclick="window.open('https://github.com/YourName/YourRepo/mergesort.cpp', '_blank')">
+📌 Merge Sort – Sort Density
+</button>
 
-    int temp[100], i=l, j=mid+1, k=0;
-    while(i <= mid && j <= r)
-        temp[k++] = (arr[i] < arr[j]) ? arr[i++] : arr[j++];
-    while(i <= mid) temp[k++] = arr[i++];
-    while(j <= r) temp[k++] = arr[j++];
+<button class="code-btn" onclick="window.open('https://github.com/YourName/YourRepo/maxheap.cpp', '_blank')">
+📌 Max Heap – Find Most Congested Road
+</button>
 
-    for(int x=0; x<k; x++) arr[l+x] = temp[x];
-};
-</pre>
-</div>
-
-<!-- MAX HEAP BUTTON -->
-<button class="code-btn" onclick="toggleCode('code_heap')">📌 Max Heap – Find Most Congested Road</button>
-<div id="code_heap" class="code-box">
-<pre>
-int maxDensity = density[n-1];  // after sorting
-cout << "Most congested: " << maxDensity;
-</pre>
-</div>
-
-<!-- GREEN TIME BUTTON -->
-<button class="code-btn" onclick="toggleCode('code_green')">📌 Greedy – Green Time Allocation</button>
-<div id="code_green" class="code-box">
-<pre>
-int greenTime = 20 + maxDensity / 10;
-cout << "Green Time: " << greenTime;
-</pre>
-</div>
+<button class="code-btn" onclick="window.open('https://github.com/YourName/YourRepo/greentime.cpp', '_blank')">
+📌 Greedy – Green Time Allocation
+</button>
 
 </div>
 
-<!-- Other Modules unchanged -->
+<!-- OTHER MODULES SAME -->
 <div id="a2" class="module-content"><h2>Signal Scheduling</h2><p>Same as before…</p></div>
 <div id="a3" class="module-content"><h2>Accident Detection</h2><p>Same as before…</p></div>
 <div id="a4" class="module-content"><h2>Parking Allocation</h2><p>Same as before…</p></div>
@@ -201,11 +150,6 @@ function toggleModule(id){
  document.querySelectorAll('.module-content').forEach(m => m.style.display='none');
  const x=document.getElementById(id);
  if(x) x.style.display='block';
-}
-
-function toggleCode(id){
- const box=document.getElementById(id);
- box.style.display = (box.style.display==="block") ? "none" : "block";
 }
 
 function goHome(){ window.location.href="index.html"; }
