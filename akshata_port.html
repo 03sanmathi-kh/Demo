@@ -1,54 +1,54 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-<meta charset="UTF-8">  
-<title>Akshata – Traffic Portfolio</title>  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<style>  
-body { margin:0; font-family:'Segoe UI',sans-serif; transition:background 0.3s,color 0.3s; min-height:100vh; overflow-x:hidden; }  
-body.dark{background:#0a0a0a;color:#fff;}  
-body.light{background:#f5f5f5;color:#000;}  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Akshata - Traffic Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { margin:0; font-family:'Segoe UI',sans-serif; transition:background 0.3s,color 0.3s; min-height:100vh; overflow-x:hidden; }
+body.dark{background:#0a0a0a;color:#fff;}
+body.light{background:#f5f5f5;color:#000;}
 
-.wave-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}  
-.wave{position:absolute;width:200%;height:200%;opacity:0.5;animation:waveMove 30s linear infinite;}  
-.wave1{fill:#e74c3c;}  
-.wave2{fill:#f39c12;}  
-.wave3{fill:#c0392b;}  
-body.light .wave1{fill:#fab1a0;}  
-body.light .wave2{fill:#ffeaa7;}  
-body.light .wave3{fill:#ff7675;}  
-@keyframes waveMove{0%{transform:translateX(0) translateY(0) rotate(0deg);}50%{transform:translateX(10%) translateY(5%) rotate(2deg);}100%{transform:translateX(0) translateY(0) rotate(0deg);} }  
+.wave-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
+.wave{position:absolute;width:200%;height:200%;opacity:0.5;animation:waveMove 30s linear infinite;}
+.wave1{fill:#e74c3c;}
+.wave2{fill:#f39c12;}
+.wave3{fill:#c0392b;}
+body.light .wave1{fill:#fab1a0;}
+body.light .wave2{fill:#ffeaa7;}
+body.light .wave3{fill:#ff7675;}
+@keyframes waveMove{0%{transform:translateX(0) translateY(0) rotate(0deg);}50%{transform:translateX(10%) translateY(5%) rotate(2deg);}100%{transform:translateX(0) translateY(0) rotate(0deg);} }
 
-header{text-align:center;padding:40px 20px;}  
-header h1{font-size:42px;font-weight:900;color:#e74c3c;}  
-header h3{font-size:22px;font-weight:600;color:#3498db;}  
-header p{max-width:800px;margin:20px auto;font-size:16px;line-height:1.6;color:inherit;}  
+header{text-align:center;padding:40px 20px;}
+header h1{font-size:42px;font-weight:900;color:#e74c3c;}
+header h3{font-size:22px;font-weight:600;color:#3498db;}
+header p{max-width:800px;margin:20px auto;font-size:16px;line-height:1.6;color:inherit;}
 
-.hex-container{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding:30px;}  
-.hex{position:relative;width:160px;height:90px;display:flex;align-items:center;justify-content:center;font-weight:600;text-align:center;cursor:pointer;transition:transform 0.3s ease;color:#fff;border-radius:12px;}  
-.hex:hover{transform:scale(1.08);}  
+.hex-container{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding:30px;}
+.hex{position:relative;width:160px;height:90px;display:flex;align-items:center;justify-content:center;font-weight:600;text-align:center;cursor:pointer;transition:transform 0.3s ease;color:#fff;border-radius:12px;}
+.hex:hover{transform:scale(1.08);}
 
 /* COLOR TAGS */
-.flow{background:#e74c3c;}  
-.signal{background:#3498db;}  
-.accident{background:#f1c40f;}  
-.parking{background:#2ecc71;}  
-.emergency{background:#9b59b6;}  
-.m6{background:#16a085;}  
-.m7{background:#8e44ad;}  
-.m8{background:#d35400;}  
-.m9{background:#2c3e50;}  
-.m10{background:#7f8c8d;}  
+.flow{background:#e74c3c;}
+.signal{background:#3498db;}
+.accident{background:#f1c40f;}
+.parking{background:#2ecc71;}
+.emergency{background:#9b59b6;}
+.m6{background:#16a085;}
+.m7{background:#8e44ad;}
+.m8{background:#d35400;}
+.m9{background:#2c3e50;}
+.m10{background:#7f8c8d;}
 
-.module-content{display:none;margin:20px auto;padding:20px;border-radius:15px;max-width:900px;background:rgba(255,255,255,0.05);}  
-.module-content h2{font-size:24px;margin-bottom:10px;}  
-.module-content p{font-size:16px;line-height:1.6;margin-bottom:10px;}  
-pre{background:rgba(255,255,255,0.08);padding:15px;border-radius:10px;overflow-x:auto;font-size:14px;color:inherit;}  
+.module-content{display:none;margin:20px auto;padding:20px;border-radius:15px;max-width:900px;background:rgba(255,255,255,0.05);}
+.module-content h2{font-size:24px;margin-bottom:10px;}
+.module-content p{font-size:16px;line-height:1.6;margin-bottom:10px;}
+pre{background:rgba(255,255,255,0.08);padding:15px;border-radius:10px;overflow-x:auto;font-size:14px;color:inherit;}
 
 /* Buttons */
-#themeBtn,#homeBtn{position:fixed;top:20px;padding:10px 20px;font-size:14px;cursor:pointer;border:none;border-radius:8px;color:#fff;transition:background 0.3s;}  
-#themeBtn{right:20px;background:#e74c3c;} #themeBtn:hover{background:#3498db;}  
-#homeBtn{left:20px;background:#2ecc71;} #homeBtn:hover{background:#27ae60;}  
+#themeBtn,#homeBtn{position:fixed;top:20px;padding:10px 20px;font-size:14px;cursor:pointer;border:none;border-radius:8px;color:#fff;transition:background 0.3s;}
+#themeBtn{right:20px;background:#e74c3c;} #themeBtn:hover{background:#3498db;}
+#homeBtn{left:20px;background:#2ecc71;} #homeBtn:hover{background:#27ae60;}
 
 .code-btn{
     margin-top:15px;
@@ -64,146 +64,6 @@ pre{background:rgba(255,255,255,0.08);padding:15px;border-radius:10px;overflow-x
 </head>
 <body class="dark">
 
-<div class="wave-bg">  
-<svg class="wave wave1" viewBox="0 0 1440 320"><path d="M0,192 C480,320 960,64 1440,192 L1440,320 L0,320 Z"></path></svg>  
-<svg class="wave wave2" viewBox="0 0 1440 320"><path d="M0,256 C480,128 960,384 1440,256 L1440,320 L0,320 Z"></path></svg>  
-<svg class="wave wave3" viewBox="0 0 1440 320"><path d="M0,224 C480,96 960,352 1440,224 L1440,320 L0,320 Z"></path></svg>  
-</div>
-
-<button id="homeBtn" onclick="goHome()">🏠 Home</button>  
-<button id="themeBtn" onclick="toggleTheme()">🌙 Dark Mode</button>  
-
-<header>  
-<h1>Akshata</h1>  
-<h3>Traffic Management – Vishalnagari</h3>  
-<p>Vishalnagari's Traffic domain ensures safe, fast, and intelligent mobility for every citizen.</p>  
-</header>  
-
-<!-- 10 MODULE BUTTONS -->
-<div class="hex-container">  
-    <div class="hex flow" onclick="toggleModule('a1')">Intelligent Traffic Density<br>Management System</div>  
-    <div class="hex signal" onclick="toggleModule('a2')">Module 2</div>  
-    <div class="hex accident" onclick="toggleModule('a3')">Module 3</div>  
-    <div class="hex parking" onclick="toggleModule('a4')">Module 4</div>  
-    <div class="hex emergency" onclick="toggleModule('a5')">Module 5</div>  
-    <div class="hex m6" onclick="toggleModule('a6')">Module 6</div>  
-    <div class="hex m7" onclick="toggleModule('a7')">Module 7</div>  
-    <div class="hex m8" onclick="toggleModule('a8')">Module 8</div>  
-    <div class="hex m9" onclick="toggleModule('a9')">Module 9</div>  
-    <div class="hex m10" onclick="toggleModule('a10')">Module 10</div>  
-</div>
-
-<!-- MODULE 1 (MAIN NEW MODULE) -->
-<div id="a1" class="module-content">
-    <h2>Intelligent Traffic Density Management System</h2>
-
-    <p><strong>Problem:</strong><br>
-    Traffic becomes highly congested at certain roads, while others are empty. Manual monitoring fails during peak hours, leading to delays and slow EV movement.</p>
-
-    <p><strong>Solution:</strong><br>
-    A real-time automatic system that collects traffic density, sorts it, identifies the busiest roads, and adjusts traffic signals intelligently.</p>
-
-    <p><strong>Data Structures Used:</strong></p>
-    <ul>
-        <li>Array → stores live density</li>
-        <li>Max Heap (Priority Queue) → fetch highest congestion</li>
-        <li>Queue → simulate vehicles waiting at signal</li>
-        <li>Graph → represents connected intersections</li>
-    </ul>
-
-    <p><strong>Algorithms Used:</strong></p>
-    <ul>
-        <li>Merge Sort → sort density values</li>
-        <li>Greedy Algorithm → assign green time</li>
-        <li>BFS → spread updates across road network</li>
-    </ul>
-
-    <p><strong>Step-by-Step Process:</strong></p>
-    <ul>
-        <li>Sensor counts are stored in an array.</li>
-        <li>Merge Sort arranges roads by traffic density.</li>
-        <li>Max Heap picks the most congested road.</li>
-        <li>BFS updates nearby intersections.</li>
-        <li>Greedy logic increases green time for high-density road.</li>
-        <li>Signals update automatically.</li>
-    </ul>
-
-    <h3>C++ SAMPLE CODE</h3>
-<pre>
-#include <iostream>
-using namespace std;
-
-int main() {
-    int density[] = {45, 80, 20, 62, 10};
-    int n = 5;
-
-    // Merge Sort
-    auto mergeSort = [&](auto&& self, int arr[], int l, int r) -> void {
-        if (l >= r) return;
-        int mid = (l + r) / 2;
-        self(self, arr, l, mid);
-        self(self, arr, mid + 1, r);
-
-        int temp[100], i = l, j = mid + 1, k = 0;
-        while (i <= mid && j <= r)
-            temp[k++] = (arr[i] < arr[j]) ? arr[i++] : arr[j++];
-        while (i <= mid) temp[k++] = arr[i++];
-        while (j <= r) temp[k++] = arr[j++];
-
-        for (int x = 0; x < k; x++) arr[l + x] = temp[x];
-    };
-
-    mergeSort(mergeSort, density, 0, n - 1);
-
-    cout << "Sorted Density: ";
-    for (int i = 0; i < n; i++) cout << density[i] << " ";
-    cout << endl;
-
-    // Max Heap Simulation
-    int maxDensity = density[n - 1];
-    cout << "Most congested road density: " << maxDensity << endl;
-
-    // Greedy
-    int greenTime = 20 + maxDensity / 10;
-    cout << "Allocated Green Time: " << greenTime << " seconds" << endl;
-}
-</pre>
-
-    <!-- BUTTON FOR OPENING CODE FILE -->
-    <button class="code-btn" onclick="window.open('intelligent_traffic.cpp')">
-        📄 View Full Code File
-    </button>
-</div>
-
-<!-- PLACEHOLDER MODULES (empty for now) -->
-<div id="a2" class="module-content"><h2>Module 2</h2></div>
-<div id="a3" class="module-content"><h2>Module 3</h2></div>
-<div id="a4" class="module-content"><h2>Module 4</h2></div>
-<div id="a5" class="module-content"><h2>Module 5</h2></div>
-<div id="a6" class="module-content"><h2>Module 6</h2></div>
-<div id="a7" class="module-content"><h2>Module 7</h2></div>
-<div id="a8" class="module-content"><h2>Module 8</h2></div>
-<div id="a9" class="module-content"><h2>Module 9</h2></div>
-<div id="a10" class="module-content"><h2>Module 10</h2></div>
-
-<script>
-function toggleModule(id){
-  document.querySelectorAll('.module-content').forEach(m=>m.style.display='none');
-  document.getElementById(id).style.display='block';
-}
-
-function goHome(){
-  window.location.href="index.html";
-}
-
-function toggleTheme(){
-  const body=document.body;
-  body.classList.toggle('dark');
-  body.classList.toggle('light');
-  document.getElementById('themeBtn').textContent =
-    body.classList.contains('dark') ? "🌙 Dark Mode" : "☀ Light Mode";
-}
-</script>
-
-</body>
-</html>
+<div class="wave-bg">
+<svg class="wave wave1" viewBox="0 0 1440 320"><path d="M0,192 C480,320 960,64 1440,192 L1440,320 L0,320 Z"></path></svg>
+<svg class="wave wave2" viewBox="0 0 1440 320"><path d="M0,256 C480,128 960
