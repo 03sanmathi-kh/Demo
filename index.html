@@ -34,39 +34,46 @@
       pointer-events: none;
     }
 
-    /* Dark theme waves */
-    body.dark::before {
-      background: rgba(42, 42, 80, 0.8);
-      animation: wave1 30s linear infinite;
-      top: -50%;
-    }
-    body.dark::after {
-      background: rgba(58, 15, 76, 0.6);
-      animation: wave2 40s linear infinite;
-      top: -60%;
-    }
-    body.dark .wave-layer3 {
-      background: rgba(120, 30, 255, 0.5);
-      animation: wave3 50s linear infinite;
-      top: -55%;
-    }
+    /* Dark theme waves - glowing neon style */
+body.dark::before {
+  background: rgba(138, 43, 226, 0.7); /* lavender glow */
+  box-shadow: 0 0 60px rgba(138, 43, 226, 0.6);
+  animation: wave1 30s linear infinite;
+  top: -50%;
+}
+body.dark::after {
+  background: rgba(75, 0, 130, 0.6); /* dark purple */
+  box-shadow: 0 0 80px rgba(75, 0, 130, 0.5);
+  animation: wave2 40s linear infinite;
+  top: -60%;
+}
+body.dark .wave-layer3 {
+  background: rgba(0, 255, 128, 0.5); /* neon greenish glow */
+  box-shadow: 0 0 100px rgba(0, 255, 128, 0.5);
+  animation: wave3 50s linear infinite;
+  top: -55%;
+}
 
-    /* Light theme waves */
-    body.light::before {
-      background: rgba(200, 230, 255, 0.8);
-      animation: wave1Light 30s linear infinite;
-      top: -50%;
-    }
-    body.light::after {
-      background: rgba(180, 220, 250, 0.6);
-      animation: wave2Light 40s linear infinite;
-      top: -60%;
-    }
-    body.light .wave-layer3 {
-      background: rgba(170, 230, 200, 0.5);
-      animation: wave3Light 50s linear infinite;
-      top: -55%;
-    }
+/* Light theme waves - glowing pastel style */
+body.light::before {
+  background: rgba(135, 206, 250, 0.8); /* sky blue pastel */
+  box-shadow: 0 0 50px rgba(135, 206, 250, 0.6);
+  animation: wave1Light 30s linear infinite;
+  top: -50%;
+}
+body.light::after {
+  background: rgba(186, 85, 211, 0.6); /* lavender */
+  box-shadow: 0 0 70px rgba(186, 85, 211, 0.5);
+  animation: wave2Light 40s linear infinite;
+  top: -60%;
+}
+body.light .wave-layer3 {
+  background: rgba(60, 179, 113, 0.5); /* medium sea green */
+  box-shadow: 0 0 90px rgba(60, 179, 113, 0.5);
+  animation: wave3Light 50s linear infinite;
+  top: -55%;
+}
+
 
     /* Dark theme keyframes */
     @keyframes wave1 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
