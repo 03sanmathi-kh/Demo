@@ -1,1 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Akshata – Traffic Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { margin:0; font-family:'Segoe UI',sans-serif; transition:background 0.3s,color 0.3s; min-height:100vh; overflow-x:hidden; }
+body.dark{background:#0a0a0a;color:#fff;}
+body.light{background:#f5f5f5;color:#000;}
 
+.wave-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
+.wave{position:absolute;width:200%;height:200%;opacity:0.5;animation:waveMove 30s linear infinite;}
+.wave1{fill:#e74c3c;}
+.wave2{fill:#f39c12;}
+.wave3{fill:#c0392b;}
+body.light .wave1{fill:#fab1a0;}
+body.light .wave2{fill:#ffeaa7;}
+body.light .wave3{fill:#ff7675;}
+@keyframes waveMove{0%{transform:translateX(0) translateY(0) rotate(0deg);}50%{transform:translateX(10%) translateY(5%) rotate(2deg);}100%{transform:translateX(0) translateY(0) rotate(0deg);} }
+
+header{text-align:center;padding:40px 20px;}
+header h1{font-size:42px;font-weight:900;color:#e74c3c;}
+header h3{font-size:22px;font-weight:600;color:#3498db;}
+header p{max-width:800px;margin:20px auto;font-size:16px;line-height:1.6;color:inherit;}
+
+.hex-container{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding:30px;}
+.hex{position:relative;width:160px;height:90px;display:flex;align-items:center;justify-content:center;font-weight:600;text-align:center;cursor:pointer;transition:transform 0.3s ease;color:#fff;border-radius:12px;}
+.hex:hover{transform:scale(1.08);}
+.flow{background:#e74c3c;} 
+.signal{background:#3498db;} 
+.accident{background:#f1c40f;} 
+.parking{background:#2ecc71;} 
+.emergency{background:#9b59b6;}
+
+.module-content{display:none;margin:20px auto;padding:20px;border-radius:15px;max-width:900px;background:rgba(255,255,255,0.05);}
+.module-content h2{font-size:24px;margin-bottom:10px;}
+.module-content p{font-size:16px;line-height:1.6;margin-bottom:10px;}
+pre{background:rgba(255,255,255,0.08);padding:15px;border-radius:10px;overflow-x:auto;font-size:14px;color:inherit;}
+
+#themeBtn,#homeBtn{position:fixed;top:20px;padding:10px 20px;font-size:14px;cursor:pointer;border:none;border-radius:8px;color:#fff;transition:background 0.3s;}
+#themeBtn{right:20px;background:#e74c3c;} #themeBtn:hover{background:#3498db;}
+#homeBtn{left:20px;background:#2ecc71;} #homeBtn:hover{background:#27ae60;}
+</style>
+</head>
+<body class="dark">
+
+<div class="wave-bg">
+<svg class="wave wave1" viewBox="0 0 1440 320"><path d="M0,192 C480,320 960,64 1440,192 L1440,320 L0,320 Z"></path></svg>
+<svg class="wave wave2" viewBox="0 0 1440 320"><path d="M0,256 C480,128 960,384 1440,256 L1440,320 L0,320 Z"></path></svg>
+<svg class="wave wave3" viewBox="0 0 1440 320"><path d="M0,224 C480,96 960,352 1440,224 L1440,320 L0,320 Z"></path></svg>
+</div>
+
+<button id="homeBtn" onclick="goHome()">🏠 Home</button>
+<button id="themeBtn" onclick="toggleTheme()">🌙 Dark Mode</button>
+
+<header>
+<h1>Akshata</h1>
+<h3>Traffic Management – Vishalnagari</h3>
+<p>Vishalnagari's Traffic domain ensures safe, fast, and intelligent mobility for every citizen.</p>
+</header>
+
+<div class="hex-container">
+<div class="hex flow" onclick="toggleModule('a1')">Traffic Flow</div>
+<div class="hex signal" onclick="toggleModule('a2')">Signal Scheduling</div>
+<div class="hex accident" onclick="toggleModule('a3')">Accident Detection</div>
+<div class="hex parking" onclick="toggleModule('a4')">Parking Allocation</div>
+<div class="hex emergency" onclick="toggleModule('a5')">Emergency Routing</div>
+</div>
+
+<!-- MODULES -->
+
+<div id="a1" class="module-content">
+<h2>Traffic Flow</h2>
+<p><strong>Algorithm:</strong> Dijkstra – shortest congestion-free path. O(E + V log V)</p>
+<pre>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+using namespace std;
+
+int main(){
+    vector<vector<pair<int,int>>> adj(3);
+    adj[0]={{1,5},{2,9}};
+    adj[1]={{2,3}};
+    vector<int> dist(3,1e9); dist[0]=0;
+
+    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<>> pq;
+    pq.push({0,0});
+
+    while(!pq.empty()){
+        auto [d,u]=pq.top(); pq.pop();
+        for(auto [v,w]:adj[u]){
+            if(dist[u]+w < dist[v]){
+                dist[v]=dist[u]+w;
+                pq.push({dist[v],v});
+            }
+        }
+    }
+    for(int i=0;i<3;i++) cout<<"Distance to "<<i<<": "<<dist[i]<<endl;
+}</pre>
+<p><strong>Conclusion:</strong> Shortest-path routing minimizes congestion and improves vehicle flow.</p>
+</div>
+
+<div id="a2" class="module-content">
+<h2>Signal Scheduling</h2>
+<p><strong>Algorithm:</strong> Round Robin cycle optimization. O(n)</p>
+<pre>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main(){
+    vector<int> signals={30,45,25};
+    for(int i=0;i<signals.size();i++){
+        cout<<"Signal "<<i<<" green for "<<signals[i]<<" sec"<<endl;
+    }
+    cout<<"Cycle repeats for smooth traffic movement.";
+}</pre>
+<p><strong>Conclusion:</strong> Balanced timing reduces waiting time at intersections.</p>
+</div>
+
+<div id="a3" class="module-content">
+<h2>Accident Detection</h2>
+<p><strong>Algorithm:</strong> Sensor anomaly detection. O(n)</p>
+<pre>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main(){
+    vector<int> sensor={0,0,1,0,1};
+    for(int i=0;i<sensor.size();i++){
+        if(sensor[i]==1)
+            cout<<"Accident detected at sensor "<<i<<endl;
+    }
+}</pre>
+<p><strong>Conclusion:</strong> Faster detection leads to quicker emergency response.</p>
+</div>
+
+<div id="a4" class="module-content">
+<h2>Parking Allocation</h2>
+<p><strong>Algorithm:</strong> Greedy slot assignment. O(n log n)</p>
+<pre>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int main(){
+    vector<int> slots={3,1,2};
+    vector<int> cars={2,1,3};
+    sort(slots.begin(),slots.end());
+    for(int i=0;i<cars.size();i++){
+        cout<<"Car "<<cars[i]<<" -> Slot "<<slots[i]<<endl;
+    }
+}</pre>
+<p><strong>Conclusion:</strong> Greedy matching uses parking spaces efficiently.</p>
+</div>
+
+<div id="a5" class="module-content">
+<h2>Emergency Routing</h2>
+<p><strong>Algorithm:</strong> A* (simplified). O(E)</p>
+<pre>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+using namespace std;
+
+int main(){
+    vector<vector<int>> g={{0,2,4},{2,0,3},{4,3,0}};
+    vector<int> dist(3,1e9); dist[0]=0;
+
+    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<>> pq;
+    pq.push({0,0});
+
+    while(!pq.empty()){
+        auto [d,u]=pq.top(); pq.pop();
+        for(int v=0;v<3;v++){
+            if(g[u][v] && dist[u]+g[u][v] < dist[v]){
+                dist[v]=dist[u]+g[u][v];
+                pq.push({dist[v],v});
+            }
+        }
+    }
+    for(int i=0;i<3;i++) cout<<"Emergency route to "<<i<<": "<<dist[i]<<endl;
+}</pre>
+<p><strong>Conclusion:</strong> Optimized routing ensures emergencies reach destinations faster.</p>
+</div>
+
+<script>
+function toggleModule(id){
+  document.querySelectorAll('.module-content').forEach(m => m.style.display='none');
+  const x=document.getElementById(id);
+  if(x) x.style.display='block';
+}
+
+// ✅ 100% Working – opens index.html
+function goHome(){
+  window.location.href = "index.html";
+}
+
+function toggleTheme(){
+  const body=document.body;
+  body.classList.toggle('dark');
+  body.classList.toggle('light');
+  document.getElementById('themeBtn').textContent =
+    body.classList.contains('dark') ? "🌙 Dark Mode" : "☀ Light Mode";
+}
+</script>
+
+</body>
+</html>
