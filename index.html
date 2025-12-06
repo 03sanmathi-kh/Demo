@@ -17,9 +17,9 @@
       overflow-x: hidden;
       color: #fff;
       transition: color 0.8s ease, background 0.8s ease;
-      background-color: #121212; /* dark background for both modes */
+      background-color: #0a0a0a; /* Very dark background for both modes */
     }
-    body.light { color: #e0e0e0; background-color: #1e1e1e; }
+    body.light { color: #e0e0e0; background-color: #111111; }
 
     /* Multi-layer wavy background */
     body::before,
@@ -33,18 +33,18 @@
       border-radius: 45%;
       z-index: -1;
       pointer-events: none;
-      filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
+      filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
     }
 
-    /* Dark theme waves */
-    body.dark::before { background: rgba(80,0,120,0.7); animation: wave1 30s linear infinite; top: -50%; }
-    body.dark::after { background: rgba(150,0,200,0.5); animation: wave2 40s linear infinite; top: -60%; }
-    body.dark .wave-layer3 { background: rgba(180,100,255,0.4); animation: wave3 50s linear infinite; top: -55%; }
+    /* Dark theme waves - very dark tones */
+    body.dark::before { background: rgba(10,10,40,0.8); animation: wave1 30s linear infinite; top: -50%; }
+    body.dark::after { background: rgba(20,20,60,0.7); animation: wave2 40s linear infinite; top: -60%; }
+    body.dark .wave-layer3 { background: rgba(30,30,90,0.6); animation: wave3 50s linear infinite; top: -55%; }
 
-    /* Light theme waves (kept dark toned) */
-    body.light::before { background: rgba(60,0,120,0.6); animation: wave1Light 30s linear infinite; top: -50%; }
-    body.light::after { background: rgba(120,0,200,0.5); animation: wave2Light 40s linear infinite; top: -60%; }
-    body.light .wave-layer3 { background: rgba(180,80,220,0.4); animation: wave3Light 50s linear infinite; top: -55%; }
+    /* Light theme waves - still dark tones */
+    body.light::before { background: rgba(15,15,50,0.8); animation: wave1Light 30s linear infinite; top: -50%; }
+    body.light::after { background: rgba(25,25,70,0.7); animation: wave2Light 40s linear infinite; top: -60%; }
+    body.light .wave-layer3 { background: rgba(35,35,100,0.6); animation: wave3Light 50s linear infinite; top: -55%; }
 
     /* Keyframes */
     @keyframes wave1 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
@@ -89,7 +89,7 @@
       background: rgba(0,0,0,0.3);
     }
     nav a:hover { background: rgba(0,0,0,0.6); }
-    body.light nav a { color: #e0e0e0; background: rgba(30,30,30,0.6); }
+    body.light nav a { color: #e0e0e0; background: rgba(20,20,20,0.6); }
     body.light nav a:hover { background: rgba(50,50,50,0.9); }
 
     /* Headings */
