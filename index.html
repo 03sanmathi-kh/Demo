@@ -143,16 +143,19 @@
       margin-right: auto;
       cursor: pointer;
     }
+
+    /* ----- Sky Blue Glow for all cards ----- */
     .card-glow.clicked {
-      box-shadow: 0 0 40px #00ff80, 0 0 80px #00ffff, 0 0 120px #ff2d95;
-      transform: scale(1.06);
-      animation: pulseGlowDark 1s infinite;
-    }
-    body.light .card-glow.clicked {
-      box-shadow: 0 0 25px #1e90ff, 0 0 50px #32cd32, 0 0 80px #ff1493;
+      box-shadow: 0 0 20px #87ceeb, 0 0 40px #87ceeb, 0 0 60px #87ceeb;
       transform: scale(1.05);
-      animation: pulseGlowLight 1s infinite;
+      animation: pulseSkyBlue 1s infinite;
     }
+
+    @keyframes pulseSkyBlue {
+      0%, 100% { box-shadow: 0 0 20px #87ceeb, 0 0 40px #87ceeb, 0 0 60px #87ceeb; }
+      50% { box-shadow: 0 0 40px #87ceeb, 0 0 80px #87ceeb, 0 0 120px #87ceeb; }
+    }
+
   /* ----- Course & Text Cards ----- */
   .course-card {
     padding: 30px 25px;
@@ -221,15 +224,6 @@
 
   .team-card:hover { transform: scale(1.05); box-shadow: 0 0 25px 5px rgba(255,255,255,0.7); }
 
-  /* ----- Card Glow Animation ----- */
-  @keyframes pulseGlowDark {
-    0%, 100% { box-shadow: 0 0 40px #00ff80, 0 0 80px #00ffff, 0 0 120px #ff2d95; }
-    50% { box-shadow: 0 0 60px #00ff80, 0 0 100px #00ffff, 0 0 150px #ff2d95; }
-  }
-  @keyframes pulseGlowLight {
-    0%, 100% { box-shadow: 0 0 25px #1e90ff, 0 0 50px #32cd32, 0 0 80px #ff1493; }
-    50% { box-shadow: 0 0 40px #1e90ff, 0 0 70px #32cd32, 0 0 100px #ff1493; }
-  }
   </style>
 </head>
 <body class="dark">
@@ -301,7 +295,7 @@
   <section id="meet-the-team" class="card-glow">
     <h2>Meet the Team</h2>
     <div class="team-container">
-      <div class="team-card">
+      <div class="team-card card-glow">
         <h3>Sanmathi Hegde</h3>
         <p><strong>Roll No:</strong> 407</p>
         <p><strong>USN:</strong> 01fe24bcs269</p>
@@ -309,7 +303,7 @@
         <p>Optimization through Linear Programming and Flow Networks</p>
         <a href="sanmathi_port.html" target="_blank">View Portfolio</a>
       </div>
-      <div class="team-card">
+      <div class="team-card card-glow">
         <h3>Vasavi Kabbur</h3>
         <p><strong>Roll No:</strong> 415</p>
         <p><strong>USN:</strong> 01fe24bcs278</p>
@@ -317,7 +311,7 @@
         <p>Graph Matching & Greedy allocation for fair resource distribution</p>
         <a href="vasavi_port.html" target="_blank">View Portfolio</a>
       </div>
-      <div class="team-card">
+      <div class="team-card card-glow">
         <h3>Akshata Pawar</h3>
         <p><strong>Roll No:</strong> 434</p>
         <p><strong>USN:</strong> 01fe24bcs297</p>
@@ -325,7 +319,7 @@
         <p>Shortest Path algorithms (Dijkstra’s, A*) for smooth routing</p>
         <a href="akshata_port.html" target="_blank">View Portfolio</a>
       </div>
-      <div class="team-card">
+      <div class="team-card card-glow">
         <h3>Isha Shet</h3>
         <p><strong>Roll No:</strong> 418</p>
         <p><strong>USN:</strong> 01fe24bcs281</p>
