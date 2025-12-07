@@ -155,8 +155,13 @@ header p{max-width:800px;margin:20px auto;font-size:16px;line-height:1.6;color:i
 <hr>
 
 <!-- ARRAY + MERGE SORT -->
-<button class="code-btn" onclick="openCodeViewer('Array + Merge Sort – Congestion Ranking', 
-`#include &lt;iostream&gt;
+<button class="code-btn" onclick="toggleCode('codeMerge')">📌 Array + Merge Sort</button>
+<button class="code-btn" onclick="toggleCode('codeHeap')">📌 Max Heap</button>
+<button class="code-btn" onclick="toggleCode('codeBFS')">📌 BFS</button>
+
+<!-- Hidden Code Blocks -->
+<pre id="codeMerge" class="hidden-code">
+#include &lt;iostream&gt;
 using namespace std;
 
 void merge(int a[], int l, int m, int r) {
@@ -189,11 +194,11 @@ int main(){
     mergeSort(arr,0,n-1);
     for(int i=0;i&lt;n;i++) cout&lt;&lt;arr[i]&quot; &quot;;
     return 0;
-}`)">📌 Array + Merge Sort</button>
+}
+</pre>
 
-<!-- MAX HEAP -->
-<button class="code-btn" onclick="openCodeViewer('Max Heap – Select Busiest Roads',
-`#include &lt;iostream&gt;
+<pre id="codeHeap" class="hidden-code">
+#include &lt;iostream&gt;
 using namespace std;
 
 void heapify(int h[], int n, int i){
@@ -217,11 +222,11 @@ int main(){
     for(int i=0;i&lt;n;i++) cin&gt;&gt;h[i];
     buildHeap(h,n);
     for(int i=0;i&lt;n;i++) cout&lt;&lt;h[i]&quot; &quot;;
-}`)">📌 Max Heap</button>
+}
+</pre>
 
-<!-- BFS -->
-<button class="code-btn" onclick="openCodeViewer('BFS – Spread Density Updates',
-`#include &lt;iostream&gt;
+<pre id="codeBFS" class="hidden-code">
+#include &lt;iostream&gt;
 #include &lt;vector&gt;
 #include &lt;queue&gt;
 using namespace std;
@@ -232,7 +237,7 @@ void BFS(int s, vector&lt;int&gt; adj[], int n){
     q.push(s); vis[s]=true;
     while(!q.empty()){
         int u=q.front(); q.pop();
-        cout&lt;&lt;u&quot; &quot;;
+        cout&lt;&lt;u&lt;&lt;&quot; &quot;;
         for(int v: adj[u])
             if(!vis[v]){ q.push(v); vis[v]=true; }
     }
@@ -247,8 +252,21 @@ int main(){
         adj[v].push_back(u);
     }
     BFS(0,adj,n);
-}`)">📌 BFS</button>
+}
+</pre>
+</div>
 
+<style>
+.hidden-code{display:none; background:#111; color:#fff; padding:15px; border-radius:10px; overflow-x:auto; margin-top:10px;}
+</style>
+
+<script>
+function toggleCode(id){
+    const el = document.getElementById(id);
+    if(el.style.display==='block') el.style.display='none';
+    else el.style.display='block';
+}
+</script>
 </div>
 <div id="a2" class="module-content">
 <h2>Smart EV-Only Road Routing System</h2>
