@@ -359,6 +359,15 @@ function toggleTheme() {
   btn.textContent = document.body.classList.contains("light") ? "Switch to Dark Mode" : "Switch to Light Mode";
 }
 </script>
+<script>
+document.querySelector('a[href="#project"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  const element = document.querySelector('#project');
+  const yOffset = -200; // Adjust this number if needed
+  const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
+  window.scrollTo({ top: y, behavior: 'smooth' });
+});
+</script>
 </body>
 </html>
