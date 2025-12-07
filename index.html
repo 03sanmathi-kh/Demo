@@ -3,11 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <h1 style="text-align: center; font-size: 32px; line-height: 1.4;">
-  Vishalanagari<br>
-  <span style="font-size: 24px;">– Algorithms in the Streets, Heritage in the Roots</span>
-</h1>
-
+  <title>Vishalanagari – Algorithms in the Streets, Heritage in the Roots</title>
 
   <style>
     html { scroll-behavior: smooth; }
@@ -56,6 +52,7 @@
     @keyframes wave2Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
     @keyframes wave3Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
 
+    /* Theme toggle button */
     .theme-toggle {
       padding: 10px 20px;
       border-radius: 8px;
@@ -72,25 +69,58 @@
     }
     .theme-toggle:hover { background: #ff4c60; }
 
+    .back-btn {
+      position: fixed;
+      top: 70px;
+      left: 20px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      background: #ff79c6;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      width: max-content;
+      transition: 0.3s;
+      z-index: 4;
+    }
+    .back-btn:hover { background: #ff4c60; }
+
     nav { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 3; }
     nav a { text-decoration: none; color: #fff; font-weight: 600; padding: 8px 14px; border-radius: 6px; transition: background 0.3s; background: rgba(0,0,0,0.3); }
     nav a:hover { background: rgba(0,0,0,0.6); }
     body.light nav a { color: #000; background: rgba(200,200,200,0.6); }
     body.light nav a:hover { background: rgba(150,150,150,0.9); }
 
-    .portfolio-heading { margin-top: 80px; font-size: 48px; font-weight: 900; letter-spacing: 2px; text-align: center; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 2; position: relative; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
+    /* Heading styles */
+    .main-heading {
+      text-align: center;
+      margin-top: 120px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #a0f0ff;
+    }
+    .main-heading .title {
+      font-size: 60px;
+      font-weight: 900;
+      display: block;
+    }
+    .main-heading .subtitle {
+      font-size: 24px;
+      font-weight: 500;
+      display: block;
+      margin-top: 5px;
+    }
 
+    /* Portfolio & course cards - kept as before */
+    .portfolio-heading { margin-top: 80px; font-size: 48px; font-weight: 900; letter-spacing: 2px; text-align: center; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 2; position: relative; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
     .course-card { padding: 40px 30px; border-radius: 20px; max-width: 420px; width: 90%; margin-top: 30px; background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); transition: background 0.4s, box-shadow 0.3s ease, transform 0.3s ease; z-index: 2; position: relative; color: #fff; }
     body.light .course-card { background: rgba(255,255,255,0.9); color: #000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-
     .course-box { padding: 15px 20px; margin-bottom: 15px; border-radius: 12px; background: rgba(255,255,255,0.05); border-left: 4px solid #ff4c60; transition: background 0.3s, transform 0.3s, box-shadow 0.3s ease; }
     body.light .course-box { background: rgba(245,245,255,0.8); color: #000; }
     .course-box h3 { font-size: 20px; font-weight: 700; color: #ff79c6; margin: 0 0 8px; transition: text-shadow 0.3s ease; }
     .course-box p { margin: 0; font-size: 16px; color: #fff; text-shadow: 0 0 6px #0ff; transition: text-shadow 0.3s ease; }
     body.light .course-box p { color: #000; text-shadow: 0 0 6px #0ff; }
-
     .division-d { border-left: 4px solid #27ae60; }
-
     .course-overview { margin-top: 60px; text-align: center; max-width: 900px; padding: 20px; }
     .course-overview h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; color: #ff79c6; }
     .course-overview p { font-size: 18px; line-height: 1.6; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; margin: 0 auto 30px; text-shadow: 0 0 6px #0ff; color: #fff; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
@@ -101,63 +131,66 @@
     .course-card:hover,
     .course-box:hover,
     .course-overview p:hover { box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #c0f0ff; text-shadow: 0 0 10px #0ff, 0 0 20px #c0f0ff, 0 0 30px #a0f0ff; transform: scale(1.02); }
-
     .portfolio-heading,
     h2,
     .course-card,
     .course-box,
     .course-overview p { box-shadow: none; text-shadow: none; transform: scale(1); }
-
   </style>
 </head>
 
 <body class="dark">
-<div class="wave-layer3"></div>
+  <div class="wave-layer3"></div>
 
-<!-- Theme toggle button fixed top-left -->
-<button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()">Switch to Light Mode</button>
+  <!-- Theme toggle button fixed top-left -->
+  <button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()">Switch to Light Mode</button>
+  <a class="back-btn" href="index.html">Back to Home</a>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="project.html">Project</a>
-  <a href="sanmathi_port.html">Sanmathi</a>
-  <a href="vasavi_port.html">Vasavi</a>
-  <a href="akshata_port.html">Akshata</a>
-  <a href="isha_port.html">Isha</a>
-  <a href="collabs.html">Collaborations</a>
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="project.html">Project</a>
+    <a href="sanmathi_port.html">Sanmathi</a>
+    <a href="vasavi_port.html">Vasavi</a>
+    <a href="akshata_port.html">Akshata</a>
+    <a href="isha_port.html">Isha</a>
+    <a href="collabs.html">Collaborations</a>
+  </nav>
 
-<div class="portfolio-heading">VISHALNAGARI – ALGORITHMS IN THE STREETS, HERITAGE IN THE ROOTS</div>
-
-<div class="course-card">
-  <div class="course-box"><h3>Course Name</h3><p>Design & Analysis of Algorithms</p></div>
-  <div class="course-box"><h3>Course Code</h3><p>24ECS205</p></div>
-  <div class="course-box"><h3>Institution</h3><p>KLE Technological University, Hubli</p></div>
-  <div class="course-box"><h3>Instructor</h3><p>Prof. Prakash Hegade</p></div>
-  <div class="course-box division-d">
-    <h3>Team Members</h3>
-    <p>Sanmathi Hegde</p>
-    <p>Vasavi Kabbur</p>
-    <p>Akshata Pawar</p>
-    <p>Isha Shet</p>
+  <!-- Main heading with subtitle -->
+  <div class="main-heading">
+    <span class="title">VISHALNAGARI</span>
+    <span class="subtitle">– Algorithms in the Streets, Heritage in the Roots</span>
   </div>
-</div>
 
-<section class="course-overview">
-  <h2>Course Overview</h2>
-  <p>
-    Algorithms are the backbone of problem-solving, turning complex challenges into manageable steps. Our team studies them to understand efficiency, trade-offs, and the art of clever solutions. From optimizing traffic flow to streamlining data processing, algorithms shape the way systems work in the real world. We dive into strategies like divide-and-conquer, dynamic programming, and greedy methods, always asking, “Is there a smarter way?” Along the way, we sharpen analytical thinking, uncover patterns, and occasionally celebrate the thrill of a solution that just clicks. It’s not magic—just well-designed logic, with a dash of wit.
-  </p>
-</section>
+  <!-- Course card info -->
+  <div class="course-card">
+    <div class="course-box"><h3>Course Name</h3><p>Design & Analysis of Algorithms</p></div>
+    <div class="course-box"><h3>Course Code</h3><p>24ECS205</p></div>
+    <div class="course-box"><h3>Institution</h3><p>KLE Technological University, Hubli</p></div>
+    <div class="course-box"><h3>Instructor</h3><p>Prof. Prakash Hegade</p></div>
+    <div class="course-box division-d">
+      <h3>Team Members</h3>
+      <p>Sanmathi Hegde</p>
+      <p>Vasavi Kabbur</p>
+      <p>Akshata Pawar</p>
+      <p>Isha Shet</p>
+    </div>
+  </div>
 
-<script>
-function toggleTheme() {
-  document.body.classList.toggle("light");
-  const btn = document.getElementById("toggleBtn");
-  btn.textContent = document.body.classList.contains("light") ? "Switch to Dark Mode" : "Switch to Light Mode";
-}
-</script>
+  <section class="course-overview">
+    <h2>Course Overview</h2>
+    <p>
+      Algorithms are the backbone of problem-solving, turning complex challenges into manageable steps. Our team studies them to understand efficiency, trade-offs, and the art of clever solutions. From optimizing traffic flow to streamlining data processing, algorithms shape the way systems work in the real world. We dive into strategies like divide-and-conquer, dynamic programming, and greedy methods, always asking, “Is there a smarter way?” Along the way, we sharpen analytical thinking, uncover patterns, and occasionally celebrate the thrill of a solution that just clicks. It’s not magic—just well-designed logic, with a dash of wit.
+    </p>
+  </section>
 
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+      const btn = document.getElementById("toggleBtn");
+      btn.textContent = document.body.classList.contains("light") ? "Switch to Dark Mode" : "Switch to Light Mode";
+    }
+  </script>
 </body>
 </html>
