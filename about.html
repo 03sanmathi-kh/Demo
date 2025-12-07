@@ -20,7 +20,10 @@
       transition: color 0.8s ease, background 0.8s ease;
       background-color: #000000;
     }
-    body.light { color: #e0e0e0; background-color: #ffffff; }
+    body.light { 
+      color: #1a1a1a; /* dark text for readability */
+      background-color: #ffffff; 
+    }
 
     body::before,
     body::after,
@@ -51,7 +54,7 @@
     @keyframes wave2Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
     @keyframes wave3Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
 
-    /* ===== THEME TOGGLE BUTTON ===== */
+    /* THEME TOGGLE BUTTON */
     .theme-toggle {
         position: fixed;
         top: 20px;
@@ -70,7 +73,7 @@
 
     .back-btn { 
       position: fixed; 
-      top: 70px; /* placed below theme button */
+      top: 70px;
       left: 20px;
       padding: 10px 20px; 
       border-radius: 8px; 
@@ -87,20 +90,23 @@
     nav { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 3; }
     nav a { text-decoration: none; color: #fff; font-weight: 600; padding: 8px 14px; border-radius: 6px; transition: background 0.3s; background: rgba(0,0,0,0.3); }
     nav a:hover { background: rgba(0,0,0,0.6); }
-    body.light nav a { color: #000; background: rgba(200,200,200,0.6); }
+    body.light nav a { color: #1a1a1a; background: rgba(200,200,200,0.6); }
     body.light nav a:hover { background: rgba(150,150,150,0.9); }
 
     .portfolio-heading { margin-top: 40px; font-size: 48px; font-weight: 900; letter-spacing: 2px; text-align: center; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 2; position: relative; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
+    body.light .portfolio-heading { color: #005577; text-shadow: none; }
 
     #about-text { margin: 50px auto; max-width: 900px; font-size: 18px; line-height: 1.6; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; text-shadow: 0 0 6px #0ff; color: #fff; }
-    body.light #about-text { background: rgba(245,245,255,0.8); color: #000; text-shadow: none; }
+    body.light #about-text { background: rgba(245,245,255,0.8); color: #1a1a1a; text-shadow: none; }
 
     #meet-the-team { padding: 40px; text-align: center; }
     #meet-the-team h2 { font-size: 32px; font-weight: 900; margin-bottom: 30px; color: #ff79c6; }
+    body.light #meet-the-team h2 { color: #005577; }
 
     .team-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
 
     .team-card { border-radius: 12px; padding: 20px; width: 250px; text-align: center; transition: transform 0.3s, background 0.4s, box-shadow 0.3s ease; backdrop-filter: blur(8px); color: #fff; text-shadow: 0 0 6px #fff; background: rgba(255,255,255,0.05); }
+    body.light .team-card { background: rgba(245,245,255,0.9); color: #1a1a1a; text-shadow: none; }
     .team-card a { color: #ff0000; font-weight: bold; text-decoration: none; text-shadow: 0 0 3px rgba(255,0,0,0.6); transition: 0.3s; }
     .team-card a:hover { text-shadow: 0 0 8px rgba(255,0,0,0.8); }
 
