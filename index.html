@@ -22,34 +22,76 @@
     }
     body.light { color: #e0e0e0; background-color: #ffffff; }
 
-    /* Wavy background layers omitted for brevity (keep same as before) */
-    /* Keyframes and animations omitted for brevity */
+    /* Multi-layer wavy background */
+    body::before,
+    body::after,
+    body .wave-layer3 {
+      content: "";
+      position: fixed;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      border-radius: 45%;
+      z-index: -1;
+      pointer-events: none;
+      filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
+    }
 
-    /* Theme Toggle */
+    body.dark::before { background: rgba(10,10,40,0.6); animation: wave1 30s linear infinite; top: -50%; }
+    body.dark::after { background: rgba(20,20,60,0.5); animation: wave2 40s linear infinite; top: -60%; }
+    body.dark .wave-layer3 { background: rgba(30,30,90,0.4); animation: wave3 50s linear infinite; top: -55%; }
+
+    body.light::before { background: rgba(200,220,255,0.6); animation: wave1Light 30s linear infinite; top: -50%; }
+    body.light::after { background: rgba(180,200,255,0.5); animation: wave2Light 40s linear infinite; top: -60%; }
+    body.light .wave-layer3 { background: rgba(160,180,255,0.4); animation: wave3Light 50s linear infinite; top: -55%; }
+
+    @keyframes wave1 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
+    @keyframes wave2 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
+    @keyframes wave3 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
+    @keyframes wave1Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
+    @keyframes wave2Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
+    @keyframes wave3Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
+
     .theme-toggle { margin-top: 20px; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; background: #ff79c6; color: #fff; transition: background 0.3s; z-index: 2; position: relative; }
     .theme-toggle:hover { background: #ff4c60; }
 
-    /* Navigation */
     nav { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 3; }
     nav a { text-decoration: none; color: #fff; font-weight: 600; padding: 8px 14px; border-radius: 6px; transition: background 0.3s; background: rgba(0,0,0,0.3); }
     nav a:hover { background: rgba(0,0,0,0.6); }
     body.light nav a { color: #000; background: rgba(200,200,200,0.6); }
     body.light nav a:hover { background: rgba(150,150,150,0.9); }
 
-    /* Headings and course card styles same as previous code */
-    .portfolio-heading { margin-top: 40px; font-size: 48px; font-weight: 900; letter-spacing: 2px; text-align: center; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 2; position: relative; }
-    .course-card { padding: 40px 30px; border-radius: 20px; max-width: 420px; width: 90%; margin-top: 30px; background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); color: #fff; }
-    body.light .course-card { background: rgba(255,255,255,0.9); color: #000; }
-    .course-box { padding: 15px 20px; margin-bottom: 15px; border-radius: 12px; background: rgba(255,255,255,0.05); border-left: 4px solid #ff4c60; }
+    .portfolio-heading { margin-top: 40px; font-size: 48px; font-weight: 900; letter-spacing: 2px; text-align: center; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 2; position: relative; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
+    h2 { text-align: center; color: #ff79c6; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
+
+    .course-card { padding: 40px 30px; border-radius: 20px; max-width: 420px; width: 90%; margin-top: 30px; background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); transition: background 0.4s, box-shadow 0.3s ease, transform 0.3s ease; z-index: 2; position: relative; color: #fff; }
+    body.light .course-card { background: rgba(255,255,255,0.9); color: #000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
+    .course-box { padding: 15px 20px; margin-bottom: 15px; border-radius: 12px; background: rgba(255,255,255,0.05); border-left: 4px solid #ff4c60; transition: background 0.3s, transform 0.3s, box-shadow 0.3s ease; }
     body.light .course-box { background: rgba(245,245,255,0.8); color: #000; }
-    .course-box h3 { font-size: 20px; font-weight: 700; color: #ff79c6; margin: 0 0 8px; }
-    .course-box p { margin: 0; font-size: 16px; color: #fff; text-shadow: 0 0 6px #0ff; }
+    .course-box h3 { font-size: 20px; font-weight: 700; color: #ff79c6; margin: 0 0 8px; transition: text-shadow 0.3s ease; }
+    .course-box p { margin: 0; font-size: 16px; color: #fff; text-shadow: 0 0 6px #0ff; transition: text-shadow 0.3s ease; }
     body.light .course-box p { color: #000; text-shadow: 0 0 6px #0ff; }
+
+    .division-d { border-left: 4px solid #27ae60; }
 
     .course-overview { margin-top: 60px; text-align: center; max-width: 900px; padding: 20px; }
     .course-overview h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; color: #ff79c6; }
-    .course-overview p { font-size: 18px; line-height: 1.6; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; margin: 0 auto 30px; color: #fff; text-shadow: 0 0 6px #0ff; }
+    .course-overview p { font-size: 18px; line-height: 1.6; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; margin: 0 auto 30px; text-shadow: 0 0 6px #0ff; color: #fff; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
     body.light .course-overview p { background: rgba(245,245,255,0.8); color: #000; text-shadow: none; }
+
+    .portfolio-heading:hover,
+    h2:hover,
+    .course-card:hover,
+    .course-box:hover,
+    .course-overview p:hover { box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #c0f0ff; text-shadow: 0 0 10px #0ff, 0 0 20px #c0f0ff, 0 0 30px #a0f0ff; transform: scale(1.02); }
+
+    .portfolio-heading,
+    h2,
+    .course-card,
+    .course-box,
+    .course-overview p { box-shadow: none; text-shadow: none; transform: scale(1); }
+
   </style>
 </head>
 
@@ -68,9 +110,7 @@
 
 <button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()">Switch to Light Mode</button>
 
-<div class="portfolio-heading">
-  VISHALNAGARI – ALGORITHMS IN THE STREETS, HERITAGE IN THE ROOTS
-</div>
+<div class="portfolio-heading">VISHALNAGARI – ALGORITHMS IN THE STREETS,HERITAGE IN THE ROOTS</div>
 
 <div class="course-card">
   <div class="course-box"><h3>Course Name</h3><p>Design & Analysis of Algorithms</p></div>
