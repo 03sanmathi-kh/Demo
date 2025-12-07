@@ -20,7 +20,10 @@
       transition: color 0.8s ease, background 0.8s ease;
       background-color: #000000;
     }
-    body.light { color: #e0e0e0; background-color: #ffffff; }
+    body.light { 
+      color: #1a1a1a; /* dark gray for readability on white */
+      background-color: #ffffff; 
+    }
 
     /* Multi-layer wavy background */
     body::before,
@@ -89,19 +92,20 @@
     nav { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 3; }
     nav a { text-decoration: none; color: #fff; font-weight: 600; padding: 8px 14px; border-radius: 6px; transition: background 0.3s; background: rgba(0,0,0,0.3); }
     nav a:hover { background: rgba(0,0,0,0.6); }
-    body.light nav a { color: #000; background: rgba(200,200,200,0.6); }
+    body.light nav a { color: #1a1a1a; background: rgba(200,200,200,0.6); }
     body.light nav a:hover { background: rgba(150,150,150,0.9); }
 
     /* Heading styles - glow only on hover */
     .main-heading {
       text-align: center;
       margin-top: 120px;
-      color: #00ffff; /* sky-blue color */
-      text-shadow: none; /* no glow by default */
+      color: #00ffff; /* sky-blue for dark mode */
+      text-shadow: none;
       transition: text-shadow 0.3s ease, transform 0.3s ease;
     }
+    body.light .main-heading { color: #005577; } /* darker blue for readability in light mode */
     .main-heading:hover {
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #a0f0ff; /* glow on hover */
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #a0f0ff;
       transform: scale(1.02);
     }
     .main-heading .title {
@@ -116,31 +120,32 @@
       margin-top: 5px;
     }
 
-    /* Portfolio & course cards - unchanged */
-    .portfolio-heading { margin-top: 80px; font-size: 48px; font-weight: 900; letter-spacing: 2px; text-align: center; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 2; position: relative; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
+    /* Course card & overview styles */
     .course-card { padding: 40px 30px; border-radius: 20px; max-width: 420px; width: 90%; margin-top: 30px; background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); transition: background 0.4s, box-shadow 0.3s ease, transform 0.3s ease; z-index: 2; position: relative; color: #fff; }
-    body.light .course-card { background: rgba(255,255,255,0.9); color: #000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    body.light .course-card { background: rgba(245,245,255,0.9); color: #1a1a1a; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
     .course-box { padding: 15px 20px; margin-bottom: 15px; border-radius: 12px; background: rgba(255,255,255,0.05); border-left: 4px solid #ff4c60; transition: background 0.3s, transform 0.3s, box-shadow 0.3s ease; }
-    body.light .course-box { background: rgba(245,245,255,0.8); color: #000; }
+    body.light .course-box { background: rgba(245,245,255,0.8); color: #1a1a1a; }
     .course-box h3 { font-size: 20px; font-weight: 700; color: #ff79c6; margin: 0 0 8px; transition: text-shadow 0.3s ease; }
     .course-box p { margin: 0; font-size: 16px; color: #fff; text-shadow: 0 0 6px #0ff; transition: text-shadow 0.3s ease; }
-    body.light .course-box p { color: #000; text-shadow: 0 0 6px #0ff; }
-    .division-d { border-left: 4px solid #27ae60; }
+    body.light .course-box p { color: #005577; text-shadow: 0 0 6px #0ff; }
+
     .course-overview { margin-top: 60px; text-align: center; max-width: 900px; padding: 20px; }
     .course-overview h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; color: #ff79c6; }
+    body.light .course-overview h2 { color: #005577; }
     .course-overview p { font-size: 18px; line-height: 1.6; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; margin: 0 auto 30px; text-shadow: 0 0 6px #0ff; color: #fff; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
-    body.light .course-overview p { background: rgba(245,245,255,0.8); color: #000; text-shadow: none; }
+    body.light .course-overview p { background: rgba(245,245,255,0.8); color: #1a1a1a; text-shadow: none; }
 
+    /* Hover effects for all elements */
     .portfolio-heading:hover,
     h2:hover,
     .course-card:hover,
     .course-box:hover,
-    .course-overview p:hover { box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #c0f0ff; text-shadow: 0 0 10px #0ff, 0 0 20px #c0f0ff, 0 0 30px #a0f0ff; transform: scale(1.02); }
-    .portfolio-heading,
-    h2,
-    .course-card,
-    .course-box,
-    .course-overview p { box-shadow: none; text-shadow: none; transform: scale(1); }
+    .course-overview p:hover,
+    .main-heading:hover { 
+      box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #c0f0ff; 
+      text-shadow: 0 0 10px #0ff, 0 0 20px #c0f0ff, 0 0 30px #a0f0ff; 
+      transform: scale(1.02); 
+    }
 
   </style>
 </head>
