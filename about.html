@@ -68,6 +68,22 @@
     }
     .theme-toggle:hover { background: #ff4c60; }
 
+    .back-btn { 
+      position: fixed; 
+      top: 70px; /* placed below theme button */
+      left: 20px;
+      padding: 10px 20px; 
+      border-radius: 8px; 
+      background: #ff79c6; 
+      color: #fff; 
+      font-weight: 600; 
+      text-decoration: none; 
+      text-align: center; 
+      transition: 0.3s; 
+      z-index: 4;
+    }
+    .back-btn:hover { background: #ff4c60; }
+
     nav { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 3; }
     nav a { text-decoration: none; color: #fff; font-weight: 600; padding: 8px 14px; border-radius: 6px; transition: background 0.3s; background: rgba(0,0,0,0.3); }
     nav a:hover { background: rgba(0,0,0,0.6); }
@@ -75,7 +91,6 @@
     body.light nav a:hover { background: rgba(150,150,150,0.9); }
 
     .portfolio-heading { margin-top: 40px; font-size: 48px; font-weight: 900; letter-spacing: 2px; text-align: center; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 2; position: relative; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
-    h2 { text-align: center; color: #ff79c6; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
 
     #about-text { margin: 50px auto; max-width: 900px; font-size: 18px; line-height: 1.6; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; text-shadow: 0 0 6px #0ff; color: #fff; }
     body.light #about-text { background: rgba(245,245,255,0.8); color: #000; text-shadow: none; }
@@ -95,39 +110,22 @@
     .team-card.sustainability { background: rgba(200,100,255,0.3); }
 
     .portfolio-heading:hover,
-    h2:hover,
-    .team-card:hover,
-    #about-text:hover { box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #c0f0ff; text-shadow: 0 0 10px #0ff, 0 0 20px #c0f0ff, 0 0 30px #a0f0ff; transform: scale(1.02); }
+    #about-text:hover,
+    .team-card:hover { box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #c0f0ff; text-shadow: 0 0 10px #0ff, 0 0 20px #c0f0ff, 0 0 30px #a0f0ff; transform: scale(1.02); }
 
     .portfolio-heading,
-    h2,
-    .team-card,
-    #about-text { box-shadow: none; text-shadow: none; transform: scale(1); }
-
-    .back-btn { 
-      position: fixed; 
-      top: 20px; 
-      left: 160px; /* move slightly to not overlap theme button */
-      padding: 10px 20px; 
-      border-radius: 8px; 
-      background: #ff79c6; 
-      color: #fff; 
-      font-weight: 600; 
-      text-decoration: none; 
-      text-align: center; 
-      transition: 0.3s; 
-      z-index: 4;
-    }
-    .back-btn:hover { background: #ff4c60; }
+    #about-text,
+    .team-card { box-shadow: none; text-shadow: none; transform: scale(1); }
   </style>
 </head>
 
 <body class="dark">
 <div class="wave-layer3"></div>
 
-<!-- THEME TOGGLE BUTTON NOW TOP LEFT -->
+<!-- THEME TOGGLE BUTTON -->
 <button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()">Switch to Light Mode</button>
 
+<!-- BACK BUTTON -->
 <a class="back-btn" href="index.html">Back to Home</a>
 
 <nav>
@@ -138,7 +136,7 @@
   <a href="vasavi_port.html">Vasavi</a>
   <a href="akshata_port.html">Akshata</a>
   <a href="isha_port.html">Isha</a>
-   <a href="collabs.html">Coolaborations</a>
+  <a href="collabs.html">Collaborations</a>
 </nav>
 
 <div class="portfolio-heading">ABOUT THE TEAM</div>
@@ -157,7 +155,9 @@
       <p><strong>Roll No:</strong> 407</p>
       <p><strong>USN:</strong> 01fe24bcs269</p>
       <p><strong>Skills:</strong> C, C++, SQL, Python, HTML, CSS</p>
-      <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/sanmathi-hegde-604a0637a/</p>
+      <p><strong>LinkedIn:</strong> 
+        <a href="https://www.linkedin.com/in/sanmathi-hegde-604a0637a/" target="_blank">Visit Profile</a>
+      </p>
       <a href="sanmathi_port.html" target="_blank">View Portfolio</a>
     </div>
     <div class="team-card commerce">
