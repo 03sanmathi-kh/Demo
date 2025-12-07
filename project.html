@@ -51,8 +51,53 @@
     @keyframes wave2Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
     @keyframes wave3Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
 
-    .theme-toggle { margin-top: 20px; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; background: #ff79c6; color: #fff; transition: background 0.3s; z-index: 2; position: relative; }
+    /* ===== BUTTON STYLES ===== */
+    .theme-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        background: #ff79c6;
+        color: #fff;
+        transition: background 0.3s;
+        z-index: 5;
+    }
     .theme-toggle:hover { background: #ff4c60; }
+
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 160px; /* shifted right to avoid overlap */
+      padding: 10px 20px;
+      border-radius: 8px;
+      background: #ff79c6;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      width: max-content;
+      transition: 0.3s;
+      z-index: 4;
+    }
+    .back-btn:hover { background: #ff4c60; }
+
+    .github-btn {
+      margin: 40px auto;
+      padding: 12px 25px;
+      border-radius: 10px;
+      background: #24292e;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .github-btn:hover { background: #444c56; }
 
     nav { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 3; }
     nav a { text-decoration: none; color: #fff; font-weight: 600; padding: 8px 14px; border-radius: 6px; transition: background 0.3s; background: rgba(0,0,0,0.3); }
@@ -79,14 +124,15 @@
     h2,
     .project-overview img,
     .city-text { box-shadow: none; text-shadow: none; transform: scale(1); }
-
-    .back-btn { padding: 10px 20px; border-radius: 8px; background: #ff79c6; color: #fff; font-weight: 600; text-decoration: none; text-align: center; width: max-content; transition: 0.3s; }
-    .back-btn:hover { background: #ff4c60; }
   </style>
 </head>
 
 <body class="dark">
 <div class="wave-layer3"></div>
+
+<!-- Buttons -->
+<button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()">Switch to Light Mode</button>
+<a class="back-btn" href="index.html">Back to Home</a>
 
 <nav>
   <a href="index.html">Home</a>
@@ -96,14 +142,13 @@
   <a href="vasavi_port.html">Vasavi</a>
   <a href="akshata_port.html">Akshata</a>
   <a href="isha_port.html">Isha</a>
+  <a href="collabs.html">Collaborations</a>
 </nav>
-
-<button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()">Switch to Light Mode</button>
 
 <div class="portfolio-heading">PROJECT</div>
 
-<!-- Back to Home button at top-left -->
-<a class="back-btn" href="index.html" style="position: fixed; top: 20px; left: 20px; margin: 0;">Back to Home</a>
+<!-- GitHub Button -->
+<a class="github-btn" href="https://github.com/YOUR_REPO_LINK" target="_blank">View on GitHub</a>
 
 <section class="project-overview">
   <h2>Our Vision</h2>
