@@ -113,8 +113,8 @@ header p{max-width:800px;margin:20px auto;font-size:16px;line-height:1.6;color:i
 <div class="hex parking" onclick="toggleModule('a4')">Multi-Lane Road Separation</div>
 <div class="hex roadquality" onclick="toggleModule('a5')">Road Quality Monitoring</div>
 <div class="hex evpriority" onclick="toggleModule('a6')">Traffic Signal EV Priority</div>
-<div class="hex trie" onclick="toggleModule('a7')">Smart Search System (Trie)</div>
-<div class="hex infra" onclick="toggleModule('a8')">Urban Infrastructure Maintenance</div>
+<div class="hex trie" onclick="toggleModule('a7')">Urban Infrastructure Maintenance</div>
+
 </div>
 
 <!-- MODULES -->
@@ -449,109 +449,103 @@ int main(){
 </ul>
 
 <hr>
+<button class="code-btn" onclick="toggleCode('codeHash')">📌 Hash Table – Identify Visitor Vehicle</button>
+<button class="code-btn" onclick="toggleCode('codeQueue')">📌 Queue – Vehicles Waiting at Gate</button>
+<button class="code-btn" onclick="toggleCode('codeDijkstra3')">📌 Dijkstra – Fastest Bypass Route</button>
+<button class="code-btn" onclick="toggleCode('codeBFS3')">📌 BFS – Next Available Bypass</button>
 
-<button class="code-btn" 
-onclick="openCodeViewer('Hash Table – Identify Visitor Vehicle', 
-\`#include <iostream>
-#include <unordered_map>
+<!-- Hidden Code Blocks -->
+<pre id="codeHash" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
 using namespace std;
 
 int main() {
-    unordered_map<string,string> type;
+    unordered_map&lt;string,string&gt; type;
     type["KA01AB1234"] = "EV";
     type["MH09XY7777"] = "NON-EV";
 
     string plate;  
-    cin >> plate;
+    cin &gt;&gt; plate;
 
     if(type[plate] == "NON-EV") 
-        cout << "Use BYPASS\\n";
+        cout &lt;&lt; "Use BYPASS\n";
     else
-        cout << "Welcome to EV City\\n";
-}\`)">
-📌 Hash Table
-</button>
+        cout &lt;&lt; "Welcome to EV City\n";
+}
+</pre>
 
-<!-- MODULE 3 – Queue -->
-<button class="code-btn" 
-onclick="openCodeViewer('Queue – Vehicles Waiting at Gate', 
-\`#include <iostream>
-#include <queue>
+<pre id="codeQueue" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
 using namespace std;
 
 int main() {
-    queue<string> q;
+    queue&lt;string&gt; q;
     q.push("CAR1");
     q.push("CAR2");
     q.push("CAR3");
 
     while(!q.empty()) {
-        cout << "Processing " << q.front() << endl;
+        cout &lt;&lt; "Processing " &lt;&lt; q.front() &lt;&lt; endl;
         q.pop();
     }
-}\`)">
-📌 Queue
-</button>
+}
+</pre>
 
-<!-- MODULE 3 – Dijkstra -->
-<button class="code-btn" 
-onclick="openCodeViewer('Dijkstra – Fastest Bypass Route', 
-\`#include <iostream>
-#include <vector>
-#include <queue>
+<pre id="codeDijkstra3" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
 using namespace std;
 
 int main() {
     int n = 4;
-    vector<pair<int,int>> g[5];
+    vector&lt;pair&lt;int,int&gt;&gt; g[5];
     g[1]={{2,4},{3,2}};
     g[2]={{4,5}};
     g[3]={{4,1}};
 
-    vector<int> d(n+1,1e9);
-    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
+    vector&lt;int&gt; d(n+1,1e9);
+    priority_queue&lt;pair&lt;int,int&gt;,vector&lt;pair&lt;int,int&gt;,greater&lt;pair&lt;int,int&gt;&gt;&gt; pq;
 
     d[1]=0; pq.push({0,1});
     while(!pq.empty()){
         auto [w,u]=pq.top(); pq.pop();
         for(auto [v,c]:g[u])
-            if(d[v] > w+c){
+            if(d[v] &gt; w+c){
                 d[v]=w+c;
                 pq.push({d[v],v});
             }
     }
-    cout << "Fastest bypass to node 4 = " << d[4];
-}\`)">
-📌 Dijkstra
-</button>
+    cout &lt;&lt; "Fastest bypass to node 4 = " &lt;&lt; d[4];
+}
+</pre>
 
-<!-- MODULE 3 – BFS -->
-<button class="code-btn" 
-onclick="openCodeViewer('BFS – Next Available Bypass', 
-\`#include <iostream>
-#include <vector>
-#include <queue>
+<pre id="codeBFS3" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
 using namespace std;
 
 int main() {
-    vector<int> g[5]={{},{2,3},{4},{4},{}};
+    vector&lt;int&gt; g[5]={{},{2,3},{4},{4},{}};
     bool vis[5]={0};
-    queue<int> q;
+    queue&lt;int&gt; q;
     q.push(1); vis[1]=1;
 
     while(!q.empty()){
         int u=q.front(); q.pop();
-        cout<<u<<" ";
+        cout &lt;&lt; u &lt;&lt; " ";
         for(int v:g[u])
             if(!vis[v]){
                 vis[v]=1;
                 q.push(v);
             }
     }
-}\`)">
-📌 BFS
-</button>
-<!-- MODULE 4 & 5 & Remaining (you provided earlier, preserved) -->
+}
+</pre>
+</div>
 <div id="a4" class="module-content">
 <h2>Multi-Lane Road Separation + Smart Gate Control System</h2>
 
@@ -585,6 +579,7 @@ int main() {
 <li>Simple Sorting (Selection Sort) → Sort lanes by load (optional).</li>
 </ul>
 
+
 <h3>Step-by-Step Process</h3>
 <ol>
 <li>Vehicle arrives at lane entrance.</li>
@@ -607,60 +602,64 @@ int main() {
 </ol>
 
 <hr>
+<button class="code-btn" onclick="toggleCode('codeHash4')">📌 Hash Table – Vehicle Type Lookup</button>
+<button class="code-btn" onclick="toggleCode('codeQueue4')">📌 Queue – Vehicles Waiting at a Lane</button>
+<button class="code-btn" onclick="toggleCode('codeBFS4')">📌 BFS – Check If Lane Path Is Reachable</button>
+<button class="code-btn" onclick="toggleCode('codeSelectSort4')">📌 Selection Sort – Optional Lane Load Sorting</button>
 
-<!-- HASH TABLE -->
-<button class="code-btn" onclick="openCodeViewer('Hash Table – Vehicle Type Lookup',
-`#include <iostream>
-#include <unordered_map>
+<!-- Hidden Code Blocks -->
+<pre id="codeHash4" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
 using namespace std;
 
 int main() {
-    unordered_map<string, string> vehicleType;
+    unordered_map&lt;string, string&gt; vehicleType;
 
     vehicleType["KA01EV1234"] = "EV-Car";
     vehicleType["KA09AB7890"] = "Petrol";
     vehicleType["KA55TR1122"] = "Truck";
 
     string num;
-    cin >> num;
+    cin &gt;&gt; num;
 
     if(vehicleType.count(num))
-        cout << vehicleType[num];
+        cout &lt;&lt; vehicleType[num];
     else
-        cout << "Unknown Vehicle";
+        cout &lt;&lt; "Unknown Vehicle";
 
     return 0;
-}`)">📌 Hash Table</button>
+}
+</pre>
 
-<!-- QUEUE -->
-<button class="code-btn" onclick="openCodeViewer('Queue – Vehicles Waiting at a Lane',
-`#include <iostream>
-#include <queue>
+<pre id="codeQueue4" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
 using namespace std;
 
 int main() {
-    queue<string> q;
+    queue&lt;string&gt; q;
     q.push("KA01EV1234");
     q.push("KA09AB7890");
     q.push("KA55TR1122");
 
     while(!q.empty()) {
-        cout << q.front() << " enters lane\\n";
+        cout &lt;&lt; q.front() &lt;&lt; " enters lane\n";
         q.pop();
     }
     return 0;
-}`)">📌 Queue</button>
+}
+</pre>
 
-<!-- BFS -->
-<button class="code-btn" onclick="openCodeViewer('BFS – Check Lane Path',
-`#include <iostream>
-#include <vector>
-#include <queue>
+<pre id="codeBFS4" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
 using namespace std;
 
 int main() {
     int n = 5;
-    vector<vector<int>> g = {
+    vector&lt;vector&lt;int&gt;&gt; g = {
         {1},        // 0 → EV-Car Lane
         {2},        // 1 → EV-Bus Lane
         {3},        // 2 → Goods Lane
@@ -671,8 +670,8 @@ int main() {
     int start = 4;      // Junction
     int target = 2;     // Goods Lane
 
-    queue<int> q;
-    vector<bool> vis(n, false);
+    queue&lt;int&gt; q;
+    vector&lt;bool&gt; vis(n, false);
 
     q.push(start);
     vis[start] = true;
@@ -686,32 +685,33 @@ int main() {
             if(!vis[v]) { vis[v] = true; q.push(v); }
     }
 
-    if(ok) cout << "Lane reachable";
-    else cout << "Lane blocked";
+    if(ok) cout &lt;&lt; "Lane reachable";
+    else cout &lt;&lt; "Lane blocked";
 
     return 0;
-}`)">📌 BFS</button>
+}
+</pre>
 
-<!-- SELECTION SORT -->
-<button class="code-btn" onclick="openCodeViewer('Selection Sort – Optional Lane Load Sorting',
-`#include <iostream>
+<pre id="codeSelectSort4" class="hidden-code">
+#include &lt;iostream&gt;
 using namespace std;
 
 int main() {
     int a[5] = {30, 10, 50, 20, 40};
 
-    for(int i=0;i<5;i++){
+    for(int i=0;i&lt;5;i++){
         int min = i;
-        for(int j=i+1;j<5;j++)
-            if(a[j] < a[min]) min = j;
+        for(int j=i+1;j&lt;5;j++)
+            if(a[j] &lt; a[min]) min = j;
         swap(a[i], a[min]);
     }
 
-    for(int x : a) cout << x << " ";
+    for(int x : a) cout &lt;&lt; x &lt;&lt; " ";
     return 0;
-}`)">📌 Selection Sort</button>
-
+}
+</pre>
 </div>
+
 <div id="a5" class="module-content">
 <h2>Road Quality Monitoring & Smart Construction Analytics System</h2>
 
@@ -756,45 +756,50 @@ int main() {
 
 <hr>
 
-<!-- HASH TABLE -->
-<button class="code-btn" onclick="openCodeViewer('Hash Table – Store Damage Reports',
-`#include <iostream>
-#include <unordered_map>
+<button class="code-btn" onclick="toggleCode('codeHash5')">📌 Hash Table – Storing Damage Reports</button>
+<button class="code-btn" onclick="toggleCode('codeHeap5')">📌 Min-Heap – Pick Highest Priority Damage</button>
+<button class="code-btn" onclick="toggleCode('codeDFS5')">📌 DFS – Find Connected Damaged Segments</button>
+<button class="code-btn" onclick="toggleCode('codeBFS5')">📌 BFS – Find Nearest Repair Team</button>
+
+<!-- Hidden Code Blocks -->
+<pre id="codeHash5" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
 using namespace std;
 
 int main() {
-    unordered_map<string, int> damage;
+    unordered_map&lt;string, int&gt; damage;
     damage["RoadA"] = 4;  // severity
     damage["RoadB"] = 2;
 
     for(auto &x : damage)
-        cout << x.first << " = " << x.second << endl;
-}`)">📌 Hash Table</button>
+        cout &lt;&lt; x.first &lt;&lt; " = " &lt;&lt; x.second &lt;&lt; endl;
+}
+</pre>
 
-<!-- MIN HEAP -->
-<button class="code-btn" onclick="openCodeViewer('Min-Heap – Pick Highest Priority Damage',
-`#include <iostream>
-#include <queue>
+<pre id="codeHeap5" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
 using namespace std;
 
 int main() {
-    priority_queue<pair<int,string>> pq; // severity, road
+    priority_queue&lt;pair&lt;int,string&gt;&gt; pq; // severity, road
     pq.push({5,"Lane1"});
     pq.push({2,"Lane2"});
     pq.push({8,"Lane3"});
 
-    cout << "Most severe: " << pq.top().second << endl;
-}`)">📌 Min-Heap</button>
+    cout &lt;&lt; "Most severe: " &lt;&lt; pq.top().second &lt;&lt; endl;
+}
+</pre>
 
-<!-- DFS -->
-<button class="code-btn" onclick="openCodeViewer('DFS – Find Connected Damaged Segments',
-`#include <iostream>
+<pre id="codeDFS5" class="hidden-code">
+#include &lt;iostream&gt;
 using namespace std;
 
 void dfs(int g[5][5], int v, bool vis[]) {
     vis[v] = true;
-    for(int i=0;i<5;i++)
-        if(g[v][i] && !vis[i])
+    for(int i=0;i&lt;5;i++)
+        if(g[v][i] &amp;&amp; !vis[i])
             dfs(g, i, vis);
 }
 
@@ -808,12 +813,12 @@ int main() {
     };
     bool vis[5]={0};
     dfs(g,0,vis);
-}`)">📌 DFS</button>
+}
+</pre>
 
-<!-- BFS -->
-<button class="code-btn" onclick="openCodeViewer('BFS – Find Nearest Repair Team',
-`#include <iostream>
-#include <queue>
+<pre id="codeBFS5" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
 using namespace std;
 
 int main() {
@@ -825,7 +830,7 @@ int main() {
         {0,0,1,0,0}
     };
 
-    queue<int> q;
+    queue&lt;int&gt; q;
     bool vis[5]={0};
 
     q.push(0);
@@ -833,20 +838,243 @@ int main() {
 
     while(!q.empty()) {
         int x=q.front(); q.pop();
-        cout<<x<<" ";
+        cout &lt;&lt; x &lt;&lt; " ";
 
-        for(int i=0;i<5;i++)
-            if(g[x][i] && !vis[i]) {
+        for(int i=0;i&lt;5;i++)
+            if(g[x][i] &amp;&amp; !vis[i]) {
                 vis[i]=1;
                 q.push(i);
             }
     }
-}`)">📌 BFS</button>
-
+}
+</pre>
 </div>
-<div id="a6" class="module-content"><h2>Module 6 – Traffic Signal Optimization Using EV Priority</h2><p>Content + C++ codes…</p></div>
-<div id="a7" class="module-content"><h2>Module 7 – Smart City Search (Trie-Based)</h2><p>Content + C++ codes…</p></div>
-<div id="a8" class="module-content"><h2>Module 8 – Urban Infrastructure Maintenance & Planning</h2><p>Content + C++ codes…</p></div>
+<div id="a6" class="module-content">
+<h2>Traffic Signal Optimization Using EV Priority</h2>
+
+<h3>Problem</h3>
+<p>Emergency EVs (ambulances, fire trucks, police) face delays because signals don’t prioritize them, even if main roads are congested. This slows response times and can risk lives.</p>
+
+<h3>Solution</h3>
+<p>A real-time signal management system that detects emergency EVs, dynamically adjusts traffic lights, and clears their path while minimally affecting other vehicles.</p>
+
+<h3>Data Structures Used</h3>
+<ul>
+<li>Queue → Vehicles waiting at signals</li>
+<li>Graph → Represents road network for route planning</li>
+</ul>
+
+<h3>Algorithms Used</h3>
+<ul>
+<li>Dijkstra → Finds shortest path for emergency EVs</li>
+<li>BFS → Updates signals across connected intersections efficiently</li>
+</ul>
+
+<h3>Step-by-Step Process</h3>
+<ol>
+<li>Sensors detect an approaching emergency EV.</li>
+<li>Road network represented as a graph, with EV location as source.</li>
+<li>Dijkstra computes the shortest route from EV to destination.</li>
+<li>BFS updates connected intersections along that path.</li>
+<li>Queue manages vehicles waiting at signals to ensure minimal disruption.</li>
+<li>Signal timings adjust automatically to give green lights to EV.</li>
+<li>Dashboard shows real-time status for monitoring.</li>
+</ol>
+
+<hr>
+
+<button class="code-btn" onclick="toggleCode('codeDijkstra6')">📌 Dijkstra – Shortest Path for EV</button>
+
+<pre id="codeDijkstra6" class="hidden-code">
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main() {
+    int n, m; 
+    cin &gt;&gt; n &gt;&gt; m;
+    vector&lt;pair&lt;int,int&gt;&gt; g[n+1];
+    for(int i=0;i&lt;m;i++){
+        int u,v,w; 
+        cin&gt;&gt;u&gt;&gt;v&gt;&gt;w;
+        g[u].push_back({v,w});
+        g[v].push_back({u,w});
+    }
+    int src; cin &gt;&gt; src;
+    vector&lt;int&gt; dist(n+1,1e9);
+    dist[src]=0;
+    priority_queue&lt;pair&lt;int,int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;&gt;&gt; pq;
+    pq.push({0,src});
+    while(!pq.empty()){
+        auto [d,u]=pq.top(); pq.pop();
+        if(d&gt;dist[u]) continue;
+        for(auto &amp;[v,w]: g[u]){
+            if(dist[u]+w&lt;dist[v]){
+                dist[v]=dist[u]+w;
+                pq.push({dist[v],v});
+            }
+        }
+    }
+    for(int i=1;i&lt;=n;i++) cout &lt;&lt; dist[i] &lt;&lt; " ";
+    return 0;
+}
+</pre>
+</div>
+<div id="a7" class="module-content">
+<h2>Smart Urban Infrastructure Maintenance & Planning System</h2>
+
+<h3>Problem</h3>
+<p>Random maintenance and construction of roads, bridges, flyovers, tunnels, and pedestrian paths cause congestion, delays, and wastage. Manual planning fails to optimize traffic, especially with EV-only lanes and multiple vehicle types.</p>
+
+<h3>Solution</h3>
+<p>An intelligent system that monitors the condition of all urban infrastructure, plans construction/repairs based on severity, traffic load, and cost, and ensures minimal disruption to EV and petrol/diesel traffic.</p>
+
+<h3>Data Structures / Algorithms Used</h3>
+<ul>
+<li>Graph → Represent roads, bridges, tunnels, flyovers, EV lanes.</li>
+<li>Min Heap → Prioritize repair/construction tasks based on urgency/cost.</li>
+<li>Queue → Manage task allocation for workers and materials.</li>
+<li>DFS / BFS → Detect connected damaged segments and optimize repair paths.</li>
+<li>Quick Sort / Merge Sort → Sort construction materials, sites, or urgency levels.</li>
+</ul>
+
+<h3>Step-by-Step Process</h3>
+<ol>
+<li>Sensors and citizen reports on roads, bridges, tunnels, flyovers, and pedestrian paths are collected and stored.</li>
+<li>Damaged areas prioritized using a min-heap based on severity and repair cost.</li>
+<li>DFS/BFS identifies clusters of connected damaged infrastructure.</li>
+<li>Optimal repair paths are computed to minimize traffic disruption.</li>
+<li>Repair tasks are assigned to workers using queues.</li>
+<li>Materials and construction resources are sorted with Quick Sort/Merge Sort.</li>
+<li>Construction/maintenance executed in optimal order, keeping EV and petrol/diesel lanes flowing.</li>
+</ol>
+
+<hr>
+
+<button class="code-btn" onclick="toggleCode('codeHeap7')">📌 Min Heap – Prioritize Repairs</button>
+<button class="code-btn" onclick="toggleCode('codeQueue7')">📌 Queue – Assign Tasks</button>
+<button class="code-btn" onclick="toggleCode('codeBFS7')">📌 BFS – Detect Connected Damaged Segments</button>
+<button class="code-btn" onclick="toggleCode('codeQuickSort7')">📌 Quick Sort – Organize Materials or Sites</button>
+<button class="code-btn" onclick="toggleCode('codeDFS7')">📌 DFS – Find Clusters of Damage</button>
+
+<pre id="codeHeap7" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+void heapify(vector&lt;int&gt; &H, int n, int i){
+    int smallest=i, l=2*i+1, r=2*i+2;
+    if(l&lt;n &amp;&amp; H[l]&lt;H[smallest]) smallest=l;
+    if(r&lt;n &amp;&amp; H[r]&lt;H[smallest]) smallest=r;
+    if(smallest!=i){
+        swap(H[i], H[smallest]);
+        heapify(H,n,smallest);
+    }
+}
+
+void buildHeap(vector&lt;int&gt; &H){
+    int n=H.size();
+    for(int i=n/2-1;i&gt;=0;i--) heapify(H,n,i);
+}
+
+int main(){
+    vector&lt;int&gt; H={30,10,20,40,50};
+    buildHeap(H);
+    for(int x:H) cout &lt;&lt; x &lt;&lt; " ";
+}
+</pre>
+
+<pre id="codeQueue7" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+using namespace std;
+
+int main(){
+    queue&lt;string&gt; tasks;
+    tasks.push("Repair Bridge A");
+    tasks.push("Fix Tunnel B");
+    tasks.push("Road C Maintenance");
+
+    while(!tasks.empty()){
+        cout &lt;&lt; tasks.front() &lt;&lt; endl;
+        tasks.pop();
+    }
+}
+</pre>
+
+<pre id="codeBFS7" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+using namespace std;
+
+void BFS(int start, vector&lt;vector&lt;int&gt;&gt; &graph, vector&lt;bool&gt; &visited){
+    queue&lt;int&gt; q;
+    q.push(start);
+    visited[start]=true;
+    while(!q.empty()){
+        int u=q.front(); q.pop();
+        cout &lt;&lt; "Node " &lt;&lt; u &lt;&lt; " needs repair" &lt;&lt; endl;
+        for(int v:graph[u]){
+            if(!visited[v]){
+                visited[v]=true;
+                q.push(v);
+            }
+        }
+    }
+}
+
+int main(){
+    vector&lt;vector&lt;int&gt;&gt; g={{1,2},{0,3},{0},{1}};
+    vector&lt;bool&gt; vis(4,false);
+    BFS(0,g,vis);
+}
+</pre>
+
+<pre id="codeQuickSort7" class="hidden-code">
+#include &lt;iostream&gt;
+using namespace std;
+
+void quicksort(int arr[], int l, int r){
+    if(l&gt;=r) return;
+    int pivot=arr[r], i=l-1;
+    for(int j=l;j&lt;r;j++){
+        if(arr[j]&lt;pivot){
+            i++; swap(arr[i],arr[j]);
+        }
+    }
+    swap(arr[i+1],arr[r]);
+    quicksort(arr,l,i);
+    quicksort(arr,i+2,r);
+}
+
+int main(){
+    int arr[]={50,10,40,20,30};
+    quicksort(arr,0,4);
+    for(int x:arr) cout &lt;&lt; x &lt;&lt; " ";
+}
+</pre>
+
+<pre id="codeDFS7" class="hidden-code">
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+void DFS(int u, vector&lt;vector&lt;int&gt;&gt; &graph, vector&lt;bool&gt; &visited){
+    visited[u]=true;
+    cout &lt;&lt; "Node " &lt;&lt; u &lt;&lt; " needs repair" &lt;&lt; endl;
+    for(int v:graph[u]){
+        if(!visited[v]) DFS(v,graph,visited);
+    }
+}
+
+int main(){
+    vector&lt;vector&lt;int&gt;&gt; g={{1,2},{0,3},{0},{1}};
+    vector&lt;bool&gt; vis(4,false);
+    DFS(0,g,vis);
+}
+</pre>
+</div>
+
 
 <!-- FULLSCREEN CODE VIEWER -->
 <div id="codeViewer">
