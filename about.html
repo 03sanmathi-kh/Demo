@@ -1,1 +1,83 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vishalanagari – About Team</title>
+<!-- Copy all CSS from index.html -->
+</head>
+<body class="dark">
+<div class="wave-layer3"></div>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="project.html">Project</a>
+  <a href="sanmathi_port.html">Sanmathi</a>
+  <a href="vasavi_port.html">Vasavi</a>
+  <a href="akshata_port.html">Akshata</a>
+  <a href="isha_port.html">Isha</a>
+</nav>
+
+<button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()">Switch to Light Mode</button>
+<button onclick="window.location.href='index.html'" class="theme-toggle">Back to Home</button>
+
+<section class="course-overview">
+  <h2>About Team</h2>
+  <p>
+    We are a dynamic collective of computer science enthusiasts, blending creativity with precision. 
+    Our mission is to craft data-driven, sustainable solutions for the cities of tomorrow, 
+    fusing smart algorithms with innovative design to optimize urban life while keeping it human-centric and efficient.
+  </p>
+</section>
+
+<section id="meet-the-team">
+  <h2>Meet the Team</h2>
+  <div class="team-container">
+    <div class="team-card industry">
+      <h3>Sanmathi Hegde</h3>
+      <p><strong>Roll No:</strong> 407</p>
+      <p><strong>USN:</strong> 01fe24bcs269</p>
+      <p><strong>Skills:</strong> C, C++, SQL, Python, HTML, CSS</p>
+      <p><strong>LinkedIn:</strong> <a href="" target="_blank">Profile Link</a></p>
+      <a href="sanmathi_port.html" target="_blank">View Portfolio</a>
+    </div>
+    <div class="team-card commerce">
+      <h3>Vasavi Kabbur</h3>
+      <p><strong>Roll No:</strong> 415</p>
+      <p><strong>USN:</strong> 01fe24bcs278</p>
+      <p><strong>Skills:</strong> C, C++, SQL, Python, HTML, CSS</p>
+      <p><strong>LinkedIn:</strong> <a href="" target="_blank">Profile Link</a></p>
+      <a href="vasavi_port.html" target="_blank">View Portfolio</a>
+    </div>
+    <div class="team-card traffic">
+      <h3>Akshata Pawar</h3>
+      <p><strong>Roll No:</strong> 434</p>
+      <p><strong>USN:</strong> 01fe24bcs297</p>
+      <p><strong>Skills:</strong> C, C++, SQL, Python, HTML, CSS</p>
+      <p><strong>LinkedIn:</strong> <a href="" target="_blank">Profile Link</a></p>
+      <a href="akshata_port.html" target="_blank">View Portfolio</a>
+    </div>
+    <div class="team-card sustainability">
+      <h3>Isha Shet</h3>
+      <p><strong>Roll No:</strong> 418</p>
+      <p><strong>USN:</strong> 01fe24bcs281</p>
+      <p><strong>Skills:</strong> C, C++, SQL, Python, HTML, CSS</p>
+      <p><strong>LinkedIn:</strong> <a href="" target="_blank">Profile Link</a></p>
+      <a href="isha_port.html" target="_blank">View Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleTheme() {
+  document.body.classList.toggle("light");
+  const btn = document.getElementById("toggleBtn");
+  btn.textContent = document.body.classList.contains("light") ? "Switch to Dark Mode" : "Switch to Light Mode";
+}
+</script>
+
+</body>
+</html>
 
