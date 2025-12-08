@@ -77,13 +77,13 @@
       border-radius: 4px;
     }
 
-    /* Card-like box */
+    /* Wide card-like box */
     .card {
       background: #faf0f8; /* very light pinkish-lavender */
       border-radius: 12px;
       padding: 20px;
-      margin: 30px auto;
-      max-width: 800px;
+      margin: 30px 0; /* no side margins, full width */
+      width: 100%; /* stretch full screen */
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       position: relative;
     }
@@ -92,6 +92,7 @@
       margin-top: 0;
       font-size: 1.5em;
       color: maroon;
+      text-align: center;
     }
 
     /* Industry icon at top-right */
@@ -103,8 +104,9 @@
       height: 40px;
     }
 
-    /* Full-width image inside card */
-    .card img.full-image {
+    /* Full-width images inside card */
+    .card img.full-image,
+    .card img {
       display: block;
       width: 100%;       /* stretches to card border */
       height: auto;
@@ -141,15 +143,15 @@
       <span class="title">Industries, Urban Infrastructure & Tourism</span>
   </h1>
 
-  <!-- Card Section -->
+  <!-- Wide Card Section -->
   <section class="card">
       <img src="icon.jpg" alt="Industry Icon" class="icon">
       <h2>Why did I choose these sectors? A glimpse..</h2>
-      <img src="industries.jpg" alt="First Image">
-      <img src="discript.jpg" alt="Card Content Image" class="full-image">
+      <!-- industries.jpg inside pink box -->
+      <img src="industries.jpg" alt="Industries Image" class="full-image">
+      <!-- discript.jpg below industries.jpg inside pink box -->
+      <img src="discript.jpg" alt="Description Image" class="full-image">
   </section>
-
-  
 
 </body>
 </html>
