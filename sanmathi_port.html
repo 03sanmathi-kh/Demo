@@ -44,6 +44,8 @@
       gap: 15px;
       background: rgba(0,0,128,0.8); /* navy bar */
       padding: 10px;
+      position: relative; /* ensures it doesn't overlap content */
+      z-index: 10;
     }
 
     nav a {
@@ -88,7 +90,7 @@
       border-radius: 12px;
       padding: 20px;
       margin: 30px auto;   /* auto centers the card */
-      width: 60%;          /* covers 70% of screen width */
+      width: 70%;          /* covers 70% of screen width */
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       position: relative;
     }
@@ -109,19 +111,20 @@
       height: 60px;
     }
 
-    /* Full-width images inside card */
-    .card img.full-image,
-    .card img {
+    /* Full-width images inside card with reduced vertical size */
+    .card img.full-image {
       display: block;
       width: 100%;       /* stretches to card border */
       height: auto;
+      max-height: 400px; /* limit vertical size */
       margin-top: 15px;
       border-radius: 0;  /* no rounding, touches edges */
+      object-fit: cover; /* crop gracefully if too tall */
     }
 
     /* Ensure title starts below nav */
     .main-heading {
-      margin-top: 20px;
+      margin-top: 40px; /* extra space so nav doesn't overlap */
       text-align: center;
     }
 
@@ -159,9 +162,9 @@
       <img src="icon.jpg" alt="Industry Icon" class="icon">
       <h2>Why did I choose these sectors? A glimpse..</h2>
       <!-- industries.jpg inside pink box -->
-      <img src="Theme.png" alt="Industries Image" class="full-image">
+      <img src="industries.jpg" alt="Industries Image" class="full-image">
       <!-- discript.jpg below industries.jpg inside pink box -->
-      <img src="dis.png" alt="Description Image" class="full-image">
+      <img src="discript.jpg" alt="Description Image" class="full-image">
   </section>
 
 </body>
