@@ -63,9 +63,62 @@
       background: silver;
       color: navy;
     }
+
+    /* Theme toggle button at top left */
+    .theme-toggle {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 6px 12px;
+      background: silver;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    /* Card-like box */
+    .card {
+      background: #faf0f8; /* very light pinkish-lavender */
+      border-radius: 12px;
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 800px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.5em;
+      color: maroon;
+    }
+
+    .card p {
+      font-size: 1em;
+      line-height: 1.6;
+    }
+
+    /* Industry icon at top-right */
+    .card .icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Ensure title starts below nav */
+    .main-heading {
+      margin-top: 20px;
+      text-align: center;
+    }
   </style>
 </head>
 <body class="dark">
+
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" onclick="document.body.classList.toggle('light'); document.body.classList.toggle('dark');">Switch Theme</button>
 
   <!-- Navigation -->
   <nav>
@@ -83,6 +136,13 @@
   <h1 id="title" class="main-heading">
       <span class="title">Industries, Urban Infrastructure & Tourism</span>
   </h1>
+
+  <!-- Card Section -->
+  <section class="card">
+      <img src="industry-icon.png" alt="Industry Icon" class="icon">
+      <h2>Section Title</h2>
+      <p>Paste your content here later. This box has a soft background and an icon at the top-right.</p>
+  </section>
 
   <!-- Images Section -->
   <section id="images" class="project-overview">
