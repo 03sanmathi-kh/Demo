@@ -74,22 +74,16 @@
 <div class="bubble-container">
   <!-- 1 -->
   <div class="bubble housing" onclick="toggleModule('m1')">Smart Housing Allocation</div>
-
   <!-- 2 -->
   <div class="bubble tax" onclick="toggleModule('m2')">Tax Planning</div>
-
   <!-- 3 -->
   <div class="bubble loan" onclick="toggleModule('m3')">Loan Distribution</div>
-
   <!-- 4 -->
   <div class="bubble resource" onclick="toggleModule('m4')">Gaming</div>
-
   <!-- 5 -->
   <div class="bubble optimization" onclick="toggleModule('m5')">E-Commerce</div>
-
   <!-- 6 (Civic Data Analytics) -->
   <div class="bubble" style="background:orange;" onclick="toggleModule('m6')">Civic Data Analytics</div>
-
   <!-- 7 (Population) -->
   <div class="bubble" style="background:#0080ff;" onclick="toggleModule('m7')">Population</div>
 </div>
@@ -215,14 +209,34 @@ deliverBatches(path);                        // send picked orders for delivery
   <p><strong>Conclusion:</strong> Optimized order fulfillment reduces delivery times, lowers costs, and improves customer experience in e-commerce.</p>
 </div>
 
-<!-- MODULE 6: Civic Data Analytics (EMPTY TEMPLATE FOR YOU) -->
+<!-- MODULE 6: Civic Data Analytics -->
 <div id="m6" class="module-content">
   <h2>Civic Data Analytics</h2>
-  <p><strong>Information / Algorithm / Code:</strong></p>
+
+  <p><strong>Business Problem:</strong><br>
+  Vishalnagari needs to efficiently analyze civic data such as health and transport.<br>
+  Without optimized querying, large datasets become slow to process and insights are delayed.<br>
+  A smart analytics system ensures fast range queries and scalable preprocessing.</p>
+
+  <p><strong>Algorithm:</strong><br>
+  Sparse Table for efficient range queries on static civic data.<br>
+  - Preprocessing with Merge Sort / Heap Sort for scalable data organization.<br>
+  📊 Efficiency: Sorting O(n log n), Sparse Table build O(n log n), query O(1).</p>
 
   <pre>
-// Paste your Civic Data Analytics algorithm / code here
+  // Civic Data Analytics for Vishalnagari
+  vector<int> civicData = loadData(); 
+  mergeSort(civicData); // or heapSort(civicData)
+  buildSparseTable(civicData);
+  int l = 1, r = 5; // query range
+  int result = rangeQuery(l, r);
+  cout << "Analytics Result: " << result;
   </pre>
+
+  <p><strong>Conclusion:</strong><br>
+  This approach enables instant range queries on civic datasets.<br>
+  Vishalnagari can deliver timely insights across health and transport sectors,<br>
+  ensuring data-driven decisions and efficient civic resource management.</p>
 </div>
 
 <!-- MODULE 7: Population (EMPTY TEMPLATE FOR YOU) -->
