@@ -228,38 +228,19 @@ cout << "Entertainment booking confirmed!";
   Efficiency: O(n log n) for sorting and routing.</p>
 
   <pre>
-// C++ Implementation (15+ lines)
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;algorithm&gt;
-using namespace std;
-
-struct Order {
-    int id;
-    int location; // warehouse aisle number
-};
-
-void fulfillOrders(vector&lt;Order&gt;& orders) {
-    // Sort orders by location (greedy picking)
-    sort(orders.begin(), orders.end(), [](Order&a, Order&b){
-        return a.location &lt; b.location;
-    });
-
-    cout &lt;&lt; "Optimized order picking sequence:\\n";
-    for (auto &o : orders) {
-        cout &lt;&lt; "Pick Order " &lt;&lt; o.id 
-             &lt;&lt; " at aisle " &lt;&lt; o.location &lt;&lt; endl;
-    }
+// Pseudo C++ for E-Commerce Order Fulfillment
+vector<Order> orders = getOrders();          // fetch pending orders
+sort(orders by aisleLocation);               // greedy picking: minimize travel distance
+batchOrders(orders);                         // group orders to reduce redundant trips
+for each batch in orders {
+    path = shortestPath(batch);              // compute optimal warehouse route
+    for each order in batch
+        pick(order);                         // fulfill order at aisle
 }
+deliverBatches(path);                        // send picked orders for delivery
+  </pre>
 
-int main() {
-    vector<Order> orders = {{101,5},{102,2},{103,8},{104,1}};
-    fulfillOrders(orders);
-    return 0;
-}
-</pre>
-
-<p><strong>Conclusion:</strong> Optimized order fulfillment reduces delivery times, lowers costs, and improves customer experience in e-commerce.</p>
+  <p><strong>Conclusion:</strong> Optimized order fulfillment reduces delivery times, lowers costs, and improves customer experience in e-commerce.</p>
 </div>
 
 <script>
