@@ -161,98 +161,146 @@ header p{max-width:800px;margin:20px auto;font-size:16px;line-height:1.6;color:i
 
 <!-- Hidden Code Blocks -->
 <pre id="codeMerge" class="hidden-code">
-#include &lt;iostream&gt;
+#include &lt;
+ iostream&gt;
 using namespace std;
 
-void merge(int a[], int l, int m, int r) {
-    int n1 = m-l+1, n2=r-m;
-    int L[n1], R[n2];
-    for(int i=0;i&lt;n1;i++) L[i]=a[l+i];
-    for(int i=0;i&lt;n2;i++) R[i]=a[m+1+i];
-    int i=0,j=0,k=l;
-    while(i&lt;n1 &amp;&amp; j&lt;n2){
-        if(L[i]&gt;=R[j]) a[k++]=L[i++];
-        else a[k++]=R[j++];
-    }
-    while(i&lt;n1) a[k++]=L[i++];
-    while(j&lt;n2) a[k++]=R[j++];
-}
-
-void mergeSort(int a[], int l, int r){
-    if(l&lt;r){
-        int m=l+(r-l)/2;
-        mergeSort(a,l,m);
-        mergeSort(a,m+1,r);
-        merge(a,l,m,r);
-    }
-}
-
-int main(){
-    int n; cin&gt;&gt;n;
-    int arr[n];
-    for(int i=0;i&lt;n;i++) cin&gt;&gt;arr[i];
-    mergeSort(arr,0,n-1);
-    for(int i=0;i&lt;n;i++) cout&lt;&lt;arr[i]&quot; &quot;;
+ int main() {
+    int n;
+    cin >> n;
+    int A[n];
+    for(int i = 0; i < n; i++)
+        cin >> A[i];
+    mergeSort(A, 0, n - 1);
+    for(int i = 0; i < n; i++)
+        cout << A[i] << " ";
     return 0;
+}
+void mergeArray(int A[], int l, int mid, int r)
+ {
+ int p = mid - l + 1;   
+    int q = r - mid;         
+ int B[p], C[q];          
+ // Copy A[l..mid] → B[]
+    for(int i = 0; i < p; i++)
+        B[i] = A[l + i];
+ // Copy A[mid+1..r] → C[]
+    for(int j = 0; j < q; j++)
+        C[j] = A[mid + 1 + j];
+ int i = 0, j = 0, k = l;
+ // Merge (DESCENDING ORDER)
+    while(i < p && j < q)
+             {
+        if(B[i] >= C[j])
+     {
+       A[k] = B[i];
+            i++;
+        } 
+     else
+     {
+     A[k] = C[j];
+            j++;
+     }
+        k++;
+  } // Remaining elements
+    while(i < p)
+        A[k++] = B[i++];
+    
+    while(j < q)
+        A[k++] = C[j++];
+}
+void mergeSort(int A[], int l, int r) {
+    if(l < r) {
+        int mid = (l + r) / 2;
+        mergeSort(A, l, mid);
+        mergeSort(A, mid + 1, r);
+        mergeArray(A, l, mid, r);
+    }
 }
 </pre>
 
 <pre id="codeHeap" class="hidden-code">
 #include &lt;iostream&gt;
 using namespace std;
-
-void heapify(int h[], int n, int i){
-    int k=i,v=h[i]; bool heap=false;
-    while(!heap &amp;&amp; 2*k+1&lt;n){
-        int j=2*k+1;
-        if(j+1&lt;n &amp;&amp; h[j]&lt;h[j+1]) j++;
-        if(v&gt;=h[j]) heap=true;
-        else{ h[k]=h[j]; k=j; }
-    }
-    h[k]=v;
-}
-
-void buildHeap(int h[], int n){
-    for(int i=n/2;i&gt;=0;i--) heapify(h,n,i);
-}
-
-int main(){
-    int n; cin&gt;&gt;n;
+ int main()
+  {
+    int n;
+    cin >> n;
     int h[n];
-    for(int i=0;i&lt;n;i++) cin&gt;&gt;h[i];
-    buildHeap(h,n);
-    for(int i=0;i&lt;n;i++) cout&lt;&lt;h[i]&quot; &quot;;
+    for(int i = 0; i < n; i++)
+        cin >> h[i];
+    buildHeap(h, n);
+    for(int i = 0; i < n; i++)
+        cout << h[i] << " ";
 }
+void heapify(int h[], int n, int i)
+     {
+    int k = i, v = h[i];
+    bool heap = false;
+    while(!heap && (2*k + 1) < n)
+  {
+     int j = 2*k + 1;
+        if(j + 1 < n && h[j] < h[j+1])
+            j++;
+        if(v >= h[j])
+            heap = true;
+        else {
+            h[k] = h[j];
+            k = j;
+        }
+    }
+    h[k] = v;
+}
+void buildHeap(int h[], int n)
+     {
+    for(int i = n/2; i >= 0; i--)
+        heapify(h, n, i);
+     }
+
+
 </pre>
 
 <pre id="codeBFS" class="hidden-code">
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 #include &lt;queue&gt;
+#include <bits/stdc++.h>
 using namespace std;
-
-void BFS(int s, vector&lt;int&gt; adj[], int n){
-    vector&lt;bool&gt; vis(n,false);
-    queue&lt;int&gt; q;
-    q.push(s); vis[s]=true;
-    while(!q.empty()){
-        int u=q.front(); q.pop();
-        cout&lt;&lt;u&lt;&lt;&quot; &quot;;
-        for(int v: adj[u])
-            if(!vis[v]){ q.push(v); vis[v]=true; }
+int main() {
+    int n, m;
+    cin >> n >> m;  
+    int g[n][100];    
+    int deg[n] = {0};  
+    for(int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v; 
+        g[u][deg[u]++] = v;
+        g[v][deg[v]++] = u;
     }
+    int visited[n] = {0};
+    int queue[1000];  
+    int front = 0, rear = 0;
+    int source;
+    cin >> source;
+ 
+    visited[source] = 1;
+    queue[rear++] = source;
+   cout << "BFS Traversal: ";
+    while(front < rear) {
+        int u = queue[front++];
+        cout << u << " ";
+        for(int i = 0; i < deg[u]; i++) {
+            int v = g[u][i];
+            if(!visited[v]) {
+                visited[v] = 1;
+                queue[rear++] = v;
+            }
+        }
+    }
+
+    return 0;
 }
 
-int main(){
-    int n,m; cin&gt;&gt;n&gt;&gt;m;
-    vector&lt;int&gt; adj[n];
-    for(int i=0;i&lt;m;i++){
-        int u,v; cin&gt;&gt;u&gt;&gt;v;
-        adj[u].push_back(v);
-        adj[v].push_back(u);
-    }
-    BFS(0,adj,n);
-}
 </pre>
 </div>
 
@@ -308,24 +356,32 @@ function toggleCode(id){
 #include &lt;iostream&gt;
 #include &lt;vector&gt;
 using namespace std;
-
-int main(){
-    int n,m;
-    cin&gt;&gt;n&gt;&gt;m; 
-    vector&lt;pair&lt;int,int&gt;&gt; g[n];
-    for(int i=0;i&lt;m;i++){
-        int u,v,w; 
-        cin&gt;&gt;u&gt;&gt;v&gt;&gt;w;
-        g[u].push_back({v,w});
-        g[v].push_back({u,w});
+int main() {
+    int n, m;
+    cin >> n >> m;
+    int g[n][100];     
+    int w[n][100];   
+    int deg[n] = {0};  
+    for(int i = 0; i < m; i++) {
+        int u, v, weight;
+        cin >> u >> v >> weight;
+        g[u][deg[u]] = v;
+        w[u][deg[u]] = weight;
+        deg[u]++;
+        g[v][deg[v]] = u;
+        w[v][deg[v]] = weight;
+        deg[v]++;
     }
-    for(int i=0;i&lt;n;i++){
-        cout&lt;&lt;"Node "&lt;&lt;i&lt;&lt;": ";
-        for(auto p:g[i]) cout&lt;&lt;"("&lt;&lt;p.first&lt;&lt;","&lt;&lt;p.second&lt;&lt;") ";
-        cout&lt;&lt;endl;
+    for(int i = 0; i < n; i++) {
+        cout << i << ": ";
+        for(int j = 0; j < deg[i]; j++) {
+            cout << g[i][j] << "(" << w[i][j] << ") ";
+        }
+        cout << endl;
     }
     return 0;
-}
+               }
+
 </pre>
 
 <pre id="codeDijkstra" class="hidden-code">
@@ -333,33 +389,54 @@ int main(){
 #include &lt;vector&gt;
 #include &lt;queue&gt;
 using namespace std;
+#define MAXN 100
+#define INF 1e9
 
-int main(){
-    int n,m; cin&gt;&gt;n&gt;&gt;m;
-    vector&lt;pair&lt;int,int&gt;&gt; g[n];
-    for(int i=0;i&lt;m;i++){
-        int u,v,w; cin&gt;&gt;u&gt;&gt;v&gt;&gt;w;
-        g[u].push_back({v,w});
-        g[v].push_back({u,w});
+int main() {
+    int n, m;
+    cin >> n >> m;
+    int cost[MAXN][MAXN];
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            cost[i][j] = INF;
+    for (int i = 0; i < m; i++) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        cost[u][v] = w;
+        cost[v][u] = w; 
     }
-
-    int src; cin&gt;&gt;src;
-    vector&lt;int&gt; dist(n,1e9);
-    dist[src]=0;
-    priority_queue&lt;pair&lt;int,int&gt;, vector&lt;pair&lt;int,int&gt;>, greater&lt;pair&lt;int,int&gt;&gt;&gt; pq;
-    pq.push({0,src});
-    while(!pq.empty()){
-        auto [d,u]=pq.top(); pq.pop();
-        for(auto [v,w]:g[u]){
-            if(dist[v]&gt;d+w){
-                dist[v]=d+w;
-                pq.push({dist[v],v});
+    int source;
+    cin >> source;
+    int dist[MAXN];
+    int visited[MAXN] = {0};
+    for (int i = 0; i < n; i++)
+        dist[i] = INF;
+    dist[source] = 0;  
+    for (int count = 0; count < n; count++) {
+        int u = -1;
+        int minDist = INF; 
+        for (int i = 0; i < n; i++) {
+            if (!visited[i] && dist[i] < minDist) {
+                minDist = dist[i];
+                u = i;
             }
         }
-    }
-    for(int i=0;i&lt;n;i++) cout&lt;&lt;"Distance to "&lt;&lt;i&lt;&lt;": "&lt;&lt;dist[i]&lt;&lt;endl;
+
+        if (u == -1) 
+          break; 
+        visited[u] = 1;
+        for (int v = 0; v < n; v++) {
+            if (!visited[v] && cost[u][v] != INF) {
+                if (dist[u] + cost[u][v] < dist[v])
+                    dist[v] = dist[u] + cost[u][v];
+            }
+        }
+    }   
+    for (int i = 0; i < n; i++)
+        cout << "Distance to " << i << ": " << dist[i] << endl;
     return 0;
 }
+
 </pre>
 
 <pre id="codeBFS2" class="hidden-code">
@@ -367,31 +444,41 @@ int main(){
 #include &lt;vector&gt;
 #include &lt;queue&gt;
 using namespace std;
-
-int main(){
-    int n,m; cin&gt;&gt;n&gt;&gt;m;
-    vector&lt;int&gt; g[n];
-    for(int i=0;i&lt;m;i++){
-        int u,v; cin&gt;&gt;u&gt;&gt;v;
-        g[u].push_back(v);
-        g[v].push_back(u);
+int main() {
+    int n, m;
+    cin >> n >> m;
+    int g[n][100];  
+    int deg[n] = {0};
+    for(int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        g[u][deg[u]++] = v;
+        g[v][deg[v]++] = u;
     }
-    int start; cin&gt;&gt;start;
-    vector&lt;bool&gt; vis(n,false);
-    queue&lt;int&gt; q;
-    q.push(start); vis[start]=true;
-    while(!q.empty()){
-        int u=q.front(); q.pop();
-        cout&lt;&lt;u&lt;&lt;" ";
-        for(int v:g[u]){
-            if(!vis[v]){
-                vis[v]=true;
-                q.push(v);
+    int visited[n] = {0};
+    int queue[1000];   
+    int front = 0, rear = 0;
+    int source;
+    cin >> source;
+   
+    visited[source] = 1;
+    queue[rear++] = source;
+   cout << "BFS Traversal: ";
+    while(front < rear) {
+        int u = queue[front++];
+        cout << u << " ";
+        for(int i = 0; i < deg[u]; i++) {
+            int v = g[u][i];
+            if(!visited[v]) {
+                visited[v] = 1;
+                queue[rear++] = v;
             }
         }
     }
+
     return 0;
 }
+
 </pre>
 </div>
 <div id="a3" class="module-content">
@@ -459,38 +546,36 @@ int main(){
 #include &lt;iostream&gt;
 #include &lt;unordered_map&gt;
 using namespace std;
-
-int main() {
-    unordered_map&lt;string,string&gt; type;
-    type["KA01AB1234"] = "EV";
-    type["MH09XY7777"] = "NON-EV";
-
-    string plate;  
-    cin &gt;&gt; plate;
-
-    if(type[plate] == "NON-EV") 
-        cout &lt;&lt; "Use BYPASS\n";
+ int main() {
+    string plate;
+    cin >> plate;
+  
+    if (plate == "MH09XY7777") 
+        cout << "Use BYPASS\n";
+    else if (plate == "KA01AB1234")
+        cout << "Welcome to EV City\n";
     else
-        cout &lt;&lt; "Welcome to EV City\n";
+        cout << "Plate not recognized\n";
 }
+
 </pre>
 
 <pre id="codeQueue" class="hidden-code">
 #include &lt;iostream&gt;
 #include &lt;queue&gt;
 using namespace std;
-
 int main() {
-    queue&lt;string&gt; q;
-    q.push("CAR1");
-    q.push("CAR2");
-    q.push("CAR3");
-
-    while(!q.empty()) {
-        cout &lt;&lt; "Processing " &lt;&lt; q.front() &lt;&lt; endl;
-        q.pop();
+    string cars[3] = {"CAR1", "CAR2", "CAR3"};
+    int front = 0;  
+    int rear = 3; 
+while (front < rear) {
+        cout << "Processing " << cars[front] << endl;
+        front++;  // remove car from queue
     }
+
+    return 0;
 }
+
 </pre>
 
 <pre id="codeDijkstra3" class="hidden-code">
@@ -498,52 +583,55 @@ int main() {
 #include &lt;vector&gt;
 #include &lt;queue&gt;
 using namespace std;
-
-int main() {
-    int n = 4;
-    vector&lt;pair&lt;int,int&gt;&gt; g[5];
-    g[1]={{2,4},{3,2}};
-    g[2]={{4,5}};
-    g[3]={{4,1}};
-
-    vector&lt;int&gt; d(n+1,1e9);
-    priority_queue&lt;pair&lt;int,int&gt;,vector&lt;pair&lt;int,int&gt;,greater&lt;pair&lt;int,int&gt;&gt;&gt; pq;
-
-    d[1]=0; pq.push({0,1});
-    while(!pq.empty()){
-        auto [w,u]=pq.top(); pq.pop();
-        for(auto [v,c]:g[u])
-            if(d[v] &gt; w+c){
-                d[v]=w+c;
-                pq.push({d[v],v});
-            }
-    }
-    cout &lt;&lt; "Fastest bypass to node 4 = " &lt;&lt; d[4];
-}
-</pre>
-
-<pre id="codeBFS3" class="hidden-code">
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;queue&gt;
+#include <iostream>
 using namespace std;
 
-int main() {
-    vector&lt;int&gt; g[5]={{},{2,3},{4},{4},{}};
-    bool vis[5]={0};
-    queue&lt;int&gt; q;
-    q.push(1); vis[1]=1;
+#define MAXN 100
+#define INF 1000000000
 
-    while(!q.empty()){
-        int u=q.front(); q.pop();
-        cout &lt;&lt; u &lt;&lt; " ";
-        for(int v:g[u])
-            if(!vis[v]){
-                vis[v]=1;
-                q.push(v);
-            }
+int main() {
+    int n, m;
+    cin >> n >> m;
+    int cost[MAXN][MAXN];
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            cost[i][j] = INF;
+
+    for (int i = 0; i < m; i++) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        cost[u][v] = w;
+        cost[v][u] = w;
     }
+    int source, target;
+    cin >> source >> target;
+    int dist[MAXN];
+    int visited[MAXN] = {0};
+    for (int i = 0; i < n; i++)
+        dist[i] = INF;
+    dist[source] = 0;
+    for (int count = 0; count < n; count++) {
+        int u = -1;
+        int minDist = INF;
+        for (int i = 0; i < n; i++) {
+            if (!visited[i] && dist[i] < minDist) {
+                minDist = dist[i];
+                u = i;
+            }
+        }
+        if (u == -1) break;
+        visited[u] = 1;
+        for (int v = 0; v < n; v++) {
+            if (!visited[v] && cost[u][v] != INF) {
+                if (dist[u] + cost[u][v] < dist[v])
+                    dist[v] = dist[u] + cost[u][v];
+            }
+        }
+    }
+    cout << "Fastest bypass to node " << target << " = " << dist[target] << endl;
+    return 0;
 }
+
 </pre>
 </div>
 <div id="a4" class="module-content">
@@ -612,43 +700,39 @@ int main() {
 #include &lt;iostream&gt;
 #include &lt;unordered_map&gt;
 using namespace std;
-
 int main() {
-    unordered_map&lt;string, string&gt; vehicleType;
-
-    vehicleType["KA01EV1234"] = "EV-Car";
-    vehicleType["KA09AB7890"] = "Petrol";
-    vehicleType["KA55TR1122"] = "Truck";
-
     string num;
-    cin &gt;&gt; num;
+    cin >> num;
 
-    if(vehicleType.count(num))
-        cout &lt;&lt; vehicleType[num];
+    if(num == "KA01EV1234")
+        cout << "EV-Car";
+    else if(num == "KA09AB7890")
+        cout << "Petrol";
+    else if(num == "KA55TR1122")
+        cout << "Truck";
     else
-        cout &lt;&lt; "Unknown Vehicle";
+        cout << "Unknown Vehicle";
 
     return 0;
 }
+
 </pre>
 
 <pre id="codeQueue4" class="hidden-code">
 #include &lt;iostream&gt;
 #include &lt;queue&gt;
 using namespace std;
-
 int main() {
-    queue&lt;string&gt; q;
-    q.push("KA01EV1234");
-    q.push("KA09AB7890");
-    q.push("KA55TR1122");
-
-    while(!q.empty()) {
-        cout &lt;&lt; q.front() &lt;&lt; " enters lane\n";
-        q.pop();
+    string cars[3] = {"KA01EV1234", "KA09AB7890", "KA55TR1122"};
+    int front = 0;
+    int rear = 3;
+    while(front < rear) {
+        cout << cars[front] << " enters lane\n";
+        front++;
     }
     return 0;
 }
+
 </pre>
 
 <pre id="codeBFS4" class="hidden-code">
@@ -657,58 +741,66 @@ int main() {
 #include &lt;queue&gt;
 using namespace std;
 
-int main() {
-    int n = 5;
-    vector&lt;vector&lt;int&gt;&gt; g = {
-        {1},        // 0 → EV-Car Lane
-        {2},        // 1 → EV-Bus Lane
-        {3},        // 2 → Goods Lane
-        {},         // 3 → End
-        {1,2,0}     // 4 → Main Junction
-    };
+#include <iostream>
+using namespace std;
 
-    int start = 4;      // Junction
-    int target = 2;     // Goods Lane
+bool bfs(int m[10][10], int n, int source, int target) {
+    int queue[20];
+    int front = 0, rear = 0;
+    int visited[10] = {0};
+    queue[rear++] = source;
+    visited[source] = 1;
+    while (front < rear) {
+        int u = queue[front++];
+        if (u == target) return true;
 
-    queue&lt;int&gt; q;
-    vector&lt;bool&gt; vis(n, false);
-
-    q.push(start);
-    vis[start] = true;
-
-    bool ok = false;
-
-    while(!q.empty()) {
-        int u = q.front(); q.pop();
-        if(u == target) { ok = true; break; }
-        for(int v : g[u])
-            if(!vis[v]) { vis[v] = true; q.push(v); }
+        for (int v = 0; v < n; v++) {
+            if (m[u][v] == 1 && !visited[v]) {
+                visited[v] = 1;
+                queue[rear++] = v;
+            }
+        }
     }
 
-    if(ok) cout &lt;&lt; "Lane reachable";
-    else cout &lt;&lt; "Lane blocked";
+    return false;
+}
+
+int main() {
+    int n = 5;
+    int m[10][10] = {
+        {0,1,0,0,0},
+        {0,0,1,0,0},
+        {0,0,0,0,0},
+        {0,0,0,0,0},
+        {1,1,1,0,0}
+    };
+
+    int source, target;
+    cin >> source >> target;
+
+    if (bfs(m, n, source, target))
+        cout << "Lane reachable";
+    else
+        cout << "Lane blocked";
 
     return 0;
 }
+
 </pre>
 
 <pre id="codeSelectSort4" class="hidden-code">
 #include &lt;iostream&gt;
 using namespace std;
-
 int main() {
-    int a[5] = {30, 10, 50, 20, 40};
-
-    for(int i=0;i&lt;5;i++){
-        int min = i;
-        for(int j=i+1;j&lt;5;j++)
-            if(a[j] &lt; a[min]) min = j;
-        swap(a[i], a[min]);
-    }
-
-    for(int x : a) cout &lt;&lt; x &lt;&lt; " ";
-    return 0;
+    int a[5] = {30,10,50,20,40}, n=5;
+    for(int i=0;i<n;i++)
+        for(int j=i+1;j<n;j++)
+            if(a[j]<a[i]) 
+                  swap(a[i],a[j]);
+    for(int i=0;i<n;i++)
+                  cout<<a[i]<<" ";
 }
+
 </pre>
 </div>
 
@@ -781,38 +873,47 @@ int main() {
 #include &lt;iostream&gt;
 #include &lt;queue&gt;
 using namespace std;
-
 int main() {
-    priority_queue&lt;pair&lt;int,string&gt;&gt; pq; // severity, road
-    pq.push({5,"Lane1"});
-    pq.push({2,"Lane2"});
-    pq.push({8,"Lane3"});
-
-    cout &lt;&lt; "Most severe: " &lt;&lt; pq.top().second &lt;&lt; endl;
+    int s[3] = {5, 2, 8};
+    string l[3] = {"Lane1", "Lane2", "Lane3"};
+    int max = 0;
+    for(int i = 1; i < 3; i++)
+        if(s[i] > s[max])
+            max = i;
+    cout << "Most severe: " << l[max] << endl;
 }
+
 </pre>
 
 <pre id="codeDFS5" class="hidden-code">
 #include &lt;iostream&gt;
 using namespace std;
-
-void dfs(int g[5][5], int v, bool vis[]) {
-    vis[v] = true;
-    for(int i=0;i&lt;5;i++)
-        if(g[v][i] &amp;&amp; !vis[i])
-            dfs(g, i, vis);
+int v = 5;
+int m[10][10] = {{0,1,1,0,0}, {1,0,0,1,1},
+        {1,0,0,0,1}, {0,1,0,0,0}, {0,1,1,0,0}};
+int visited[10];
+void dfs(int m[10][10], int v, int source) {
+    visited[source] = 1;
+    for (int i = 0; i < v; i++) {
+        if (m[source][i] == 1 && visited[i] == 0) {
+            cout << i << "\t";
+            dfs(m, v, i);
+        }
+    }
 }
-
 int main() {
-    int g[5][5] = {
-        {0,1,0,0,0},
-        {1,0,1,0,0},
-        {0,1,0,1,0},
-        {0,0,1,0,0},
-        {0,0,0,0,0}
-    };
-    bool vis[5]={0};
-    dfs(g,0,vis);
+    int source;
+    for (int i = 0; i < v; i++)
+        visited[i] = 0;
+
+    cout << "Enter the source vertex: ";
+    cin >> source;
+
+    cout << "The DFS Traversal is... \n";
+    cout << source << "\t";
+    dfs(m, v, source);
+
+    return 0;
 }
 </pre>
 
@@ -820,32 +921,49 @@ int main() {
 #include &lt;iostream&gt;
 #include &lt;queue&gt;
 using namespace std;
+#include <iostream>
+using namespace std;
+
+void bfs(int m[10][10], int v, int source) {
+    int queue[20];
+    int front = 0, rear = 0, u, i;
+    int visited[10];
+
+    for (i = 0; i < v; i++)
+        visited[i] = 0;
+
+    queue[rear] = source;
+    visited[source] = 1;
+
+    cout << "The BFS Traversal is... \n";
+
+    while (front <= rear) {
+        u = queue[front];
+        cout << u << "\t";
+        front++;
+
+        for (i = 0; i < v; i++) {
+            if (m[u][i] == 1 && visited[i] == 0) {
+                visited[i] = 1;
+                rear++;
+                queue[rear] = i;
+            }
+        }
+    }
+}
 
 int main() {
-    int g[5][5] = {
-        {0,1,1,0,0},
-        {1,0,0,1,0},
-        {1,0,0,0,1},
-        {0,1,0,0,0},
-        {0,0,1,0,0}
-    };
+    int v = 5;
+    int m[10][10] = {{0,1,1,0,0}, {1,0,0,1,1},
+        {1,0,0,0,1}, {0,1,0,0,0}, {0,1,1,0,0}};
 
-    queue&lt;int&gt; q;
-    bool vis[5]={0};
+    int source;
+    cout << "Enter the source vertex: ";
+    cin >> source;
 
-    q.push(0);
-    vis[0]=1;
+    bfs(m, v, source);
 
-    while(!q.empty()) {
-        int x=q.front(); q.pop();
-        cout &lt;&lt; x &lt;&lt; " ";
-
-        for(int i=0;i&lt;5;i++)
-            if(g[x][i] &amp;&amp; !vis[i]) {
-                vis[i]=1;
-                q.push(i);
-            }
-    }
+    return 0;
 }
 </pre>
 </div>
@@ -889,34 +1007,77 @@ int main() {
 #include &lt;bits/stdc++.h&gt;
 using namespace std;
 
+#include <iostream>
+using namespace std;
+
+#define MAXN 100
+#define INF 999
+
 int main() {
-    int n, m; 
-    cin &gt;&gt; n &gt;&gt; m;
-    vector&lt;pair&lt;int,int&gt;&gt; g[n+1];
-    for(int i=0;i&lt;m;i++){
-        int u,v,w; 
-        cin&gt;&gt;u&gt;&gt;v&gt;&gt;w;
-        g[u].push_back({v,w});
-        g[v].push_back({u,w});
+    int n;
+    cout << "Enter the number of Vertices\n";
+    cin >> n;
+
+    int cost[MAXN][MAXN];
+
+    cout << "Enter the cost matrix: (Enter 999 for Infinity)\n";
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> cost[i][j];
+        }
     }
-    int src; cin &gt;&gt; src;
-    vector&lt;int&gt; dist(n+1,1e9);
-    dist[src]=0;
-    priority_queue&lt;pair&lt;int,int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;&gt;&gt; pq;
-    pq.push({0,src});
-    while(!pq.empty()){
-        auto [d,u]=pq.top(); pq.pop();
-        if(d&gt;dist[u]) continue;
-        for(auto &amp;[v,w]: g[u]){
-            if(dist[u]+w&lt;dist[v]){
-                dist[v]=dist[u]+w;
-                pq.push({dist[v],v});
+
+    int source;
+    cout << "Enter the source\n";
+    cin >> source;
+
+    int dist[MAXN], path[MAXN], visited[MAXN];
+
+
+    for (int i = 0; i < n; i++) {
+        dist[i] = cost[source][i];
+        path[i] = source;
+        visited[i] = 0;
+    }
+    visited[source] = 1;
+
+
+    for (int iter = 0; iter < n - 1; iter++) {
+        int u = -1;
+        int min = INF + 1;
+
+
+        for (int i = 0; i < n; i++) {
+            if (!visited[i] && dist[i] < min) {
+                min = dist[i];
+                u = i;
+            }
+        }
+
+        if (u == -1)
+            break;
+
+        visited[u] = 1;
+
+
+        for (int v = 0; v < n; v++) {
+            if (!visited[v] && cost[u][v] != INF) {
+                if (dist[u] + cost[u][v] < dist[v]) {
+                    dist[v] = dist[u] + cost[u][v];
+                    path[v] = u;
+                }
             }
         }
     }
-    for(int i=1;i&lt;=n;i++) cout &lt;&lt; dist[i] &lt;&lt; " ";
+
+    cout << "\nVertex   Dist   Path\n";
+    for (int i = 0; i < n; i++) {
+        cout << i << "        " << dist[i] << "      " << path[i] << "\n";
+    }
+
     return 0;
 }
+
 </pre>
 </div>
 <div id="a7" class="module-content">
