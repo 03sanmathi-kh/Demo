@@ -10,7 +10,7 @@
   <style>
     /* GitHub Button Styling */
     .github-btn {
-      background: #333;       /* GitHub dark gray */
+      background: #333;      
       color: white;
       padding: 8px 16px;
       border-radius: 6px;
@@ -18,12 +18,20 @@
       font-weight: bold;
       display: inline-block;
       transition: box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 0 10px rgba(192,192,192,0.6); /* always glowing */
     }
 
-    /* Gentle glow effect */
     .github-btn:hover {
-      box-shadow: 0 0 10px rgba(192,192,192,0.7); /* soft silver glow */
-      transform: scale(1.03); /* slight lift */
+      box-shadow: 0 0 14px rgba(192,192,192,0.9);
+      transform: scale(1.03); /* gentle lift */
+    }
+
+    /* Bigger section titles */
+    .project-overview h2 {
+      font-size: 2.2em;   /* larger than before */
+      color: maroon;
+      text-align: center;
+      margin-bottom: 15px;
     }
   </style>
 </head>
@@ -60,7 +68,7 @@
 </section>
 
 <section class="project-overview">
-  <h2>PHASE 1 -Design of City</h2>
+  <h2>PHASE 1 - Design of City</h2>
   <img src="Image1.jpg" alt="City Design">
   <img src="Image2.jpg" alt="City Design">
 </section>
