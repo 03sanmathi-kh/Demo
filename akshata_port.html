@@ -88,6 +88,41 @@ header p{max-width:800px;margin:20px auto;font-size:16px;line-height:1.6;color:i
   .hex{width:140px;height:80px;font-size:14px;}
   header h1{font-size:32px;}
 }
+ body {
+    background: radial-gradient(circle at center,
+        rgba(255,255,255,0.12) 0%,
+        rgba(0,0,0,0.9) 100%
+    );
+    animation: bgGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes bgGlow {
+    from { background-position: 0% 50%; }
+    to   { background-position: 100% 50%; }
+}
+.hex {
+    position: relative;
+    overflow: hidden;
+}
+
+.hex::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.5s ease, opacity 0.6s ease;
+}
+
+.hex:active::after {
+    transform: scale(25);
+    opacity: 0;
+}
+
 </style>
 </head>
 
