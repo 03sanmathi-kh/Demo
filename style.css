@@ -1,3 +1,4 @@
+/* ===== GLOBAL STYLES ===== */
 html { scroll-behavior: smooth; }
 
 body {
@@ -10,13 +11,19 @@ body {
   position: relative;
   overflow-x: hidden;
   color: #fff;
-  background: #000;
-  transition: color 0.8s, background 0.8s;
+  background-color: #000000;
+  transition: color 0.8s ease, background 0.8s ease;
 }
 
-body.light { color: #1a1a1a; background: #fff; }
+body.light { 
+  color: #1a1a1a; 
+  background-color: #ffffff; 
+}
 
-body::before, body::after, body .wave-layer3 {
+/* ===== WAVES ===== */
+body::before,
+body::after,
+body .wave-layer3 {
   content: "";
   position: fixed;
   left: 0;
@@ -28,10 +35,12 @@ body::before, body::after, body .wave-layer3 {
   filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
 }
 
-body.dark::before { background: rgba(10,10,40,0.6); animation: wave1 30s linear infinite; top: -50%; }
-body.dark::after { background: rgba(20,20,60,0.5); animation: wave2 40s linear infinite; top: -60%; }
-body.dark .wave-layer3 { background: rgba(30,30,90,0.4); animation: wave3 50s linear infinite; top: -55%; }
+/* Dark mode waves — LIGHTER */
+body.dark::before { background: rgba(50,50,90,0.6); animation: wave1 30s linear infinite; top: -50%; }
+body.dark::after { background: rgba(70,70,120,0.5); animation: wave2 40s linear infinite; top: -60%; }
+body.dark .wave-layer3 { background: rgba(100,100,180,0.4); animation: wave3 50s linear infinite; top: -55%; }
 
+/* Light mode waves */
 body.light::before { background: rgba(200,220,255,0.6); animation: wave1Light 30s linear infinite; top: -50%; }
 body.light::after { background: rgba(180,200,255,0.5); animation: wave2Light 40s linear infinite; top: -60%; }
 body.light .wave-layer3 { background: rgba(160,180,255,0.4); animation: wave3Light 50s linear infinite; top: -55%; }
@@ -39,324 +48,129 @@ body.light .wave-layer3 { background: rgba(160,180,255,0.4); animation: wave3Lig
 @keyframes wave1 { 0%,100%{transform:translateX(0) rotate(0);} 50%{transform:translateX(20%) rotate(3deg);} }
 @keyframes wave2 { 0%,100%{transform:translateX(0) rotate(0);} 50%{transform:translateX(-15%) rotate(-3deg);} }
 @keyframes wave3 { 0%,100%{transform:translateX(0) rotate(0);} 50%{transform:translateX(10%) rotate(1deg);} }
-@keyframes wave1Light, wave2Light, wave3Light { 0%,100%{transform:translateX(0) rotate(0);} }
 
-.theme-toggle, .back-btn {
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: 600;
-  position: fixed;
-  z-index: 4;
-  cursor: pointer;
+@keyframes wave1Light { 0%,100%{transform:translateX(0) rotate(0);} 50%{transform:translateX(20%) rotate(3deg);} }
+@keyframes wave2Light { 0%,100%{transform:translateX(0) rotate(0);} 50%{transform:translateX(-15%) rotate(-3deg);} }
+@keyframes wave3Light { 0%,100%{transform:translateX(0) rotate(0);} 50%{transform:translateX(10%) rotate(1deg);} }
+
+/* ===== BUTTONS ===== */
+.theme-toggle {
+  position: fixed; top: 20px; left: 20px;
+  padding: 10px 20px; border-radius: 8px; border: none;
+  cursor: pointer; font-weight: 600;
+  background: #ff79c6; color: #fff;
+  transition: background 0.3s; z-index: 5;
+}
+.theme-toggle:hover { background: #ff4c60; }
+
+.back-btn {
+  position: fixed; top: 70px; left: 20px;
+  padding: 10px 20px; border-radius: 8px;
+  background: #ff79c6; color: #fff;
+  font-weight: 600; text-decoration: none;
+  text-align: center; width: max-content;
+  transition: 0.3s; z-index: 4;
+}
+.back-btn:hover { background: #ff4c60; }
+
+.github-btn {
+  margin: 40px auto; padding: 12px 25px; border-radius: 10px;
+  background: #24292e; color: #fff;
+  font-weight: 700; font-size: 16px; text-decoration: none;
+  display: inline-block; transition: background 0.3s;
+}
+.github-btn:hover { background: #444c56; }
+body.light .github-btn { background: #005577; color: #fff; }
+body.light .github-btn:hover { background: #00334a; }
+
+/* ===== NAVIGATION ===== */
+nav { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 3; }
+nav a {
+  text-decoration: none; font-weight: 600; padding: 8px 14px;
+  border-radius: 6px; transition: background 0.3s;
+  background: rgba(0,0,0,0.3); color: #fff;
+}
+nav a:hover { background: rgba(0,0,0,0.6); }
+body.light nav a { color: #1a1a1a; background: rgba(200,200,200,0.6); }
+body.light nav a:hover { background: rgba(150,150,150,0.9); }
+
+/* ===== HEADINGS ===== */
+.portfolio-heading {
+  margin-top: 40px; font-size: 48px; font-weight: 900;
+  letter-spacing: 2px; text-align: center; text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  z-index: 2; position: relative;
+  transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+body.light .portfolio-heading { color: #005577; text-shadow: none; }
+
+h2 { text-align: center; color: #ff79c6; transition: 0.3s; }
+body.light h2 { color: #005577; }
+
+/* ===== PROJECTS / COURSES ===== */
+.project-overview, .course-overview { margin-top: 60px; text-align: center; max-width: 900px; padding: 0 20px; }
+.city-text, .course-overview p, .course-card, .course-box {
+  font-size: 18px; line-height: 1.6;
+  background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px;
+  margin: 0 auto 30px; color: #fff; text-shadow: 0 0 6px #0ff;
   transition: 0.3s;
 }
-.theme-toggle { top:20px; left:20px; background:#ff79c6; color:#fff; border:none; }
-.theme-toggle:hover { background:#ff4c60; }
-.back-btn { top:70px; left:20px; background:#ff79c6; color:#fff; text-decoration:none; text-align:center; width:max-content; }
-.back-btn:hover { background:#ff4c60; }
+body.light .city-text,
+body.light .course-overview p,
+body.light .course-card,
+body.light .course-box { background: rgba(245,245,255,0.9); color: #1a1a1a; text-shadow: none; }
+.project-overview img { width: 90%; max-width: 900px; border-radius: 20px; margin-top: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.6); transition: 0.3s; }
 
-nav { position:fixed; top:20px; right:20px; display:flex; gap:15px; z-index:3; }
-nav a { text-decoration:none; font-weight:600; padding:8px 14px; border-radius:6px; transition:0.3s; background:rgba(0,0,0,0.3); color:#fff; }
-nav a:hover { background:rgba(0,0,0,0.6); }
-body.light nav a { color:#1a1a1a; background:rgba(200,200,200,0.6); }
-body.light nav a:hover { background:rgba(150,150,150,0.9); }
-
-.main-heading {
-  text-align:center;
-  margin-top:120px;
-  color:#0ff;
-  text-shadow:none;
-  transition:0.3s;
+/* ===== ABOUT / TEAM ===== */
+#about-text {
+  margin: 50px auto; max-width: 900px; font-size: 18px; line-height: 1.6;
+  background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px;
+  color: #fff; text-shadow: 0 0 6px #0ff;
 }
-body.light .main-heading { color:#005577; }
-.main-heading:hover { text-shadow:0 0 10px #0ff,0 0 20px #0ff,0 0 30px #a0f0ff; transform:scale(1.02); }
-.main-heading .title { font-size:60px; font-weight:900; display:block; }
-.main-heading .subtitle { font-size:24px; font-weight:500; display:block; margin-top:5px; }
+body.light #about-text { background: rgba(245,245,255,0.8); color: #1a1a1a; text-shadow: none; }
 
-.course-card, .course-box, .course-overview p {
-  transition:0.3s;
-}
-.course-card {
-  padding:40px 30px;
-  border-radius:20px;
-  max-width:420px;
-  width:90%;
-  margin-top:30px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(8px);
-  z-index:2;
-  position:relative;
-  color:#fff;
-}
-body.light .course-card { background:rgba(245,245,255,0.9); color:#1a1a1a; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+#meet-the-team { padding: 40px; text-align: center; }
+#meet-the-team h2 { font-size: 32px; font-weight: 900; margin-bottom: 30px; color: #ff79c6; }
+body.light #meet-the-team h2 { color: #005577; }
 
-.course-box {
-  padding:15px 20px;
-  margin-bottom:15px;
-  border-radius:12px;
-  background:rgba(255,255,255,0.05);
-  border-left:4px solid #ff4c60;
-}
-body.light .course-box { background:rgba(245,245,255,0.8); color:#1a1a1a; }
-.course-box h3 { font-size:20px; font-weight:700; color:#ff79c6; margin:0 0 8px; }
-.course-box p { margin:0; font-size:16px; color:#fff; text-shadow:0 0 6px #0ff; }
-body.light .course-box p { color:#005577; text-shadow:none; }
+.team-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
 
-.course-overview { margin-top:60px; text-align:center; max-width:900px; padding:20px; }
-.course-overview h2 { font-size:36px; font-weight:900; margin-bottom:20px; color:#ff79c6; }
-body.light .course-overview h2 { color:#005577; }
-.course-overview p {
-  font-size:18px; line-height:1.6; background:rgba(255,255,255,0.05); padding:25px; border-radius:15px;
-  margin:0 auto 30px; text-shadow:0 0 6px #0ff; color:#fff;
+.team-card {
+  border-radius: 12px; padding: 20px; width: 250px; text-align: center;
+  transition: transform 0.3s, background 0.4s, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px); color: #fff; text-shadow: 0 0 6px #fff; background: rgba(255,255,255,0.05);
 }
-body.light .course-overview p { background:rgba(245,245,255,0.8); color:#1a1a1a; text-shadow:none; }
+body.light .team-card { background: rgba(245,245,255,0.9); color: #1a1a1a; text-shadow: none; }
+.team-card a { color: #ff0000; font-weight: bold; text-decoration: none; text-shadow: 0 0 3px rgba(255,0,0,0.6); transition: 0.3s; }
+.team-card a:hover { text-shadow: 0 0 8px rgba(255,0,0,0.8); }
 
-.portfolio-heading:hover, h2:hover, .course-card:hover, .course-box:hover, .course-overview p:hover, .main-heading:hover {
-  box-shadow:0 0 15px #0ff,0 0 30px #0ff,0 0 45px #c0f0ff;
-  text-shadow:0 0 10px #0ff,0 0 20px #c0f0ff,0 0 30px #a0f0ff;
-  transform:scale(1.02);
+.team-card.traffic { background: rgba(255,0,60,0.3); }
+.team-card.industry { background: rgba(255,200,0,0.3); }
+.team-card.commerce { background: rgba(0,255,80,0.3); }
+.team-card.sustainability { background: rgba(200,100,255,0.3); }
+
+/* ===== HOVER EFFECTS ===== */
+.portfolio-heading:hover,
+h2:hover,
+.project-overview img:hover,
+.city-text:hover,
+.course-card:hover,
+.course-box:hover,
+.course-overview p:hover,
+.main-heading:hover,
+#about-text:hover,
+.team-card:hover {
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #c0f0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #c0f0ff, 0 0 30px #a0f0ff;
+  transform: scale(1.02);
 }
 
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      overflow-x: hidden;
-      color: #fff;
-      transition: color 0.8s ease, background 0.8s ease;
-      background-color: #000000;
-    }
-    body.light { 
-      color: #1a1a1a; /* dark text for readability */
-      background-color: #ffffff; 
-    }
-
-    body::before,
-    body::after,
-    body .wave-layer3 {
-      content: "";
-      position: fixed;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      border-radius: 45%;
-      z-index: -1;
-      pointer-events: none;
-      filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
-    }
-
-    body.dark::before { background: rgba(10,10,40,0.6); animation: wave1 30s linear infinite; top: -50%; }
-    body.dark::after { background: rgba(20,20,60,0.5); animation: wave2 40s linear infinite; top: -60%; }
-    body.dark .wave-layer3 { background: rgba(30,30,90,0.4); animation: wave3 50s linear infinite; top: -55%; }
-
-    body.light::before { background: rgba(200,220,255,0.6); animation: wave1Light 30s linear infinite; top: -50%; }
-    body.light::after { background: rgba(180,200,255,0.5); animation: wave2Light 40s linear infinite; top: -60%; }
-    body.light .wave-layer3 { background: rgba(160,180,255,0.4); animation: wave3Light 50s linear infinite; top: -55%; }
-
-    @keyframes wave1 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave2 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave3 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave1Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave2Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave3Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
-
-    /* THEME TOGGLE BUTTON */
-    .theme-toggle {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        padding: 10px 20px;
-        border-radius: 8px;
-        border: none;
-        cursor: pointer;
-        font-weight: 600;
-        background: #ff79c6;
-        color: #fff;
-        transition: background 0.3s;
-        z-index: 5;
-    }
-    .theme-toggle:hover { background: #ff4c60; }
-
-    .back-btn { 
-      position: fixed; 
-      top: 70px;
-      left: 20px;
-      padding: 10px 20px; 
-      border-radius: 8px; 
-      background: #ff79c6; 
-      color: #fff; 
-      font-weight: 600; 
-      text-decoration: none; 
-      text-align: center; 
-      transition: 0.3s; 
-      z-index: 4;
-    }
-    .back-btn:hover { background: #ff4c60; }
-
-    nav { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 3; }
-    nav a { text-decoration: none; color: #fff; font-weight: 600; padding: 8px 14px; border-radius: 6px; transition: background 0.3s; background: rgba(0,0,0,0.3); }
-    nav a:hover { background: rgba(0,0,0,0.6); }
-    body.light nav a { color: #1a1a1a; background: rgba(200,200,200,0.6); }
-    body.light nav a:hover { background: rgba(150,150,150,0.9); }
-
-    .portfolio-heading { margin-top: 40px; font-size: 48px; font-weight: 900; letter-spacing: 2px; text-align: center; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 2; position: relative; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
-    body.light .portfolio-heading { color: #005577; text-shadow: none; }
-
-    #about-text { margin: 50px auto; max-width: 900px; font-size: 18px; line-height: 1.6; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; text-shadow: 0 0 6px #0ff; color: #fff; }
-    body.light #about-text { background: rgba(245,245,255,0.8); color: #1a1a1a; text-shadow: none; }
-
-    #meet-the-team { padding: 40px; text-align: center; }
-    #meet-the-team h2 { font-size: 32px; font-weight: 900; margin-bottom: 30px; color: #ff79c6; }
-    body.light #meet-the-team h2 { color: #005577; }
-
-    .team-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-
-    .team-card { border-radius: 12px; padding: 20px; width: 250px; text-align: center; transition: transform 0.3s, background 0.4s, box-shadow 0.3s ease; backdrop-filter: blur(8px); color: #fff; text-shadow: 0 0 6px #fff; background: rgba(255,255,255,0.05); }
-    body.light .team-card { background: rgba(245,245,255,0.9); color: #1a1a1a; text-shadow: none; }
-    .team-card a { color: #ff0000; font-weight: bold; text-decoration: none; text-shadow: 0 0 3px rgba(255,0,0,0.6); transition: 0.3s; }
-    .team-card a:hover { text-shadow: 0 0 8px rgba(255,0,0,0.8); }
-
-    .team-card.traffic { background: rgba(255,0,60,0.3); }
-    .team-card.industry { background: rgba(255,200,0,0.3); }
-    .team-card.commerce { background: rgba(0,255,80,0.3); }
-    .team-card.sustainability { background: rgba(200,100,255,0.3); }
-
-    .portfolio-heading:hover,
-    #about-text:hover,
-    .team-card:hover { box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #c0f0ff; text-shadow: 0 0 10px #0ff, 0 0 20px #c0f0ff, 0 0 30px #a0f0ff; transform: scale(1.02); }
-
-    .portfolio-heading,
-    #about-text,
-    .team-card { box-shadow: none; text-shadow: none; transform: scale(1); }
-
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      overflow-x: hidden;
-      color: #fff;
-      transition: color 0.8s ease, background 0.8s ease;
-      background-color: #000000;
-    }
-    body.light { 
-      color: #1a1a1a; /* darker text for visibility */
-      background-color: #ffffff; 
-    }
-
-    body::before,
-    body::after,
-    body .wave-layer3 {
-      content: "";
-      position: fixed;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      border-radius: 45%;
-      z-index: -1;
-      pointer-events: none;
-      filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
-    }
-
-    body.dark::before { background: rgba(10,10,40,0.6); animation: wave1 30s linear infinite; top: -50%; }
-    body.dark::after { background: rgba(20,20,60,0.5); animation: wave2 40s linear infinite; top: -60%; }
-    body.dark .wave-layer3 { background: rgba(30,30,90,0.4); animation: wave3 50s linear infinite; top: -55%; }
-
-    body.light::before { background: rgba(200,220,255,0.6); animation: wave1Light 30s linear infinite; top: -50%; }
-    body.light::after { background: rgba(180,200,255,0.5); animation: wave2Light 40s linear infinite; top: -60%; }
-    body.light .wave-layer3 { background: rgba(160,180,255,0.4); animation: wave3Light 50s linear infinite; top: -55%; }
-
-    @keyframes wave1 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave2 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave3 { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave1Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(20%) rotate(3deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave2Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(-15%) rotate(-3deg);} 100% {transform: translateX(0) rotate(0deg);} }
-    @keyframes wave3Light { 0% {transform: translateX(0) rotate(0deg);} 50% {transform: translateX(10%) rotate(1deg);} 100% {transform: translateX(0) rotate(0deg);} }
-
-    /* ===== BUTTON STYLES ===== */
-    .theme-toggle {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        padding: 10px 20px;
-        border-radius: 8px;
-        border: none;
-        cursor: pointer;
-        font-weight: 600;
-        background: #ff79c6;
-        color: #fff;
-        transition: background 0.3s;
-        z-index: 5;
-    }
-    .theme-toggle:hover { background: #ff4c60; }
-
-    .back-btn {
-      position: fixed;
-      top: 70px; 
-      left: 20px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      background: #ff79c6;
-      color: #fff;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      width: max-content;
-      transition: 0.3s;
-      z-index: 4;
-    }
-    .back-btn:hover { background: #ff4c60; }
-
-    .github-btn {
-      margin: 40px auto;
-      padding: 12px 25px;
-      border-radius: 10px;
-      background: #24292e;
-      color: #fff;
-      font-weight: 700;
-      font-size: 16px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.3s;
-    }
-    .github-btn:hover { background: #444c56; }
-    body.light .github-btn { background: #005577; color: #fff; }
-    body.light .github-btn:hover { background: #00334a; }
-
-    nav { position: fixed; top: 20px; right: 20px; display: flex; gap: 15px; z-index: 3; }
-    nav a { text-decoration: none; color: #fff; font-weight: 600; padding: 8px 14px; border-radius: 6px; transition: background 0.3s; background: rgba(0,0,0,0.3); }
-    nav a:hover { background: rgba(0,0,0,0.6); }
-    body.light nav a { color: #1a1a1a; background: rgba(200,200,200,0.6); }
-    body.light nav a:hover { background: rgba(150,150,150,0.9); }
-
-    .portfolio-heading { margin-top: 40px; font-size: 48px; font-weight: 900; letter-spacing: 2px; text-align: center; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 2; position: relative; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
-    body.light .portfolio-heading { color: #005577; text-shadow: none; }
-
-    h2 { text-align: center; color: #ff79c6; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
-    body.light h2 { color: #005577; }
-
-    .project-overview { margin-top: 60px; text-align: center; max-width: 900px; padding: 0 20px; }
-    .city-motto { font-size: 20px; font-weight: 700; margin-bottom: 20px; text-align: center; color: #00bfff; }
-    .city-text { font-size: 18px; line-height: 1.6; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; margin: 0 auto 30px; text-shadow: 0 0 6px #0ff; color: #fff; transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease; }
-    body.light .city-text { background: rgba(245,245,255,0.9); color: #1a1a1a; text-shadow: none; }
-    .project-overview img { width: 90%; max-width: 900px; border-radius: 20px; margin-top: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.6); transition: box-shadow 0.3s ease; }
-
-    .portfolio-heading:hover,
-    h2:hover,
-    .project-overview img:hover,
-    .city-text:hover { box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #c0f0ff; text-shadow: 0 0 10px #0ff, 0 0 20px #c0f0ff, 0 0 30px #a0f0ff; transform: scale(1.02); }
-
-    .portfolio-heading,
-    h2,
-    .project-overview img,
-    .city-text { box-shadow: none; text-shadow: none; transform: scale(1); }
-  
+.portfolio-heading,
+h2,
+.project-overview img,
+.city-text,
+.course-card,
+.course-box,
+.course-overview p,
+.main-heading,
+#about-text,
+.team-card { box-shadow: none; text-shadow: none; transform: scale(1); }
