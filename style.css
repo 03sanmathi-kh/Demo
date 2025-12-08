@@ -233,4 +233,62 @@ body.light .course-overview p { background:rgba(245,245,255,0.8); color:#1a1a1a;
     .portfolio-heading,
     #about-text,
     .team-card { box-shadow: none; text-shadow: none; transform: scale(1); }
-  
+  /* ===== Project Page Styles ===== */
+.project-overview {
+  margin-top: 60px;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.city-motto {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #00bfff;
+}
+
+.city-text {
+  font-size: 18px;
+  line-height: 1.6;
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 15px;
+  margin: 0 auto 30px;
+  text-shadow: 0 0 6px #0ff;
+  color: #fff;
+  transition: box-shadow 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+body.light .city-text {
+  background: rgba(245,245,255,0.9);
+  color: #1a1a1a;
+  text-shadow: none;
+}
+
+.project-overview img {
+  width: 90%;
+  max-width: 900px;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Hover Effects */
+.project-overview img:hover,
+.city-text:hover { 
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #c0f0ff; 
+  text-shadow: 0 0 10px #0ff, 0 0 20px #c0f0ff, 0 0 30px #a0f0ff; 
+  transform: scale(1.02); 
+}
+
+/* Reset default hover for main elements to normal scale if needed */
+.project-overview img,
+.city-text { 
+  box-shadow: none; 
+  text-shadow: none; 
+  transform: scale(1); 
+}
+
