@@ -70,17 +70,24 @@ body.light nav a:hover { background:rgba(150,150,150,0.9); }
 }
 body.light .main-heading { color:#005577; }
 .main-heading:hover { text-shadow:0 0 10px #0ff,0 0 20px #0ff,0 0 30px #a0f0ff; transform:scale(1.02); }
-.main-heading .title { font-size:60px; font-weight:900; display:block; }
-.main-heading .subtitle { font-size:24px; font-weight:500; display:block; margin-top:5px; }
-
-.course-card, .course-box, .course-overview p {
-  transition:0.3s;
+.main-heading .title {
+  font-size: 80px; /* increased size */
+  font-weight:900;
+  display:block;
 }
+.main-heading .subtitle {
+  font-size:28px; /* slightly bigger */
+  font-weight:500;
+  display:block;
+  margin-top:5px;
+}
+
+.course-card, .course-box, .course-overview p { transition:0.3s; }
 .course-card {
-  padding:40px 30px;
+  padding:35px 30px; /* shorter vertically */
   border-radius:20px;
-  max-width:420px;
-  width:90%;
+  max-width:460px; /* slightly wider */
+  width:92%;
   margin-top:30px;
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(8px);
@@ -103,7 +110,12 @@ body.light .course-box { background:rgba(245,245,255,0.8); color:#1a1a1a; }
 body.light .course-box p { color:#005577; text-shadow:none; }
 
 .course-overview { margin-top:60px; text-align:center; max-width:900px; padding:20px; }
-.course-overview h2 { font-size:36px; font-weight:900; margin-bottom:20px; color:#ff79c6; }
+.course-overview h2 {
+  font-size:44px; /* increased size */
+  font-weight:900;
+  margin-bottom:20px;
+  color:#ff79c6;
+}
 body.light .course-overview h2 { color:#005577; }
 .course-overview p {
   font-size:18px; line-height:1.6; background:rgba(255,255,255,0.05); padding:25px; border-radius:15px;
