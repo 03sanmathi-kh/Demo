@@ -150,56 +150,43 @@
 
 /* Container alignment */
 .modules-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 180px;
   gap: 25px;
+  justify-items: center;
   margin-top: 25px;
+}
+
+/* Adjust rows: 3-2-3-2 */
+.modules-container a:nth-child(4),
+.modules-container a:nth-child(5),
+.modules-container a:nth-child(9),
+.modules-container a:nth-child(10) {
+  grid-column: span 1;
 }
 
 /* Rectangle container behind pentagon */
 .module-box {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
   transition: 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-
-  /* Light mode default */
-  background: #006666; /* deep teal for light bg */
+  background: #006666; 
   box-shadow: 0 5px 15px rgba(0, 102, 102, 0.6),
               0 5px 25px rgba(0, 77, 77, 0.5);
-}
-
-/* Light mode adjustments */
-body.light .module-box {
-  background: #006666; /* deep teal */
-  box-shadow: 0 5px 15px rgba(0, 102, 102, 0.7),
-              0 5px 25px rgba(0, 77, 77, 0.5);
-}
-
-/* Dark mode adjustments */
-body.dark .module-box {
-  background: #4B0082; /* dark purple for dark bg */
-  box-shadow: 0 5px 15px rgba(75, 0, 130, 0.7),
-              0 5px 25px rgba(46, 8, 84, 0.6);
-}
-
-/* Hover effect on rectangle */
-.module-box:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2),
-              0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* Pentagon Button */
 .module-btn {
   position: relative;
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(135deg, #008B8B, #006666); /* pentagon gradient for light mode */
+  width: 160px;
+  height: 160px;
+  font-size: 18px;
+  background: linear-gradient(135deg, #008B8B, #006666);
   clip-path: polygon(
     50% 0%,
     100% 38%,
@@ -212,30 +199,26 @@ body.dark .module-box {
   align-items: center;
   font-weight: bold;
   text-decoration: none;
-  font-size: 16px;
   color: white;
   transition: 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
   box-shadow: 0 0 15px rgba(0, 139, 139, 0.9),
               0 0 30px rgba(0, 102, 102, 0.9);
 }
 
-/* Light Mode Text & Background */
 body.light .module-btn {
   color: white;
-  background: linear-gradient(135deg, #008B8B, #006666); /* deep teal gradient */
+  background: linear-gradient(135deg, #008B8B, #006666);
   box-shadow: 0 0 15px rgba(0, 139, 139, 0.9),
               0 0 30px rgba(0, 102, 102, 0.9);
 }
 
-/* Dark Mode Text & Background */
 body.dark .module-btn {
   color: white;
-  background: linear-gradient(135deg, #4B0082, #2E0854); /* purple-blue gradient */
+  background: linear-gradient(135deg, #4B0082, #2E0854);
   box-shadow: 0 0 18px rgba(75, 0, 130, 0.9),
               0 0 35px rgba(46, 8, 84, 0.95);
 }
 
-/* Hover Shine, Zoom & Glow for Pentagon */
 .module-btn:hover {
   transform: scale(1.2);
   box-shadow: 0 0 50px white,
@@ -245,13 +228,19 @@ body.dark .module-btn {
   text-shadow: 0 0 12px white, 0 0 25px rgba(0, 255, 255, 0.9);
 }
 
-/* Smooth glow on click for Pentagon */
 .module-btn:active {
   transform: scale(1.15);
   box-shadow: 0 0 40px white,
               0 0 65px rgba(0, 139, 139, 1),
               0 0 90px rgba(0, 102, 102, 1.0),
               0 5px 20px rgba(0,0,0,0.6);
+}
+
+/* Make last pink card bigger */
+section.card:last-of-type {
+  padding: 40px;
+  width: 75%;
+  min-height: 400px;
 }
 
   </style>
