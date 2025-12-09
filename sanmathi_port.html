@@ -151,23 +151,71 @@
   margin-top: 20px;
 }
 
-.module-btn {
-  display: block;
-  text-align: center;
-  padding: 15px;
-  background: maroon;
-  color: white;
-  font-weight: bold;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: 0.3s;
+/* ========================================= */
+/* PENTAGON MODULE BUTTON DESIGN */
+/* ========================================= */
+
+/* Container alignment */
+.modules-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 25px;
 }
 
-.module-btn:hover {
-  background: silver;
+/* Pentagon Button */
+.module-btn {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, skyblue, silver);
+  clip-path: polygon(
+    50% 0%,
+    100% 38%,
+    82% 100%,
+    18% 100%,
+    0% 38%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
   color: navy;
-  box-shadow: 0 0 10px silver, 0 0 20px silver;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(135, 206, 250, 0.7),
+              0 0 20px rgba(192, 192, 192, 0.7);
+}
+
+/* Light Mode Text */
+body.light .module-btn {
+  color: navy;
+}
+
+/* Dark Mode Text */
+body.dark .module-btn {
+  color: white;
+  background: linear-gradient(135deg, #4db8ff, #d9d9d9);
+  box-shadow: 0 0 12px rgba(173, 216, 230, 0.8),
+              0 0 25px rgba(224, 224, 224, 0.9);
+}
+
+/* Hover Shine, Zoom & Glow */
+.module-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 20px white,
+              0 0 35px silver,
+              0 0 50px skyblue;
+  text-shadow: 0 0 5px white, 0 0 12px silver;
+}
+
+/* Smooth glow on click */
+.module-btn:active {
   transform: scale(1.05);
+  box-shadow: 0 0 12px white,
+              0 0 25px skyblue;
 }
 
   </style>
