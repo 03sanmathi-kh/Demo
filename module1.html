@@ -52,12 +52,21 @@
       color: maroon;
     }
 
+    body.dark .module-card h1 {
+      text-shadow: 0 0 10px silver;
+    }
+
     /* ===== HEADINGS ===== */
     .section-title {
       font-size: 1.4em;
       margin-top: 25px;
       font-weight: bold;
       color: maroon;
+    }
+
+    body.dark .section-title {
+      color: silver;
+      text-shadow: 0 0 8px #ccc;
     }
 
     /* ===== CONTENT BOX ===== */
@@ -77,28 +86,56 @@
     }
 
     body.dark .content-box {
-      background: rgba(11, 27, 74, 0.8);
+      background: rgba(11, 27, 74, 0.9);
       color: white;
       box-shadow: 0 0 25px 5px silver; /* bright silver glow */
+      border: 1px solid silver;
     }
 
-    /* BACK BUTTON */
-    .back-btn {
+    body.dark .content-box:hover {
+      box-shadow: 0 0 40px 10px silver, 0 0 25px #00ffcc;
+      transform: scale(1.02);
+    }
+
+    /* ===== BUTTONS ===== */
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .back-btn, .cpp-btn {
       display: inline-block;
-      margin-top: 20px;
       text-decoration: none;
       padding: 10px 20px;
-      background: rgba(135, 206, 250, 0.8); /* skyblue transparent */
-      color: navy;
       font-weight: bold;
       border-radius: 8px;
-      box-shadow: 0 0 18px 3px silver; /* bright glow */
       transition: 0.3s;
+    }
+
+    /* Back button */
+    .back-btn {
+      background: rgba(135, 206, 250, 0.8); /* skyblue transparent */
+      color: navy;
+      box-shadow: 0 0 18px 3px silver;
     }
 
     .back-btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 35px 8px silver, 0 0 25px rgba(135, 206, 250, 0.8); /* glowy effect */
+      box-shadow: 0 0 35px 8px silver, 0 0 25px rgba(135, 206, 250, 0.8);
+    }
+
+    /* C++ Implementation button */
+    .cpp-btn {
+      background: linear-gradient(135deg, #228B22, #32CD32); /* emerald gradient */
+      color: white;
+      box-shadow: 0 0 18px 3px silver;
+    }
+
+    .cpp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px 10px silver, 0 0 25px lime;
     }
   </style>
 </head>
@@ -134,9 +171,11 @@
         <!-- SDG numbers & justification -->
     </div>
 
-   
-
-    <a href="sanmathi.html" class="back-btn">⬅ Back to Modules</a>
+    <!-- Buttons row -->
+    <div class="button-row">
+      <a href="sanmathi.html" class="back-btn">⬅ Back to Modules</a>
+      <a href="PASTE_YOUR_GITHUB_FILE_URL_HERE" target="_blank" class="cpp-btn">View C++ Implementation</a>
+    </div>
 
   </div>
 
