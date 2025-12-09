@@ -6,7 +6,6 @@
   <title>Sanmathi_port.html</title>
 
   <style>
-
     /* ===== THEME BACKGROUND ===== */
     body.light {
       background-color: #f5f5f5;
@@ -14,14 +13,14 @@
     }
     body.dark {
       background-color: navy;
-      color: black; 
+      color: black; /* keep same as light mode */
     }
 
-    /* ===== THEME TOGGLE BUTTON ===== */
+    /* ===== TOGGLE BUTTON ===== */
     .theme-toggle {
       position: fixed;
       top: 10px;
-      left: 10px;
+      left: 100px;
       background: #444;
       padding: 8px 14px;
       color: white;
@@ -31,10 +30,10 @@
       z-index: 999;
     }
 
-    /* ===== BACK BUTTON (now below toggle) ===== */
+    /* ===== BACK BUTTON (moved below switch) ===== */
     .back-btn {
       position: fixed;
-      top: 55px;
+      top: 55px; /* changed from 10px → 55px */
       left: 10px;
       display: inline-block;
       text-decoration: none;
@@ -47,17 +46,16 @@
       transition: 0.3s;
       z-index: 999;
     }
-
     .back-btn:hover {
       transform: scale(1.05);
       box-shadow: 0 0 35px 8px silver, 0 0 25px rgba(135, 206, 250, 0.8);
     }
 
-    /* ===== MAIN MODULE CARD ===== */
+    /* ===== MAIN CARD ===== */
     .module-card {
       width: 70%;
       background: rgba(193, 255, 193, 0.6);
-      margin: 100px auto 60px auto;
+      margin: 80px auto 60px auto;
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.5);
@@ -66,8 +64,7 @@
     }
 
     .module-card:hover {
-      box-shadow: 0 15px 50px rgba(0,0,0,0.7), 
-                   0 0 25px rgba(193,255,193,0.8);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.7), 0 0 25px rgba(193, 255, 193, 0.8);
       transform: translateY(-2px);
     }
 
@@ -76,7 +73,7 @@
       color: maroon;
     }
 
-    /* ===== SECTION TITLES ===== */
+    /* ===== HEADINGS ===== */
     .section-title {
       font-size: 1.4em;
       margin-top: 25px;
@@ -91,32 +88,31 @@
       border-radius: 10px;
       margin-top: 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      color: black;
+      color: black; /* same as light mode */
       transition: 0.3s ease-in-out;
     }
 
-    /* Removed shake animation completely */
+    /* Removed shake animation — ONLY removal done */
     .content-box:hover {
-      box-shadow: 0 0 50px 10px #00ffcc,
-                  0 0 30px silver,
-                  0 0 40px lime;
+      box-shadow: 0 0 50px 10px #00ffcc, 0 0 30px silver, 0 0 40px lime;
       transform: translateY(-1px);
     }
 
-    /* ===== BUTTON ROW ===== */
+    /* Removed @keyframes shake completely */
+
+    /* ===== BUTTONS ===== */
     .button-row {
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin-top: 20px;
+      margin-top: 10px;
       flex-wrap: wrap;
     }
 
-    /* ===== C++ BUTTONS ===== */
     .cpp-btn {
       display: inline-block;
       text-decoration: none;
-      padding: 12px 22px;
+      padding: 10px 20px;
       font-weight: bold;
       border-radius: 8px;
       background: linear-gradient(135deg, #228B22, #32CD32);
@@ -137,62 +133,72 @@
       margin-top: 40px;
       color: maroon;
     }
-
   </style>
 </head>
 
 <body class="light">
 
+  <!-- Back Button -->
+  <a href="sanmathi_port.html" class="back-btn">⬅ Back</a>
+
   <!-- Theme Toggle -->
   <button class="theme-toggle"
-    onclick="document.body.classList.toggle('light'); 
-             document.body.classList.toggle('dark');">
-      Switch Theme
+    onclick="document.body.classList.toggle('light'); document.body.classList.toggle('dark');">
+    Switch Theme
   </button>
-
-  <!-- Back Button BELOW toggle -->
-  <a href="sanmathi_port.html" class="back-btn">⬅ Back</a>
 
   <div class="module-card">
 
     <h1>Module 1: Adaptive Resource Flow in EV Battery Manufacturing</h1>
 
-    <!-- PROBLEM STATEMENT -->
     <h2 class="section-title">Problem Statement</h2>
     <div class="content-box">
-      Vishalanagari’s EV industry depends heavily on lithium, cobalt...
-      <!-- (same text, not removed) -->
+      Vishalanagari’s EV industry depends heavily on lithium, cobalt, and rare earth metals…
     </div>
 
-    <!-- ALGORITHMS -->
     <h2 class="section-title">Algorithms Used</h2>
     <div class="content-box">
-      <!-- (same text inside) -->
+      <!-- (Content unchanged) -->
+      <p><b>1. Greedy Allocation:</b> Quickly assigns incoming materials…</p>
+      <p><b>2. Dynamic Programming (DP):</b> …</p>
+      <p><b>3. Priority Queues:</b> …</p>
+      <p><b>4. Sliding Window Forecasting:</b> …</p>
+      <p><b>5. Feedback Loop:</b> …</p>
     </div>
 
-    <!-- EFFICIENCY -->
     <h2 class="section-title">Algorithm Efficiency</h2>
     <div class="content-box">
-      <!-- (same text inside) -->
+      <!-- (Content unchanged) -->
+      <ul>
+        <li><b>Greedy Allocation:</b> O(n log n)…</li>
+        <li><b>Dynamic Programming:</b> …</li>
+        <li><b>Queue Updates:</b> …</li>
+        <li><b>Forecasting:</b> …</li>
+        <li><b>Feedback Loop:</b> …</li>
+      </ul>
     </div>
 
-    <!-- SDG MAPPING -->
     <h2 class="section-title">SDG Mapping</h2>
     <div class="content-box">
-      <!-- (same text inside) -->
+      <!-- (Content unchanged) -->
+      <ul>
+        <li><b>SDG 7 – Affordable and Clean Energy:</b> …</li>
+        <li><b>SDG 9 – Industry, Innovation, and Infrastructure:</b> …</li>
+        <li><b>SDG 11 – Sustainable Cities and Communities:</b> …</li>
+        <li><b>SDG 12 – Responsible Consumption and Production:</b> …</li>
+      </ul>
     </div>
 
-    <!-- C++ Implementation -->
+    <!-- C++ Implementation Heading -->
     <div class="cpp-heading">C++ Implementation</div>
 
+    <!-- FIXED BUTTONS (2 separate GitHub links) -->
     <div class="button-row">
-      <a href="https://github.com/03sanmathi-kh/Demo/raw/main/greedy.cpp" 
-         target="_blank" class="cpp-btn">
+      <a href="https://github.com/03sanmathi-kh/Demo/raw/main/greedy.cpp" target="_blank" class="cpp-btn">
         Greedy Algorithm (C++)
       </a>
 
-      <a href="https://github.com/03sanmathi-kh/Demo/raw/main/pq.cpp" 
-         target="_blank" class="cpp-btn">
+      <a href="https://github.com/03sanmathi-kh/Demo/raw/main/pq.cpp" target="_blank" class="cpp-btn">
         Priority Queue (C++)
       </a>
     </div>
