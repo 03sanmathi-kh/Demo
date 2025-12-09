@@ -9,26 +9,24 @@
     /* Title contrast colors */
     body.dark .main-heading .title,
     body.dark .main-heading .subtitle {
-      color: white; /* Light text for dark theme */
+      color: white;
     }
 
     body.light .main-heading .title,
     body.light .main-heading .subtitle {
-      color: maroon; /* Dark text for light theme */
+      color: maroon;
     }
 
-    /* Background colors */
     body.dark {
-      background-color: navy; /* Navy blue background */
+      background-color: navy;
       color: white;
     }
 
     body.light {
-      background-color: #f5f5f5; /* Light background */
+      background-color: #f5f5f5;
       color: black;
     }
 
-    /* Hover effects with silver glow */
     .main-heading:hover,
     .project-overview img:hover,
     .city-text:hover {
@@ -37,14 +35,13 @@
       transform: scale(1.02);
     }
 
-    /* Navigation styling */
     nav {
       display: flex;
       justify-content: flex-end;
       gap: 15px;
-      background: rgba(0,0,128,0.8); /* navy bar */
+      background: rgba(0,0,128,0.8);
       padding: 10px;
-      position: relative; /* ensures it doesn't overlap content */
+      position: relative;
       z-index: 10;
     }
 
@@ -57,7 +54,7 @@
     }
 
     nav a:hover {
-      background: rgba(0,0,128,0.6); /* navy hover */
+      background: rgba(0,0,128,0.6);
       color: silver;
     }
 
@@ -66,186 +63,183 @@
       color: navy;
     }
 
-    /* Theme toggle button at top left */
     .theme-toggle {
       position: absolute;
       top: 10px;
       left: 10px;
-      padding: 6px 12px;
-      background: #444; /* darker gray for visibility */
-      color: white;     /* white text for contrast */
+      padding: 10px 20px;
+      background: rgba(135, 206, 250, 0.8);
+      color: navy;
       border: none;
       cursor: pointer;
       font-weight: bold;
-      border-radius: 4px;
+      border-radius: 8px;
+      box-shadow: 0 0 18px silver;
+      transition: 0.3s;
     }
 
     .theme-toggle:hover {
-      background: #222; /* even darker on hover */
+      transform: scale(1.05);
+      box-shadow: 0 0 35px silver, 0 0 25px rgba(135, 206, 250, 0.8);
     }
 
-   /* Wide card-like box */
-.card {
-  background: #ffe0e0;; /* peach pink */
-
-  border-radius: 12px;
-  padding: 20px;
-  margin: 30px auto;   /* auto centers the card */
-  width: 70%;          /* covers 70% of screen width */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  position: relative;
-}
-
+    .card {
+      background: #ffe0e0;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 30px auto;
+      width: 70%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+    }
 
     .card h2 {
       margin-top: 0;
-      font-size: 2em; /* bigger than before, but smaller than main title */
+      font-size: 2em;
       color: maroon;
       text-align: center;
     }
 
-    /* Industry icon at top-right */
     .card .icon {
       position: absolute;
       top: 15px;
       right: 15px;
-      width: 60px;   /* bigger icon */
+      width: 60px;
       height: 60px;
     }
 
-    /* Theme.png image (cut vertically) */
     .card img.theme-image {
       display: block;
       width: 100%;
       height: auto;
-      max-height: 400px; /* limit vertical size only for Theme.png */
+      max-height: 400px;
       margin-top: 15px;
       border-radius: 0;
       object-fit: cover;
     }
 
-    /* dis.png image (full and clear) */
     .card img.full-image {
       display: block;
       width: 100%;
-      height: auto;       /* no vertical cut */
+      height: auto;
       margin-top: 15px;
       border-radius: 0;
     }
 
-    /* Ensure title starts below nav */
     .main-heading {
-      margin-top: 40px; /* extra space so nav doesn't overlap */
+      margin-top: 40px;
       text-align: center;
     }
 
-    /* Make main title smaller */
     .main-heading .title {
-      font-size: 1.8em; /* smaller than default h1 */
+      font-size: 1.8em;
       font-weight: bold;
     }
-   /* ========================================= */
-/* PENTAGON MODULE BUTTON + RECTANGLE BOX DESIGN */
-/* ========================================= */
 
-/* Container alignment */
-.modules-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 180px;
-  gap: 25px;
-  justify-items: center;
-  margin-top: 25px;
-}
+    /* ========================================= */
+    /* PENTAGON MODULE BUTTON + RECTANGLE BOX DESIGN */
+    /* ========================================= */
 
-/* Adjust rows: 3-2-3-2 */
-.modules-container a:nth-child(4),
-.modules-container a:nth-child(5),
-.modules-container a:nth-child(9),
-.modules-container a:nth-child(10) {
-  grid-column: span 1;
-}
+    .modules-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      justify-items: center;
+      margin-top: 25px;
+    }
 
-/* Rectangle container behind pentagon */
-.module-box {
-  width: 200px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-  transition: 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  background: #006666; 
-  box-shadow: 0 5px 15px rgba(0, 102, 102, 0.6),
-              0 5px 25px rgba(0, 77, 77, 0.5);
-}
+    /* Adjust 3-2-3-2 layout */
+    .modules-container a:nth-child(4),
+    .modules-container a:nth-child(5) {
+      grid-column: 2 / span 1; /* center two pentagons in second row */
+    }
 
-/* Pentagon Button */
-.module-btn {
-  position: relative;
-  width: 160px;
-  height: 160px;
-  font-size: 18px;
-  background: linear-gradient(135deg, #008B8B, #006666);
-  clip-path: polygon(
-    50% 0%,
-    100% 38%,
-    82% 100%,
-    18% 100%,
-    0% 38%
-  );
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-  box-shadow: 0 0 15px rgba(0, 139, 139, 0.9),
-              0 0 30px rgba(0, 102, 102, 0.9);
-}
+    .modules-container a:nth-child(9),
+    .modules-container a:nth-child(10) {
+      grid-column: 2 / span 1; /* center two pentagons in fourth row */
+    }
 
-body.light .module-btn {
-  color: white;
-  background: linear-gradient(135deg, #008B8B, #006666);
-  box-shadow: 0 0 15px rgba(0, 139, 139, 0.9),
-              0 0 30px rgba(0, 102, 102, 0.9);
-}
+    .module-box {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 15px;
+      transition: 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      background: #006666;
+      box-shadow: 0 5px 15px rgba(0, 102, 102, 0.6),
+                  0 5px 25px rgba(0, 77, 77, 0.5);
+    }
 
-body.dark .module-btn {
-  color: white;
-  background: linear-gradient(135deg, #4B0082, #2E0854);
-  box-shadow: 0 0 18px rgba(75, 0, 130, 0.9),
-              0 0 35px rgba(46, 8, 84, 0.95);
-}
+    .module-btn {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      font-size: 16px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #008B8B, #006666);
+      clip-path: polygon(
+        50% 0%,
+        100% 38%,
+        82% 100%,
+        18% 100%,
+        0% 38%
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      opacity: 0.85;
+      transition: 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+      box-shadow: 0 0 15px rgba(0, 139, 139, 0.9),
+                  0 0 30px rgba(0, 102, 102, 0.9),
+                  0 0 20px #00ffff;
+    }
 
-.module-btn:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 50px white,
-              0 0 80px rgba(0, 139, 139, 1),
-              0 0 100px rgba(0, 102, 102, 1.0),
-              0 5px 25px rgba(0,0,0,0.5);
-  text-shadow: 0 0 12px white, 0 0 25px rgba(0, 255, 255, 0.9);
-}
+    .module-btn:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 50px white,
+                  0 0 80px rgba(0, 139, 139, 1),
+                  0 0 100px rgba(0, 102, 102, 1.0),
+                  0 5px 25px rgba(0,0,0,0.5);
+      text-shadow: 0 0 12px white, 0 0 25px rgba(0, 255, 255, 0.9);
+    }
 
-.module-btn:active {
-  transform: scale(1.15);
-  box-shadow: 0 0 40px white,
-              0 0 65px rgba(0, 139, 139, 1),
-              0 0 90px rgba(0, 102, 102, 1.0),
-              0 5px 20px rgba(0,0,0,0.6);
-}
+    .module-btn:active {
+      transform: scale(1.15);
+      box-shadow: 0 0 40px white,
+                  0 0 65px rgba(0, 139, 139, 1),
+                  0 0 90px rgba(0, 102, 102, 1.0),
+                  0 5px 20px rgba(0,0,0,0.6);
+    }
 
-/* Make last pink card bigger */
-section.card:last-of-type {
-  padding: 40px;
-  width: 75%;
-  min-height: 400px;
-}
+    /* Last pink card adjustments */
+    section.card:last-of-type {
+      padding: 50px;
+      width: 75%;
+      min-height: 400px;
+      text-align: center;
+    }
+
+    section.card:last-of-type h2 {
+      color: #2c2c2c;
+      text-shadow: 0 0 5px silver, 0 0 15px silver;
+      font-size: 2.5em; /* bigger */
+      margin-bottom: 15px;
+    }
+
+    section.card:last-of-type .subheading {
+      color: #2c2c2c;
+      text-shadow: 0 0 5px silver, 0 0 15px silver;
+      font-size: 1.8em; /* bigger */
+    }
 
   </style>
 </head>
-<body class="light"> <!-- set light mode default -->
+<body class="light">
 
   <!-- Theme Toggle Button -->
   <button class="theme-toggle" onclick="document.body.classList.toggle('light'); document.body.classList.toggle('dark');">Switch Theme</button>
@@ -262,35 +256,26 @@ section.card:last-of-type {
       <a href="collabs.html">Collabs</a>
   </nav>
 
-  <!-- Smaller Page Title -->
   <h1 id="title" class="main-heading">
       <span class="title">Industries, Urban Infrastructure & Tourism</span>
   </h1>
 
-  <!-- First Wide Card Section -->
   <section class="card">
       <img src="icon.jpg" alt="Industry Icon" class="icon">
       <h2>Why did I choose these sectors? A glimpse..</h2>
-      <!-- Theme.png inside pink box (cut vertically) -->
       <img src="Theme.png.png" alt="Industries Image" class="theme-image">
-      <!-- dis.png below Theme.png inside pink box (full and clear) -->
       <img src="dis.png.png" alt="Description Image" class="full-image">
   </section>
 
-  <!-- Second Pink Card with single image -->
   <section class="card">
       <img src="bcase.png" alt="Single Image" class="full-image">
   </section>
-  <!-- ========================================= -->
-<!-- MODULE BUTTONS SECTION (10 MODULES) -->
-<!-- ========================================= -->
 
 <section class="card">
     <h2>Welcome to My Thought Space!</h2>
-   <p class="subheading">Where ideas turn into solutions.</p>
+    <p class="subheading">Where ideas turn into solutions.</p>
 
     <div class="modules-container">
-
         <a href="module1.html" class="module-btn">Adaptive Resource Flow </a>
         <a href="module2.html" class="module-btn">Dynamic Production Planning</a>
         <a href="module3.html" class="module-btn">Urban Flood Spread Mapping </a>
@@ -301,10 +286,8 @@ section.card:last-of-type {
         <a href="module8.html" class="module-btn">Energy Efficient Lighting</a>
         <a href="module9.html" class="module-btn">Knowledge Transfer System</a>
         <a href="module10.html" class="module-btn">Seasonal Hotel Occupency Optimization </a>
-
     </div>
 </section>
-
 
 </body>
 </html>
