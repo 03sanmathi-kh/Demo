@@ -136,108 +136,120 @@
       font-weight: bold;
     }
 
-    /* ========================================= */
-    /* PENTAGON MODULE BUTTON + RECTANGLE BOX DESIGN */
-    /* ========================================= */
+   /* ========================================= */
+/* PENTAGON MODULE BUTTON + RECTANGLE BOX DESIGN */
+/* ========================================= */
 
-    .modules-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      justify-items: center;
-      margin-top: 25px;
-    }
+.modules-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-items: center;
+  margin-top: 25px;
+}
 
-    /* Adjust 3-2-3-2 layout */
-    .modules-container a:nth-child(4),
-    .modules-container a:nth-child(5) {
-      grid-column: 2 / span 1; /* center two pentagons in second row */
-    }
+/* Adjust staggered layout from the image */
+/* Row 1: 2 pentagons centered */
+.modules-container a:nth-child(1),
+.modules-container a:nth-child(2) {
+  grid-column: 1 / span 1;
+}
+.modules-container a:nth-child(1) {
+  justify-self: end;
+}
+.modules-container a:nth-child(2) {
+  justify-self: start;
+}
 
-    .modules-container a:nth-child(9),
-    .modules-container a:nth-child(10) {
-      grid-column: 2 / span 1; /* center two pentagons in fourth row */
-    }
+.modules-container a:nth-child(9),
+.modules-container a:nth-child(10) {
+  grid-column: 1 / span 1;
+}
+.modules-container a:nth-child(9) {
+  justify-self: end;
+}
+.modules-container a:nth-child(10) {
+  justify-self: start;
+}
 
-    .module-box {
-      width: 200px;
-      height: 200px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 15px;
-      transition: 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-      background: #006666;
-      box-shadow: 0 5px 15px rgba(0, 102, 102, 0.6),
-                  0 5px 25px rgba(0, 77, 77, 0.5);
-    }
+.module-box {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  transition: 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background: #006666;
+  box-shadow: 0 5px 15px rgba(0, 102, 102, 0.6),
+              0 5px 25px rgba(0, 77, 77, 0.5);
+}
 
-    .module-btn {
-      position: relative;
-      width: 160px;
-      height: 160px;
-      font-size: 16px;
-      font-weight: bold;
-      background: linear-gradient(135deg, #008B8B, #006666);
-      clip-path: polygon(
-        50% 0%,
-        100% 38%,
-        82% 100%,
-        18% 100%,
-        0% 38%
-      );
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 10px;
-      color: white;
-      opacity: 0.85;
-      transition: 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-      box-shadow: 0 0 15px rgba(0, 139, 139, 0.9),
-                  0 0 30px rgba(0, 102, 102, 0.9),
-                  0 0 20px #00ffff;
-    }
+.module-btn {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #008B8B, #006666);
+  clip-path: polygon(
+    50% 0%,
+    100% 38%,
+    82% 100%,
+    18% 100%,
+    0% 38%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  opacity: 0.85;
+  transition: 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  box-shadow: 0 0 15px rgba(0, 139, 139, 0.9),
+              0 0 30px rgba(0, 102, 102, 0.9),
+              0 0 20px #00ffff;
+}
 
-    .module-btn:hover {
-      transform: scale(1.2);
-      box-shadow: 0 0 50px white,
-                  0 0 80px rgba(0, 139, 139, 1),
-                  0 0 100px rgba(0, 102, 102, 1.0),
-                  0 5px 25px rgba(0,0,0,0.5);
-      text-shadow: 0 0 12px white, 0 0 25px rgba(0, 255, 255, 0.9);
-    }
+.module-btn:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 50px white,
+              0 0 80px rgba(0, 139, 139, 1),
+              0 0 100px rgba(0, 102, 102, 1.0),
+              0 5px 25px rgba(0,0,0,0.5);
+  text-shadow: 0 0 12px white, 0 0 25px rgba(0, 255, 255, 0.9);
+}
 
-    .module-btn:active {
-      transform: scale(1.15);
-      box-shadow: 0 0 40px white,
-                  0 0 65px rgba(0, 139, 139, 1),
-                  0 0 90px rgba(0, 102, 102, 1.0),
-                  0 5px 20px rgba(0,0,0,0.6);
-    }
+.module-btn:active {
+  transform: scale(1.15);
+  box-shadow: 0 0 40px white,
+              0 0 65px rgba(0, 139, 139, 1),
+              0 0 90px rgba(0, 102, 102, 1.0),
+              0 5px 20px rgba(0,0,0,0.6);
+}
 
-    /* Last pink card adjustments */
-    section.card:last-of-type {
-      padding: 50px;
-      width: 75%;
-      min-height: 400px;
-      text-align: center;
-    }
+/* Last pink card adjustments */
+section.card:last-of-type {
+  padding: 50px;
+  width: 75%;
+  min-height: 400px;
+  text-align: center;
+}
 
-    section.card:last-of-type h2 {
-      color: #2c2c2c;
-      text-shadow: 0 0 5px silver, 0 0 15px silver;
-      font-size: 2.5em; /* bigger */
-      margin-bottom: 15px;
-    }
+section.card:last-of-type h2 {
+  color: #2c2c2c;
+  text-shadow: 0 0 5px silver, 0 0 15px silver;
+  font-size: 2.5em; /* bigger */
+  margin-bottom: 15px;
+}
 
-    section.card:last-of-type .subheading {
-      color: #2c2c2c;
-      text-shadow: 0 0 5px silver, 0 0 15px silver;
-      font-size: 1.8em; /* bigger */
-    }
+section.card:last-of-type .subheading {
+  color: #2c2c2c;
+  text-shadow: 0 0 5px silver, 0 0 15px silver;
+  font-size: 1.8em; /* bigger */
+}
 
-  </style>
 </head>
 <body class="light">
 
