@@ -1,88 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About – Vishalanagari Team</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vasavi</title>
 
-<link rel="stylesheet" href="style.css">
- 
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #ffffff; /* LIGHT MODE DEFAULT */
+        color: #222;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    /* Header */
+    header {
+        text-align: center;
+        padding: 20px;
+        background: #f2f2f2;
+        color: #000;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    /* Bubble Container */
+    .bubble-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 25px;
+    }
+
+    .bubble {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    /* Bubble Colors */
+    .housing { background: brown; }
+    .tax { background: #3498db; }
+    .loan { background: #f1c40f; }
+    .resource { background: #2ecc71; }
+    .optimization { background: #9b59b6; }
+    .forecast { background: #1abc9c; }
+    .population { background: #0080ff; } 
+    .civic { background: orange; }
+
+    .bubble:hover { transform: scale(1.1); }
+
+    /* Module Boxes */
+    .module {
+        display: none;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+    }
+
+    /* MODULE COLORS */
+    #m1 { background: rgba(165, 42, 42, 0.15); }
+    #m2 { background: rgba(52,152,219,0.15); }
+    #m3 { background: rgba(241,196,15,0.15); }
+    #m4 { background: rgba(46,204,113,0.15); }
+    #m5 { background: rgba(155,89,182,0.15); }
+    #m6 { background: rgba(26,188,156,0.15); }
+    #m7 { background: rgba(0,128,255,0.15); } /* population */
+
+    /* Floating Theme Button (Option B) */
+    #themeToggle {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        width: 60px;
+        height: 60px;
+        background: #333;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: background 0.3s;
+        user-select: none;
+    }
+
+    /* Dark Mode Styles */
+    body.dark {
+        background: #111;
+        color: #eee;
+    }
+
+    body.dark header {
+        background: #222;
+        color: #fff;
+    }
+
+    body.dark #themeToggle {
+        background: #ddd;
+        color: #000;
+    }
+</style>
 </head>
+<body>
+<header>
+  <h1>Vasavi</h1>
+  <h3>Commerce & Government – Vishalnagari</h3>
+  <p>This domain focuses on budget allocation, taxation, loans, resource distribution, and optimization.</p>
+</header>
 
-<body class="dark">
-<div class="wave-layer3"></div>
+<div class="bubble-container">
 
-<!-- THEME TOGGLE BUTTON -->
-<button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()">Switch to Light Mode</button>
+  <div class="bubble housing" onclick="toggleModule('m1')">Smart Housing<br>Allocation</div>
 
-<!-- BACK BUTTON -->
-<a class="back-btn" href="index.html">Back to Home</a>
+  <div class="bubble tax" onclick="toggleModule('m2')">Tax Planning</div>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="project.html">Project</a>
-  <a href="sanmathi_port.html">Sanmathi</a>
-  <a href="vasavi_port.html">Vasavi</a>
-  <a href="akshata_port.html">Akshata</a>
-  <a href="isha_port.html">Isha</a>
-  <a href="collabs.html">Collaborations</a>
-</nav>
+  <div class="bubble loan" onclick="toggleModule('m3')">Loan<br>Distribution</div>
 
-<div class="portfolio-heading">ABOUT THE TEAM</div>
+  <div class="bubble resource" onclick="toggleModule('m4')">Gaming</div>
 
-<section id="about-text">
-  <p>
-    We love turning ideas into practical solutions for the challenges our cities face. Our team focuses on creating simple, efficient systems that make urban life smoother and more sustainable. We learn as we build, often experimenting and refining along the way. Technology should make life easier, not more complicated—that’s our guiding principle. Sometimes we make mistakes, sometimes we fix them, but we always try to keep improving. In the end, we’re just a group of curious minds trying to make a small, positive difference.
-  </p>
-</section>
+  <div class="bubble optimization" onclick="toggleModule('m5')">E-Commerce</div>
 
-<section id="meet-the-team">
-  <h2>Meet the Team</h2>
-  <div class="team-container">
-    <div class="team-card industry">
-      <h3>Sanmathi Hegde</h3>
-      <p><strong>Roll No:</strong> 407</p>
-      <p><strong>USN:</strong> 01fe24bcs269</p>
-      <p><strong>Skills:</strong> C, C++, SQL, Python, HTML, CSS</p>
-      <p><strong>LinkedIn:</strong> 
-        <a href="https://www.linkedin.com/in/sanmathi-hegde-604a0637a/" target="_blank">Click here</a>
-      </p>
-      <a href="sanmathi_port.html" target="_blank">View Portfolio</a>
-    </div>
-    <div class="team-card commerce">
-      <h3>Vasavi Kabbur</h3>
-      <p><strong>Roll No:</strong> 415</p>
-      <p><strong>USN:</strong> 01fe24bcs278</p>
-      <p><strong>Skills:</strong> C, C++, SQL, Python, HTML, CSS</p>
-      <p><strong>LinkedIn:</strong> [Link Here]</p>
-      <a href="vasavi_port.html" target="_blank">View Portfolio</a>
-    </div>
-    <div class="team-card traffic">
-      <h3>Akshata Pawar</h3>
-      <p><strong>Roll No:</strong> 434</p>
-      <p><strong>USN:</strong> 01fe24bcs297</p>
-      <p><strong>Skills:</strong> C, C++, SQL, Python, HTML, CSS</p>
-      <p><strong>LinkedIn:</strong> [Link Here]</p>
-      <a href="akshata_port.html" target="_blank">View Portfolio</a>
-    </div>
-    <div class="team-card sustainability">
-      <h3>Isha Shet</h3>
-      <p><strong>Roll No:</strong> 418</p>
-      <p><strong>USN:</strong> 01fe24bcs281</p>
-      <p><strong>Skills:</strong> C, C++, SQL, Python, HTML, CSS</p>
-      <p><strong>LinkedIn:</strong> [Link Here]</p>
-      <a href="isha_port.html" target="_blank">View Portfolio</a>
-    </div>
-  </div>
-</section>
+  <div class="bubble civic" onclick="toggleModule('m6')">Civic Data<br>Analytics</div>
+
+  <div class="bubble population" onclick="toggleModule('m7')">Population</div>
+
+</div>
+
+<!-- MODULE BOXES (ONLY 7) -->
+<div id="m1" class="module">Smart Housing Allocation Module Content</div>
+<div id="m2" class="module">Tax Planning Module Content</div>
+<div id="m3" class="module">Loan Distribution Module Content</div>
+<div id="m4" class="module">Gaming Module Content</div>
+<div id="m5" class="module">E-Commerce Module Content</div>
+<div id="m6" class="module">Civic Data Analytics Module Content</div>
+<div id="m7" class="module">Population Module Content</div>
+
+<!-- Floating Theme Toggle Button -->
+<div id="themeToggle" onclick="toggleTheme()">🌙</div>
 
 <script>
+function toggleModule(id) {
+    document.querySelectorAll('.module').forEach(m => m.style.display = "none");
+    document.getElementById(id).style.display = "block";
+}
+
 function toggleTheme() {
-  document.body.classList.toggle("light");
-  const btn = document.getElementById("toggleBtn");
-  btn.textContent = document.body.classList.contains("light") ? "Switch to Dark Mode" : "Switch to Light Mode";
+    document.body.classList.toggle("dark");
+
+    let btn = document.getElementById("themeToggle");
+    btn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 }
 </script>
+
 </body>
 </html>
+
