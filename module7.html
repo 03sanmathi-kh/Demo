@@ -167,11 +167,14 @@
     </div>
 
     <h2 class="section-title">Algorithms Used</h2>
-    <div class="content-box">
-      <p class="list-item"><b>Min-Cost Max-Flow:</b> Routes traffic efficiently across APs to maximize throughput while minimizing latency and congestion.</p>
-      <p class="list-item"><b>Segment Tree with Lazy Propagation:</b> Dynamically enforces per-AP bandwidth quotas during spikes, enabling fast updates over ranges.</p>
-      <p class="list-item"><b>Skip List:</b> Tracks active sessions by priority, allowing quick reassignment when AP conditions change.</p>
-    </div>
+<div class="content-box">
+  <p class="list-item"><b>Min-Cost Max-Flow:</b> Routes traffic efficiently across APs to maximize throughput while minimizing latency and congestion. This algorithm models APs and backhaul links as a network graph and ensures that data sessions are assigned along paths that provide the best trade-off between capacity and delay, preventing overload in any part of the network.</p>
+
+  <p class="list-item"><b>Segment Tree with Lazy Propagation:</b> Dynamically enforces per-AP bandwidth quotas during spikes, enabling fast updates over ranges. By efficiently updating and querying bandwidth allocations, it ensures that no AP exceeds its capacity while prioritizing high-demand zones, allowing smooth and fair distribution of resources in real-time.</p>
+
+  <p class="list-item"><b>Skip List:</b> Tracks active sessions by priority, allowing quick reassignment when AP conditions change. Using a probabilistic layered structure, it provides fast insertion, search, and deletion of sessions, so high-priority users can be quickly rerouted if an AP becomes congested, maintaining low latency and consistent connectivity.</p>
+</div>
+
 
     <h2 class="section-title">Algorithm Efficiency</h2>
     <div class="content-box">
@@ -180,12 +183,7 @@
       <p class="list-item"><b>Skip List:</b> Expected O(log n) for insert, delete, and search operations.</p>
     </div>
 
-    <h2 class="section-title">Related SDGs</h2>
-    <div class="content-box">
-      <p class="list-item"><b>SDG 9 – Industry, Innovation & Infrastructure:</b> Strengthens resilient digital infrastructure and intelligent traffic management.</p>
-      <p class="list-item"><b>SDG 11 – Sustainable Cities & Communities:</b> Ensures inclusive, safe, and accessible connectivity in public spaces.</p>
-      <p class="list-item"><b>SDG 8 – Decent Work & Economic Growth:</b> Supports commerce, tourism, and digital services through reliable connectivity.</p>
-    </div>
+    
     <h2 class="section-title">How This Problem Aligns with the SDGs?</h2>
     <div class="content-box">
       <p><b>SDG 8 – Decent Work & Economic Growth:</b>  
