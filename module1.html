@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 1</title>
+
+  <style>
+    /* ===== THEME BACKGROUND ===== */
+    body.light {
+      background-color: #f5f5f5;
+      color: black;
+    }
+    body.dark {
+      background-color: navy;
+      color: white;
+    }
+
+    /* ===== TOGGLE BUTTON ===== */
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: #444;
+      padding: 8px 14px;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    /* ===== MAIN CARD ===== */
+    .module-card {
+      width: 70%;
+      background: #ffe0e0;
+      margin: 60px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    .module-card h1 {
+      text-align: center;
+      color: maroon;
+    }
+
+    /* ===== HEADINGS ===== */
+    .section-title {
+      font-size: 1.4em;
+      margin-top: 25px;
+      font-weight: bold;
+      color: maroon;
+    }
+
+    /* ===== CONTENT BOX ===== */
+    .content-box {
+      background: white;
+      padding: 18px;
+      border-radius: 10px;
+      margin-top: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      color: black;
+    }
+
+    body.dark .content-box {
+      background: #0b1b4a;
+      color: white;
+      box-shadow: 0 0 25px 5px silver; /* brighter glow */
+    }
+
+    /* BACK BUTTON */
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      padding: 10px 20px;
+      background: skyblue;
+      color: navy;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 0 18px 3px silver; /* brighter glow */
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px 6px silver; /* much brighter on hover */
+    }
+  </style>
+</head>
+
+<body class="light">
+
+  <button class="theme-toggle"
+    onclick="document.body.classList.toggle('light'); document.body.classList.toggle('dark');">
+      Switch Theme
+  </button>
+
+  <div class="module-card">
+
+    <h1>Module 1: Title Goes Here</h1>
+
+    <h2 class="section-title">Problem Statement</h2>
+    <div class="content-box">
+        <!-- paste your 6–7 sentence problem statement here -->
+    </div>
+
+    <h2 class="section-title">Algorithms Used</h2>
+    <div class="content-box">
+        <!-- list algorithms + how they solve -->
+    </div>
+
+    <h2 class="section-title">Algorithm Efficiency</h2>
+    <div class="content-box">
+        <!-- time + space complexity -->
+    </div>
+
+    <h2 class="section-title">SDG Mapping</h2>
+    <div class="content-box">
+        <!-- SDG numbers & justification -->
+    </div>
+
+    <h2 class="section-title">C++ Code</h2>
+    <div class="content-box">
+        <!-- fetch from GitHub or paste later -->
+    </div>
+
+    <a href="sanmathi.html" class="back-btn">⬅ Back to Modules</a>
+
+  </div>
+
+</body>
+</html>
