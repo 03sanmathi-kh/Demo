@@ -97,21 +97,6 @@
       transform: translateY(-1px);
     }
 
-    /* ===== ALGORITHM FLOW BOX ===== */
-    .flow-box {
-      background: rgba(255, 250, 205, 0.9);
-      padding: 20px;
-      margin-top: 15px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      line-height: 1.6;
-    }
-
-    .flow-step {
-      margin: 10px 0;
-    }
-
     /* ===== BUTTONS ===== */
     .button-row {
       display: flex;
@@ -175,43 +160,25 @@
 
     <h2 class="section-title">Algorithms Used</h2>
     <div class="content-box">
-      <p><b>1. Sliding Window / Sparse Table:</b> Forecast daily steel demand using historical construction data to predict resource requirements efficiently.</p>
-      <p><b>2. Segment Tree / Fenwick Tree:</b> Track scrap availability and electricity cost dynamically, allowing fast queries and updates.</p>
-      <p><b>3. Heap / Priority Queue:</b> Allocate production priority to days with abundant scrap or lower electricity cost to optimize daily production.</p>
-      <p><b>4. Dynamic Programming (DP):</b> Determine optimal monthly production schedule that minimizes total cost while meeting expected demand and storage constraints.</p>
-      <p><b>5. Graph Analysis (Dijkstra / Bellman-Ford):</b> Optional: Model supply chain and find minimum-cost paths from suppliers to factory to market for multi-factory scenarios.</p>
+      <p><b>1. Sparse Table:</b> Forecast daily steel demand using historical construction data to predict resource requirements efficiently.</p>
+      <p><b>2. Segment Tree:</b> Track scrap availability and electricity cost dynamically, allowing fast queries and updates.</p>
+      <p><b>3. Dynamic Programming (DP):</b> Determine optimal monthly production schedule that minimizes total cost while meeting expected demand and storage constraints.</p>
     </div>
 
     <h2 class="section-title">Algorithm Efficiency</h2>
     <div class="content-box">
       <ul>
-        <li><b>Sliding Window / Sparse Table:</b> O(n) or O(1) per query — fast demand forecasting over historical data.</li>
-        <li><b>Segment Tree / Fenwick Tree:</b> O(log n) per update/query — efficient dynamic tracking of scrap and electricity.</li>
-        <li><b>Heap / Priority Queue:</b> O(log n) per allocation — dynamically prioritizes low-cost production days.</li>
+        <li><b>Sparse Table:</b> O(n log n) preprocessing, O(1) per query — fast demand forecasting over historical data.</li>
+        <li><b>Segment Tree:</b> O(log n) per update/query — efficient dynamic tracking of scrap and electricity.</li>
         <li><b>Dynamic Programming:</b> O(n * m) — n = days in month, m = production options per day, ensures optimal cost schedule.</li>
-        <li><b>Graph Algorithms:</b> O(E log V) for Dijkstra, O(VE) for Bellman-Ford — useful for multi-supplier optimization.</li>
       </ul>
-    </div>
-
-    <h2 class="section-title">Algorithm Flow</h2>
-    <div class="flow-box">
-      <div class="flow-step"><b>Step 1:</b> Historical Demand Data → Sliding Window / Sparse Table → Forecasted Daily Demand</div>
-      <div class="flow-step"><b>Step 2:</b> Scrap & Electricity Data → Segment Tree / Fenwick Tree → Resource Availability per Day</div>
-      <div class="flow-step"><b>Step 3:</b> Forecasted Demand + Resource Availability → Heap / Priority Queue → Daily Production Priority</div>
-      <div class="flow-step"><b>Step 4:</b> Daily Priority + Resource Constraints → Dynamic Programming → Optimized Monthly Production Plan</div>
-      <div class="flow-step"><b>Step 5:</b> (Optional) Multi-Factory Supply Chain → Graph Algorithms (Dijkstra / Bellman-Ford) → Minimum-Cost Routes</div>
     </div>
 
     <div class="cpp-heading">C++ Implementation</div>
     <div class="button-row">
-      <a href="https://github.com/03sanmathi-kh/VishalNagari/blob/main/module2_greedy.cpp" target="_blank" class="cpp-btn">
-        Greedy & Forecasting (C++)
-      </a>
-      <a href="https://github.com/03sanmathi-kh/VishalNagari/blob/main/module2_dp.cpp" target="_blank" class="cpp-btn">
-        Dynamic Programming (C++)
-      </a>
-      <a href="https://github.com/03sanmathi-kh/VishalNagari/blob/main/module2_graph.cpp" target="_blank" class="cpp-btn">
-        Multi-Factory Graph (C++)
+      <a href="https://github.com/03sanmathi-kh/VishalNagari/blob/main/steel.cpp" target="_blank" class="cpp-btn">
+        View code here
+     
       </a>
     </div>
 
