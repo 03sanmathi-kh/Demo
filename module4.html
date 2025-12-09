@@ -6,41 +6,47 @@
   <title>Module 4: Water Supply Network Optimization</title>
 
   <style>
-    body.light { background-color: #fff3e0; color: black; }
-    body.dark { background-color: #e65100; color: white; }
+    /* ===== THEME BACKGROUND ===== */
+    body.light { background-color: #ffe0b2; color: black; }  /* light soft orange */
+    body.dark { background-color: #3e2723; color: white; }   /* deep brown for dark theme */
 
+    /* ===== TOGGLE BUTTON ===== */
     .theme-toggle {
-      position: fixed; top: 10px; left: 10px; background: #ff9800;
+      position: fixed; top: 10px; left: 10px; 
+      background: #ffb74d; /* medium orange */
       padding: 8px 14px; color: white; border: none; border-radius: 6px;
       cursor: pointer; z-index: 999;
     }
 
+    /* ===== BACK BUTTON ===== */
     .back-btn {
       position: fixed; top: 55px; left: 10px;
       display: inline-block; text-decoration: none; padding: 10px 20px;
       font-weight: bold; border-radius: 8px;
-      background: rgba(255, 140, 0, 0.85); color: white;
+      background: rgba(255, 179, 71, 0.85); color: white;
       box-shadow: 0 0 18px 3px gold; transition: 0.3s; z-index: 999;
     }
     .back-btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 35px 8px gold, 0 0 25px rgba(255, 140, 0, 0.85);
+      box-shadow: 0 0 35px 8px gold, 0 0 25px rgba(255, 179, 71, 0.85);
     }
 
+    /* ===== MODULE CARD ===== */
     .module-card {
-      width: 70%; background: rgba(255, 165, 0, 0.6);
+      width: 70%; background: rgba(255, 204, 128, 0.6);  /* light orange card */
       margin: 80px auto 60px auto; padding: 30px; border-radius: 15px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.5); backdrop-filter: blur(8px);
       transition: 0.3s ease-in-out;
     }
-
     .module-card:hover {
       box-shadow: 0 15px 50px rgba(0,0,0,0.7), 0 0 25px gold;
       transform: translateY(-2px);
     }
 
-    .module-card h1 { text-align: center; color: #e65100; }
-    .section-title { font-size: 1.4em; margin-top: 25px; font-weight: bold; color: #e65100; }
+    .module-card h1 { text-align: center; color: #ef6c00; } /* dark orange */
+    .section-title { font-size: 1.4em; margin-top: 25px; font-weight: bold; color: #ef6c00; }
+
+    /* ===== CONTENT BOX ===== */
     .content-box {
       background: rgba(255, 255, 255, 0.85); padding: 18px; border-radius: 10px;
       margin-top: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2); color: black;
@@ -51,17 +57,18 @@
       transform: translateY(-1px);
     }
 
+    /* ===== BUTTONS ===== */
     .button-row { display: flex; justify-content: center; gap: 20px; margin-top: 10px; flex-wrap: wrap; }
     .cpp-btn {
       display: inline-block; text-decoration: none; padding: 10px 20px;
       font-weight: bold; border-radius: 8px;
-      background: linear-gradient(135deg, #ff8c00, #ffc107);
+      background: linear-gradient(135deg, #ffcc80, #ffb74d); /* softer gradient */
       color: white; box-shadow: 0 0 18px 3px gold; transition: 0.3s;
     }
     .cpp-btn:hover {
       transform: scale(1.05); box-shadow: 0 0 40px 10 gold, 0 0 25px #ffb300;
     }
-    .cpp-heading { text-align: center; font-size: 1.3em; font-weight: bold; margin-top: 40px; color: #e65100; }
+    .cpp-heading { text-align: center; font-size: 1.3em; font-weight: bold; margin-top: 40px; color: #ef6c00; }
   </style>
 </head>
 
@@ -80,39 +87,35 @@
 
     <h2 class="section-title">Problem Statement</h2>
     <div class="content-box">
-      Vishalanagri relies on water from the Purna River to supply multiple treatment plants, residential, and industrial zones.  
-      The challenge is to design a pipeline network that distributes water efficiently with minimal cost while ensuring stable pressure during peak hours.  
-      Urban growth and varying elevation levels make the problem complex.  
-      Optimal routing, redundancy for emergencies, and cost-effective connections are critical for sustainable water management.  
-      This module focuses on using graph-based algorithms to model and optimize the water distribution network.
+      Vishalanagri depends on the Purna River for supplying water to multiple treatment plants, residential zones, and industrial areas.  
+      Designing an efficient pipeline network is challenging due to varying elevations, urban density, and fluctuating demand during peak hours.  
+      The goal is to construct a cost-effective, reliable network that maintains stable pressure, ensures emergency redundancy, and minimizes water loss.  
+      Graph-based algorithms help optimize routing and connectivity while keeping costs low and flow efficient.
     </div>
 
     <h2 class="section-title">Algorithms Used</h2>
     <div class="content-box">
       <p><b>1. Prim’s Algorithm + Dijkstra:</b>  
-      Prim’s algorithm is used to construct a minimum spanning tree connecting all treatment plants and zones with minimal pipeline cost.  
-      Dijkstra is applied afterward to compute the shortest paths from each water source to all zones, ensuring efficient water flow and stable pressure.</p>
+      Prim’s constructs a minimum spanning tree (MST) connecting all treatment plants and zones to minimize pipeline costs.  
+      Dijkstra is applied afterward to compute shortest paths from each water source, ensuring efficient water distribution and stable pressure.</p>
 
       <p><b>2. Kruskal’s Algorithm + Dijkstra:</b>  
-      Kruskal provides an alternative approach to construct the minimum-cost network by sorting edges and avoiding cycles.  
-      Combining it with Dijkstra ensures shortest path water delivery from the river to all zones, verifying redundancy and efficiency in the network.</p>
+      Kruskal builds an MST by sorting edges and avoiding cycles.  
+      Combined with Dijkstra, it ensures shortest paths for water delivery while checking network redundancy and efficiency.</p>
 
-      <p><b>3. BFS :</b>  
-      Breadth-first search explores the network level by level from water sources.  
-      It helps visualize reachability and identifies which zones can be supplied first during emergencies.</p>
-        
-      </p>
+      <p><b>3. BFS (Optional):</b>  
+      BFS explores the network level-wise to visualize reachability and identifies which zones can be supplied first during emergencies.  
+      (Not fully realistic for pressure optimization, but good for reachability mapping.)</p>
     </div>
 
     <h2 class="section-title">Efficiency of Algorithms</h2>
     <div class="content-box">
-      <p><b>Prim’s Algorithm:</b> O(E log V) – Efficient MST construction to minimize total pipeline cost.</p>
-      <p><b>Kruskal’s Algorithm:</b> O(E log V) – Efficient MST alternative with cycle checking.</p>
-      <p><b>Dijkstra:</b> O((V + E) log V) – Computes shortest paths for water delivery across weighted network.</p>
-      <p><b>BFS:</b> O(V + E) – Traverses network level-wise to check reachability.</p>
+      <p><b>Prim’s Algorithm:</b> O(E log V) – Efficient MST construction.</p>
+      <p><b>Kruskal’s Algorithm:</b> O(E log V) – Alternative MST construction with cycle detection.</p>
+      <p><b>Dijkstra:</b> O((V + E) log V) – Computes shortest paths across weighted network.</p>
+      <p><b>BFS:</b> O(V + E) – Level-wise network traversal to check reachability.</p>
     </div>
 
-    
     <div class="cpp-heading">C++ Implementation</div>
     <div class="button-row">
       <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/prim.cpp" target="_blank" class="cpp-btn">
@@ -122,7 +125,7 @@
       Kruskal + Dijkstra (C++)
       </a>
       <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/bfswater.cpp" target="_blank" class="cpp-btn">
-      BFS(Optional)
+      BFS (Optional)
       </a>
     </div>
 
