@@ -1,0 +1,208 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Order Fulfillment</title>
+
+  <style>
+    /* ===== THEME BACKGROUND ===== */
+    body.light {
+      background-color: #f5f5f5;
+      color: black;
+    }
+    body.dark {
+      background-color: navy;
+      color: black;
+    }
+
+    /* ===== TOGGLE BUTTON ===== */
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: #444;
+      padding: 8px 14px;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    /* ===== BACK BUTTON ===== */
+    .back-btn {
+      position: fixed;
+      top: 55px; 
+      left: 10px;
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      background: rgba(135, 206, 250, 0.8);
+      color: navy;
+      box-shadow: 0 0 18px 3px silver;
+      transition: 0.3s;
+      z-index: 999;
+    }
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px 8px silver, 0 0 25px rgba(135, 206, 250, 0.8);
+    }
+
+    /* ===== MAIN CARD ===== */
+    .module-card {
+      width: 70%;
+      background: rgba(193, 255, 193, 0.6);
+      margin: 80px auto 60px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      transition: 0.3s ease-in-out;
+    }
+
+    .module-card:hover {
+      box-shadow: 0 15px 50px rgba(0,0,0,0.7), 0 0 25px rgba(193, 255, 193, 0.8);
+      transform: translateY(-2px);
+    }
+
+    .module-card h1 {
+      text-align: center;
+      color: maroon;
+    }
+
+    /* ===== HEADINGS ===== */
+    .section-title {
+      font-size: 1.4em;
+      margin-top: 25px;
+      font-weight: bold;
+      color: maroon;
+    }
+
+    /* ===== CONTENT BOX ===== */
+    .content-box {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 18px;
+      border-radius: 10px;
+      margin-top: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      color: black;
+      transition: 0.3s ease-in-out;
+    }
+
+    .content-box:hover {
+      box-shadow: 0 0 50px 10px #00ffcc, 0 0 30px silver, 0 0 40px lime;
+      transform: translateY(-1px);
+    }
+
+    /* ===== BUTTONS ===== */
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cpp-btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #228B22, #32CD32);
+      color: white;
+      box-shadow: 0 0 18px 3px silver;
+      transition: 0.3s;
+    }
+
+    .cpp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px 10px silver, 0 0 25px lime;
+    }
+
+    .cpp-heading {
+      text-align: center;
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-top: 40px;
+      color: maroon;
+    }
+
+  </style>
+</head>
+
+<body class="light">
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle"
+    onclick="document.body.classList.toggle('light'); document.body.classList.toggle('dark');">
+    Switch Theme
+  </button>
+
+  <!-- Back Button -->
+  <a href="vasavi_port.html" class="back-btn">⬅ Back</a>
+
+  <div class="module-card">
+
+    <h1>Module 2: E-Commerce Order Fulfillment – Case Study</h1>
+
+    <!-- PROBLEM STATEMENT -->
+    <h2 class="section-title">Problem Statement</h2>
+    <div class="content-box">
+      Vishalanagari’s e-commerce sector struggles with delays in order processing due to slow picking, inefficient routing, and rising delivery loads.  
+      A smart system is needed to prioritize orders, check inventory quickly, and ensure faster, optimized delivery routes.
+    </div>
+
+    <!-- CASE STUDY -->
+    <h2 class="section-title">Case Study</h2>
+    <div class="content-box">
+      In Vishalanagari’s digital marketplace, online retailers face frequent delays caused by inefficient warehouse picking and suboptimal delivery routing.  
+      These inefficiencies increase operational costs and reduce customer satisfaction.  
+      A data-driven order fulfillment system is essential to ensure faster deliveries, real-time inventory checks, and optimized routing.
+    </div>
+
+    <!-- ALGORITHMS -->
+    <h2 class="section-title">Algorithms Used</h2>
+    <div class="content-box">
+      <p><b>1. Heap Sort / Merge Sort:</b> For prioritizing orders based on urgency, location, or time of placement.</p>
+      <p><b>2. Dijkstra’s Algorithm:</b> Used for shortest-path delivery routing across the city’s dynamic road network.</p>
+      <p><b>3. Segment Tree:</b> For fast inventory lookup and updates during order assignment.</p>
+    </div>
+
+    <!-- EFFICIENCY -->
+    <h2 class="section-title">Algorithm Efficiency</h2>
+    <div class="content-box">
+      <ul>
+        <li><b>Sorting (Heap/Merge Sort):</b> O(n log n)</li>
+        <li><b>Dijkstra’s Algorithm:</b> O(E log V)</li>
+        <li><b>Segment Tree Queries:</b> O(log n)</li>
+      </ul>
+    </div>
+
+    <!-- SDGs -->
+    <h2 class="section-title">How This Innovation Supports the SDGs</h2>
+    <div class="content-box">
+      <p><b>SDG 9 – Industry, Innovation & Infrastructure:</b><br>
+      Builds smarter logistics systems that enhance urban commercial efficiency.</p>
+
+      <p><b>SDG 8 – Decent Work & Economic Growth:</b><br>
+      Optimized fulfillment reduces business costs and promotes sustainable economic activity.</p>
+
+      <p><b>SDG 12 – Responsible Consumption & Production:</b><br>
+      Efficient routing and inventory checks reduce fuel usage, waste, and operational inefficiencies.</p>
+    </div>
+
+    <div class="cpp-heading">Implementation Code</div>
+    <div class="button-row">
+      <a href="#" class="cpp-btn">
+        View Code
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>
