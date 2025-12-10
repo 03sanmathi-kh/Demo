@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Module 8: Worker Knowledge Transfer System</title>
+
+  <style>
+    /* ================= THEME (Option A) ================= */
+    body.light { background-color: #f2ffe5; color: #13220a; }
+    body.dark  { background-color: #0f1b0d; color: #eaffd6; }
+
+    /* ===== Controls ===== */
+    .theme-toggle {
+      position: fixed; top: 12px; left: 12px;
+      background: #bff884; color: #092000; border: none;
+      padding: 8px 14px; border-radius: 8px; cursor: pointer;
+      font-weight: 700; z-index: 999;
+      box-shadow: 0 0 8px rgba(124,255,89,0.28);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .theme-toggle:hover { transform: scale(1.03); box-shadow: 0 0 14px rgba(124,255,89,0.42); }
+
+    .back-btn {
+      position: fixed; top: 56px; left: 12px;
+      background: rgba(183,255,120,0.95); color: #092000;
+      padding: 10px 16px; border-radius: 8px; text-decoration: none;
+      font-weight: 700; box-shadow: 0 0 8px rgba(124,255,89,0.25); z-index: 999;
+    }
+    .back-btn:hover { transform: translateY(-2px); box-shadow: 0 0 14px rgba(124,255,89,0.42); }
+
+    /* ===== Card ===== */
+    .module-card {
+      width: 78%;
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 30px 34px;
+      border-radius: 18px;
+      background: rgba(214,255,184,0.95); /* #d6ffb8 */
+      color: #10240a;
+      box-shadow:
+        0 8px 30px rgba(6,10,6,0.14),
+        0 0 22px rgba(124,255,89,0.14); /* soft lime glow */
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .module-card:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 18px 48px rgba(6,10,6,0.20),
+        0 0 36px rgba(124,255,89,0.18);
+    }
+    body.dark .module-card {
+      background: rgba(31,59,20,0.92); /* #1f3b14 */
+      color: #eaffd6;
+      box-shadow:
+        0 10px 40px rgba(0,0,0,0.55),
+        0 0 20px rgba(100,220,120,0.14);
+    }
+
+    /* ===== Typography ===== */
+    .module-card h1 {
+      margin: 4px 0 8px;
+      text-align: center;
+      font-size: 1.9rem;
+      color: #244e12;
+      letter-spacing: 0.4px;
+    }
+    body.dark .module-card h1 { color: #eaffd6; }
+
+    .section-title {
+      margin-top: 22px;
+      font-weight: 800;
+      color: #2f6d13;
+      font-size: 1.12rem;
+    }
+    body.dark .section-title { color: #dfffbf; }
+
+    .content-box {
+      background: rgba(255,255,255,0.82);
+      padding: 16px 18px;
+      border-radius: 12px;
+      margin-top: 10px;
+      color: #0e2a07;
+      box-shadow: 0 4px 14px rgba(6,10,6,0.06);
+      transition: box-shadow .18s ease, transform .18s ease;
+      line-height: 1.5;
+    }
+    .content-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(6,10,6,0.10), 0 0 18px rgba(124,255,89,0.12);
+    }
+    body.dark .content-box {
+      background: rgba(12,20,12,0.75);
+      color: #eaffd6;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    }
+
+    .list-item { margin: 8px 0; }
+
+    .eff-line { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; color: #16610b; }
+    body.dark .eff-line { color: #bfffa2; }
+
+    /* ===== C++ section tweaks ===== */
+    .cpp-heading {
+      text-align: center; margin-top: 28px;
+      font-size: 1.32rem; font-weight: 900; color: #295d10;
+    }
+    body.dark .cpp-heading { color: #eaffd6; }
+
+    .cpp-desc {
+      margin-top: 10px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(235,255,220,0.95);
+      color: #0f2a07;
+      box-shadow: 0 6px 18px rgba(6,10,6,0.06);
+      line-height: 1.5;
+    }
+    .cpp-desc:hover { box-shadow: 0 10px 28px rgba(6,10,6,0.10); transform: translateY(-3px); }
+    body.dark .cpp-desc { background: rgba(20,38,18,0.92); color: #eaffd6; box-shadow: 0 8px 22px rgba(0,0,0,0.5); }
+
+    .button-row { display:flex; gap:14px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
+
+    .cpp-btn {
+      display:inline-block;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      color: #072603;
+      background: linear-gradient(135deg, #eaffb6 0%, #bff884 100%);
+      box-shadow: 0 6px 18px rgba(114,205,70,0.12);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .cpp-btn:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(114,205,70,0.18); }
+    body.dark .cpp-btn {
+      color: #0b1c08;
+      background: linear-gradient(135deg, rgba(170,230,120,0.16), rgba(120,210,90,0.22));
+      box-shadow: 0 8px 22px rgba(0,0,0,0.5);
+    }
+
+    /* responsive */
+    @media (max-width: 820px) {
+      .module-card { width: 92%; padding: 20px; margin-top: 56px; }
+      .module-card h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+
+<body class="light">
+
+  <button class="theme-toggle" onclick="document.body.classList.toggle('light'); document.body.classList.toggle('dark');">
+    Switch Theme
+  </button>
+
+  <a class="back-btn" href="sanmathi_port.html">⬅ Back</a>
+
+  <main class="module-card" role="main" aria-labelledby="module-title">
+    <h1 id="module-title">Module 8: Worker Knowledge Transfer System</h1>
+
+    <!-- Problem Statement (6-7 lines, creative & clear) -->
+    <h2 class="section-title">Problem Statement</h2>
+    <div class="content-box">
+      In Vishalanagari's bustling factories and service hubs, invaluable tacit knowledge — quick fixes, machine-specific tips,
+      and local heuristics — evaporates during shift handovers. Incoming workers waste time rediscovering solutions,
+      errors reappear, and overall throughput suffers. We need a gentle, intelligent keeper of workplace wisdom that
+      captures on-the-floor insights in real-time, organizes them for instant lookup, and hands the right guidance to the
+      next person on duty. The system should prioritize critical notes, surface recent shift highlights, and make finding
+      relevant knowledge as natural as typing a single keyword. The result: fewer repeated mistakes, faster problem
+      resolution, and a workforce that learns as it works.
+    </div>
+
+    <!-- Algorithms used (each 2-3 sentences describing contribution) -->
+    <h2 class="section-title">Algorithms Used</h2>
+    <div class="content-box">
+      <p class="list-item"><b>Trie (Prefix Tree):</b> The Trie acts as the instant dictionary of shop-floor wisdom. By indexing keywords and procedure fragments, it lets workers retrieve relevant advice with partial inputs — type “vib” and see everything about vibrations — making lookup immediate and typo-tolerant.</p>
+
+      <p class="list-item"><b>Skip List (Timestamped):</b> The Skip List maintains a fast, chronological log of shift notes and updates. Because insertions and recent-lookups are common during handovers, the Skip List gives O(log n) access while preserving the “what happened last” view that incoming workers rely on.</p>
+
+      <p class="list-item"><b>Red-Black Tree:</b> The Red-Black Tree stores validated insights sorted by priority, severity, or frequency so critical notes surface quickly. Its guaranteed balancing ensures that queries for top-priority issues remain fast even as the knowledge base grows large.</p>
+    </div>
+
+    <!-- Algorithm efficiency -->
+    <h2 class="section-title">Algorithm Efficiency</h2>
+    <div class="content-box">
+      <p class="list-item eff-line"><b>Trie</b>: Insert &amp; search in O(m) where m = length of the keyword or phrase.</p>
+      <p class="list-item eff-line"><b>Skip List</b>: Insert / search / delete in expected O(log n), ideal for dynamic logs.</p>
+      <p class="list-item eff-line"><b>Red-Black Tree</b>: Insert / delete / search guaranteed O(log n), excellent for balanced priority access.</p>
+    </div>
+
+    <!-- SDGs -->
+    <h2 class="section-title">How This Aligns with SDGs</h2>
+    <div class="content-box">
+      <p class="list-item"><b>SDG 8 — Decent Work &amp; Economic Growth:</b> Preserves practical skills and reduces downtime, helping workers perform better and industries run smoother.</p>
+      <p class="list-item"><b>SDG 9 — Industry, Innovation &amp; Infrastructure:</b> Builds robust digital infrastructure for knowledge continuity and resilient operations.</p>
+      <p class="list-item"><b>SDG 4 — Quality Education:</b> Encourages on-the-job learning by surfacing proven solutions and tacit expertise to all workers.</p>
+    </div>
+
+    <!-- C++ Implementation -->
+    <div class="cpp-heading">C++ Implementation</div>
+
+    <div class="cpp-desc">
+      Two integrated implementations are provided to demonstrate different architectural trade-offs. The primary build (Trie + Skip List + Red-Black Tree) focuses on fast keyword lookup, chronological logs, and balanced priority access — ideal for production deployments where both recency and priority matter. The alternate build (Trie + 2-3 Tree + Skip List) emphasizes textbook-balanced storage for category-grouped knowledge while keeping quick shift logs, offering a more classical data-structure flavor for academic comparison.
+    </div>
+
+    <div class="button-row" role="navigation" aria-label="C++ implementations">
+      <a class="cpp-btn" href="#" target="_blank" title="Trie + Skip List + Red-Black Tree">
+        Combined C++ Code (Trie + Skip List + Red-Black Tree)
+      </a>
+
+      <a class="cpp-btn" href="#" target="_blank" title="Trie + 2-3 Tree + Skip List">
+        Alternate C++ Code (Trie + 2-3 Tree + Skip List)
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    // no-op: theme toggle handled via class toggle in markup onclick.
+    // (Kept simple on purpose so you can integrate with your site scripts)
+  </script>
+</body>
+</html>
