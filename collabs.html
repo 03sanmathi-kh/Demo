@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Collaboration Space</title>
+  <title>Collaborations</title>
 
   <style>
     body {
@@ -20,7 +20,7 @@
     }
 
     body.dark {
-      background: #1a1a2e;
+      background: #0b0c2a;
       color: #eee;
     }
 
@@ -86,60 +86,84 @@
 
     /* ===== LAVENDER BOX ===== */
     .lavender-box {
-      width: 90%;
-      max-width: 800px;
-      margin: 100px auto;
-      padding: 25px;
-      border-radius: 18px;
-      background: #e6e6fa;
-      box-shadow: 0 8px 20px rgba(192,192,192,0.4);
+      width: 95%;
+      max-width: 900px;
+      margin: 120px auto;
+      padding: 40px;
+      border-radius: 20px;
+      background: #fafaff; /* very light lavender */
+      box-shadow: 0 8px 20px rgba(192,192,192,0.3);
       transition: 0.3s;
       text-align: center;
     }
 
     .lavender-box:hover {
-      box-shadow: 0 0 25px silver, 0 0 15px #dda0dd;
+      box-shadow: 0 0 35px silver, 0 0 20px #c0c0c0;
       transform: translateY(-2px);
     }
 
     body.dark .lavender-box {
-      background: #4b0082; /* dark lavender */
+      background: #0a1a4d; /* navy blue */
       color: #f0e6ff;
       box-shadow: 0 8px 20px rgba(192,192,192,0.5);
     }
 
     body.dark .lavender-box:hover {
-      box-shadow: 0 0 30px silver, 0 0 20px #dda0dd;
+      box-shadow: 0 0 40px silver, 0 0 25px #c0c0c0;
     }
 
+    /* ===== TITLE & SUBTITLE ===== */
     .lavender-title {
-      font-size: 1.6rem;
+      font-size: 2rem;
       font-weight: 800;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      transition: 0.3s;
     }
 
-    .lavender-image {
-      width: 100%;
-      height: 300px;
-      background: #d8bfd8;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
+    .lavender-subtitle {
+      font-size: 1.3rem;
+      font-weight: 600;
       color: #4b0082;
+      margin-bottom: 30px;
+      transition: 0.3s;
     }
 
-    body.dark .lavender-image {
-      background: #6a0dad;
+    body.dark .lavender-subtitle {
       color: #f0e6ff;
     }
 
-    @media (max-width: 768px) {
-      .lavender-box { margin: 120px 20px; }
-      .lavender-image { height: 220px; }
+    /* ===== IMAGE SPACE ===== */
+    .lavender-image {
+      width: 100%;
+      height: 350px;
+      background: #f0e6ff; /* light lavender image space */
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #4b0082;
+      transition: 0.3s;
     }
 
+    body.dark .lavender-image {
+      background: #2b3a80; /* darker image space in dark mode */
+      color: #f0e6ff;
+    }
+
+    /* ===== GLOW ON HOVER ===== */
+    .lavender-box:hover .lavender-title,
+    .lavender-box:hover .lavender-subtitle,
+    .lavender-box:hover .lavender-image {
+      text-shadow: 0 0 12px silver;
+    }
+
+    @media (max-width: 768px) {
+      .lavender-box { margin: 140px 20px; padding: 30px; }
+      .lavender-image { height: 250px; font-size: 1.2rem; }
+      .lavender-title { font-size: 1.6rem; margin-bottom: 10px; }
+      .lavender-subtitle { font-size: 1.1rem; margin-bottom: 20px; }
+    }
   </style>
 </head>
 <body class="light">
@@ -155,17 +179,21 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="project.html">Project</a>
-    <a href="sanmati_port.html">Sanmathi</a>
+    <a href="sanmathi_port.html">Sanmathi</a>
     <a href="vasavi_port.html">Vasavi</a>
     <a href="akshata_port.html">Akshata</a>
     <a href="isha_port.html">Isha</a>
-     <a href="collabs.html">Isha</a>
+    <a href="collabs.html">Collabs</a>
   </nav>
 
   <!-- Lavender Box -->
   <div class="lavender-box">
-    <div class="lavender-title">Collaboration Title Here</div>
-    <div class="lavender-image">Image Space</div>
+    <div class="lavender-title">Teamwork Makes the Dream Work💜 </div>
+    <div class="lavender-subtitle">We Are Collaborating!!✨ </div>
+    <div class="lavender-image">
+  <img src="collabz.png" alt="Team Collaboration" style="width:100%; height:100%; border-radius:14px; object-fit:cover;">
+</div>
+
   </div>
 
 </body>
