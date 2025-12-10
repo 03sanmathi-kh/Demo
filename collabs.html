@@ -89,9 +89,9 @@
       width: 96%;
       max-width: 950px;
       margin: 120px auto;
-      padding: 60px 50px; /* slightly bigger */
+      padding: 60px 50px;
       border-radius: 20px;
-      background: #f0f0ff; /* slightly darker lavender tint */
+      background: #f0f0ff;
       box-shadow: 0 8px 25px rgba(192,192,192,0.3);
       transition: 0.3s;
       text-align: center;
@@ -103,7 +103,7 @@
     }
 
     body.dark .lavender-box {
-      background: #0a1a4d; /* navy blue */
+      background: #0a1a4d;
       color: #f0e6ff;
       box-shadow: 0 8px 25px rgba(192,192,192,0.5);
     }
@@ -147,7 +147,7 @@
     .lavender-image img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* full image without cropping */
+      object-fit: contain;
       border-radius: 14px;
       transition: 0.3s;
     }
@@ -180,8 +180,9 @@
     .rhombus-container {
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 60px; /* increased spacing to prevent touching */
       flex-wrap: wrap;
+      margin-top: 20px;
     }
 
     .rhombus {
@@ -199,6 +200,7 @@
       font-size: 1.1rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       border-radius: 6px;
+      margin-bottom: 20px;
     }
 
     body.dark .rhombus {
@@ -216,6 +218,7 @@
     .rhombus span {
       transform: rotate(-45deg);
       display: inline-block;
+      text-align: center;
     }
 
     @media (max-width: 768px) {
@@ -225,6 +228,7 @@
       .lavender-subtitle { font-size: 1.3rem; margin-bottom: 20px; }
       .collab-section h2 { font-size: 1.6rem; margin-bottom: 35px; }
       .rhombus { width: 100px; height: 100px; font-size: 1rem; }
+      .rhombus-container { gap: 40px; }
     }
   </style>
 </head>
