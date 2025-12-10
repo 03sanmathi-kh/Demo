@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 7: Population Analytics</title>
+
+  <style>
+    /* ===== THEME BACKGROUND ===== */
+    body.light { background-color: #ffe5cc; color: black; }   /* Soft orange */
+    body.dark { background-color: #cc6600; color: white; }    /* Dark orange */
+
+    /* ===== TOGGLE BUTTON ===== */
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: #444;
+      padding: 8px 14px;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    /* ===== BACK BUTTON ===== */
+    .back-btn {
+      position: fixed;
+      top: 55px;
+      left: 10px;
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      background: rgba(255, 204, 153, 0.8);
+      color: maroon;
+      box-shadow: 0 0 18px 3px silver;
+      transition: 0.3s;
+      z-index: 999;
+    }
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px 8px silver, 0 0 25px rgba(255, 204, 153, 0.8);
+    }
+
+    /* ===== MAIN CARD ===== */
+    .module-card {
+      width: 70%;
+      background: rgba(255, 230, 204, 0.6); /* Light orange glass effect */
+      margin: 80px auto 60px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      transition: 0.3s ease-in-out;
+    }
+    .module-card:hover {
+      box-shadow: 0 15px 50px rgba(0,0,0,0.7), 0 0 25px rgba(255, 230, 204, 0.8);
+      transform: translateY(-2px);
+    }
+
+    .module-card h1 {
+      text-align: center;
+      color: maroon;
+    }
+
+    /* ===== HEADINGS ===== */
+    .section-title {
+      font-size: 1.4em;
+      margin-top: 25px;
+      font-weight: bold;
+      color: maroon;
+    }
+
+    /* ===== CONTENT BOX ===== */
+    .content-box {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 18px;
+      border-radius: 10px;
+      margin-top: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      color: black;
+      transition: 0.3s ease-in-out;
+    }
+    .content-box:hover {
+      box-shadow: 0 0 40px 10px #ff9933, 0 0 20px silver, 0 0 30px #ffb366;
+      transform: translateY(-1px);
+    }
+
+    /* ===== BUTTONS ===== */
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cpp-btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #cc5200, #ff8000);
+      color: white;
+      box-shadow: 0 0 18px 3px silver;
+      transition: 0.3s;
+    }
+    .cpp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px 10px silver, 0 0 25px #ff9933;
+    }
+
+    .cpp-heading {
+      text-align: center;
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-top: 40px;
+      color: maroon;
+    }
+  </style>
+</head>
+
+<body class="light">
+
+<!-- Theme Toggle -->
+<button class="theme-toggle"
+        onclick="document.body.classList.toggle('light'); 
+                 document.body.classList.toggle('dark');">
+  Switch Theme
+</button>
+
+<!-- Back Button -->
+<a href="vasavi_port.html" class="back-btn">⬅ Back</a>
+
+<div class="module-card">
+
+<h1>Module 7: Population Analytics – Case Study</h1>
+
+<!-- PROBLEM STATEMENT -->
+<h2 class="section-title">Problem Statement</h2>
+<div class="content-box">
+  Vishalnagari requires fast and reliable analysis of population data such as age groups,
+  district-wise density, growth patterns, and demographic distribution.  
+  Slow processing of this data leads to delayed insights for government planning.  
+  A smart preprocessing + instant querying system is required for real-time population analytics.
+</div>
+
+<!-- CASE STUDY (YOUR CONTENT EXACTLY AS GIVEN) -->
+<h2 class="section-title">Case Study</h2>
+<div class="content-box">
+
+<!-- Do NOT modify this section – your content preserved -->
+<!-- MODULE 7: Population Analytics -->
+<div id="m7" class="module-content">
+  <h2>Population Analytics</h2>
+
+  <p><strong>Business Problem:</strong><br>
+    Vishalnagari needs efficient analysis of population data — age groups, density, and growth trends.<br>
+    Without optimized querying, demographic insights become slow and unreliable.<br>
+    A smart analytics system ensures fast range queries and scalable preprocessing for large datasets.
+  </p>
+
+  <p><strong>Algorithm:</strong><br>
+    Sparse Table for efficient range queries on static population data.<br>
+    - Preprocessing with Merge Sort / Heap Sort for scalable organization of demographic records.<br>
+    📊 Efficiency: Sorting O(n log n), Sparse Table build O(n log n), query O(1).
+  </p>
+
+  <pre>
+  // Population Analytics for Vishalnagari
+  vector &lt;int&gt; populationData = loadPopulation();
+
+  mergeSort(populationData); // or heapSort(populationData)
+
+  buildSparseTable(populationData);
+
+  int l = 2, r = 8; // query range (e.g., age groups or districts)
+
+  int result = rangeQuery(l, r);
+
+  cout << "Population Analysis Result: " << result;
+  </pre>
+
+  <p><strong>✅Conclusion:</strong><br>
+    This approach enables instant demographic queries across age groups, districts, or density ranges.<br>
+    Vishalnagari can deliver accurate population insights,<br>
+    supporting urban planning, healthcare, and resource allocation.
+  </p>
+</div>
+
+</div>
+
+<!-- SDGs -->
+<h2 class="section-title">How This Innovation Supports the SDGs</h2>
+<div class="content-box">
+  <p><b>SDG 11 – Sustainable Cities & Communities:</b><br>
+     Helps plan population distribution, urban infrastructure, and essential services.</p>
+
+  <p><b>SDG 3 – Good Health & Well-Being:</b><br>
+     Enables demographic insights for healthcare planning and disease prevention.</p>
+
+  <p><b>SDG 9 – Industry, Innovation & Infrastructure:</b><br>
+     Implements advanced analytics architecture for city-scale population management.</p>
+</div>
+
+<!-- CODE BUTTON -->
+<div class="cpp-heading">Implementation Code</div>
+<div class="button-row">
+  <a href="#" class="cpp-btn" target="_blank">View Code</a>
+</div>
+
+</div>
+
+</body>
+</html>
