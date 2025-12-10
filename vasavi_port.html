@@ -16,6 +16,24 @@
       background: #f7e9ff;
       color: #3b235a;
       position: relative;
+      transition: 0.4s ease-in-out;
+    }
+
+    /* DARK MODE */
+    body.dark {
+      background: #2b1b3d;
+      color: #f5dfff;
+    }
+
+    /* DARK MODE HEADER CURVE */
+    body.dark .header-curve {
+      background: linear-gradient(135deg, #5e328f, #8f6bbd);
+    }
+
+    /* DARK MODE MODULE CARDS */
+    body.dark .module-card {
+      background: linear-gradient(135deg, #c7a8ff, #b891ff);
+      color: #2b1b3d;
     }
 
     /* TOP CURVED HEADER */
@@ -27,6 +45,7 @@
       border-bottom-right-radius: 50% 40%;
       position: relative;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: 0.4s ease;
     }
 
     /* FLOATING SHAPES */
@@ -37,25 +56,9 @@
       animation: float 6s infinite ease-in-out;
     }
 
-    .s1 {
-      width: 120px; height: 120px;
-      background: #cfa8ff;
-      top: 30px; left: 20px;
-      animation-duration: 7s;
-    }
-
-    .s2 {
-      width: 160px; height: 160px;
-      background: #e4c8ff;
-      top: 90px; right: 50px;
-    }
-
-    .s3 {
-      width: 90px; height: 90px;
-      background: #b980ff;
-      bottom: 40px; left: 60px;
-      animation-duration: 8s;
-    }
+    .s1 { width: 120px; height: 120px; background: #cfa8ff; top: 30px; left: 20px; animation-duration: 7s; }
+    .s2 { width: 160px; height: 160px; background: #e4c8ff; top: 90px; right: 50px; }
+    .s3 { width: 90px; height: 90px; background: #b980ff; bottom: 40px; left: 60px; animation-duration: 8s; }
 
     @keyframes float {
       0% { transform: translateY(0); }
@@ -95,6 +98,38 @@
     }
 
     /* ========================== */
+    /* THEME SWITCH BUTTON */
+    /* ========================== */
+    .theme-btn {
+      position: absolute;
+      top: 18px;
+      left: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e6ceff, #f7eaff);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border: none;
+      cursor: pointer;
+      font-size: 23px;
+      color: #4a1c77;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+
+    .theme-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* DARK BUTTON MODE */
+    body.dark .theme-btn {
+      background: linear-gradient(135deg, #d7b7ff, #b27dff);
+      color: #2b1b3d;
+    }
+
+    /* ========================== */
     /* MAIN HEADING */
     /* ========================== */
     .page-title {
@@ -120,9 +155,7 @@
       border: 4px solid #e9d3ff;
     }
 
-    .img-box img {
-      width: 100%;
-    }
+    .img-box img { width: 100%; }
 
     /* ========================== */
     /* MODULE SECTION */
@@ -135,12 +168,21 @@
       border-radius: 25px;
       box-shadow: 0 4px 18px rgba(0,0,0,0.1);
       backdrop-filter: blur(8px);
+      transition: 0.3s ease;
+    }
+
+    body.dark .module-container {
+      background: rgba(255,255,255,0.1);
     }
 
     .module-container h2 {
       text-align: center;
       color: #4a1c77;
       font-size: 1.8rem;
+    }
+
+    body.dark .module-container h2 {
+      color: #f3dfff;
     }
 
     .module-grid {
@@ -151,21 +193,19 @@
       justify-items: center;
     }
 
-    /* ========================== */
-    /* CIRCULAR MODULE CARDS – LIGHT LAVENDER */
-    /* ========================== */
+    /* MODULE CARDS – LIGHT LAVENDER */
     .module-card {
       width: 150px;
       height: 150px;
-      border-radius: 50%;  
+      border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
 
       padding: 25px;
-      background: linear-gradient(135deg, #e9d2ff, #f6e8ff); /* LIGHT LAVENDER */
-      color: #4a1c77;  /* readable dark purple text */
+      background: linear-gradient(135deg, #e9d2ff, #f6e8ff);
+      color: #4a1c77;
       font-weight: bold;
       font-size: 1rem;
       text-decoration: none;
@@ -182,6 +222,9 @@
 </head>
 
 <body>
+
+  <!-- THEME BUTTON -->
+  <button class="theme-btn" onclick="toggleTheme()">🌙</button>
 
   <!-- HEADER CURVE -->
   <div class="header-curve">
@@ -206,17 +249,9 @@
   <h1 class="page-title">Commercial Sectors & Government Bodies</h1>
 
   <!-- IMAGE SECTIONS -->
-  <div class="img-box">
-    <img src="flower.png" alt="">
-  </div>
-
-  <div class="img-box">
-    <img src="image2.png" alt="">
-  </div>
-
-  <div class="img-box">
-    <img src="image3.png" alt="">
-  </div>
+  <div class="img-box"><img src="flower.png" alt=""></div>
+  <div class="img-box"><img src="image2.png" alt=""></div>
+  <div class="img-box"><img src="image3.png" alt=""></div>
 
   <!-- MODULES -->
   <section class="module-container">
@@ -232,6 +267,19 @@
       <a class="module-card" href="vm7.html">Population</a>
     </div>
   </section>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+
+      const btn = document.querySelector(".theme-btn");
+      if (document.body.classList.contains("dark")) {
+        btn.innerHTML = "☀️";  // sun icon in dark mode
+      } else {
+        btn.innerHTML = "🌙";  // moon icon in light mode
+      }
+    }
+  </script>
 
 </body>
 </html>
