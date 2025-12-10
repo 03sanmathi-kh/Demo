@@ -84,32 +84,32 @@
       color: #f0e6ff;
     }
 
-    /* ===== LAVENDER BOX ===== */
+    /* ===== LAVENDER BOXES ===== */
     .lavender-box {
-      width: 95%;
-      max-width: 900px;
+      width: 96%;
+      max-width: 950px;
       margin: 120px auto;
-      padding: 50px 40px;
+      padding: 60px 50px; /* slightly bigger */
       border-radius: 20px;
       background: #f0f0ff; /* slightly darker lavender tint */
-      box-shadow: 0 8px 20px rgba(192,192,192,0.3);
+      box-shadow: 0 8px 25px rgba(192,192,192,0.3);
       transition: 0.3s;
       text-align: center;
     }
 
     .lavender-box:hover {
-      box-shadow: 0 0 35px silver, 0 0 20px #c0c0c0;
+      box-shadow: 0 0 40px silver, 0 0 25px #c0c0c0;
       transform: translateY(-2px);
     }
 
     body.dark .lavender-box {
       background: #0a1a4d; /* navy blue */
       color: #f0e6ff;
-      box-shadow: 0 8px 20px rgba(192,192,192,0.5);
+      box-shadow: 0 8px 25px rgba(192,192,192,0.5);
     }
 
     body.dark .lavender-box:hover {
-      box-shadow: 0 0 40px silver, 0 0 25px #c0c0c0;
+      box-shadow: 0 0 50px silver, 0 0 30px #c0c0c0;
     }
 
     /* ===== TITLE & SUBTITLE ===== */
@@ -152,19 +152,79 @@
       transition: 0.3s;
     }
 
-    /* ===== GLOW ON HOVER ===== */
-    .lavender-box:hover .lavender-title,
-    .lavender-box:hover .lavender-subtitle,
-    .lavender-box:hover .lavender-image img {
-      text-shadow: 0 0 12px silver;
-      box-shadow: 0 0 12px silver;
+    /* ===== SECOND SECTION ===== */
+    .collab-section {
+      width: 95%;
+      max-width: 950px;
+      margin: 80px auto;
+      padding: 50px;
+      border-radius: 20px;
+      background: #f4f4ff;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(192,192,192,0.3);
+      transition: 0.3s;
+    }
+
+    body.dark .collab-section {
+      background: #0b1a4a;
+      color: #f0e6ff;
+      box-shadow: 0 8px 25px rgba(192,192,192,0.5);
+    }
+
+    .collab-section h2 {
+      font-size: 2rem;
+      margin-bottom: 50px;
+    }
+
+    /* ===== RHOMBUS BUTTONS ===== */
+    .rhombus-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .rhombus {
+      width: 120px;
+      height: 120px;
+      background: #c8a2ff;
+      transform: rotate(45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.4s;
+      font-weight: 700;
+      color: #1a0a4d;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      border-radius: 6px;
+    }
+
+    body.dark .rhombus {
+      background: #4b0082;
+      color: #f0e6ff;
+    }
+
+    .rhombus:hover {
+      box-shadow: 0 0 25px silver, 0 0 20px #c0c0c0;
+      transform: rotate(45deg) scale(1.2);
+      color: #fff;
+    }
+
+    /* Rotate text inside rhombus back to normal */
+    .rhombus span {
+      transform: rotate(-45deg);
+      display: inline-block;
     }
 
     @media (max-width: 768px) {
-      .lavender-box { margin: 140px 20px; padding: 35px 25px; }
+      .lavender-box { margin: 140px 20px; padding: 50px 30px; }
       .lavender-image { height: 250px; }
       .lavender-title { font-size: 2rem; margin-bottom: 10px; }
       .lavender-subtitle { font-size: 1.3rem; margin-bottom: 20px; }
+      .collab-section h2 { font-size: 1.6rem; margin-bottom: 35px; }
+      .rhombus { width: 100px; height: 100px; font-size: 1rem; }
     }
   </style>
 </head>
@@ -188,12 +248,22 @@
     <a href="collabs.html">Collabs</a>
   </nav>
 
-  <!-- Lavender Box -->
+  <!-- First Lavender Box -->
   <div class="lavender-box">
     <div class="lavender-title">Teamwork Makes the Dream Work 💜</div>
     <div class="lavender-subtitle">We Are Collaborating!! ✨</div>
     <div class="lavender-image">
       <img src="collabz.png" alt="Team Collaboration">
+    </div>
+  </div>
+
+  <!-- Second Section -->
+  <div class="collab-section">
+    <h2>Explore Our Collaborations ✨</h2>
+    <div class="rhombus-container">
+      <div class="rhombus" onclick="location.href='collab1.html'"><span>Collab 1</span></div>
+      <div class="rhombus" onclick="location.href='collab2.html'"><span>Collab 2</span></div>
+      <div class="rhombus" onclick="location.href='collab3.html'"><span>Collab 3</span></div>
     </div>
   </div>
 
