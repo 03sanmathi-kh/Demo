@@ -2,64 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta-name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Collaboration – Vishalanagri Project</title>
   <style>
-    /* Chameleon-like animated background */
+    /* Constant lavenderish-white background */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      height: 100vh;
+      background-color: #f8f7ff; /* constant background */
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(270deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
-      background-size: 800% 800%;
-      animation: backgroundShift 20s ease infinite;
+      min-height: 100vh;
+      padding: 20px;
     }
 
-    @keyframes backgroundShift {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
+    /* Animated content box */
     .content-box {
-      background-color: #b3e5fc; /* light blue */
-      padding: 30px 40px;
+      background: linear-gradient(270deg, #b3e5fc, #d6f0ff, #c2e9fb, #a1c4fd);
+      background-size: 800% 800%;
+      animation: contentShift 15s ease infinite;
+      padding: 40px 50px;
       border-radius: 25px;
       max-width: 1000px;
-      width: 90%;
+      width: 100%;
       box-shadow: 0 0 25px rgba(0,0,0,0.2);
       overflow-y: auto;
       max-height: 90vh;
+    }
+
+    @keyframes contentShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     h1 {
       text-align: center;
       color: #004d99;
       margin-bottom: 20px;
+      font-size: 2.5rem;
     }
 
     img {
       display: block;
       max-width: 100%;
       height: auto;
-      margin: 0 auto 20px auto;
+      margin: 0 auto 30px auto;
       border-radius: 15px;
     }
 
-    p {
-      text-align: justify;
-      line-height: 1.6;
-      margin-bottom: 15px;
+    .section {
+      margin-bottom: 25px;
+    }
+
+    .section h2 {
       color: #003366;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section p {
+      color: #001f4d;
+      font-size: 1rem;
+      margin: 0 0 8px 20px;
+      line-height: 1.5;
+    }
+
+    /* C++ Buttons */
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .cpp-btn {
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #004d99;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .cpp-btn:hover {
+      background-color: #0066cc;
     }
 
     .back-btn {
       display: block;
       width: 120px;
-      margin: 20px auto 0 auto;
+      margin: 25px auto 0 auto;
       padding: 10px 20px;
       font-size: 16px;
       font-weight: bold;
@@ -74,26 +114,96 @@
     .back-btn:hover {
       background-color: #0066cc;
     }
+
+    @media (max-width: 768px) {
+      .content-box { padding: 30px 25px; }
+      h1 { font-size: 2rem; }
+      .section h2 { font-size: 1.4rem; }
+      .cpp-btn { font-size: 0.9rem; padding: 10px 15px; }
+    }
   </style>
 </head>
+
 <body>
   <div class="content-box">
-    <h1>Sanmathi and Akshata collaborating!!</h1>
-    <img src="cotton.jpg" alt="Collaboration Image">
+    <h1>Sanmathi & Akshata Collaboration</h1>
+    <img src="cotton.png" alt="Collaboration Image">
 
-    <p>This collaboration combines Sanmathi’s focus on Industries, Infrastructure, and Logistics Optimization with Akshata’s focus on Traffic, Transport, and Flow Efficiency.</p>
+    <div class="section">
+      <h2>Focus Areas:</h2>
+      <p>• Sanmathi: Industries, Infrastructure, Logistics Optimization</p>
+      <p>• Akshata: Traffic, Transport, Flow Efficiency</p>
+    </div>
 
-    <p>Vishalanagri, located in the Vidarbha region of Maharashtra, is India’s leading cotton textile hub. Cotton is cultivated along the fertile banks of the Purna river and transported to multiple ginning mills, textile factories, and export terminals. The goal of this project is to design an optimized, cost-efficient, and time-efficient transportation network for cotton supply within Vishalanagri. The network must account for road constraints such as fuel costs, delays, congestion, and seasonal blockages, as well as capacity constraints between farms, mills, and factories. Timely delivery is critical to prevent spoilage and production delays.</p>
+    <div class="section">
+      <h2>Project Goal:</h2>
 
-    <p>To model and optimize the supply chain, advanced graph-based algorithms will be used. Dijkstra’s algorithm efficiently finds minimum-cost paths from farms to ginning mills and factories. Bellman-Ford handles scenarios with possible negative edge weights and detects cycles, while Floyd-Warshall calculates all-pairs shortest paths for full network insight. For flow optimization, Min Cost Max Flow determines how much cotton to send along each route to minimize total transport cost while satisfying supply and demand constraints. Optional enhancements include dynamic traffic modeling and simulation-based optimization for seasonal variations.</p>
+      <p>
+        • In Vishalanagri, cotton harvested in the early morning from different farm clusters often reaches
+          nearby ginning mills late due to road bottlenecks and unpredictable traffic. This delay causes
+          processing queues, factory slowdowns, and at times even shipment backlogs at export terminals.
+          Our goal is to build a system that can predict these inefficiencies before they occur and redirect
+          vehicles through alternate routes in real time.
+      </p>
 
-    <p>The optimized cotton supply chain will reduce transportation costs, ensure faster delivery, avoid bottlenecks, and improve sustainability by lowering emissions. Computational efficiency for the algorithms is high: Dijkstra runs in O(V log V + E), Bellman-Ford in O(V × E), Floyd-Warshall in O(V³), and Min Cost Max Flow in O(F × E × log V), where F is the total flow and E the number of edges.</p>
+      <p>
+        • The project aims to create an end-to-end intelligent network where cotton moves smoothly
+          from farms → mills → textile factories → ports. The algorithms help identify the fastest and
+          cheapest route at every hour of the day by analysing road load, distance, cost, and congestion.
+          When traffic spikes unexpectedly, the system adjusts instantly, ensuring trucks keep moving
+          without getting stuck.
+      </p>
 
-    <p>This project also aligns with several Sustainable Development Goals. It supports SDG 9 by modernizing industry and transport infrastructure, SDG 11 by integrating smart-city principles for efficient urban transport, SDG 12 by reducing waste and improving resource efficiency, and SDG 13 by lowering carbon emissions through optimized routing.</p>
+      <p>
+        • Ultimately, the project ensures that industries never run out of raw cotton, mills maintain
+          uninterrupted operations, factories ship goods on schedule, and the entire city experiences
+          reduced congestion because transport flows are evenly distributed.
+      </p>
 
-    <p>For design and visualization, the network can be represented as a graph with nodes as farms, ginning mills, factories, and export terminals, and edges representing roads with cost and time weights. Routes can be color-coded for efficiency, and edge widths can represent the volume of cotton transported. An interactive or simulated view could show seasonal or traffic variations to observe route adjustments dynamically, making it clear how the optimized supply chain balances cost, time, and sustainability.</p>
+      <p>
+        • This creates a fully optimized cotton supply chain where farmers get faster returns, industries get
+          steady supply, transport becomes more predictable, and environmental impact is reduced through
+          efficient route usage.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Algorithms Used:</h2>
+      <p>• Dijkstra: Minimum-cost paths</p>
+      <p>• Bellman-Ford: Handles negative edge weights, detects cycles</p>
+      <p>• Floyd-Warshall: All-pairs shortest paths</p>
+      <p>• Min Cost Max Flow: Optimal cotton distribution</p>
+    </div>
+
+    <div class="section">
+      <h2>Benefits:</h2>
+      <p>• Reduced transportation costs</p>
+      <p>• Faster delivery & no bottlenecks</p>
+      <p>• Sustainable & lower emissions</p>
+      <p>• Load balancing across routes</p>
+    </div>
+
+    <div class="section">
+      <h2>SDG Alignment:</h2>
+      <p>• SDG 9: Industry, Innovation & Infrastructure</p>
+      <p>• SDG 11: Sustainable Cities & Communities</p>
+      <p>• SDG 12: Responsible Consumption & Production</p>
+      <p>• SDG 13: Climate Action</p>
+    </div>
+
+    <div class="section">
+      <h2>View C++ Implementations below:</h2>
+      <div class="button-container">
+        <button class="cpp-btn" onclick="window.open('https://github.com/yourrepo/Dijkstra.cpp','_blank')">Dijkstra.cpp</button>
+        <button class="cpp-btn" onclick="window.open('https://github.com/yourrepo/BellmanFord.cpp','_blank')">BellmanFord.cpp</button>
+        <button class="cpp-btn" onclick="window.open('https://github.com/yourrepo/FloydWarshall.cpp','_blank')">FloydWarshall.cpp</button>
+        <button class="cpp-btn" onclick="window.open('https://github.com/yourrepo/MinCostMaxFlow.cpp','_blank')">MinCostMaxFlow.cpp</button>
+        <button class="cpp-btn" onclick="window.open('https://github.com/yourrepo/CompleteSolution.cpp','_blank')">CompleteSolution.cpp</button>
+      </div>
+    </div>
 
     <button class="back-btn" onclick="window.location.href='collbs.html'">Back</button>
+
   </div>
 </body>
 </html>
