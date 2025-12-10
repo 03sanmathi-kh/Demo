@@ -9,7 +9,6 @@
   <style>
 /* ----- CARD STYLING ----- */
 .info-card, .portfolio-card {
-  background: rgba(255,255,255,0.1);
   backdrop-filter: blur(8px);
   padding: 18px 22px;
   border-radius: 14px;
@@ -21,22 +20,34 @@
 /* Glow when touched (hover) */
 .info-card:hover, .portfolio-card:hover {
   transform: scale(1.015);
-  box-shadow: 0 0 20px rgba(135,206,250,0.8); /* uniform sky-blue glow */
+  box-shadow: 0 0 25px rgba(135,206,250,0.9); /* stronger glow */
 }
 
 /* Portfolio cards specific */
+.portfolio-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
 .portfolio-card {
   width: 22%; /* four cards side by side */
   min-width: 200px;
-  display: inline-block;
-  vertical-align: top;
-  margin: 10px 1%;
   text-align: center;
   padding: 20px;
-  background-color: #add8e6; /* light blue */
   color: navy; /* text color */
   box-shadow: 0 0 18px rgba(135,206,250,0.9); /* sky blue glow */
+  transition: 0.3s;
+  border: 1px solid rgba(0,0,0,0.2);
 }
+
+/* Assign transparent colors to cards */
+.portfolio-card:nth-child(1) { background-color: rgba(255,0,0,0.2); }
+.portfolio-card:nth-child(2) { background-color: rgba(255,255,0,0.2); }
+.portfolio-card:nth-child(3) { background-color: rgba(0,0,255,0.2); }
+.portfolio-card:nth-child(4) { background-color: rgba(0,255,0,0.2); }
 
 /* Portfolio card buttons */
 .portfolio-card a {
@@ -65,24 +76,31 @@
 body.dark .project-overview h2 { color: #ffcc00; }
 body.light .project-overview h2 { color: maroon; }
 
-/* Responsive for portfolio cards */
-@media (max-width: 1200px) {
-  .portfolio-card { width: 45%; margin: 2.5%; }
-}
-@media (max-width: 900px) {
-  .portfolio-card { width: 45%; margin: 2.5%; }
-}
-@media (max-width: 600px) {
-  .portfolio-card { width: 90%; margin: 5% auto; }
-}
-
 /* Widen info cards slightly */
 .info-card {
-  width: 85%; 
-  max-width: 800px;
+  color: navy;
 }
 
-/* GitHub button (for portfolio) */
+/* Statistics cards container for 2 in a row */
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.stats-container .info-card {
+  width: 45%; /* two cards per row */
+  max-width: 400px;
+}
+
+/* Assign transparent colors to statistics cards */
+.stats-container .info-card:nth-child(1) { background-color: rgba(255,0,0,0.2); }
+.stats-container .info-card:nth-child(2) { background-color: rgba(255,255,0,0.2); }
+.stats-container .info-card:nth-child(3) { background-color: rgba(0,0,255,0.2); }
+.stats-container .info-card:nth-child(4) { background-color: rgba(0,255,0,0.2); }
+
+/* GitHub button (bright glow) */
 .github-btn {
   background: #333;
   color: white;
@@ -92,11 +110,24 @@ body.light .project-overview h2 { color: maroon; }
   font-weight: bold;
   display: inline-block;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 0 10px rgba(192,192,192,0.6);
+  box-shadow: 0 0 20px rgba(135,206,250,0.9); /* brighter glow */
 }
 .github-btn:hover {
-  box-shadow: 0 0 14px rgba(192,192,192,0.9);
-  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(135,206,250,1);
+  transform: scale(1.05);
+}
+
+/* Responsive for portfolio cards */
+@media (max-width: 1200px) {
+  .portfolio-card { width: 45%; margin: 2.5%; }
+}
+@media (max-width: 900px) {
+  .portfolio-card { width: 45%; margin: 2.5%; }
+  .stats-container .info-card { width: 90%; }
+}
+@media (max-width: 600px) {
+  .portfolio-card { width: 90%; margin: 5% auto; }
+  .stats-container .info-card { width: 90%; }
 }
 </style>
 </head>
@@ -133,44 +164,45 @@ body.light .project-overview h2 { color: maroon; }
 <!-- ===================== NEW INFORMATION CARDS ===================== -->
 <section class="project-overview">
   <h2>City Statistical Overview</h2>
+  <div class="stats-container">
+    <!-- Population Card -->
+    <div class="info-card">
+      <h3>Population Distribution</h3>
+      <p><strong>Total Population:</strong> 28 million</p>
+      <p><strong>Male:</strong> 52% → 14.56 million</p>
+      <p><strong>Female:</strong> 48% → 13.44 million</p>
+      <p><strong>Density:</strong> 18,000 per sq. km</p>
+      <p><strong>Total Area:</strong> 1500 sq. km</p>
+    </div>
 
-  <!-- Population Card -->
-  <div class="info-card">
-    <h3>Population Distribution</h3>
-    <p><strong>Total Population:</strong> 28 million</p>
-    <p><strong>Male:</strong> 52% → 14.56 million</p>
-    <p><strong>Female:</strong> 48% → 13.44 million</p>
-    <p><strong>Density:</strong> 18,000 per sq. km</p>
-    <p><strong>Total Area:</strong> 1500 sq. km</p>
-  </div>
+    <!-- AQI Zones -->
+    <div class="info-card">
+      <h3>Air Quality Index (AQI)</h3>
+      <p><strong>Industrial Sector:</strong> 225</p>
+      <p><strong>Residential Area:</strong> 101</p>
+      <p><strong>Forest / Green Zone:</strong> 45</p>
+      <p><strong>Agricultural Land:</strong> 89</p>
+      <p><strong>Airport Zone:</strong> 170</p>
+      <p><strong>Transport System Region:</strong> 198</p>
+      <p><strong>City Average AQI:</strong> 130</p>
+    </div>
 
-  <!-- AQI Zones -->
-  <div class="info-card">
-    <h3>Air Quality Index (AQI)</h3>
-    <p><strong>Industrial Sector:</strong> 225</p>
-    <p><strong>Residential Area:</strong> 101</p>
-    <p><strong>Forest / Green Zone:</strong> 45</p>
-    <p><strong>Agricultural Land:</strong> 89</p>
-    <p><strong>Airport Zone:</strong> 170</p>
-    <p><strong>Transport System Region:</strong> 198</p>
-    <p><strong>City Average AQI:</strong> 130</p>
-  </div>
+    <!-- Pincode Card -->
+    <div class="info-card">
+      <h3>Pincode Information</h3>
+      <p><strong>Range:</strong> 446001 – 446150</p>
+      <p><strong>Approx. Count:</strong> 150 pincodes</p>
+      <p><strong>Starting Format:</strong> 446xxx</p>
+    </div>
 
-  <!-- Pincode Card -->
-  <div class="info-card">
-    <h3>Pincode Information</h3>
-    <p><strong>Range:</strong> 446001 – 446150</p>
-    <p><strong>Approx. Count:</strong> 150 pincodes</p>
-    <p><strong>Starting Format:</strong> 446xxx</p>
-  </div>
-
-  <!-- Vehicle Number Card -->
-  <div class="info-card">
-    <h3>Vehicle Registration System</h3>
-    <p><strong>State Code:</strong> MH</p>
-    <p><strong>RTO Code Range:</strong> 61 – 70</p>
-    <p><strong>Series Code:</strong> Any 2 English letters</p>
-    <p><strong>Vehicle Format Example:</strong> MH 61 AB 1234</p>
+    <!-- Vehicle Number Card -->
+    <div class="info-card">
+      <h3>Vehicle Registration System</h3>
+      <p><strong>State Code:</strong> MH</p>
+      <p><strong>RTO Code Range:</strong> 61 – 70</p>
+      <p><strong>Series Code:</strong> Any 2 English letters</p>
+      <p><strong>Vehicle Format Example:</strong> MH 61 AB 1234</p>
+    </div>
   </div>
 </section>
 
@@ -186,13 +218,13 @@ body.light .project-overview h2 { color: maroon; }
   <h2>PHASE 2 - Portfolio Creation</h2>
   <p style="text-align:center;">Below are the four key team members’ portfolio cards. Click “View Portfolio” to explore individual contributions.</p>
 
-  <div style="text-align:center;">
+  <div class="portfolio-container">
     <!-- Card 1 -->
     <div class="portfolio-card">
       <h3>Sanmathi Hegde</h3>
       <p><strong>Roll Number:</strong>407</p>
       <p><strong>USN:</strong>01fe24bcs269</p>
-      <p style="min-height:60px;"> <Sectors chosen:Industries,Urban Infrastructure & Tourism> </p>
+      <p style="min-height:60px;">Sectors chosen: Industries, Urban Infrastructure & Tourism</p>
       <a href="sanmathi_port.html" target="_blank">View Portfolio</a>
     </div>
 
@@ -201,7 +233,7 @@ body.light .project-overview h2 { color: maroon; }
       <h3>Vasavi Kabbur</h3>
       <p><strong>Roll Number:</strong>415 </p>
       <p><strong>USN:</strong>01fe24bcs278 </p>
-      <p style="min-height:60px;"> <Sectors chosen: Commerce and governance> </p>
+      <p style="min-height:60px;">Sectors chosen: Commerce and governance</p>
       <a href="vasavi_port.html" target="_blank">View Portfolio</a>
     </div>
 
@@ -210,7 +242,7 @@ body.light .project-overview h2 { color: maroon; }
       <h3>Akshata Pawar</h3>
       <p><strong>Roll Number:</strong>434</p>
       <p><strong>USN:</strong>01fe24bcs297</p>
-      <p style="min-height:60px;"> <Sectors chosen:Traffic and Transport system> </p>
+      <p style="min-height:60px;">Sectors chosen: Traffic and Transport system</p>
       <a href="akshata_port.html" target="_blank">View Portfolio</a>
     </div>
 
@@ -219,11 +251,10 @@ body.light .project-overview h2 { color: maroon; }
       <h3>Isha Shet</h3>
       <p><strong>Roll Number:</strong>418 </p>
       <p><strong>USN:</strong>01fe24bcs281 </p>
-      <p style="min-height:60px;"> <Sectors chosen:Agriculture,Eco-innovation &Sustanability > </p>
+      <p style="min-height:60px;">Sectors chosen: Agriculture, Eco-innovation & Sustainability</p>
       <a href="isha_port.html" target="_blank">View Portfolio</a>
     </div>
   </div>
-
 </section>
 
 <script>
