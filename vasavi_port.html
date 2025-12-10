@@ -1,97 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Governance</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commercial Sectors & Government Bodies</title>
 
   <style>
+    /* ========================== */
+    /* GLOBAL THEME */
+    /* ========================== */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      font-family: "Poppins", sans-serif;
+      overflow-x: hidden;
+      background: #f7e9ff;
+      color: #3b235a;
+      position: relative;
     }
 
-    /* Main container */
-    .modules-container {
-      padding: 40px;
+    /* TOP CURVED HEADER */
+    .header-curve {
+      width: 100%;
+      height: 270px;
+      background: linear-gradient(135deg, #9b52e7, #d6b4ff);
+      border-bottom-left-radius: 50% 40%;
+      border-bottom-right-radius: 50% 40%;
+      position: relative;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    /* FLOATING SHAPES */
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.35;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .s1 {
+      width: 120px; height: 120px;
+      background: #cfa8ff;
+      top: 30px; left: 20px;
+      animation-duration: 7s;
+    }
+
+    .s2 {
+      width: 160px; height: 160px;
+      background: #e4c8ff;
+      top: 90px; right: 50px;
+    }
+
+    .s3 {
+      width: 90px; height: 90px;
+      background: #b980ff;
+      bottom: 40px; left: 60px;
+      animation-duration: 8s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-22px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* ========================== */
+    /* NAVIGATION */
+    /* ========================== */
+    nav {
+      position: absolute;
+      top: 15px;
+      width: 100%;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
+      justify-content: flex-end;
+      padding-right: 25px;
+      gap: 15px;
     }
 
-    /* ⭐ NEW — Circular Module Buttons */
-    .module-btn {
-      width: 140px;
-      height: 140px;
-      background: #4a6cf7;
+    nav a {
       color: white;
-      border-radius: 50%;       /* <--- THIS MAKES IT CIRCLE        */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 10px;
-      font-size: 18px;
-      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
       transition: 0.3s;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
     }
 
-    .module-btn:hover {
-      background: #354dcc;
-      transform: scale(1.07);
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.25);
     }
 
-    /* Module content boxes */
-    .module-content {
-      display: none;
-      padding: 20px;
+    nav .active {
+      background: rgba(255, 255, 255, 0.45);
+      color: #3b235a;
+    }
+
+    /* ========================== */
+    /* MAIN HEADING */
+    /* ========================== */
+    .page-title {
+      position: absolute;
+      top: 135px;
+      width: 100%;
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    /* ========================== */
+    /* IMAGE PANEL */
+    /* ========================== */
+    .img-box {
+      width: 75%;
       margin: 20px auto;
-      width: 85%;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 22px rgba(0,0,0,0.15);
+      border: 4px solid #e9d3ff;
     }
-  </style>
 
+    .img-box img {
+      width: 100%;
+    }
+
+    /* ========================== */
+    /* MODULE SECTION */
+    /* ========================== */
+    .module-container {
+      width: 85%;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 25px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    .module-container h2 {
+      text-align: center;
+      color: #4a1c77;
+      font-size: 1.8rem;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 25px;
+      justify-items: center;
+    }
+
+    /* ========================== */
+    /* CIRCULAR MODULE CARDS */
+    /* ========================== */
+    .module-card {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;                 /* CIRCLE SHAPE */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      padding: 25px;
+      color: white;
+      background: linear-gradient(135deg, #9d4edd, #c77dff);
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+    }
+
+    .module-card:hover {
+      transform: scale(1.12);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+
+  </style>
 </head>
+
 <body>
 
-  <h1 style="text-align:center; padding:20px;">Governance Modules</h1>
-
-  <!-- ⭐ CIRCULAR MODULE BUTTONS -->
-  <div class="modules-container">
-    <div class="module-btn" onclick="openModule('m1')">Module 1</div>
-    <div class="module-btn" onclick="openModule('m2')">Module 2</div>
-    <div class="module-btn" onclick="openModule('m3')">Module 3</div>
-    <div class="module-btn" onclick="openModule('m4')">Module 4</div>
-    <div class="module-btn" onclick="openModule('m5')">Module 5</div>
-    <div class="module-btn" onclick="openModule('m6')">Module 6</div>
+  <!-- HEADER CURVE -->
+  <div class="header-curve">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
   </div>
 
-  <!-- Example Module Content -->
-  <div id="m6" class="module-content">
-    <h2>Civic Data Analytics</h2>
-    <p><strong>Business Problem:</strong><br>
-      Vishalnagari needs to efficiently analyze civic data such as health and transport.
-      Without optimized querying, large datasets become slow to process and insights are delayed.
-      A smart analytics system ensures fast range queries and scalable preprocessing.
-    </p>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="project.html">Project</a>
+    <a href="vasavi_port.html" class="active">Vasavi</a>
+    <a href="sanmathi_port.html">Sanmathi</a>
+    <a href="akshata_port.html">Akshata</a>
+    <a href="isha_port.html">Isha</a>
+    <a href="collabs.html">Collabs</a>
+  </nav>
+
+  <!-- PAGE TITLE -->
+  <h1 class="page-title">Commercial Sectors & Government Bodies</h1>
+
+  <!-- IMAGE SECTIONS -->
+  <div class="img-box">
+    <img src="flower.png" alt="">
   </div>
 
-  <script>
-    function openModule(id) {
-      var boxes = document.getElementsByClassName("module-content");
-      for (var i = 0; i < boxes.length; i++) {
-        boxes[i].style.display = "none";
-      }
-      document.getElementById(id).style.display = "block";
-      window.scrollTo(0, 0);
-    }
-  </script>
+  <div class="img-box">
+    <img src="image2.png" alt="">
+  </div>
+
+  <div class="img-box">
+    <img src="image3.png" alt="">
+  </div>
+
+  <!-- MODULES -->
+  <section class="module-container">
+    <h2>Explore My Modules</h2>
+
+    <div class="module-grid">
+      <a class="module-card" href="vm1.html">Smart Housing</a>
+      <a class="module-card" href="vm2.html">E-Commerce</a>
+      <a class="module-card" href="vm3.html">Tax Planning</a>
+      <a class="module-card" href="vm4.html">Loan Distribution</a>
+      <a class="module-card" href="vm5.html">Gaming</a>
+      <a class="module-card" href="vm6.html">Civic Analytics</a>
+      <a class="module-card" href="vm7.html">Population</a>
+    </div>
+  </section>
 
 </body>
 </html>
+
 
