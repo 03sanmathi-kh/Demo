@@ -7,61 +7,56 @@
   <link rel="stylesheet" href="style.css">
 
 <style>
-    .github-btn {
-      background: #333;      
-      color: white;
-      padding: 8px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 0 10px rgba(192,192,192,0.6); 
-    }
+/* ----- CARD STYLING ----- */
+.info-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  padding: 18px 22px;
+  border-radius: 14px;
+  margin: 16px auto;
+  width: 78%;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: transform 0.3s ease, box-shadow 0.35s ease;
+}
 
-    .github-btn:hover {
-      box-shadow: 0 0 14px rgba(192,192,192,0.9);
-      transform: scale(1.03);
-    }
+/* Glow when touched (hover) */
+.info-card:hover {
+  transform: scale(1.015);
+  box-shadow: 0 0 14px rgba(255,255,255,0.45);
+}
 
-    .project-overview h2 {
-      font-size: 2.5em;
-      text-align: center;
-      margin-bottom: 15px;
-    }
+/* GitHub button unchanged */
+.github-btn {
+  background: #333;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(192,192,192,0.6);
+}
 
-    body.dark .project-overview h2 {
-      color: #ffcc00;
-    }
+.github-btn:hover {
+  box-shadow: 0 0 14px rgba(192,192,192,0.9);
+  transform: scale(1.03);
+}
 
-    body.light .project-overview h2 {
-      color: maroon;
-    }
+/* Heading styling */
+.project-overview h2 {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 15px;
+}
 
-    /* Info block styling */
-    .info-block {
-      background: rgba(255,255,255,0.07);
-      padding: 18px;
-      margin: 14px auto;
-      border-radius: 12px;
-      width: 85%;
-      backdrop-filter: blur(6px);
-      border-left: 4px solid #ffcc00;
-      line-height: 1.6;
-    }
+body.dark .project-overview h2 {
+  color: #ffcc00;
+}
 
-    body.light .info-block {
-      background: rgba(0,0,0,0.07);
-      border-left: 4px solid maroon;
-    }
-
-    .info-block strong {
-      color: #ffd966;
-    }
-
-    body.light .info-block strong {
-      color: maroon;
-    }
+body.light .project-overview h2 {
+  color: maroon;
+}
 </style>
 
 </head>
@@ -85,58 +80,67 @@
 </nav>
 
 <div class="portfolio-heading">PROJECT</div>
-<a class="github-btn" href="https://github.com/03sanmathi-kh/Demo/tree/main" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+<a class="github-btn" href="https://github.com/03sanmathi-kh/Demo/tree/main" target="_blank">View on GitHub</a>
 
 <section class="project-overview">
   <h2>Our Vision</h2>
   <p class="city-motto"><strong>Designing Tomorrow, One Algorithm at a Time</strong></p>
+
   <p class="city-text">
-    Vishalanagari, located in Maharashtra’s Vidarbha region between Amravati and Akola, is a next-generation smart city built on the fertile lands of the Deccan Plateau. The Purna River supports rich agriculture, making the region India’s premier cotton-growing and textile hub with strong export networks. Designed for 28 million people with a density of 18,000/km², the city operates on an annual budget of ₹18,000 crore and is recognized nationwide as India’s capital of civic innovation. Within city limits, 100% electric vehicles ensure zero-emission transport, while smart algorithms manage not only traffic and civic resources but also agriculture, industrial zones, urban infrastructure, government operations, commercial activities, and sustainability systems — creating a clean, efficient, and future-ready urban ecosystem. <br><strong>Strong roots, smart shoots.</strong>
+    Vishalanagari, located in Maharashtra’s Vidarbha region between Amravati and Akola, is a next-generation smart city built on the fertile lands of the Deccan Plateau. The Purna River supports rich agriculture, making the region India’s premier cotton-growing and textile hub with major export networks. Designed for 28 million people with a density of 18,000/km², the city operates on an annual budget of ₹18,000 crore and is recognized nationwide as India’s capital of civic innovation. Within city limits, 100% electric vehicles ensure zero-emission transport, while smart algorithms manage traffic, agriculture, industries, commercial hubs, governance systems, and sustainability operations — forming a balanced and efficient urban ecosystem. <br><strong>Strong roots, smart shoots.</strong>
   </p>
 </section>
 
-<!-- NEW CITY STATS SECTION -->
+<!-- ===================== NEW INFORMATION CARDS ===================== -->
+
 <section class="project-overview">
-  <h2>City Statistics & Administrative Profile</h2>
+  <h2>City Statistical Overview</h2>
 
-  <div class="info-block">
-    <strong>Location:</strong> Vidarbha region, between Amravati & Akola; Eastern Deccan Plateau.<br>
-    <strong>Geography:</strong> Total area 1500 sq. km; Purna River in NW supports agriculture.<br>
-    <strong>Specialty:</strong> India's leading cotton textile & export hub; ideal black soil.
+  <!-- Population Card -->
+  <div class="info-card">
+    <h3>Population Distribution</h3>
+    <p><strong>Total Population:</strong> 28 million</p>
+    <p><strong>Male:</strong> 52% → 14.56 million</p>
+    <p><strong>Female:</strong> 48% → 13.44 million</p>
+    <p><strong>Density:</strong> 18,000 per sq. km</p>
+    <p><strong>Total Area:</strong> 1500 sq. km</p>
   </div>
 
-  <div class="info-block">
-    <strong>Population:</strong> 28 million (as of 2025)<br>
-    <strong>Density:</strong> 18,000 people/sq. km<br>
-    <strong>Gender Ratio (estimated):</strong> 51% male, 49% female
+  <!-- AQI Zones -->
+  <div class="info-card">
+    <h3>Air Quality Index (AQI)</h3>
+    <p><strong>Industrial Sector:</strong> 225</p>
+    <p><strong>Residential Area:</strong> 101</p>
+    <p><strong>Forest / Green Zone:</strong> 45</p>
+    <p><strong>Agricultural Land:</strong> 89</p>
+    <p><strong>Airport Zone:</strong> 170</p>
+    <p><strong>Transport System Region:</strong> 198</p>
+    <p><strong>City Average AQI:</strong> 130</p>
   </div>
 
-  <div class="info-block">
-    <strong>Annual Budget:</strong> ₹18,000 crore (FY 2025)<br>
-    <strong>City Purpose:</strong> India’s capital of civic innovation and smart governance.
+  <!-- Pincode Card (separate) -->
+  <div class="info-card">
+    <h3>Pincode Information</h3>
+    <p><strong>Range:</strong> 446001 – 446150</p>
+    <p><strong>Approx. Count:</strong> 150 pincodes</p>
+    <p><strong>Starting Format:</strong> 446xxx</p>
   </div>
 
-  <div class="info-block">
-    <strong>Pincode Range:</strong> 446001 – 446150 <br>
-    <strong>Total Codes:</strong> approx. 150<br>
-    <strong>State Code:</strong> MH <br>
-    <strong>RTO Codes:</strong> 61 to 70 <br>
-    <strong>Vehicle Format:</strong> MH 61 AB 1234
+  <!-- Vehicle Number Card (separate) -->
+  <div class="info-card">
+    <h3>Vehicle Registration System</h3>
+    <p><strong>State Code:</strong> MH</p>
+    <p><strong>RTO Code Range:</strong> 61 – 70</p>
+    <p><strong>Series Code:</strong> Any 2 English letters</p>
+    <p><strong>Vehicle Format Example:</strong> MH 61 AB 1234</p>
   </div>
 
-  <div class="info-block">
-    <strong>Average AQI:</strong> 130 (citywide)<br>
-    <strong>Industrial Sector:</strong> 225<br>
-    <strong>Residential Area:</strong> 101<br>
-    <strong>Forest / Green Zone:</strong> 45<br>
-    <strong>Agricultural Land:</strong> 89<br>
-    <strong>Airport Zone:</strong> 170<br>
-    <strong>Transport Region:</strong> 198
-  </div>
 </section>
 
+
 <section class="project-overview">
-  <h2>PHASE 1 - Design of City</h2>
+  <h2>PHASE 1 - Design of City :</h2>
+<h3 class="sub-phase">This stage focuses on mapping the city’s core framework — zoning, mobility networks, green corridors, and resource grids — to ensure long-term scalability</h3>
   <img src="Image1.jpg" alt="City Design">
   <img src="Image2.jpg" alt="City Design">
 </section>
