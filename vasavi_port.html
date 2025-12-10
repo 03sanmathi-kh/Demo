@@ -5,21 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Commercial Sector</title>
 
- <style>
+  <style>
     /* ======================= */
-    /* THEME STYLES */
+    /* THEME STYLES (LAVENDER) */
     /* ======================= */
+
+    /* 🌤️ LIGHT THEME — Soft Lavender */
     body.light {
-      background: #fafafa;
-      color: #222;
-    }
- body.dark {
-      background: #002244;
-      color: white;
+      background: #f3e8ff;  /* light lavender */
+      color: #2a1a3f;       /* deep purple text */
     }
 
-    body.light .main-title { color: #880000; }
-    body.dark .main-title { color: #ffffff; }
+    /* 🌙 DARK THEME — Elegant Deep Lavender */
+    body.dark {
+      background: #2d014f;   /* deep lavender */
+      color: #f3e8ff;        /* pale lavender text */
+    }
+
+    body.light .main-title { color: #6a0dad; }   /* purple */
+    body.dark .main-title  { color: #e9d2ff; }   /* soft lavender */
 
     /* ======================= */
     /* THEME BUTTON */
@@ -29,11 +33,12 @@
       left: 15px;
       top: 15px;
       padding: 10px 20px;
-      background: #ffe08a;
+      background: #d7b3ff;  /* lavender gold mix */
       border: none;
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
+      color: #2a1a3f;
       box-shadow: 0 0 12px rgba(0,0,0,0.3);
       z-index: 20;
     }
@@ -43,7 +48,7 @@
     /* ======================= */
     nav {
       width: 100%;
-      background: #162850;
+      background: #53207d;   /* deep lavender */
       padding: 12px;
       display: flex;
       justify-content: flex-end;
@@ -54,7 +59,7 @@
     }
 
     nav a {
-      color: white;
+      color: #f3e8ff;       /* light lavender text */
       text-decoration: none;
       font-weight: bold;
       padding: 8px 14px;
@@ -63,12 +68,12 @@
     }
 
     nav a:hover {
-      background: #324c7e;
+      background: #7841a6;   /* bright lavender */
     }
 
     nav .active {
-      background: #ffe08a;
-      color: #162850;
+      background: #d7b3ff;   /* soft lavender */
+      color: #2a1a3f;        /* dark purple */
     }
 
     /* ======================= */
@@ -93,7 +98,7 @@
       margin: 30px auto;
       padding: 15px;
       border-radius: 12px;
-      background: #fff0f0;
+      background: #f7e9ff;  /* pale lavender */
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
@@ -110,7 +115,7 @@
       margin: 25px auto;
       padding: 30px;
       border-radius: 15px;
-      background: #dff7ff;
+      background: #ecd9ff;  /* soft lavender */
       box-shadow: 0 5px 18px rgba(0,0,0,0.1);
       text-align: center;
     }
@@ -118,6 +123,7 @@
     .content-box h2 {
       margin-top: 0;
       text-align: center;
+      color: #3f2266;
     }
 
     /* GRID FOR MODULE BUTTONS */
@@ -130,12 +136,12 @@
     }
 
     /* ======================= */
-    /* UPDATED CIRCULAR BUTTON */
+    /* MODULE BUTTONS */
     /* ======================= */
     .module-btn {
       width: 130px;
       height: 130px;
-      background: #004466;
+      background: #6a0dad;   /* deep purple */
       color: white;
       border-radius: 50%;
       font-weight: bold;
@@ -148,10 +154,11 @@
     }
 
     .module-btn:hover {
-      background: #0077aa;
+      background: #8c33d8;   /* bright lavender */
       transform: scale(1.08);
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
+
   </style>
 
 </head>
@@ -207,7 +214,7 @@
       <a href="vm4.html" class="module-btn">Loan distribution</a>
       <a href="vm5.html" class="module-btn">Gaming and Enterainment</a>
       <a href="vm6.html" class="module-btn">Civic Data Analytics</a>
-      <a href="vm7.html" class="module-btn">Population 7</a>
+      <a href="vm7.html" class="module-btn">Population</a>
     </div>
   </section>
 
