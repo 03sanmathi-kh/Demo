@@ -19,25 +19,20 @@
 
     /* Dark mode card */
     body.dark .module-card {
-      background: #1a1a1a; /* elegant dark slate card */
+      background: #1a1a1a; 
       color: #ffeeb3;
       box-shadow:
         0 10px 40px rgba(0,0,0,0.7),
-        0 0 28px rgba(255,200,80,0.25); /* amber glow */
+        0 0 28px rgba(255,200,80,0.25);
     }
 
     /* Dark mode headings */
-    body.dark .module-card h1 {
-      color: #ffeeb3;
-    }
-
-    body.dark .section-title {
-      color: #ffeeb3;
-    }
+    body.dark .module-card h1 { color: #ffeeb3; }
+    body.dark .section-title { color: #ffeeb3; }
 
     /* Dark mode content boxes */
     body.dark .content-box {
-      background: #141414; /* slightly lighter for contrast */
+      background: #141414;
       color: #ffeeb3;
       box-shadow: 0 8px 22px rgba(0,0,0,0.6);
     }
@@ -48,9 +43,7 @@
     }
 
     /* Monospace lines */
-    body.dark .eff-line {
-      color: #ffeeb3;
-    }
+    body.dark .eff-line { color: #ffeeb3; }
 
     /* C++ description box */
     body.dark .cpp-desc {
@@ -73,7 +66,33 @@
         0 0 24px rgba(255,200,80,0.3);
     }
 
-    /* ================= REMAINING ORIGINAL STYLES (unchanged) ================= */
+    /* ========== DARK MODE GOLDEN HOVER GLOW (ONLY ON HOVER) ========== */
+
+    body.dark .module-card:hover {
+      box-shadow:
+        0 18px 48px rgba(0,0,0,0.7),
+        0 0 22px rgba(255,215,80,0.55); /* golden glow */
+    }
+
+    body.dark .content-box:hover {
+      box-shadow:
+        0 18px 34px rgba(0,0,0,0.7),
+        0 0 20px rgba(255,215,80,0.50); /* golden glow */
+    }
+
+    body.dark .cpp-desc:hover {
+      box-shadow:
+        0 16px 32px rgba(0,0,0,0.75),
+        0 0 18px rgba(255,215,80,0.55); /* golden glow */
+    }
+
+    body.dark .cpp-btn:hover {
+      box-shadow:
+        0 22px 38px rgba(0,0,0,0.8),
+        0 0 20px rgba(255,215,80,0.55); /* golden glow */
+    }
+
+    /* ================= REMAINING ORIGINAL STYLES ================= */
 
     /* Buttons */
     .theme-toggle {
@@ -125,14 +144,14 @@
 
     .content-box {
       background: rgba(255,255,224,0.85);
-      padding: 16px 18px; margin-top: 10px;
-      border-radius: 12px; color: #333300;
+      padding: 16px 18px; 
+      margin-top: 10px;
+      border-radius: 12px; 
+      color: #333300;
       box-shadow: 0 4px 14px rgba(0,0,0,0.06);
       line-height: 1.5;
       transition: .18s;
     }
-
-    .list-item { margin: 8px 0; }
 
     .eff-line { font-family: monospace; color: #996600; }
 
@@ -152,6 +171,7 @@
       color: #333300;
       box-shadow: 0 6px 18px rgba(0,0,0,0.06);
       line-height: 1.5;
+      transition: .18s;
     }
 
     .button-row { display:flex; gap:14px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
@@ -164,6 +184,7 @@
       color: #333300;
       background: linear-gradient(135deg, #fff9c4 0%, #ffeb3b 100%);
       box-shadow: 0 6px 18px rgba(255,235,59,0.12);
+      transition: .18s;
     }
 
     @media (max-width: 820px) {
@@ -230,7 +251,7 @@
     <!-- C++ Section -->
     <div class="cpp-heading">C++ Implementation: Queue Simulation & Union-Find</div>
     <div class="cpp-desc">
-      Queue simulation to process events + DSU to manage clusters for efficient lighting.
+      Queue simulation is used to process events in real-time, while DSU manages streetlight clusters efficiently.
     </div>
 
     <div class="button-row">
