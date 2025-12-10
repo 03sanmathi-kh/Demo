@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 6: Earthquake-Resilient Smart Buildings</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #fff9dc; /* Light yellowish background */
+      color: #333;
+    }
+
+    .module-card {
+      width: 90%;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 35px;
+      background: white;
+      border-radius: 18px;
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.15),
+        0 0 18px rgba(255,200,0,0.28);
+    }
+
+    h1, h2 {
+      color: #b8860b;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-top: 30px;
+      color: #cc8a00;
+    }
+
+    .content-box {
+      background: #fff4c2;
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="module-card">
+
+    <h1>Module 6: Earthquake-Resilient Multi-Storey Buildings</h1>
+
+    <!-- ============================ PROBLEM STATEMENT ============================ -->
+    <h2 class="section-title">Problem Statement</h2>
+    <div class="content-box">
+      <p>
+        Vishalanagari requires a robust system to evaluate and enhance the earthquake
+        resilience of multi-storey buildings. The city lies in a region where occasional
+        tectonic activity and soil instability pose structural risks. The goal is to 
+        identify weak structural elements, optimize load distribution, and ensure that 
+        buildings can withstand seismic shocks while keeping construction cost-effective 
+        and sustainable.
+      </p>
+    </div>
+
+    <!-- ============================ ALGORITHMS USED ============================ -->
+    <h2 class="section-title">Algorithms Used</h2>
+
+    <div class="content-box">
+      <strong>1. BFS (Breadth-First Search)</strong>
+      <p>
+        Used to traverse each structural layer floor-by-floor to detect
+        weak points, broken load paths, or uneven stress distribution.
+        Perfect for level-order scanning of building frameworks.
+      </p>
+    </div>
+
+    <div class="content-box">
+      <strong>2. Dynamic Programming (DP)</strong>
+      <p>
+        Used to compute the minimum reinforcement cost and optimal strengthening
+        strategy by considering multiple building paths and storing sub-problem
+        results to avoid recalculation.
+      </p>
+    </div>
+
+    <!-- ============================ ALGORITHM EFFICIENCY ============================ -->
+    <h2 class="section-title">Algorithm Efficiency</h2>
+
+    <div class="content-box">
+      <p><strong>BFS:</strong> Time Complexity = O(V + E), Space = O(V).  
+         Efficient for scanning building floors/columns in layered order.</p>
+
+      <p><strong>Dynamic Programming:</strong> Time Complexity = O(n·W) depending on 
+         constraints (like load limits). Best for optimization across multiple 
+         reinforcement choices.</p>
+    </div>
+
+    <!-- ============================ DESIGN TECHNIQUES ============================ -->
+    <h2 class="section-title">Design Techniques Used</h2>
+
+    <div class="content-box">
+      <strong>1. Base Isolation</strong>
+      <p>
+        A modern earthquake-resistant technique using flexible bearings that allow 
+        the building to move safely during seismic waves.
+      </p>
+
+      <strong>2. Shear Walls</strong>
+      <p>
+        Vertical elements designed to resist lateral forces, stabilizing the 
+        building against horizontal shaking.
+      </p>
+    </div>
+
+    <!-- ============================ SDGs ============================ -->
+    <h2 class="section-title">Relevant UN-SDGs</h2>
+
+    <div class="content-box">
+      <p><strong>SDG 9 – Industry, Innovation & Infrastructure</strong>:  
+         Developing safe and sustainable building systems using modern engineering.</p>
+
+      <p><strong>SDG 11 – Sustainable Cities & Communities</strong>:  
+         Ensuring earthquake-resilient urban development for long-term safety.</p>
+
+      <p><strong>SDG 13 – Climate Action</strong>:  
+         Increasing resilience against climate-induced natural disasters.</p>
+    </div>
+      <div class="button-row">
+      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/bfsflood.cpp" target="_blank" class="cpp-btn">
+       BFS Flood Spread (C++)
+      </a>
+      </div>
+
+  </div>
+
+</body>
+</html>
