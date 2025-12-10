@@ -42,16 +42,89 @@
     .forecast { background:#1abc9c; }
     .supply { background:#8e44ad; }
 
+    /* Module tint colors (kept consistent) */
     #m1 { background: rgba(165, 42, 42, 0.2); }
     #m2 { background: rgba(52,152,219,0.2); }
     #m3 { background: rgba(241,196,15,0.2); }
     #m4 { background: rgba(46,204,113,0.2); }
     #m5 { background: rgba(155,89,182,0.2); }
-    #m6 { background: rgba(26,188,156,0.2); }
-    #m7 { background: rgba(142,68,173,0.2); }
-   
+    #m6 { background: rgba(255,140,0,0.2); } /* Civic (orange) - updated to match bubble */
+    #m7 { background: rgba(0,128,255,0.2); } /* Population (blue) - updated to match bubble */
 
-    .module-content { display:none; margin:20px auto; padding:20px; border-radius:15px; max-width:900px; }
+    .module-content { display:none; margin:20px auto; padding:20px; border-radius:15px; max-width:900px; transition: background 0.3s, color 0.3s; }
+    .module-content h2 { font-size:24px; }
+    .module-content p { font-size:16px; line-height:1.6; }
+    pre { background:rgba(0,0,0,0.1); padding:15px; border-radius:10px; overflow-x:auto; font-size:14px; text-align:left; transition: background 0.3s,color 0.3s;}
+    body.dark pre { background:rgba(255,255,255,0.08); color:#fff; }
+    body.light pre { background: rgba(0,0,0,0.08); color:#222; }
+
+    section.conclusion { margin:40px auto; max-width:900px; padding:20px; background:rgba(0,0,0,0.06); border-radius:15px; transition: background 0.3s,color 0.3s;}
+    body.dark section.conclusion { background: rgba(0,0,0,0.3); color:#fff; }
+    body.light section.conclusion { background: rgba(255,255,255,0.8); color:#222; }
+
+    /* ----- ADDED MODULE STYLING (from your Module 1 template) ----- */
+    .module-card {
+      width: 100%;
+      background: rgba(255,255,255,0.03);
+      margin: 10px auto 0 auto;
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      backdrop-filter: blur(4px);
+      transition: 0.2s ease-in-out;
+    }
+    body.light .module-card {
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .module-card:hover { transform: translateY(-2px); }
+
+    .section-title {
+      font-size: 1.1em;
+      margin-top: 18px;
+      font-weight: 700;
+      color: inherit;
+    }
+
+    .content-box {
+      background: rgba(255,255,255,0.02);
+      padding: 14px;
+      border-radius: 10px;
+      margin-top: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      color: inherit;
+    }
+    body.light .content-box { background: rgba(255,255,255,0.9); color: #111; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+
+    .button-row { display:flex; gap:12px; margin-top:12px; flex-wrap:wrap; }
+    .cpp-btn {
+      display:inline-block; padding:8px 14px; border-radius:8px; text-decoration:none; font-weight:700;
+      background: linear-gradient(135deg,#228B22,#32CD32); color:white;
+      box-shadow:0 4px 18px rgba(0,0,0,0.15);
+    }
+
+    /* floating circular theme toggle (keeps present behavior) */
+    #themeToggle {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 11;
+      background: #333;
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+    body.light #themeToggle { background:#333; color:#fff; }
+    body.dark #themeToggle { background:#fff; color:#000; }
+
+    /* end added styles */
   </style>
 </head>
 <body class="dark">
@@ -90,16 +163,18 @@
 
 <!-- Module content examples -->
 <div id="m1" class="module-content">
-  <h2>Smart Housing Allocation</h2>
-  <p><strong>Case Study:</strong><br>
-    How can housing units be allocated fairly across zones and budgets to maximize social welfare?</p>
-  <p><strong>Algorithm:</strong> AVL Tree + Segment Tree<br><strong>Efficiency:</strong></p>
-  <ul>
-    <li>AVL Tree operations (insert, search): O(log n)</li>
-    <li>Segment Tree build: O(n)</li>
-    <li>Segment Tree query/update: O(log n)</li>
-  </ul>
-  <pre>
+  <div class="module-card">
+    <h2>Smart Housing Allocation</h2>
+    <div class="content-box">
+      <p><strong>Case Study:</strong><br>
+        How can housing units be allocated fairly across zones and budgets to maximize social welfare?</p>
+      <p><strong>Algorithm:</strong> AVL Tree + Segment Tree<br><strong>Efficiency:</strong></p>
+      <ul>
+        <li>AVL Tree operations (insert, search): O(log n)</li>
+        <li>Segment Tree build: O(n)</li>
+        <li>Segment Tree query/update: O(log n)</li>
+      </ul>
+      <pre>
 // Smart Housing Allocation
 AVLTree appTree; SegmentTree housingBlocks;
 appTree.insert(application);              // insert housing application by income/family size
@@ -108,33 +183,41 @@ int zoneL=2, zoneR=5, budgetL=10000, budgetR=15000;
 int available = housingBlocks.query(zoneL, zoneR, budgetL, budgetR);
 if (available > 0) allocateUnit(application, available);
 cout << "Housing allocated successfully!";
-  </pre>
-  <p><strong>✅ Conclusion:</strong><br>
-    By combining AVL Trees for fast application management and Segment Trees for efficient housing queries, 
-    Vishalanagari can allocate housing units fairly and quickly. This ensures optimized use of resources, 
-    balanced distribution across zones, and supports the city’s vision of being India’s smart housing innovation hub.
-  </p>
+      </pre>
+      <p><strong>✅ Conclusion:</strong><br>
+        By combining AVL Trees for fast application management and Segment Trees for efficient housing queries, 
+        Vishalanagari can allocate housing units fairly and quickly. This ensures optimized use of resources, 
+        balanced distribution across zones, and supports the city’s vision of being India’s smart housing innovation hub.
+      </p>
+    </div>
+  </div>
 </div>
 
 <div id="m2" class="module-content">
-  <h2>Tax Planning</h2>
-  <p><strong>Case Study:</strong><br>
-    How to design tax rates to maximize revenue while keeping fairness?</p>
-  <p><strong>Algorithm:</strong> Linear Programming<br><strong>Efficiency:</strong> Polynomial average time</p>
-  <pre>
+  <div class="module-card">
+    <h2>Tax Planning</h2>
+    <div class="content-box">
+      <p><strong>Case Study:</strong><br>
+        How to design tax rates to maximize revenue while keeping fairness?</p>
+      <p><strong>Algorithm:</strong> Linear Programming<br><strong>Efficiency:</strong> Polynomial average time</p>
+      <pre>
 C++ Pseudocode (conceptual):
 // maximize revenue: maximize sum(tax[i]*income[i])
 // constraints: sum(income[i]*tax[i]) >= requiredRevenue
 // use LP solver
-  </pre>
+      </pre>
+    </div>
+  </div>
 </div>
 
 <div id="m3" class="module-content">
-  <h2>Loan Distribution</h2>
-  <p><strong>Case Study:</strong><br>
-    How to distribute limited loans to applicants to maximize bank returns?</p>
-  <p><strong>Algorithm:</strong> Knapsack / Dynamic Programming<br><strong>Efficiency:</strong> O(nW)</p>
-  <pre>
+  <div class="module-card">
+    <h2>Loan Distribution</h2>
+    <div class="content-box">
+      <p><strong>Case Study:</strong><br>
+        How to distribute limited loans to applicants to maximize bank returns?</p>
+      <p><strong>Algorithm:</strong> Knapsack / Dynamic Programming<br><strong>Efficiency:</strong> O(nW)</p>
+      <pre>
 C++ Pseudocode:
 int maxLoanProfit(int W, vector<int>& loans, vector<int>& returns, int n){
     vector<vector<int>> dp(n+1, vector<int>(W+1,0));
@@ -147,23 +230,26 @@ int maxLoanProfit(int W, vector<int>& loans, vector<int>& returns, int n){
     }
     return dp[n][W];
 }
-  </pre>
+      </pre>
+    </div>
+  </div>
 </div>
 
 <!-- MODULE 4: Gaming & Entertainment Allocation -->
 <div id="m4" class="module-content">
-  <h2>Gaming & Entertainment Allocation</h2>
+  <div class="module-card">
+    <h2>Gaming & Entertainment Allocation</h2>
+    <div class="content-box">
+      <p><strong>Business Problem:</strong><br>
+      Vishalnagari needs efficient allocation of gaming servers and entertainment resources.<br>
+      Without optimization, some zones face overload while others remain underutilized.<br>
+      A smart allocation system ensures fair distribution and smooth user experience.</p>
 
-  <p><strong>Business Problem:</strong><br>
-  Vishalnagari needs efficient allocation of gaming servers and entertainment resources.<br>
-  Without optimization, some zones face overload while others remain underutilized.<br>
-  A smart allocation system ensures fair distribution and smooth user experience.</p>
+      <p><strong>Algorithm:</strong><br>
+      AVL Tree + Segment Tree for managing user bookings and seat/server allocation.<br>
+      📊 Efficiency: AVL operations O(log n), Segment Tree build O(n), query/update O(log n).</p>
 
-  <p><strong>Algorithm:</strong><br>
-  AVL Tree + Segment Tree for managing user bookings and seat/server allocation.<br>
-  📊 Efficiency: AVL operations O(log n), Segment Tree build O(n), query/update O(log n).</p>
-
-  <pre>
+      <pre>
 // Gaming & Entertainment Allocation
 AVLTree bookingTree; SegmentTree seatBlocks;
 bookingTree.insert(userBooking);              // insert booking by user ID or preference
@@ -172,28 +258,31 @@ int zoneL=1, zoneR=3, priceL=200, priceR=500;
 int available = seatBlocks.query(zoneL, zoneR, priceL, priceR);
 if (available > 0) allocateSeat(userBooking, available);
 cout << "Entertainment booking confirmed!";
-  </pre>
+      </pre>
 
-  <p><strong>✅Conclusion:</strong><br>
-  This approach ensures fair seat allocation across zones and price ranges.<br>
-  Vishalnagari can deliver smooth entertainment experiences while optimizing server and seating resources.</p>
+      <p><strong>✅Conclusion:</strong><br>
+      This approach ensures fair seat allocation across zones and price ranges.<br>
+      Vishalanagari can deliver smooth entertainment experiences while optimizing server and seating resources.</p>
+    </div>
+  </div>
 </div>
 
 <!-- MODULE 5: E-Commerce Order Fulfillment -->
 <div id="m5" class="module-content">
-  <h2>E-Commerce Order Fulfillment</h2>
+  <div class="module-card">
+    <h2>E-Commerce Order Fulfillment</h2>
+    <div class="content-box">
+      <p><strong>Business Problem:</strong><br>
+      Online retailers face delays in processing and delivering orders.<br>
+      Inefficient warehouse picking and routing increase delivery times and costs.<br>
+      Optimized order fulfillment ensures faster delivery and happier customers.</p>
 
-  <p><strong>Business Problem:</strong><br>
-  Online retailers face delays in processing and delivering orders.<br>
-  Inefficient warehouse picking and routing increase delivery times and costs.<br>
-  Optimized order fulfillment ensures faster delivery and happier customers.</p>
+      <p><strong>Algorithm:</strong><br>
+      Greedy picking combined with shortest path routing minimizes warehouse travel time.<br>
+      Orders are batched to reduce redundant trips.<br>
+      Efficiency: O(n log n) for sorting and routing.</p>
 
-  <p><strong>Algorithm:</strong><br>
-  Greedy picking combined with shortest path routing minimizes warehouse travel time.<br>
-  Orders are batched to reduce redundant trips.<br>
-  Efficiency: O(n log n) for sorting and routing.</p>
-
-  <pre>
+      <pre>
 // Pseudo C++ for E-Commerce Order Fulfillment
 vector<Order> orders = getOrders();          // fetch pending orders
 sort(orders by aisleLocation);               // greedy picking: minimize travel distance
@@ -204,26 +293,29 @@ for each batch in orders {
         pick(order);                         // fulfill order at aisle
 }
 deliverBatches(path);                        // send picked orders for delivery
-  </pre>
+      </pre>
 
-  <p><strong>✅Conclusion:</strong> Optimized order fulfillment reduces delivery times, lowers costs, and improves customer experience in e-commerce.</p>
+      <p><strong>✅Conclusion:</strong> Optimized order fulfillment reduces delivery times, lowers costs, and improves customer experience in e-commerce.</p>
+    </div>
+  </div>
 </div>
 
 <!-- MODULE 6: Civic Data Analytics -->
 <div id="m6" class="module-content">
-  <h2>Civic Data Analytics</h2>
+  <div class="module-card">
+    <h2>Civic Data Analytics</h2>
+    <div class="content-box">
+      <p><strong>Business Problem:</strong><br>
+      Vishalnagari needs to efficiently analyze civic data such as health and transport.<br>
+      Without optimized querying, large datasets become slow to process and insights are delayed.<br>
+      A smart analytics system ensures fast range queries and scalable preprocessing.</p>
 
-  <p><strong>Business Problem:</strong><br>
-  Vishalnagari needs to efficiently analyze civic data such as health and transport.<br>
-  Without optimized querying, large datasets become slow to process and insights are delayed.<br>
-  A smart analytics system ensures fast range queries and scalable preprocessing.</p>
+      <p><strong>Algorithm:</strong><br>
+      Sparse Table for efficient range queries on static civic data.<br>
+      - Preprocessing with Merge Sort / Heap Sort for scalable data organization.<br>
+      📊 Efficiency: Sorting O(n log n), Sparse Table build O(n log n), query O(1).</p>
 
-  <p><strong>Algorithm:</strong><br>
-  Sparse Table for efficient range queries on static civic data.<br>
-  - Preprocessing with Merge Sort / Heap Sort for scalable data organization.<br>
-  📊 Efficiency: Sorting O(n log n), Sparse Table build O(n log n), query O(1).</p>
-
-  <pre>
+      <pre>
   // Civic Data Analytics for Vishalnagari
   vector<int> civicData = loadData(); 
   mergeSort(civicData); // or heapSort(civicData)
@@ -231,29 +323,32 @@ deliverBatches(path);                        // send picked orders for delivery
   int l = 1, r = 5; // query range
   int result = rangeQuery(l, r);
   cout << "Analytics Result: " << result;
-  </pre>
+      </pre>
 
-  <p><strong>✅Conclusion:</strong><br>
-  This approach enables instant range queries on civic datasets.<br>
-  Vishalnagari can deliver timely insights across health and transport sectors,<br>
-  ensuring data-driven decisions and efficient civic resource management.</p>
+      <p><strong>✅Conclusion:</strong><br>
+      This approach enables instant range queries on civic datasets.<br>
+      Vishalanagari can deliver timely insights across health and transport sectors,<br>
+      ensuring data-driven decisions and efficient civic resource management.</p>
+    </div>
+  </div>
 </div>
 
 <!-- MODULE 7: Population Analytics -->
 <div id="m7" class="module-content">
-  <h2>Population Analytics</h2>
+  <div class="module-card">
+    <h2>Population Analytics</h2>
+    <div class="content-box">
+      <p><strong>Business Problem:</strong><br>
+      Vishalnagari needs efficient analysis of population data — age groups, density, and growth trends.<br>
+      Without optimized querying, demographic insights become slow and unreliable.<br>
+      A smart analytics system ensures fast range queries and scalable preprocessing for large datasets.</p>
 
-  <p><strong>Business Problem:</strong><br>
-  Vishalnagari needs efficient analysis of population data — age groups, density, and growth trends.<br>
-  Without optimized querying, demographic insights become slow and unreliable.<br>
-  A smart analytics system ensures fast range queries and scalable preprocessing for large datasets.</p>
+      <p><strong>Algorithm:</strong><br>
+      Sparse Table for efficient range queries on static population data.<br>
+      - Preprocessing with Merge Sort / Heap Sort for scalable organization of demographic records.<br>
+      📊 Efficiency: Sorting O(n log n), Sparse Table build O(n log n), query O(1).</p>
 
-  <p><strong>Algorithm:</strong><br>
-  Sparse Table for efficient range queries on static population data.<br>
-  - Preprocessing with Merge Sort / Heap Sort for scalable organization of demographic records.<br>
-  📊 Efficiency: Sorting O(n log n), Sparse Table build O(n log n), query O(1).</p>
-
-  <pre>
+      <pre>
   // Population Analytics for Vishalnagari
   vector<int> populationData = loadPopulation(); 
   mergeSort(populationData); // or heapSort(populationData)
@@ -261,13 +356,18 @@ deliverBatches(path);                        // send picked orders for delivery
   int l = 2, r = 8; // query range (e.g., age groups or districts)
   int result = rangeQuery(l, r);
   cout << "Population Analysis Result: " << result;
-  </pre>
+      </pre>
 
-  <p><strong>✅Conclusion:</strong><br>
-  This approach enables instant demographic queries across age groups, districts, or density ranges.<br>
-  Vishalnagari can deliver accurate population insights,<br>
-  supporting urban planning, healthcare, and resource allocation.</p>
+      <p><strong>✅Conclusion:</strong><br>
+      This approach enables instant demographic queries across age groups, districts, or density ranges.<br>
+      Vishalanagari can deliver accurate population insights,<br>
+      supporting urban planning, healthcare, and resource allocation.</p>
+    </div>
+  </div>
 </div>
+
+<!-- floating circular theme toggle (keeps present behavior) -->
+<div id="themeToggle" onclick="toggleTheme()">🌙</div>
 
 <script>
 function toggleModule(id) {
@@ -281,10 +381,16 @@ function toggleTheme() {
   document.body.classList.toggle("dark");
   document.body.classList.toggle("light");
   const btn = document.querySelector(".theme-toggle");
-  if (document.body.classList.contains("light")) {
-    btn.textContent = "☀ Light Mode";
-  } else {
-    btn.textContent = "🌙 Dark Mode";
+  if (btn) {
+    if (document.body.classList.contains("light")) {
+      btn.textContent = "🌙 Dark Mode";
+    } else {
+      btn.textContent = "☀ Light Mode";
+    }
+  }
+  const floatBtn = document.getElementById("themeToggle");
+  if (floatBtn) {
+    floatBtn.textContent = document.body.classList.contains("light") ? "🌙" : "☀️";
   }
 }
 
