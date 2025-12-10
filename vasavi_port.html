@@ -4,11 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Commercial Sector</title>
-</head>
-<body>
 
-</body>
-</html>
  <style>
     /* ======================= */
     /* THEME STYLES */
@@ -124,7 +120,7 @@
       text-align: center;
     }
 
-    /* GRID FOR 6 MODULE BUTTONS */
+    /* GRID FOR MODULE BUTTONS */
     .module-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -133,19 +129,22 @@
       justify-items: center;
     }
 
+    /* ======================= */
+    /* UPDATED CIRCULAR BUTTON */
+    /* ======================= */
     .module-btn {
-      width: 100%;
-      max-width: 200px;
-      padding: 18px 0;
+      width: 130px;
+      height: 130px;
       background: #004466;
       color: white;
-      border-radius: 10px;
+      border-radius: 50%;
       font-weight: bold;
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1rem;
       transition: 0.3s;
       display: flex;
       justify-content: center;
+      align-items: center;
     }
 
     .module-btn:hover {
@@ -154,6 +153,7 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
   </style>
+
 </head>
 
 <body class="light">
@@ -196,17 +196,18 @@
     <img src="image3.png" alt="Sample Image 3">
   </div>
 
-  <!-- === SINGLE BOX WITH 6 MODULE BUTTONS === -->
+  <!-- === SINGLE BOX WITH 7 MODULE BUTTONS === -->
   <section class="content-box">
     <h2>Explore My Modules</h2>
 
     <div class="module-grid">
-      <a href="vm1.html" class="module-btn">smart housing dis</a>
+      <a href="vm1.html" class="module-btn">smart housing</a>
       <a href="module2.html" class="module-btn">Module 2</a>
       <a href="module3.html" class="module-btn">Module 3</a>
       <a href="module4.html" class="module-btn">Module 4</a>
       <a href="module5.html" class="module-btn">Module 5</a>
       <a href="module6.html" class="module-btn">Module 6</a>
+      <a href="module7.html" class="module-btn">Module 7</a>
     </div>
   </section>
 
