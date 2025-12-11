@@ -58,6 +58,14 @@
       margin-top: 25px;
     }
 
+    /* ⭐ New: Center both images + reduce cotton.png size */
+    .lav-img {
+      max-width: 60%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
     h2 { text-align:center; font-size:2rem; margin-top:45px; margin-bottom:10px; }
 
     p { width:75%; margin:12px auto; font-size:1.25rem; line-height:2rem; }
@@ -66,6 +74,16 @@
 
     .cpp-btn { padding:14px 22px; background:#643fcd; border-radius:12px; color:white; font-size:1.1rem; border:none; cursor:pointer; transition:0.3s; font-family:"Patrick Hand", cursive; }
     .cpp-btn:hover { background:#7a57e5; }
+
+    /* ⭐ New: Add spacing & proper alignment to C++ buttons */
+    .button-row {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 
@@ -116,6 +134,7 @@
     <p>• <b>Min Cost Max Flow:</b> Time – typically O(V × E²) depending on implementation (SPFA or Dijkstra potentials); Space – O(V + E)</p>
 
     <img src="algoflow.jpeg" alt="Project Image" class="lav-img">
+
     <h2>Benefits</h2>
     <p>• Smooth routing & reduced congestion</p>
     <p>• Lower emissions through optimized paths</p>
