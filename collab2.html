@@ -16,7 +16,7 @@
       background-color: #001f3f;
       color: black;
       padding-bottom: 40px;
-      font-size: 18px; /* slightly larger base text */
+      font-size: 18px;
     }
 
     /* Back Button */
@@ -30,10 +30,15 @@
       color: white;
       border-radius: 12px;
       cursor: pointer;
-      font-size: 1.25rem; /* increased */
+      font-size: 1.25rem;
       z-index: 2000;
+      transition: 0.3s;
+      text-shadow: 0 0 4px #fff;
     }
-    .back-btn:hover { background: rgba(255,255,255,0.5); }
+    .back-btn:hover { 
+      background: rgba(255,255,255,0.5);
+      box-shadow: 0 0 10px silver;
+    }
 
     /* Lavender box */
     .lav-box {
@@ -46,25 +51,38 @@
       border: 3px solid rgba(255,255,255,0.4);
     }
 
-  .lav-title {
-  font-size: 3.2rem; /* increased */
-  text-align: center;
-  color: #001f5c; /* deep navy blue */
-  text-shadow: 0 0 6px rgba(0, 30, 80, 0.4);
-}
+    /* Title */
+    .lav-title {
+      font-size: 3.2rem;
+      text-align: center;
+      color: #001f5c;
+      text-shadow: 0 0 6px rgba(0, 30, 80, 0.4);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .lav-title:hover {
+      text-shadow: 0 0 12px silver;
+    }
 
+    /* Headings */
     h2 { 
       text-align:center; 
-      font-size:2.3rem; /* increased */
+      font-size:2.3rem; 
       margin-top:50px; 
       margin-bottom:14px; 
+      font-weight:bold;
+      color:#001f3f;
+      text-shadow: 0 0 4px silver;
+      transition: 0.3s;
     }
+    h2:hover { text-shadow: 0 0 12px silver; }
 
     p { 
       width:78%; 
       margin:14px auto; 
-      font-size:1.45rem; /* increased */
+      font-size:1.45rem; 
       line-height:2.3rem; 
+      color:#0b2340;
     }
 
     .button-row {
@@ -81,14 +99,40 @@
       background:#643fcd; 
       border-radius:14px; 
       color:white; 
-      font-size:1.25rem; /* increased */
+      font-size:1.25rem; 
       border:none; 
       cursor:pointer; 
       transition:0.3s; 
       font-family:"Patrick Hand", cursive; 
       text-decoration:none;
+      font-weight:bold;
+      text-shadow: 0 0 2px #fff;
     }
-    .cpp-btn:hover { background:#7a57e5; }
+    .cpp-btn:hover { 
+      background:#7a57e5; 
+      box-shadow: 0 0 10px silver;
+      transform: translateY(-2px);
+    }
+
+    /* Images centered with glow */
+    .lav-img {
+      display:block;
+      margin: 25px auto;
+      max-width:70%;
+      border-radius:12px;
+      transition: 0.3s;
+    }
+    .lav-img:hover {
+      box-shadow: 0 0 15px silver;
+    }
+
+    /* Responsive */
+    @media (max-width:720px) {
+      .lav-box { width: 94%; padding: 24px; }
+      p { width: 92%; font-size:1.3rem; line-height:1.8rem; }
+      .lav-title { font-size: 2.6rem; }
+      h2 { font-size:2rem; }
+    }
   </style>
 </head>
 
@@ -99,9 +143,7 @@
   <div class="lav-box">
     <div class="lav-title">Sanmathi & Isha – Eco-Tourism x Eco-Innovation</div>
 
-    
-<img src="ecoo.jpg" alt="Project Image" class="lav-img">
-
+    <img src="ecoo.jpg" alt="Project Image" class="lav-img">
 
     <h2>Focus Areas</h2>
     <p>
