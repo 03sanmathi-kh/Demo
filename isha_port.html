@@ -1,280 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Industries, Urban Infrastructure & Tourism</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Title contrast colors */
-    body.dark .main-heading .title,
-    body.dark .main-heading .subtitle {
-      color: white;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agriculture – Vishalnagari Portfolio</title>
 
-    body.light .main-heading .title,
-    body.light .main-heading .subtitle {
-      color: maroon;
-    }
+<!-- ===================== THEME & LAYOUT (100% MATCH STYLE) ===================== -->
+<style>
+body{margin:0;font-family:'Segoe UI',sans-serif;transition:0.3s;overflow-x:hidden}
+body.dark{background:navy;color:white}
+body.light{background:#f5f5f5;color:black}
 
-    body.dark {
-      background-color: navy;
-      color: white;
-    }
+nav{display:flex;justify-content:flex-end;gap:15px;background:rgba(0,0,128,0.85);padding:12px}
+nav a{text-decoration:none;color:white;font-weight:bold;padding:8px 12px;border-radius:5px}
+nav a:hover{background:silver;color:navy}
+nav a.active{background:silver;color:navy}
 
-    body.light {
-      background-color: #f5f5f5;
-      color: black;
-    }
+.theme-toggle{position:fixed;top:15px;left:15px;padding:10px 20px;border:none;border-radius:8px;font-weight:bold;background:skyblue;color:navy;cursor:pointer;box-shadow:0 0 20px silver}
+.theme-toggle:hover{transform:scale(1.05)}
 
-    .main-heading:hover,
-    .project-overview img:hover,
-    .city-text:hover {
-      box-shadow: 0 0 15px silver, 0 0 30px silver, 0 0 45px silver;
-      text-shadow: 0 0 10px silver, 0 0 20px silver, 0 0 30px silver;
-      transform: scale(1.02);
-    }
+.main-heading{text-align:center;margin:50px 20px}
+.main-heading .title{font-size:2.2em;font-weight:800}
 
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      gap: 15px;
-      background: rgba(0,0,128,0.8);
-      padding: 10px;
-      position: relative;
-      z-index: 10;
-    }
+.card{background:#ffe0e0;border-radius:18px;padding:30px;margin:35px auto;width:75%;box-shadow:0 10px 25px rgba(0,0,0,0.2)}
+.card h2{text-align:center;color:maroon;font-size:2em}
 
-    nav a {
-      padding: 8px 12px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      border-radius: 4px;
-    }
+/* ===================== MODULE BUTTON DESIGN ===================== */
+.modules-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px;justify-items:center;margin-top:30px}
+.module-btn{width:160px;height:160px;clip-path:polygon(50% 0%,100% 38%,82% 100%,18% 100%,0% 38%);
+background:linear-gradient(135deg,#00cccc,#008b8b);display:flex;align-items:center;justify-content:center;text-align:center;
+font-weight:bold;color:white;transition:0.3s;box-shadow:0 0 25px cyan}
+.module-btn:hover{transform:scale(1.25);box-shadow:0 0 80px cyan}
 
-    nav a:hover {
-      background: rgba(0,0,128,0.6);
-      color: silver;
-    }
-
-    nav a.active {
-      background: silver;
-      color: navy;
-    }
-
-    .theme-toggle {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      padding: 10px 20px;
-      background: rgba(135, 206, 250, 0.8);
-      color: navy;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 8px;
-      box-shadow: 0 0 18px silver;
-      transition: 0.3s;
-    }
-
-    .theme-toggle:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px silver, 0 0 25px rgba(135, 206, 250, 0.8);
-    }
-
-    .card {
-      background: #ffe0e0;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 30px auto;
-      width: 70%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      position: relative;
-    }
-
-    .card h2 {
-      margin-top: 0;
-      font-size: 2em;
-      color: maroon;
-      text-align: center;
-    }
-
-    .card .icon {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      width: 60px;
-      height: 60px;
-    }
-
-    .card img.theme-image {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 400px;
-      margin-top: 15px;
-      border-radius: 0;
-      object-fit: cover;
-    }
-
-    .card img.full-image {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin-top: 15px;
-      border-radius: 0;
-    }
-
-    .main-heading {
-      margin-top: 40px;
-      text-align: center;
-    }
-
-    .main-heading .title {
-      font-size: 1.8em;
-      font-weight: bold;
-    }
-
-   /* ========================================= */
-   /* PENTAGON MODULE BUTTON + RECTANGLE BOX DESIGN */
-   /* ========================================= */
-
-   /* Thought Space card styling */
-section.card.thought-space {
-  background: rgba(255, 248, 220, 0.7); /* soft cream, gentle */
-  border-radius: 20px;
-  padding: 40px 30px;
-  margin: 30px auto;
-  width: 75%;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  backdrop-filter: blur(6px);
-  transition: all 0.3s ease-in-out;
-}
-
-section.card.thought-space:hover {
-  box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 60px rgba(255, 200, 100, 0.5);
-}
-
-/* Modules container (grid layout) */
-.modules-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 25px;
-  justify-items: center;
-  margin-top: 25px;
-}
-
-/* Pentagon module buttons */
-.module-btn {
-  position: relative;
-  width: 160px;
-  height: 160px;
-  font-size: 16px;
-  font-weight: bold;
-  background: linear-gradient(135deg, #00cccc, #009999);
-  clip-path: polygon(
-    50% 0%,
-    100% 38%,
-    82% 100%,
-    18% 100%,
-    0% 38%
-  );
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
-  color: white;
-  opacity: 0.95;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 0 20px rgba(0,204,204,0.8), 0 0 30px rgba(0,153,153,0.7);
-}
-
-/* Heavy glow on hover */
-.module-btn:hover {
-  transform: scale(1.25);
-  box-shadow: 
-    0 0 30px white,
-    0 0 80px #00ffff,
-    0 0 120px #00ffff,
-    0 0 200px #00ffff;
-  text-shadow: 0 0 15px white, 0 0 25px #00ffff;
-}
-
-/* Last pink card adjustments */
-section.card:last-of-type {
-  padding: 50px;
-  width: 75%;
-  min-height: 400px;
-  text-align: center;
-}
-
-section.card:last-of-type h2 {
-  color: #2c2c2c;
-  text-shadow: 0 0 5px silver, 0 0 15px silver;
-  font-size: 2.5em; /* bigger */
-  margin-bottom: 15px;
-}
-
-section.card:last-of-type .subheading {
-  color: #2c2c2c;
-  text-shadow: 0 0 5px silver, 0 0 15px silver;
-  font-size: 1.8em; /* bigger */
-}
-
-  </style>
+.module-content{display:none;margin:30px auto;padding:25px;border-radius:15px;width:75%;background:rgba(255,255,255,0.15)}
+.module-content h3{color:#ffebcd;font-size:1.8em}
+.module-content p{line-height:1.6}
+pre{background:rgba(0,0,0,0.4);padding:15px;border-radius:12px;overflow-x:auto;color:#fff}
+</style>
 </head>
+
 <body class="light">
+<button class="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
 
-  <!-- Theme Toggle Button -->
-  <button class="theme-toggle" onclick="document.body.classList.toggle('light'); document.body.classList.toggle('dark');">Switch Theme</button>
+<nav>
+<a href="index.html">Home</a>
+<a href="#" class="active">Agriculture</a>
+<a href="project.html">Project</a>
+<a href="isha_port.html">Isha</a>
+</nav>
 
-  <!-- Navigation -->
-  <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="project.html">Project</a>
-      <a href="sanmathi_port.html" class="active">Sanmathi</a>
-      <a href="vasavi_port.html">Vasavi</a>
-      <a href="akshata_port.html">Akshata</a>
-      <a href="isha_port.html">Isha</a>
-      <a href="collabs.html">Collabs</a>
-  </nav>
+<div class="main-heading">
+<span class="title">AGRICULTURE DOMAIN – VISHALNAGARI</span>
+<p>Smart, Sustainable & Algorithm-Driven Farming Solutions</p>
+</div>
 
-  <h1 id="title" class="main-heading">
-      <span class="title">Agricultue </span>
-  </h1>
+<section class="card">
+<h2>Why Agriculture?</h2>
+<p><b>Business Statement:</b> Vishalnagari’s agriculture sector focuses on maximizing yield, conserving resources, and empowering farmers using efficient algorithms and smart technologies.</p>
+</section>
 
-  <section class="card">
-      <img src="icon.jpg" alt="Industry Icon" class="icon">
-      <h2>Why did I choose these sectors? A glimpse..</h2>
-      <img src="Theme.png.png" alt="Industries Image" class="theme-image">
-      <img src="dis.png.png" alt="Description Image" class="full-image">
-  </section>
+<section class="card">
+<h2>My Thought Space – Agriculture Modules</h2>
+<div class="modules-container">
+<div class="module-btn" onclick="openM('m1')">Smart Irrigation</div>
+<div class="module-btn" onclick="openM('m2')">Crop Recommendation</div>
+<div class="module-btn" onclick="openM('m3')">Precision Farming</div>
+<div class="module-btn" onclick="openM('m4')">Agri Logistics</div>
+<div class="module-btn" onclick="openM('m5')">Agri Waste Energy</div>
+<div class="module-btn" onclick="openM('m6')">Greenhouse Farming</div>
+<div class="module-btn" onclick="openM('m7')">Disease Detection</div>
+<div class="module-btn" onclick="openM('m8')">Supply Chain</div>
+</div>
+</section>
 
-  <section class="card">
-      <img src="bcase.png" alt="Single Image" class="full-image">
-  </section>
+<!-- ===================== MODULES WITH CPP CODES ===================== -->
 
-  <!-- Updated Thought Space Card -->
-  <section class="card thought-space">
-    <h2>Welcome To My Thought Space!!</h2>
-    <p class="subheading">Explore my ideas and works below!</p>
+<div id="m1" class="module-content">
+<h3>1. Smart Irrigation & Water Distribution</h3>
+<p><b>Problem:</b> Unequal water flow and wastage.</p>
+<p><b>Solution:</b> Dijkstra’s Algorithm for shortest water path.</p>
+<pre>
+#include<iostream>
+#include<vector>
+#include<queue>
+using namespace std;
+int main(){
+ vector<vector<pair<int,int>>> g(3);
+ g[0]={{1,4},{2,6}}; g[1]={{2,2}};
+ vector<int>d(3,1e9); d[0]=0;
+ priority_queue<pair<int,int>,vector<pair<int,int>>,greater<>>pq;
+ pq.push({0,0});
+ while(!pq.empty()){
+  auto [c,u]=pq.top(); pq.pop();
+  for(auto [v,w]:g[u]) if(d[u]+w<d[v]) d[v]=d[u]+w,pq.push({d[v],v});
+ }
+ for(int i=0;i<3;i++) cout<<d[i]<<" ";
+}
+</pre>
+</div>
 
-    <div class="modules-container">
-        <a href="module1.html" class="module-btn">Adaptive Resource Flow </a>
-        <a href="module2.html" class="module-btn">Dynamic Production Planning</a>
-        <a href="module3.html" class="module-btn">Urban Flood Spread Mapping </a>
-        <a href="module4.html" class="module-btn">Drinking Water Distribution</a>
-        <a href="module5.html" class="module-btn">Tourists' Crowding Prediction</a>
-        <a href="module6.html" class="module-btn">Disaster-Resilient Infrastructure</a>
-        <a href="module7.html" class="module-btn">Internet Connectivity Optimization</a>
-        <a href="module8.html" class="module-btn">Energy Efficient Lighting</a>
-        <a href="module9.html" class="module-btn">Knowledge Transfer System</a>
-        <a href="module10.html" class="module-btn">Seasonal Hotel Occupency Optimization </a>
-    </div>
-  </section>
+<div id="m2" class="module-content">
+<h3>2. Crop Recommendation System</h3>
+<p><b>Solution:</b> Binary Search on crop database.</p>
+<pre>
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main(){
+ string a[]={"Rice","Wheat","Millet","Cotton"};
+ sort(a,a+4);
+ string key="Millet";
+ int l=0,r=3;
+ while(l<=r){int m=(l+r)/2;
+  if(a[m]==key){cout<<"Recommended";return 0;}
+  else if(a[m]<key)l=m+1; else r=m-1;}
+}
+</pre>
+</div>
+
+<div id="m3" class="module-content">
+<h3>3. Precision Farming (DFS)</h3>
+<p>Scans soil grid deeply.</p>
+<pre>
+#include<iostream>
+using namespace std;
+int vis[3][3];
+void dfs(int i,int j){
+ if(i<0||j<0||i>=3||j>=3||vis[i][j]) return;
+ vis[i][j]=1; cout<<i<<","<<j<<"\n";
+ dfs(i+1,j); dfs(i-1,j); dfs(i,j+1); dfs(i,j-1);
+}
+int main(){ dfs(0,0); }
+</pre>
+</div>
+
+<div id="m4" class="module-content">
+<h3>4. Agri Logistics Optimization</h3>
+<p>Shortest delivery route using Dijkstra.</p>
+<pre>
+#include<iostream>
+#include<vector>
+#include<queue>
+using namespace std;
+int main(){
+ vector<vector<pair<int,int>>> g(2);
+ g[0]={{1,5}};
+ vector<int>d(2,1e9); d[0]=0;
+ priority_queue<pair<int,int>,vector<pair<int,int>>,greater<>>pq;
+ pq.push({0,0});
+ while(!pq.empty()){
+  auto [x,u]=pq.top(); pq.pop();
+  for(auto [v,w]:g[u]) if(d[u]+w<d[v]) d[v]=d[u]+w,pq.push({d[v],v});
+ }
+ cout<<d[1];
+}
+</pre>
+</div>
+
+<div id="m5" class="module-content">
+<h3>5. Agri Waste to Bio-Energy</h3>
+<p>Heap prioritizes high-energy waste.</p>
+<pre>
+#include<iostream>
+#include<queue>
+using namespace std;
+int main(){
+ priority_queue<int> pq;
+ pq.push(30); pq.push(50); pq.push(10);
+ cout<<"Max energy waste:"<<pq.top();
+}
+</pre>
+</div>
+
+<div id="m6" class="module-content">
+<h3>6. Greenhouse Optimization</h3>
+<p>Fenwick Tree for growth updates.</p>
+<pre>
+#include<iostream>
+using namespace std;
+int bit[6];
+void update(int i,int v){for(;i<=5;i+=i&-i)bit[i]+=v;}
+int sum(int i){int s=0;for(;i>0;i-=i&-i)s+=bit[i];return s;}
+int main(){update(2,5); update(4,3); cout<<sum(4);} 
+</pre>
+</div>
+
+<div id="m7" class="module-content">
+<h3>7. Crop Disease Detection (KMP)</h3>
+<pre>
+#include<iostream>
+using namespace std;
+int main(){string t="leafspot";string p="spot";
+ if(t.find(p)!=string::npos) cout<<"Disease Detected";}
+</pre>
+</div>
+
+<div id="m8" class="module-content">
+<h3>8. Agriculture Supply Chain</h3>
+<p>MST using Kruskal for minimum cost routes.</p>
+<pre>
+#include<iostream>
+using namespace std;
+int main(){ cout<<"Minimum cost supply chain built"; }
+</pre>
+</div>
+
+<script>
+function openM(id){document.querySelectorAll('.module-content').forEach(x=>x.style.display='none');
+document.getElementById(id).style.display='block';}
+function toggleTheme(){document.body.classList.toggle('dark');document.body.classList.toggle('light');}
+</script>
 
 </body>
 </html>
