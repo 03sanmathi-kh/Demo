@@ -94,5 +94,35 @@
       btn.textContent = document.body.classList.contains("light") ? "Switch to Dark Mode" : "Switch to Light Mode";
     }
   </script>
+  <script>
+// ----------- Stars -----------
+const starLayer = document.getElementById('star-layer');
+const numStars = 100;
+for(let i=0; i<numStars; i++){
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.style.top = Math.random() * 100 + 'vh';
+  star.style.left = Math.random() * 100 + 'vw';
+  star.style.width = (1 + Math.random() * 2) + 'px';
+  star.style.height = star.style.width;
+  star.style.animationDuration = (1 + Math.random() * 3) + 's';
+  starLayer.appendChild(star);
+}
+
+// ----------- Bubbles -----------
+const bubbleLayer = document.getElementById('bubble-layer');
+const numBubbles = 30;
+for(let i=0; i<numBubbles; i++){
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+  bubble.style.left = Math.random() * 100 + 'vw';
+  bubble.style.width = 10 + Math.random() * 20 + 'px';
+  bubble.style.height = bubble.style.width;
+  bubble.style.animationDuration = (5 + Math.random() * 10) + 's';
+  bubble.style.animationDelay = Math.random() * 5 + 's';
+  bubbleLayer.appendChild(bubble);
+}
+</script>
+
 </body>
 </html>
