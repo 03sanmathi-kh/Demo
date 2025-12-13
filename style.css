@@ -371,3 +371,94 @@ body.light .course-overview p { background:rgba(245,245,255,0.8); color:#1a1a1a;
     h2,
     .project-overview img,
     .city-text { box-shadow: none; text-shadow: none; transform: scale(1); }
+
+/* ========================== */
+/* ===== NEW ADDITIONS ===== */
+/* ========================== */
+
+/* --- Additional Gradient Wave Layers for Next-Level Effect --- */
+.wave-layer1, .wave-layer2, .wave-layer4 {
+  content: "";
+  position: fixed;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Dark mode multi-layered gradient waves */
+body.dark .wave-layer1 { 
+  background: linear-gradient(270deg, #0ff, #8a2be2, #ff00ff);
+  animation: gradientWave1 60s linear infinite;
+  top: -50%;
+}
+body.dark .wave-layer2 { 
+  background: rgba(255,255,255,0.08);
+  animation: gradientWave2 45s ease-in-out infinite alternate;
+  top: -60%;
+}
+body.dark .wave-layer4 { 
+  background: rgba(255,255,255,0.05);
+  animation: gradientWave4 80s linear infinite;
+  top: -55%;
+}
+
+/* Light mode multi-layered gradient waves */
+body.light .wave-layer1 { 
+  background: linear-gradient(270deg, #a0d8ff, #80bfff, #c0e0ff);
+  animation: gradientWave1Light 60s linear infinite;
+  top: -50%;
+}
+body.light .wave-layer2 { 
+  background: rgba(255,255,255,0.08);
+  animation: gradientWave2Light 45s ease-in-out infinite alternate;
+  top: -60%;
+}
+body.light .wave-layer4 { 
+  background: rgba(255,255,255,0.05);
+  animation: gradientWave4Light 80s linear infinite;
+  top: -55%;
+}
+
+/* Keyframes for new waves */
+@keyframes gradientWave1 { 0% {transform: translateX(0);} 50% {transform: translateX(25%);} 100% {transform: translateX(0);} }
+@keyframes gradientWave2 { 0% {transform: translateX(0) translateY(0);} 50% {transform: translateX(-20%) translateY(5%);} 100% {transform: translateX(0) translateY(0);} }
+@keyframes gradientWave4 { 0% {transform: translateX(0) translateY(0);} 50% {transform: translateX(10%) translateY(-5%);} 100% {transform: translateX(0) translateY(0);} }
+
+@keyframes gradientWave1Light { 0% {transform: translateX(0);} 50% {transform: translateX(25%);} 100% {transform: translateX(0);} }
+@keyframes gradientWave2Light { 0% {transform: translateX(0) translateY(0);} 50% {transform: translateX(-20%) translateY(5%);} 100% {transform: translateX(0) translateY(0);} }
+@keyframes gradientWave4Light { 0% {transform: translateX(0) translateY(0);} 50% {transform: translateX(10%) translateY(-5%);} 100% {transform: translateX(0) translateY(0);} }
+
+/* --- Particle Overlay --- */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Optional glow effect for particles */
+.particle {
+  background: #0ff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #0ff, 0 0 12px #0ff;
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  pointer-events: none;
+  animation: drift 20s linear infinite;
+}
+
+@keyframes drift {
+  0% { transform: translate(0,0); opacity: 0.5; }
+  50% { transform: translate(50px, 50px); opacity: 1; }
+  100% { transform: translate(0,0); opacity: 0.5; }
+}
+
+/* ===== End of New Additions ===== */
