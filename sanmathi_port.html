@@ -383,6 +383,7 @@ section.card:last-of-type .subheading {
 }
 
 /* Learning reflection card */
+<style>
 .card {
     box-shadow: 0 0 15px silver, 0 0 30px silver;
     padding: 40px;
@@ -390,18 +391,20 @@ section.card:last-of-type .subheading {
     margin: 0 auto;
     text-align: center;
     border-radius: 12px;
-    background-color: #ffe6f0; /* soft pink */
+    background-color: #ffe6f0; /* soft pink background */
     transition: all 0.3s ease;
 }
 
 .card:hover {
-    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff4d4d; /* red glow on hover */
+    box-shadow: 0 0 20px #c0c0c0, 0 0 35px #d3d3d3; /* subtle silver glow on hover */
 }
 
 .card h2 {
-    font-size: 1.8em;
+    font-size: 2.2em; /* bigger heading */
     margin-bottom: 20px;
     font-weight: bold;
+    color: #000; /* black text */
+    text-shadow: 0 0 3px silver; /* very light silver glow */
 }
 
 .card img.full-image {
@@ -411,17 +414,19 @@ section.card:last-of-type .subheading {
 }
 
 .card p {
-    color: #8b0000; /* dark red */
-    text-shadow: 0 0 0px silver; /* default no glow */
-    font-size: 1em; /* smaller text */
-    line-height: 1.5em;
+    color: #000; /* black text */
+    font-size: 1.2em; /* bigger letters */
+    line-height: 1.6em;
     margin-top: 20px;
+    text-shadow: 0 0 2px silver; /* subtle silver glow */
     transition: all 0.3s ease;
 }
 
 .card:hover p {
-    text-shadow: 0 0 5px #ff4d4d, 0 0 10px #ff6666; /* subtle glow on hover */
+    text-shadow: 0 0 3px silver, 0 0 5px #c0c0c0; /* slightly stronger on hover */
 }
+</style>
+
 </style>
 
 <section class="section-problem-card">
