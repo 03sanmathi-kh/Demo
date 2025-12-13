@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collaboration – Vishalanagari Project</title>
+
+  <!-- Cartoon handwriting font -->
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Patrick Hand", cursive;
+      background-color: #001f3f;
+      color: black;
+      padding-bottom: 40px;
+    }
+
+    /* Back Button */
+    .back-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.3);
+      border: 2px solid rgba(255,255,255,0.6);
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      z-index: 2000;
+    }
+    .back-btn:hover { background: rgba(255,255,255,0.5); }
+
+    /* Lavender box */
+    .lav-box {
+      width: 85%;
+      margin: 70px auto;
+      padding: 40px;
+      border-radius: 25px;
+      background: #f3e8ff;
+      box-shadow: 0 0 25px rgba(230,200,255,0.7);
+      border: 3px solid rgba(255,255,255,0.4);
+    }
+
+    .lav-title {
+      font-size: 2.8rem;
+      text-align: center;
+      color: #001f5c;
+      text-shadow: 0 0 6px rgba(0, 30, 80, 0.4);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 45px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      width: 75%;
+      margin: 12px auto;
+      font-size: 1.25rem;
+      line-height: 2rem;
+    }
+
+    /* Collaboration Image */
+    .collab-image {
+      width: 40%;
+      max-width: 360px;
+      margin: 30px auto;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      border: 4px solid #e9d3ff;
+    }
+
+    .collab-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .button-row {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .cpp-btn { 
+      padding: 14px 22px; 
+      background: #643fcd; 
+      border-radius: 12px; 
+      color: white; 
+      font-size: 1.1rem; 
+      border: none; 
+      cursor: pointer; 
+      transition: 0.3s; 
+      font-family: "Patrick Hand", cursive; 
+      text-decoration: none;
+    }
+    .cpp-btn:hover { background: #7a57e5; }
+  </style>
+</head>
+
+<body>
+
+  <button class="back-btn" onclick="window.location.href='collabs.html'">Back</button>
+
+  <div class="lav-box">
+    <div class="lav-title">Hey there!! Vasavi & Akshata Collaborating!!</div>
+
+    <div class="collab-image">
+      <img src="collaboration.png" alt="Collaboration Image">
+    </div>
+
+    <h2>🔍 Focus Areas</h2>
+    <p>• This collaboration combines Traffic & Transport System Intelligence with Commerce and Governance Analytics.</p>
+    <p>• Akshata contributes expertise in traffic flow optimization, transport networks, and mobility systems, while Vasavi focuses on commerce efficiency, policy-driven governance, and economic optimization.</p>
+    <p>• Together, the project addresses how transport infrastructure directly impacts trade efficiency, public services, and regulatory decision-making.</p>
+
+    <h2>🎯 Project Goal / Problem Statement</h2>
+    <p><strong>Smart Urban Trade & Mobility Governance System</strong></p>
+    <p><em>(Graph + Flow Optimization + Policy-Aware Routing)</em></p>
+
+    <p>
+      Modern cities face inefficiencies where traffic congestion, poor transport planning, and weak coordination with governance systems
+      slow down commercial activities such as goods delivery, market access, and public services.
+    </p>
+
+    <p>
+      Design a data-driven transport–commerce governance model that optimizes the movement of goods, public service vehicles,
+      and regulated commercial flows while minimizing delays, economic losses, and governance bottlenecks.
+    </p>
+
+    <h2>📥 Input / 📤 Output Definition</h2>
+    <p><strong>Input:</strong> A city transport graph where edges represent roads and transit corridors weighted by traffic density,
+      congestion, time-based restrictions, vehicle regulations, toll costs, emissions penalties, and inspection delays.</p>
+
+    <p><strong>Output:</strong> An optimized routing and scheduling plan that minimizes cost and time, respects governance rules,
+      ensures fair zone access, and prioritizes essential and regulated transport flows.</p>
+
+    <h2>🧠 Approach</h2>
+    <p>• Model the urban transport system as a directed weighted graph</p>
+    <p>• Integrate commerce flows with governance constraints such as zones, timings, and permissions</p>
+    <p>• Apply shortest-path algorithms to identify efficient and compliant trade routes</p>
+    <p>• Use flow optimization to distribute traffic without overloading key junctions</p>
+    <p>• Dynamically update edge weights based on congestion, policy changes, and emergencies</p>
+
+    <h2>⚙ Algorithms Used</h2>
+    <p>• Dijkstra’s Algorithm – Fastest compliant routes for goods & services</p>
+    <p>• Bellman-Ford Algorithm – Handles regulation-adjusted and penalty-based paths</p>
+    <p>• Floyd-Warshall Algorithm – City-wide accessibility analysis</p>
+    <p>• Min Cost Max Flow – Optimal commercial traffic allocation</p>
+    <p>• BFS / DFS – Governance coverage and connectivity monitoring</p>
+
+    <h2>⏱ Efficiency of Each Algorithm</h2>
+    <p>• <b>Dijkstra:</b> O(E log V), Space – O(V)</p>
+    <p>• <b>Bellman-Ford:</b> O(V × E), Space – O(V)</p>
+    <p>• <b>Floyd-Warshall:</b> O(V³), Space – O(V²)</p>
+    <p>• <b>Min Cost Max Flow:</b> O(V × E²) (implementation dependent)</p>
+
+    <div class="collab-image">
+      <img src="urbanflow.png" alt="Urban Trade & Mobility Visualization">
+    </div>
+
+    <h2>🌟 Benefits</h2>
+    <p>• Faster and predictable commercial deliveries</p>
+    <p>• Reduced congestion in business districts</p>
+    <p>• Strong coordination between transport and governance</p>
+    <p>• Lower economic losses due to delays</p>
+    <p>• Transparent and data-backed policy enforcement</p>
+
+    <h2>🌍 SDG Alignment</h2>
+    <p>• SDG 9 – Industry, Innovation & Infrastructure</p>
+    <p>• SDG 11 – Sustainable Cities & Communities</p>
+    <p>• SDG 12 – Responsible Consumption & Production</p>
+    <p>• SDG 16 – Strong Institutions & Governance</p>
+    <p>• SDG 13 – Climate Action</p>
+
+    <h2>💻 C++ Implementations</h2>
+    <div class="button-row">
+      <a href="#" class="cpp-btn">Dijkstra – Trade Route Optimization</a>
+      <a href="#" class="cpp-btn">Bellman-Ford – Policy Routing</a>
+      <a href="#" class="cpp-btn">Min Cost Max Flow – Traffic Distribution</a>
+      <a href="#" class="cpp-btn">BFS & DFS – Governance Coverage</a>
+      <a href="#" class="cpp-btn">Floyd-Warshall – City Trade Mapping</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
