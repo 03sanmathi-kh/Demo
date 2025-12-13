@@ -2,213 +2,211 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Agriculture – Vishalnagari</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agriculture – Vishalnagari Portfolio</title>
 
-<!-- ===================== THEME & LAYOUT (100% MATCH STYLE) ===================== -->
 <style>
-body{margin:0;font-family:'Segoe UI',sans-serif;transition:0.3s;overflow-x:hidden}
-body.dark{background:navy;color:white}
-body.light{background:#f5f5f5;color:black}
+/* ===== SAME THEME COLORS ===== */
+body.dark{background:navy;color:white;}
+body.light{background:#f5f5f5;color:black;}
+body{margin:0;font-family:Segoe UI;transition:0.3s;}
 
-nav{display:flex;justify-content:flex-end;gap:15px;background:rgba(0,0,128,0.85);padding:12px}
-nav a{text-decoration:none;color:white;font-weight:bold;padding:8px 12px;border-radius:5px}
-nav a:hover{background:silver;color:navy}
-nav a.active{background:silver;color:navy}
+nav{
+ display:flex;justify-content:flex-end;gap:15px;
+ background:rgba(0,0,128,0.8);padding:10px;
+}
+nav a{
+ color:white;text-decoration:none;font-weight:bold;
+ padding:8px 12px;border-radius:4px;
+}
+nav a:hover{background:silver;color:navy;}
+nav a.active{background:silver;color:navy;}
 
-.theme-toggle{position:fixed;top:15px;left:15px;padding:10px 20px;border:none;border-radius:8px;font-weight:bold;background:skyblue;color:navy;cursor:pointer;box-shadow:0 0 20px silver}
-.theme-toggle:hover{transform:scale(1.05)}
+.theme-toggle{
+ position:absolute;top:10px;left:10px;
+ padding:10px 20px;background:rgba(135,206,250,0.8);
+ border:none;border-radius:8px;font-weight:bold;
+ cursor:pointer;box-shadow:0 0 18px silver;
+}
 
-.main-heading{text-align:center;margin:50px 20px}
-.main-heading .title{font-size:2.2em;font-weight:800}
+/* ===== CARDS ===== */
+.card{
+ background:#ffe0e0;border-radius:12px;
+ padding:25px;margin:30px auto;width:75%;
+ box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
 
-.card{background:#ffe0e0;border-radius:18px;padding:30px;margin:35px auto;width:75%;box-shadow:0 10px 25px rgba(0,0,0,0.2)}
-.card h2{text-align:center;color:maroon;font-size:2em}
+.main-heading{text-align:center;margin-top:40px;}
+.main-heading span{font-size:1.8em;font-weight:bold;color:maroon;}
 
-/* ===================== MODULE BUTTON DESIGN ===================== */
-.modules-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px;justify-items:center;margin-top:30px}
-.module-btn{width:160px;height:160px;clip-path:polygon(50% 0%,100% 38%,82% 100%,18% 100%,0% 38%);
-background:linear-gradient(135deg,#00cccc,#008b8b);display:flex;align-items:center;justify-content:center;text-align:center;
-font-weight:bold;color:white;transition:0.3s;box-shadow:0 0 25px cyan}
-.module-btn:hover{transform:scale(1.25);box-shadow:0 0 80px cyan}
+/* ===== GLASS CIRCLE MODULES ===== */
+.modules-container{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+ gap:30px;justify-items:center;margin-top:30px;
+}
+.circle{
+ width:150px;height:150px;border-radius:50%;
+ background:rgba(255,255,255,0.25);
+ backdrop-filter:blur(8px);
+ display:flex;align-items:center;justify-content:center;
+ text-align:center;font-weight:bold;color:navy;
+ cursor:pointer;transition:0.3s;
+ box-shadow:0 0 20px silver;
+}
+.circle:hover{
+ transform:scale(1.15);
+ box-shadow:0 0 35px silver,0 0 60px silver;
+}
 
-.module-content{display:none;margin:30px auto;padding:25px;border-radius:15px;width:75%;background:rgba(255,255,255,0.15)}
-.module-content h3{color:#ffebcd;font-size:1.8em}
-.module-content p{line-height:1.6}
-pre{background:rgba(0,0,0,0.4);padding:15px;border-radius:12px;overflow-x:auto;color:#fff}
+/* ===== TIMELINE ===== */
+.timeline{position:relative;margin:50px auto;width:80%;}
+.timeline:before{
+ content:'';position:absolute;left:50%;
+ width:4px;height:100%;background:silver;
+}
+.step{
+ width:45%;padding:15px;
+ background:rgba(255,255,255,0.8);
+ border-radius:10px;margin:25px 0;
+}
+.left{margin-left:0;}
+.right{margin-left:55%;}
+
+/* ===== SVG MAP ===== */
+.map{display:flex;justify-content:center;margin:40px;}
+.field{fill:#7fbf7f;animation:pulse 2.5s infinite;}
+@keyframes pulse{
+ 0%{opacity:0.6;}50%{opacity:1;}100%{opacity:0.6;}
+}
+
+/* ===== MODULE CONTENT ===== */
+.module-content{
+ display:none;margin-top:25px;
+ background:white;color:black;
+ padding:20px;border-radius:10px;
+}
+pre{
+ background:#111;color:#0f0;
+ padding:12px;border-radius:8px;
+ overflow-x:auto;
+}
 </style>
 </head>
 
 <body class="light">
-<button class="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
+
+<button class="theme-toggle"
+onclick="document.body.classList.toggle('dark');
+document.body.classList.toggle('light');">
+Switch Theme
+</button>
 
 <nav>
 <a href="index.html">Home</a>
-<a href="#" class="active">Agriculture</a>
 <a href="project.html">Project</a>
-<a href="isha_port.html">Isha</a>
+<a class="active">Agriculture</a>
 </nav>
 
-<div class="main-heading">
-<span class="title">AGRICULTURE DOMAIN – VISHALNAGARI</span>
-<p>Smart, Sustainable & Algorithm-Driven Farming Solutions</p>
-</div>
+<h1 class="main-heading">
+<span>Agriculture – Vishalnagari</span>
+</h1>
 
 <section class="card">
 <h2>Why Agriculture?</h2>
-<p><b>Business Statement:</b> Vishalnagari’s agriculture sector focuses on maximizing yield, conserving resources, and empowering farmers using efficient algorithms and smart technologies.</p>
+<p>
+Agriculture in Vishalnagari focuses on efficient water usage,
+crop planning, storage, disease control and market access
+using algorithm-based solutions.
+</p>
 </section>
 
+<!-- ===== GLASS CIRCLE MODULES ===== -->
 <section class="card">
-<h2>My Thought Space – Agriculture Modules</h2>
+<h2>Smart Agriculture Modules</h2>
+
 <div class="modules-container">
-<div class="module-btn" onclick="openM('m1')">Smart Irrigation</div>
-<div class="module-btn" onclick="openM('m2')">Crop Recommendation</div>
-<div class="module-btn" onclick="openM('m3')">Precision Farming</div>
-<div class="module-btn" onclick="openM('m4')">Agri Logistics</div>
-<div class="module-btn" onclick="openM('m5')">Agri Waste Energy</div>
-<div class="module-btn" onclick="openM('m6')">Greenhouse Farming</div>
-<div class="module-btn" onclick="openM('m7')">Disease Detection</div>
-<div class="module-btn" onclick="openM('m8')">Supply Chain</div>
+<div class="circle" onclick="show('m1')">Smart Irrigation</div>
+<div class="circle" onclick="show('m2')">Crop Recommendation</div>
+<div class="circle" onclick="show('m3')">Agri Transport</div>
+<div class="circle" onclick="show('m4')">Drone Monitoring</div>
+<div class="circle" onclick="show('m5')">Cold Storage</div>
+<div class="circle" onclick="show('m6')">Marketplace</div>
 </div>
 </section>
 
-<!-- ===================== MODULES WITH CPP CODES ===================== -->
+<!-- ===== TIMELINE ===== -->
+<section class="card">
+<h2>Agriculture Workflow Timeline</h2>
+<div class="timeline">
+<div class="step left">Soil Analysis & Data Collection</div>
+<div class="step right">Crop Recommendation (BST)</div>
+<div class="step left">Smart Irrigation (Graphs)</div>
+<div class="step right">Harvest & Transport (Dijkstra)</div>
+<div class="step left">Storage & Market Supply</div>
+</div>
+</section>
 
+<!-- ===== SVG MAP ===== -->
+<section class="card">
+<h2>Agriculture Zone Map</h2>
+<div class="map">
+<svg width="400" height="250">
+<rect x="30" y="40" width="100" height="70" class="field"/>
+<rect x="160" y="40" width="100" height="70" class="field"/>
+<rect x="95" y="140" width="100" height="70" class="field"/>
+<text x="50" y="35">Farm A</text>
+<text x="180" y="35">Farm B</text>
+<text x="120" y="135">Farm C</text>
+</svg>
+</div>
+</section>
+
+<!-- ===== MODULE CONTENT ===== -->
+<section class="card">
 <div id="m1" class="module-content">
-<h3>1. Smart Irrigation & Water Distribution</h3>
-<p><b>Problem:</b> Unequal water flow and wastage.</p>
-<p><b>Solution:</b> Dijkstra’s Algorithm for shortest water path.</p>
+<h3>Smart Irrigation</h3>
+<p><b>Algorithm:</b> Dijkstra</p>
 <pre>
-#include<iostream>
-#include<vector>
-#include<queue>
-using namespace std;
-int main(){
- vector<vector<pair<int,int>>> g(3);
- g[0]={{1,4},{2,6}}; g[1]={{2,2}};
- vector<int>d(3,1e9); d[0]=0;
- priority_queue<pair<int,int>,vector<pair<int,int>>,greater<>>pq;
- pq.push({0,0});
- while(!pq.empty()){
-  auto [c,u]=pq.top(); pq.pop();
-  for(auto [v,w]:g[u]) if(d[u]+w<d[v]) d[v]=d[u]+w,pq.push({d[v],v});
- }
- for(int i=0;i<3;i++) cout<<d[i]<<" ";
+dist[src]=0;
+while(pq not empty){
+ u=extractMin();
+ for each v:
+  if(dist[u]+w < dist[v])
+   dist[v]=dist[u]+w;
 }
 </pre>
+<a href="module1.html">Open Full Module →</a>
 </div>
 
 <div id="m2" class="module-content">
-<h3>2. Crop Recommendation System</h3>
-<p><b>Solution:</b> Binary Search on crop database.</p>
+<h3>Crop Recommendation</h3>
+<p><b>Algorithm:</b> Binary Search</p>
 <pre>
-#include<iostream>
-#include<algorithm>
-using namespace std;
-int main(){
- string a[]={"Rice","Wheat","Millet","Cotton"};
- sort(a,a+4);
- string key="Millet";
- int l=0,r=3;
- while(l<=r){int m=(l+r)/2;
-  if(a[m]==key){cout<<"Recommended";return 0;}
-  else if(a[m]<key)l=m+1; else r=m-1;}
+while(l<=r){
+ mid=(l+r)/2;
+ if(crop[mid]==target) found;
 }
 </pre>
+<a href="module2.html">Open Full Module →</a>
 </div>
 
 <div id="m3" class="module-content">
-<h3>3. Precision Farming (DFS)</h3>
-<p>Scans soil grid deeply.</p>
+<h3>Agri Transport</h3>
+<p><b>Algorithm:</b> Dijkstra</p>
 <pre>
-#include<iostream>
-using namespace std;
-int vis[3][3];
-void dfs(int i,int j){
- if(i<0||j<0||i>=3||j>=3||vis[i][j]) return;
- vis[i][j]=1; cout<<i<<","<<j<<"\n";
- dfs(i+1,j); dfs(i-1,j); dfs(i,j+1); dfs(i,j-1);
-}
-int main(){ dfs(0,0); }
+priority_queue pq;
+while(!pq.empty()) relax edges;
 </pre>
 </div>
-
-<div id="m4" class="module-content">
-<h3>4. Agri Logistics Optimization</h3>
-<p>Shortest delivery route using Dijkstra.</p>
-<pre>
-#include<iostream>
-#include<vector>
-#include<queue>
-using namespace std;
-int main(){
- vector<vector<pair<int,int>>> g(2);
- g[0]={{1,5}};
- vector<int>d(2,1e9); d[0]=0;
- priority_queue<pair<int,int>,vector<pair<int,int>>,greater<>>pq;
- pq.push({0,0});
- while(!pq.empty()){
-  auto [x,u]=pq.top(); pq.pop();
-  for(auto [v,w]:g[u]) if(d[u]+w<d[v]) d[v]=d[u]+w,pq.push({d[v],v});
- }
- cout<<d[1];
-}
-</pre>
-</div>
-
-<div id="m5" class="module-content">
-<h3>5. Agri Waste to Bio-Energy</h3>
-<p>Heap prioritizes high-energy waste.</p>
-<pre>
-#include<iostream>
-#include<queue>
-using namespace std;
-int main(){
- priority_queue<int> pq;
- pq.push(30); pq.push(50); pq.push(10);
- cout<<"Max energy waste:"<<pq.top();
-}
-</pre>
-</div>
-
-<div id="m6" class="module-content">
-<h3>6. Greenhouse Optimization</h3>
-<p>Fenwick Tree for growth updates.</p>
-<pre>
-#include<iostream>
-using namespace std;
-int bit[6];
-void update(int i,int v){for(;i<=5;i+=i&-i)bit[i]+=v;}
-int sum(int i){int s=0;for(;i>0;i-=i&-i)s+=bit[i];return s;}
-int main(){update(2,5); update(4,3); cout<<sum(4);} 
-</pre>
-</div>
-
-<div id="m7" class="module-content">
-<h3>7. Crop Disease Detection (KMP)</h3>
-<pre>
-#include<iostream>
-using namespace std;
-int main(){string t="leafspot";string p="spot";
- if(t.find(p)!=string::npos) cout<<"Disease Detected";}
-</pre>
-</div>
-
-<div id="m8" class="module-content">
-<h3>8. Agriculture Supply Chain</h3>
-<p>MST using Kruskal for minimum cost routes.</p>
-<pre>
-#include<iostream>
-using namespace std;
-int main(){ cout<<"Minimum cost supply chain built"; }
-</pre>
-</div>
+</section>
 
 <script>
-function openM(id){document.querySelectorAll('.module-content').forEach(x=>x.style.display='none');
-document.getElementById(id).style.display='block';}
-function toggleTheme(){document.body.classList.toggle('dark');document.body.classList.toggle('light');}
+function show(id){
+ document.querySelectorAll('.module-content')
+ .forEach(m=>m.style.display='none');
+ document.getElementById(id).style.display='block';
+}
 </script>
 
 </body>
