@@ -1,439 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Akshata – Traffic Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body { margin:0; font-family:'Segoe UI',sans-serif; transition:background 0.3s,color 0.3s; min-height:100vh; overflow-x:hidden; }
-body.dark{background:#0a0a0a;color:#fff;}
-body.light{background:#f5f5f5;color:#000;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industries, Urban Infrastructure & Tourism</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Title contrast colors */
+    body.dark .main-heading .title,
+    body.dark .main-heading .subtitle {
+      color: white;
+    }
 
-.wave-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
-.wave{position:absolute;width:200%;height:200%;opacity:0.5;animation:waveMove 30s linear infinite;}
-.wave1{fill:#e74c3c;}
-.wave2{fill:#f39c12;}
-.wave3{fill:#c0392b;}
-body.light .wave1{fill:#fab1a0;}
-body.light .wave2{fill:#ffeaa7;}
-body.light .wave3{fill:#ff7675;}
-@keyframes waveMove{0%{transform:translateX(0) translateY(0) rotate(0deg);}50%{transform:translateX(10%) translateY(5%) rotate(2deg);}100%{transform:translateX(0) translateY(0) rotate(0deg);} }
+    body.light .main-heading .title,
+    body.light .main-heading .subtitle {
+      color: maroon;
+    }
 
-header{text-align:center;padding:40px 20px;}
-header h1{font-size:42px;font-weight:900;color:#e74c3c;}
-header h3{font-size:22px;font-weight:600;color:#3498db;}
-header p{max-width:800px;margin:20px auto;font-size:16px;line-height:1.6;color:inherit;}
+    body.dark {
+      background-color: navy;
+      color: white;
+    }
 
-.hex-container{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding:30px;}
-.hex{position:relative;width:160px;height:90px;display:flex;align-items:center;justify-content:center;font-weight:600;text-align:center;cursor:pointer;transition:transform 0.3s ease;color:#fff;border-radius:12px;}
-.hex:hover{transform:scale(1.08);}
-.flow{background:#e74c3c;} 
-.signal{background:#3498db;} 
-.accident{background:#f1c40f;} 
-.parking{background:#2ecc71;} 
-.emergency{background:#9b59b6;}
+    body.light {
+      background-color: #f5f5f5;
+      color: black;
+    }
 
-.module-content{display:none;margin:20px auto;padding:20px;border-radius:15px;max-width:900px;background:rgba(255,255,255,0.05);}
-.module-content h2{font-size:24px;margin-bottom:10px;}
-.module-content p{font-size:16px;line-height:1.6;margin-bottom:10px;}
-pre{background:rgba(255,255,255,0.08);padding:15px;border-radius:10px;overflow-x:auto;font-size:14px;color:inherit;}
+    .main-heading:hover,
+    .project-overview img:hover,
+    .city-text:hover {
+      box-shadow: 0 0 15px silver, 0 0 30px silver, 0 0 45px silver;
+      text-shadow: 0 0 10px silver, 0 0 20px silver, 0 0 30px silver;
+      transform: scale(1.02);
+    }
 
-#themeBtn,#homeBtn{position:fixed;top:20px;padding:10px 20px;font-size:14px;cursor:pointer;border:none;border-radius:8px;color:#fff;transition:background 0.3s;}
-#themeBtn{right:20px;background:#e74c3c;} #themeBtn:hover{background:#3498db;}
-#homeBtn{left:20px;background:#2ecc71;} #homeBtn:hover{background:#27ae60;}
-</style>
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      background: rgba(0,0,128,0.8);
+      padding: 10px;
+      position: relative;
+      z-index: 10;
+    }
+
+    nav a {
+      padding: 8px 12px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    nav a:hover {
+      background: rgba(0,0,128,0.6);
+      color: silver;
+    }
+
+    nav a.active {
+      background: silver;
+      color: navy;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 10px 20px;
+      background: rgba(135, 206, 250, 0.8);
+      color: navy;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 0 18px silver;
+      transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px silver, 0 0 25px rgba(135, 206, 250, 0.8);
+    }
+
+    .card {
+      background: #ffe0e0;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 30px auto;
+      width: 70%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 2em;
+      color: maroon;
+      text-align: center;
+    }
+
+    .card .icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 60px;
+      height: 60px;
+    }
+
+    .card img.theme-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      margin-top: 15px;
+      border-radius: 0;
+      object-fit: cover;
+    }
+
+    .card img.full-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 15px;
+      border-radius: 0;
+    }
+
+    .main-heading {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .main-heading .title {
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+
+   /* ========================================= */
+   /* PENTAGON MODULE BUTTON + RECTANGLE BOX DESIGN */
+   /* ========================================= */
+
+   /* Thought Space card styling */
+section.card.thought-space {
+  background: rgba(255, 248, 220, 0.7); /* soft cream, gentle */
+  border-radius: 20px;
+  padding: 40px 30px;
+  margin: 30px auto;
+  width: 75%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease-in-out;
+}
+
+section.card.thought-space:hover {
+  box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 60px rgba(255, 200, 100, 0.5);
+}
+
+/* Modules container (grid layout) */
+.modules-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  margin-top: 25px;
+}
+
+/* Pentagon module buttons */
+.module-btn {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #00cccc, #009999);
+  clip-path: polygon(
+    50% 0%,
+    100% 38%,
+    82% 100%,
+    18% 100%,
+    0% 38%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  opacity: 0.95;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 20px rgba(0,204,204,0.8), 0 0 30px rgba(0,153,153,0.7);
+}
+
+/* Heavy glow on hover */
+.module-btn:hover {
+  transform: scale(1.25);
+  box-shadow: 
+    0 0 30px white,
+    0 0 80px #00ffff,
+    0 0 120px #00ffff,
+    0 0 200px #00ffff;
+  text-shadow: 0 0 15px white, 0 0 25px #00ffff;
+}
+
+/* Last pink card adjustments */
+section.card:last-of-type {
+  padding: 50px;
+  width: 75%;
+  min-height: 400px;
+  text-align: center;
+}
+
+section.card:last-of-type h2 {
+  color: #2c2c2c;
+  text-shadow: 0 0 5px silver, 0 0 15px silver;
+  font-size: 2.5em; /* bigger */
+  margin-bottom: 15px;
+}
+
+section.card:last-of-type .subheading {
+  color: #2c2c2c;
+  text-shadow: 0 0 5px silver, 0 0 15px silver;
+  font-size: 1.8em; /* bigger */
+}
+
+  </style>
 </head>
-<body class="dark">
-
-<div class="wave-bg">
-<svg class="wave wave1" viewBox="0 0 1440 320"><path d="M0,192 C480,320 960,64 1440,192 L1440,320 L0,320 Z"></path></svg>
-<svg class="wave wave2" viewBox="0 0 1440 320"><path d="M0,256 C480,128 960,384 1440,256 L1440,320 L0,320 Z"></path></svg>
-<svg class="wave wave3" viewBox="0 0 1440 320"><path d="M0,224 C480,96 960,352 1440,224 L1440,320 L0,320 Z"></path></svg>
-</div>
-
-<button id="homeBtn" onclick="goHome()">🏠 Home</button>
-<button id="themeBtn" onclick="toggleTheme()">🌙 Dark Mode</button>
-
-<header>
-<h1>ISHA</h1>
-<h3>AGRICULTURE – Vishalnagari</h3>
-<b>Vishalnagari’s Agriculture domain ensures sustainable farming, increased productivity, and smarter resource management for every farmer.</b>
-</header>
-
-<div class="hex-container">
-    <div class="hex flow" onclick="toggleModule('a1')">Smart Irrigation & Water Distribution</div>
-    <div class="hex signal" onclick="toggleModule('a2')">Crop Recommendation System</div>
-    <div class="hex accident" onclick="toggleModule('a3')">Agri Transport Route Optimization</div>
-    <div class="hex parking" onclick="toggleModule('a4')">Drone-based Field Monitoring</div>
-    <div class="hex emergency" onclick="toggleModule('a5')">Smart Warehouse & Cold Storage</div>
-    <div class="hex flow" onclick="toggleModule('a6')">Farmers Marketplace Platform</div>
-    <div class="hex signal" onclick="toggleModule('a7')">Smart Crop Storage & Expiry Tracking</div>
-</div>
-
-<!-- MODULES -->
-
-<div id="a1" class="module-content">
-<h2>Smart Irrigation & Water Distribution Network</h2>
-
-<p><strong>Problem Statement:</strong><br>
-Farmers often waste water because pipelines do not deliver water through the shortest or least-pressure-loss routes. This leads to unequal distribution and water scarcity.</p>
-
-<p><strong>Solution:</strong><br>
-Use <b>Dijkstra’s Algorithm</b> to find the shortest and most efficient pipeline route so that water reaches all connected fields with minimal loss.</p>
-
-<p><strong>Algorithm:</strong> Dijkstra – Shortest water flow route (O(E + V log V))</p>
-
-<pre>
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;queue&gt;
-using namespace std;
-
-int main(){
-    vector&lt;vector&lt;pair&lt;int,int&gt;&gt;&gt; pipe(3);
-    pipe[0]={{1,4},{2,7}};
-    pipe[1]={{2,2}};
-
-    vector&lt;int&gt; dist(3,1e9); 
-    dist[0]=0;
-
-    priority_queue&lt;pair&lt;int,int&gt;,vector&lt;pair&lt;int,int&gt;&gt;,greater&lt;&gt;&gt; pq;
-    pq.push({0,0});
-
-    while(!pq.empty()){
-        auto [d,u]=pq.top(); pq.pop();
-        for(auto [v,w]:pipe[u]){
-            if(dist[u]+w &lt; dist[v]){
-                dist[v]=dist[u]+w;
-                pq.push({dist[v],v});
-            }
-        }
-    }
-
-    for(int i=0;i&lt;3;i++)
-        cout &lt;&lt; "Min water path to field " &lt;&lt; i 
-             &lt;&lt; ": " &lt;&lt; dist[i] &lt;&lt; endl;
-}
-</pre>
-
-<p><strong>Conclusion:</strong> Water reaches farms using the most efficient pipeline network.</p>
-
-<!-- Extra HTML Feature -->
-<div style="padding:15px;background:#1abc9c;border-radius:10px;color:#fff;">
-<b>Pipeline Status:</b> Water Flow: <progress value="70" max="100"></progress> 70%
-</div>
-
-</div>
-
-<div id="a2" class="module-content">
-<h2>Crop Recommendation System</h2>
-
-<p><strong>Problem Statement:</strong><br>
-Many farmers choose crops without analyzing soil type, water availability, or climatic needs, leading to lower yield.</p>
-
-<p><strong>Solution:</strong><br>
-Use <b>Binary Search</b> to quickly match soil type to suitable crops.</p>
-
-<p><strong>Algorithm:</strong> Binary Search on crop-soil database (O(log n))</p>
-
-<pre>
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;algorithm&gt;
-using namespace std;
-
-int main(){
-    vector&lt;string&gt; crops = {"Cotton", "Groundnut", "Millet", "Rice", "Wheat"};
-    sort(crops.begin(), crops.end());
-
-    string target = "Millet";
-    int l=0, r=crops.size()-1, mid;
-
-    while(l&lt;=r){
-        mid = (l+r)/2;
-        if(crops[mid] == target){
-            cout &lt;&lt; target &lt;&lt; " is recommended crop!" &lt;&lt; endl;
-            return 0;
-        }
-        else if(crops[mid] &lt; target) l = mid+1;
-        else r = mid-1;
-    }
-
-    cout &lt;&lt; "Crop not found." &lt;&lt; endl;
-}
-</pre>
-
-<p><strong>Conclusion:</strong> Farmers get the most suitable crop based on soil and climate.</p>
-
-<!-- Extra HTML Feature -->
-<div style="background:#f39c12;padding:12px;border-radius:10px;color:white;">
-Recommended Soil Type: <b>Loamy</b>
-</div>
-
-</div>
-
-<div id="a3" class="module-content">
-<h2>Transport Route Optimization</h2>
-
-<p><strong>Problem Statement:</strong><br>
-Agriculture produce often gets delayed, causing spoilage due to poor route planning.</p>
-
-<p><strong>Solution:</strong><br>
-Use <b>Dijkstra’s algorithm</b> to compute shortest delivery paths.</p>
-
-<p><strong>Algorithm:</strong> Dijkstra – Fastest delivery route (O(E log V))</p>
-
-<pre>
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;queue&gt;
-using namespace std;
-
-int main(){
-    vector&lt;vector&lt;pair&lt;int,int&gt;&gt;&gt; g(3);
-    g[0]={{1,6},{2,2}};
-    g[1]={{2,1}};
-
-    vector&lt;int&gt; dist(3,1e9);
-    dist[0]=0;
-
-    priority_queue&lt;pair&lt;int,int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;&gt;&gt; pq;
-    pq.push({0,0});
-
-    while(!pq.empty()){
-        auto [d,u]=pq.top(); pq.pop();
-        for(auto [v,w]:g[u]){
-            if(dist[u]+w &lt; dist[v]){
-                dist[v]=dist[u]+w;
-                pq.push({dist[v],v});
-            }
-        }
-    }
-
-    for(int i=0;i&lt;3;i++)
-        cout &lt;&lt; "Best route to center " &lt;&lt; i 
-             &lt;&lt; ": " &lt;&lt; dist[i] &lt;&lt; endl;
-}
-</pre>
-
-<p><strong>Conclusion:</strong> Ensures faster and safer produce transportation.</p>
-
-<!-- Extra HTML Feature -->
-<div style="border-left:5px solid #3498db;padding:10px;">
-<b>Live Status:</b> Delivery truck ETA: 12 minutes.
-</div>
-
-</div>
-
-<div id="a4" class="module-content">
-<h2>Drone-based Field Monitoring</h2>
-
-<p><strong>Problem Statement:</strong><br>
-Farmers cannot manually monitor large fields for pests, dryness, and diseases.</p>
-
-<p><strong>Solution:</strong><br>
-Use <b>DFS</b> to scan each field grid section deeply.</p>
-
-<p><strong>Algorithm:</strong> DFS on grid (O(n*m))</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-int vis[3][3];
-int field[3][3]={{1,0,1},{0,1,0},{1,0,1}};
-
-void dfs(int x, int y){
-    if(x&lt;0 || y&lt;0 || x&gt;=3 || y&gt;=3 || vis[x][y]) return;
-    vis[x][y]=1;
-    cout &lt;&lt; "Drone scanned cell: " &lt;&lt; x &lt;&lt; "," &lt;&lt; y &lt;&lt; endl;
-
-    dfs(x+1,y);
-    dfs(x-1,y);
-    dfs(x,y+1);
-    dfs(x,y-1);
-}
-
-int main(){
-    dfs(0,0);
-}
-</pre>
-
-<p><strong>Conclusion:</strong> Drones scan farms faster and detect issues early.</p>
-
-<!-- Extra HTML Feature -->
-<div style="padding:10px;background:#8e44ad;color:white;border-radius:8px;">
-Drone Battery: <progress value="85" max="100"></progress> 85%
-</div>
-
-</div>
-
-<div id="a5" class="module-content">
-<h2>Smart Warehouse & Cold Storage</h2>
-
-<p><strong>Problem Statement:</strong><br>
-Manual storage tracking leads to spoilage and inventory mismatch.</p>
-
-<p><strong>Solution:</strong><br>
-Use a <b>Binary Search Tree (BST)</b> for storing items in sorted order.</p>
-
-<p><strong>Algorithm:</strong> BST Insert & Traverse (O(log n))</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-struct Node{
-    int item;
-    Node *left,*right;
-    Node(int x){ item=x; left=right=NULL; }
-};
-
-Node* insert(Node* root, int x){
-    if(!root) return new Node(x);
-    if(x &lt; root-&gt;item) root-&gt;left = insert(root-&gt;left,x);
-    else root-&gt;right = insert(root-&gt;right,x);
-    return root;
-}
-
-void inorder(Node* root){
-    if(!root) return;
-    inorder(root-&gt;left);
-    cout &lt;&lt; root-&gt;item &lt;&lt; " ";
-    inorder(root-&gt;right);
-}
-
-int main(){
-    Node* root=NULL;
-    root=insert(root,30);
-    insert(root,10);
-    insert(root,50);
-    inorder(root);
-}
-</pre>
-
-<p><strong>Conclusion:</strong> Warehouse items stay sorted and easily searchable.</p>
-
-<!-- Extra HTML Feature -->
-<div style="padding:12px;background:#2ecc71;color:#fff;border-radius:10px;">
-Cold Storage Temperature: <b>4°C</b>
-</div>
-
-</div>
-
-<div id="a6" class="module-content">
-<h2>Farmers Marketplace Platform</h2>
-
-<p><strong>Problem Statement:</strong><br>
-Farmers struggle to find the best buyers for their crops at fair prices.</p>
-
-<p><strong>Solution:</strong><br>
-Use <b>Merge Sort</b> to sort crops by price (best-priced crops shown first).</p>
-
-<p><strong>Algorithm:</strong> Merge Sort – Sort crops by price (O(n log n))</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-void merge(int a[], int l, int m, int r){
-    int n1=m-l+1, n2=r-m;
-    int L[n1], R[n2];
-
-    for(int i=0;i&lt;n1;i++) L[i]=a[l+i];
-    for(int j=0;j&lt;n2;j++) R[j]=a[m+1+j];
-
-    int i=0,j=0,k=l;
-    while(i&lt;n1 && j&lt;n2){
-        if(L[i] &lt;= R[j]) a[k++]=L[i++];
-        else a[k++]=R[j++];
-    }
-    while(i&lt;n1) a[k++]=L[i++];
-    while(j&lt;n2) a[k++]=R[j++];
-}
-
-void mergesort(int a[], int l, int r){
-    if(l&lt;r){
-        int m=(l+r)/2;
-        mergesort(a,l,m);
-        mergesort(a,m+1,r);
-        merge(a,l,m,r);
-    }
-}
-
-int main(){
-    int price[]={40,10,30,20};
-    mergesort(price,0,3);
-    for(int x:price) cout &lt;&lt; x &lt;&lt; " ";
-}
-</pre>
-
-<p><strong>Conclusion:</strong> Marketplace always shows best deals to farmers.</p>
-
-<!-- Extra HTML Feature -->
-<div style="padding:10px;border:2px dashed #e67e22;border-radius:8px;">
-Top Deal of the Day: <b>Tomatoes - ₹22/kg</b>
-</div>
-
-</div>
-
-<div id="a7" class="module-content">
-<h2>Smart Crop Storage & Expiry Tracking</h2>
-
-<p><strong>Problem Statement:</strong><br>
-Stored grains rot early because farmers do not track expiry or humidity properly.</p>
-
-<p><strong>Solution:</strong><br>
-Use a <b>Min Heap</b> to always detect the crop with the earliest expiry date.</p>
-
-<p><strong>Algorithm:</strong> Min Heap – Earliest expiry first (O(log n))</p>
-
-<pre>
-#include &lt;iiostream&gt;
-#include &lt;queue&gt;
-using namespace std;
-
-int main(){
-    priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; expiry;
-
-    expiry.push(5);
-    expiry.push(2);
-    expiry.push(9);
-
-    cout &lt;&lt; "Earliest expiry in days: " &lt;&lt; expiry.top() &lt;&lt; endl;
-}
-</pre>
-
-<p><strong>Conclusion:</strong> Farmers can prevent crop spoilage by monitoring earliest expiry.</p>
-
-<!-- Extra HTML Feature -->
-<div style="background:#c0392b;color:white;padding:10px;border-radius:10px;">
-⚠ Expiry Alert: <b>Wheat expires in 2 days!</b>
-</div>
-
-</div>
-
-
-<script>
-function toggleModule(id){
-  document.querySelectorAll('.module-content').forEach(m => m.style.display='none');
-  const x=document.getElementById(id);
-  if(x) x.style.display='block';
-}
-
-// ✅ 100% Working – opens index.html
-function goHome(){
-  window.location.href = "index.html";
-}
-
-function toggleTheme(){
-  const body=document.body;
-  body.classList.toggle('dark');
-  body.classList.toggle('light');
-  document.getElementById('themeBtn').textContent =
-    body.classList.contains('dark') ? "🌙 Dark Mode" : "☀ Light Mode";
-}
-</script>
+<body class="light">
+
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" onclick="document.body.classList.toggle('light'); document.body.classList.toggle('dark');">Switch Theme</button>
+
+  <!-- Navigation -->
+  <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="project.html">Project</a>
+      <a href="sanmathi_port.html" class="active">Sanmathi</a>
+      <a href="vasavi_port.html">Vasavi</a>
+      <a href="akshata_port.html">Akshata</a>
+      <a href="isha_port.html">Isha</a>
+      <a href="collabs.html">Collabs</a>
+  </nav>
+
+  <h1 id="title" class="main-heading">
+      <span class="title">Agricultue </span>
+  </h1>
+
+  <section class="card">
+      <img src="icon.jpg" alt="Industry Icon" class="icon">
+      <h2>Why did I choose these sectors? A glimpse..</h2>
+      <img src="Theme.png.png" alt="Industries Image" class="theme-image">
+      <img src="dis.png.png" alt="Description Image" class="full-image">
+  </section>
+
+  <section class="card">
+      <img src="bcase.png" alt="Single Image" class="full-image">
+  </section>
+
+  <!-- Updated Thought Space Card -->
+  <section class="card thought-space">
+    <h2>Welcome To My Thought Space!!</h2>
+    <p class="subheading">Explore my ideas and works below!</p>
+
+    <div class="modules-container">
+        <a href="module1.html" class="module-btn">Adaptive Resource Flow </a>
+        <a href="module2.html" class="module-btn">Dynamic Production Planning</a>
+        <a href="module3.html" class="module-btn">Urban Flood Spread Mapping </a>
+        <a href="module4.html" class="module-btn">Drinking Water Distribution</a>
+        <a href="module5.html" class="module-btn">Tourists' Crowding Prediction</a>
+        <a href="module6.html" class="module-btn">Disaster-Resilient Infrastructure</a>
+        <a href="module7.html" class="module-btn">Internet Connectivity Optimization</a>
+        <a href="module8.html" class="module-btn">Energy Efficient Lighting</a>
+        <a href="module9.html" class="module-btn">Knowledge Transfer System</a>
+        <a href="module10.html" class="module-btn">Seasonal Hotel Occupency Optimization </a>
+    </div>
+  </section>
 
 </body>
 </html>
