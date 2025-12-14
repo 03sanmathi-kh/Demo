@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 1: Adaptive Resource Flow</title>
+  <title>Module 2:  Crop Recommendation & Seasonal Planning System</title>
 
   <style>
     /* ===== THEME BACKGROUND ===== */
     body.light {
-      background-color: #f5f5f5;
+      background: radial-gradient(circle at 20% 25%, #C1E59F 0%, transparent 45%),
+                  radial-gradient(circle at 80% 75%, #FF937E 0%, transparent 45%),
+                  linear-gradient(135deg, #A3D78A, #FF937E);
       color: black;
     }
     body.dark {
-      background-color: navy;
+      background: radial-gradient(circle at 25% 25%, #FF5555 0%, transparent 45%),
+                  radial-gradient(circle at 75% 75%, #C1E59F 0%, transparent 45%),
+                  linear-gradient(135deg, #FF5555, #A3D78A);
       color: black;
     }
 
@@ -21,13 +25,14 @@
       position: fixed;
       top: 10px;
       left: 10px;
-      background: #444;
+      background: #FF5555;
       padding: 8px 14px;
       color: white;
       border: none;
       border-radius: 6px;
       cursor: pointer;
       z-index: 999;
+      box-shadow: 0 0 20px #FF937E;
     }
 
     /* ===== BACK BUTTON ===== */
@@ -40,37 +45,37 @@
       padding: 10px 20px;
       font-weight: bold;
       border-radius: 8px;
-      background: rgba(135, 206, 250, 0.8);
-      color: navy;
-      box-shadow: 0 0 18px 3px silver;
+      background: linear-gradient(135deg, #FF937E, #C1E59F);
+      color: black;
+      box-shadow: 0 0 18px 3px #A3D78A;
       transition: 0.3s;
       z-index: 999;
     }
     .back-btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 35px 8px silver, 0 0 25px rgba(135, 206, 250, 0.8);
+      box-shadow: 0 0 35px 8px #FF937E, 0 0 25px #C1E59F;
     }
 
     /* ===== MAIN CARD ===== */
     .module-card {
       width: 70%;
-      background: rgba(193, 255, 193, 0.6);
+      background: rgba(193, 229, 159, 0.65);
       margin: 80px auto 60px auto;
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+      backdrop-filter: blur(10px);
       transition: 0.3s ease-in-out;
     }
 
     .module-card:hover {
-      box-shadow: 0 15px 50px rgba(0,0,0,0.7), 0 0 25px rgba(193, 255, 193, 0.8);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.6), 0 0 25px #A3D78A;
       transform: translateY(-2px);
     }
 
     .module-card h1 {
       text-align: center;
-      color: maroon;
+      color: #FF5555;
     }
 
     /* ===== HEADINGS ===== */
@@ -78,22 +83,22 @@
       font-size: 1.4em;
       margin-top: 25px;
       font-weight: bold;
-      color: maroon;
+      color: #FF5555;
     }
 
     /* ===== CONTENT BOX ===== */
     .content-box {
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 147, 126, 0.85);
       padding: 18px;
       border-radius: 10px;
       margin-top: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      box-shadow: 0 0 15px #A3D78A;
       color: black;
       transition: 0.3s ease-in-out;
     }
 
     .content-box:hover {
-      box-shadow: 0 0 50px 10px #00ffcc, 0 0 30px silver, 0 0 40px lime;
+      box-shadow: 0 0 50px 10px #C1E59F, 0 0 30px #FF937E, 0 0 40px #A3D78A;
       transform: translateY(-1px);
     }
 
@@ -112,15 +117,15 @@
       padding: 10px 20px;
       font-weight: bold;
       border-radius: 8px;
-      background: linear-gradient(135deg, #228B22, #32CD32);
-      color: white;
-      box-shadow: 0 0 18px 3px silver;
+      background: linear-gradient(135deg, #A3D78A, #C1E59F);
+      color: black;
+      box-shadow: 0 0 18px 3px #FF5555;
       transition: 0.3s;
     }
 
     .cpp-btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 40px 10px silver, 0 0 25px lime;
+      box-shadow: 0 0 40px 10px #C1E59F, 0 0 25px #FF937E;
     }
 
     .cpp-heading {
@@ -128,7 +133,7 @@
       font-size: 1.3em;
       font-weight: bold;
       margin-top: 40px;
-      color: maroon;
+      color: #FF5555;
     }
 
   </style>
@@ -177,21 +182,17 @@
 </div>
 </div>
 
-
-
 <!-- Extra HTML Feature -->
-<div style="background:#f39c12;padding:12px;border-radius:10px;color:white;">
+<div style="background:#FF5555;padding:12px;border-radius:10px;color:white;">
 Recommended Soil Type: <b>Loamy</b>
 </div>
 
     <div class="cpp-heading">C++ Implementation</div>
     <div class="button-row">
-      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/greedy.cpp" target="_blank" class="cpp-btn">
+      <a href="https://github.com/shetisha77/isha/blob/main/i2.cpp" target="_blank" class="cpp-btn">
         Greedy Algorithm (C++)
       </a>
-      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/pq.cpp" target="_blank" class="cpp-btn">
-        Priority Queue and sliding window (C++)
-      </a>
+      
     </div>
 
   </div>
