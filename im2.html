@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 1: Adaptive Resource Flow</title>
 
+  <style>
+    /* ===== THEME BACKGROUND ===== */
+    body.light {
+      background-color: #f5f5f5;
+      color: black;
+    }
+    body.dark {
+      background-color: navy;
+      color: black;
+    }
+
+    /* ===== TOGGLE BUTTON ===== */
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: #444;
+      padding: 8px 14px;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    /* ===== BACK BUTTON ===== */
+    .back-btn {
+      position: fixed;
+      top: 55px;  /* below toggle button */
+      left: 10px;
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      background: rgba(135, 206, 250, 0.8);
+      color: navy;
+      box-shadow: 0 0 18px 3px silver;
+      transition: 0.3s;
+      z-index: 999;
+    }
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px 8px silver, 0 0 25px rgba(135, 206, 250, 0.8);
+    }
+
+    /* ===== MAIN CARD ===== */
+    .module-card {
+      width: 70%;
+      background: rgba(193, 255, 193, 0.6);
+      margin: 80px auto 60px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      transition: 0.3s ease-in-out;
+    }
+
+    .module-card:hover {
+      box-shadow: 0 15px 50px rgba(0,0,0,0.7), 0 0 25px rgba(193, 255, 193, 0.8);
+      transform: translateY(-2px);
+    }
+
+    .module-card h1 {
+      text-align: center;
+      color: maroon;
+    }
+
+    /* ===== HEADINGS ===== */
+    .section-title {
+      font-size: 1.4em;
+      margin-top: 25px;
+      font-weight: bold;
+      color: maroon;
+    }
+
+    /* ===== CONTENT BOX ===== */
+    .content-box {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 18px;
+      border-radius: 10px;
+      margin-top: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      color: black;
+      transition: 0.3s ease-in-out;
+    }
+
+    .content-box:hover {
+      box-shadow: 0 0 50px 10px #00ffcc, 0 0 30px silver, 0 0 40px lime;
+      transform: translateY(-1px);
+    }
+
+    /* ===== BUTTONS ===== */
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cpp-btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #228B22, #32CD32);
+      color: white;
+      box-shadow: 0 0 18px 3px silver;
+      transition: 0.3s;
+    }
+
+    .cpp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px 10px silver, 0 0 25px lime;
+    }
+
+    .cpp-heading {
+      text-align: center;
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-top: 40px;
+      color: maroon;
+    }
+
+  </style>
+</head>
+
+<body class="light">
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle"
+    onclick="document.body.classList.toggle('light'); document.body.classList.toggle('dark');">
+    Switch Theme
+  </button>
+
+  <!-- Back Button -->
+  <a href="isha_port.html" class="back-btn">⬅ Back</a>
+
+  <div class="module-card">
+
+    <h1>Module 2: Crop Recommendation & Seasonal Planning System</h1>
+
+    <h2 class="section-title">Problem Statement</h2>
+    <div class="content-box">
+        Many farmers choose crops without analyzing soil type, water availability, or climatic needs, leading to lower yield.
+
+     The Crop Recommendation and Seasonal Planning System aims to assist farmers in selecting suitable crops based on soil conditions and seasonal factors in Vishalnagari. Traditional crop selection often relies on experience rather than data-driven analysis, leading to reduced yield. This module organizes crop information systematically and evaluates suitability for different seasons. The objective is to improve crop productivity, optimize land usage, and increase farmer profitability.
+    </div>
+
+    <h2 class="section-title">Solution</h2>
+    <div class="content-box">
+       Binary Search</b> to quickly match soil type to suitable crops.</p>
+    </div>
+
+    <h2 class="section-title">Algorithms Used</h2>
+    <div class="content-box">
+        <p><strong>Algorithm:</strong> Binary Search on crop-soil database (O(log n))</p>
+
+   
+   <div class="sdg-box">
+<b>🌍 SDGs Addressed:</b>
+<ul>
+<li>SDG 2 – Zero Hunger</li>
+<li>SDG 8 – Decent Work and Economic Growth</li>
+</ul>
+<b>Impact Analysis:</b>
+<p>Improves crop yield, farmer income, and food security by promoting data-driven crop decisions.</p>
+</div>
+</div>
+
+
+
+<!-- Extra HTML Feature -->
+<div style="background:#f39c12;padding:12px;border-radius:10px;color:white;">
+Recommended Soil Type: <b>Loamy</b>
+</div>
+
+    <div class="cpp-heading">C++ Implementation</div>
+    <div class="button-row">
+      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/greedy.cpp" target="_blank" class="cpp-btn">
+        Greedy Algorithm (C++)
+      </a>
+      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/pq.cpp" target="_blank" class="cpp-btn">
+        Priority Queue and sliding window (C++)
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>
