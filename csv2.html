@@ -13,7 +13,6 @@
       padding: 0;
     }
 
-    /* ===== Top-left Back Button ===== */
     .back-btn {
       position: fixed;
       top: 20px;
@@ -35,7 +34,7 @@
 
     .container {
       width: 85%;
-      margin: 100px auto 50px auto; /* push container below fixed button */
+      margin: 100px auto 50px auto;
       padding: 40px;
       background: #e6f4ff;
       border-radius: 15px;
@@ -52,11 +51,6 @@
       font-size: 2.6em;
       color: #003366;
       margin-bottom: 25px;
-      transition: text-shadow 0.3s ease;
-    }
-
-    h1:hover {
-      text-shadow: 0 0 8px #87ceeb;
     }
 
     h2 {
@@ -64,22 +58,16 @@
       margin-top: 25px;
       margin-bottom: 12px;
       color: #003366;
-      transition: text-shadow 0.3s ease;
     }
 
-    h2:hover {
-      text-shadow: 0 0 6px #87ceeb;
-    }
-
-    p {
+    p, li {
       font-size: 1.15em;
       line-height: 1.7em;
-      margin-bottom: 20px;
-      transition: text-shadow 0.3s ease;
     }
 
-    p:hover {
-      text-shadow: 0 0 5px #87ceeb;
+    ul {
+      margin-left: 25px;
+      margin-bottom: 20px;
     }
 
     .buttons {
@@ -96,27 +84,13 @@
       color: white;
       border-radius: 50px;
       font-weight: bold;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .buttons a:hover {
-      background-color: #00509e;
-      box-shadow: 0 0 20px #87ceeb, 0 0 40px #87ceeb;
     }
 
     .efficiency {
       font-size: 1em;
       font-weight: bold;
       color: #003366;
-      margin-top: -10px;
-      margin-bottom: 20px;
       text-align: center;
-      transition: text-shadow 0.3s ease;
-    }
-
-    .efficiency:hover {
-      text-shadow: 0 0 4px #87ceeb;
     }
 
     .center-img {
@@ -126,76 +100,94 @@
       border-radius: 12px;
       box-shadow: 0 0 20px #87ceeb;
     }
-
   </style>
 </head>
+
 <body>
 
-  <!-- ===== Back Button Top-Left ===== -->
-  <a href="sanmathi_port.html" class="back-btn">Back</a>
+<a href="sanmathi_port.html" class="back-btn">Back</a>
 
-  <div class="container">
-    <h1>Vishalnagari Candidate Selection Module</h1>
+<div class="container">
 
-    <h2>Problem Statement</h2>
-    <p>
-      In the smart city of Vishalnagari, local authorities and companies aim to promote 
-      local talent while ensuring that only the most qualified candidates are selected for employment.
-      Every month, companies post job openings with specific skill requirements, such as proficiency 
-      in programming languages, data analysis, or technical expertise. The city has a diverse pool 
-      of candidates, including residents of Vishalnagari and students from other areas.
-    </p>
-    <p>
-      The objective of the system is to select candidates efficiently, applying the following rules:
-      Only candidates meeting all required skills for a job are considered; 
-      Vishalnagari students are given preference over non-local candidates when multiple eligible candidates exist;
-      and within local and non-local groups, candidates are ranked by experience, academic score, or certifications.
-    </p>
-    <p>
-      The system must handle multiple job postings and a large number of candidates, 
-      ensuring fair, prioritized selection and providing transparency to employers and applicants.
-    </p>
+  <h1>Vishalnagari Candidate Selection Module</h1>
 
-    <h2>Algorithm Used</h2>
-    <p>
-      <strong>Heap / Priority Queue-Based Selection:</strong> 
-      Candidates are filtered for skill requirements, then inserted into a max-heap where priority is computed based on:
-      local status, experience, academic score, and certifications. The heap allows efficient extraction 
-      of top candidates for each job posting.
-    </p>
+  <h2>Problem Statement</h2>
+  <p>
+    In the smart city of Vishalnagari, local authorities and companies aim to promote 
+    local talent while ensuring that only the most qualified candidates are selected for employment.
+  </p>
 
-    <p class="efficiency">
-      Algorithm Efficiency: O(n × log n) for building and extracting candidates from the heap per job posting
-    </p>
+  <p>Key characteristics of the system include:</p>
+  <ul>
+    <li>Companies post monthly job openings with specific skill requirements.</li>
+    <li>Required skills may include programming languages, data analysis, or technical expertise.</li>
+    <li>The candidate pool consists of Vishalnagari residents and non-local students.</li>
+  </ul>
 
-    <h2>Algorithm Flow</h2>
-    <img src="sony2.png" alt="Algorithm Flow Diagram" class="center-img">
+  <p>The selection rules followed by the system are:</p>
+  <ul>
+    <li>Only candidates who meet <strong>all required skills</strong> are considered.</li>
+    <li>Vishalnagari students are given <strong>priority over non-local candidates</strong>.</li>
+    <li>Candidates are ranked based on experience, academic score, and certifications.</li>
+  </ul>
 
-    <h2>Design Techniques Used</h2>
-    <p>
-      <strong>Heap / Priority Queue:</strong> Efficient top candidate extraction.<br>
-      <strong>Filtering:</strong> Ensures candidates meet all required skills.<br>
-      <strong>Prioritization:</strong> Gives preference to Vishalnagari residents.<br>
-      <strong>Ranking:</strong> Orders candidates based on experience, academics, and certifications.<br>
-      <strong>Decomposition:</strong> Breaks the system into input processing, filtering, prioritization, and ranking modules.<br>
-      <strong>Abstraction:</strong> Represents complex candidate data as simplified numerical scores for heap ordering.
-    </p>
+  <p>
+    The system efficiently manages multiple job postings and a large number of candidates,
+    ensuring fairness, prioritization, and transparency for both employers and applicants.
+  </p>
 
-    <h2>Relevant Sustainable Development Goals (SDGs)</h2>
-    <p>
-      <strong>SDG 4 – Quality Education:</strong> Encourages skilled candidates to apply their knowledge.<br>
-      <strong>SDG 8 – Decent Work and Economic Growth:</strong> Supports fair employment and local talent development.<br>
-      <strong>SDG 10 – Reduced Inequalities:</strong> Gives preference to local students while maintaining merit-based ranking.
-    </p>
+  <h2>Algorithm Used</h2>
+  <p>
+    <strong>Heap / Priority Queue-Based Selection</strong>
+  </p>
+  <ul>
+    <li>Candidates are first filtered based on job skill requirements.</li>
+    <li>Eligible candidates are inserted into a max-heap.</li>
+    <li>Priority is calculated using:
+      <ul>
+        <li>Local status</li>
+        <li>Experience</li>
+        <li>Academic score</li>
+        <li>Certifications</li>
+      </ul>
+    </li>
+    <li>The heap enables fast extraction of top candidates.</li>
+  </ul>
 
-   <div class="buttons">
-      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/code2.cpp" target="_blank" class="cpp-btn">
-       View code
-      </a>
-      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/candidate.csv" target="_blank" class="cpp-btn">
-       View Dataset
-      </a>
-    </div>
+  <p class="efficiency">
+    Algorithm Efficiency: O(n × log n) per job posting
+  </p>
+
+  <h2>Algorithm Flow</h2>
+  <img src="sony2.png" alt="Algorithm Flow Diagram" class="center-img">
+
+  <h2>Design Techniques Used</h2>
+  <ul>
+    <li><strong>Heap / Priority Queue:</strong> Efficient top candidate selection</li>
+    <li><strong>Filtering:</strong> Ensures candidates meet skill requirements</li>
+    <li><strong>Prioritization:</strong> Gives preference to Vishalnagari residents</li>
+    <li><strong>Ranking:</strong> Orders candidates by merit factors</li>
+    <li><strong>Decomposition:</strong> Divides the system into logical modules</li>
+    <li><strong>Abstraction:</strong> Simplifies candidate data into priority scores</li>
+  </ul>
+
+  <h2>Relevant Sustainable Development Goals (SDGs)</h2>
+  <ul>
+    <li><strong>SDG 4 – Quality Education:</strong> Encourages application of acquired skills</li>
+    <li><strong>SDG 8 – Decent Work and Economic Growth:</strong> Promotes fair employment</li>
+    <li><strong>SDG 10 – Reduced Inequalities:</strong> Balances local preference with merit</li>
+  </ul>
+
+  <div class="buttons">
+    <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/code2.cpp" target="_blank">
+      View code
+    </a>
+    <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/candidate.csv" target="_blank">
+      View Dataset
+    </a>
+  </div>
+
 </div>
+
 </body>
 </html>
