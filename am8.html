@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industrial Material Transport Infrastructure Planning System</title>
+
+  <style>
+    /* ===== THEME BACKGROUND ===== */
+    body.light {
+      background: linear-gradient(135deg, #ffd6e0, #ffe6f0);
+      color: #333;
+      transition: background 0.5s, color 0.5s;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body.dark {
+      background: linear-gradient(135deg, #f2c1d1, #f9e4f3);
+      color: #fff;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    /* ===== THEME TOGGLE ===== */
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: #ff6b81;
+      padding: 8px 14px;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    .theme-toggle:hover { transform: scale(1.1); }
+
+    /* ===== BACK BUTTON ===== */
+    .back-btn {
+      position: fixed;
+      top: 55px;  
+      left: 10px;
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      background: rgba(255, 182, 193, 0.8); 
+      color: #333;
+      box-shadow: 0 0 18px 3px silver;
+      transition: 0.3s;
+      z-index: 999;
+    }
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px 8px silver, 0 0 25px rgba(255, 182, 193, 0.8);
+    }
+
+    /* ===== MAIN CARD ===== */
+    .module-card {
+      width: 70%;
+      background: rgba(255, 255, 255, 0.8);
+      margin: 100px auto 60px auto;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* ===== WAVE BACKGROUND ===== */
+    .wave-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(255, 192, 203,0.3) 0%, transparent 70%),
+        radial-gradient(circle at 75% 75%, rgba(255, 223, 186,0.3) 0%, transparent 70%),
+        radial-gradient(circle at 50% 50%, rgba(255, 182, 193,0.2) 0%, transparent 80%);
+      animation: waveFlow 25s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes waveFlow {
+      0% { transform: translateX(0) translateY(0) rotate(0deg); }
+      25% { transform: translateX(-30px) translateY(10px) rotate(2deg); }
+      50% { transform: translateX(-60px) translateY(0) rotate(-2deg); }
+      75% { transform: translateX(-30px) translateY(-10px) rotate(1deg); }
+      100% { transform: translateX(0) translateY(0) rotate(0deg); }
+    }
+
+    .module-card h1,
+    .module-card h2,
+    .module-card h3,
+    .module-card p,
+    .module-card li {
+      position: relative;
+      z-index: 1;
+    }
+
+    .module-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    }
+
+    .module-card h1 { text-align: center; color: maroon; }
+    .section-title { font-size: 1.4em; margin-top: 25px; font-weight: bold; color: maroon; }
+    .content-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      color: #333;
+      transition: 0.3s ease-in-out;
+    }
+    .content-box:hover {
+      box-shadow: 0 0 50px 10px rgba(255,182,193,0.3), 0 0 30px rgba(255,223,186,0.3);
+      transform: translateY(-1px);
+    }
+
+    .button-row { display: flex; justify-content: center; gap: 20px; margin-top: 10px; flex-wrap: wrap; z-index: 1; position: relative; }
+    .cpp-btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ff6b81, #ffd700);
+      color: white;
+      box-shadow: 0 0 18px 3px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+    .cpp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px 10px rgba(255,182,193,0.5), 0 0 25px rgba(255,223,186,0.5);
+    }
+
+    .cpp-heading { text-align: center; font-size: 1.3em; font-weight: bold; margin-top: 40px; color: maroon; position: relative; z-index: 1; }
+
+  </style>
+</head>
+
+<body class="light">
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle"
+    onclick="document.body.classList.toggle('light'); document.body.classList.toggle('dark');">
+    Switch Theme
+  </button>
+
+  <!-- Back Button -->
+  <a href="akshata_port.html" class="back-btn">⬅ Back</a>
+
+  <div class="module-card">
+    <div class="wave-bg"></div>
+
+  <h1>Industrial Material Transport Infrastructure Planning System</h1>
+
+  <h2 class="section-title">Problem Statement</h2>
+  <div class="content-box"> <p> Passenger-oriented roads are not designed to handle continuous heavy industrial loads. This leads to rapid road degradation, safety risks, and increased maintenance costs when industrial transport shares the same infrastructure. </p> </div>
+  
+  <h2 class="section-title">Solution</h2>
+  <div class="content-box"> <ul> <li>Identify industrial zones and logistics hubs</li> <li>Plan dedicated heavy-load transport corridors</li> <li>Minimize infrastructure construction cost</li> <li>Separate passenger and industrial transport networks</li> </ul> </div>
+ 
+  <h2 class="section-title">Data Structures Used</h2>
+  <div class="content-box"> <ul> <li><b>Graph</b> → Cities, industrial zones, and possible corridors</li> <li><b>Array</b> → Store road construction cost and load capacity</li> <li><b>Disjoint Set (Union-Find)</b> → Track connected components</li> </ul> </div>
+  
+  
+  <h2 class="section-title">Algorithms Used</h2>
+ <div class="content-box"> <ul> <li><b>Minimum Spanning Tree (MST)</b> → Select cost-optimal corridors</li> <li><b>Kruskal’s Algorithm</b> → Build industrial transport network</li> </ul> </div>
+  
+ <h2 class="section-title">Step-by-Step Process</h2>
+ <div class="content-box"> <ol> <li>Model industrial locations as graph vertices</li> <li>Assign construction cost to each possible corridor</li> <li>Sort edges by increasing cost</li> <li>Apply Kruskal’s algorithm</li> <li>Form minimum-cost industrial corridor network</li> <li>Restrict heavy vehicles to these corridors</li> </ol> </div>
+  
+ <h2 class="section-title">SDG Impact</h2>
+ <div class="content-box"> <p><b>SDG 9:</b> Sustainable industrial infrastructure</p> <p><b>SDG 11:</b> Safe separation of freight and passenger mobility</p> <p><b>SDG 12:</b> Efficient use of construction resources</p> </div>
+ 
+ 
+ <div class="cpp-heading">C++ Implementation</div>
+  <div class="button-row">
+    <a href="#" class="cpp-btn">Dijkstra – EV Routing</a>
+    <a href="#" class="cpp-btn">BFS + Queue – Signal Control</a>
+  </div>
+
+</div>
+
+</body>
+</html>
