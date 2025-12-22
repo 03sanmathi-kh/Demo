@@ -107,11 +107,34 @@
       box-shadow: 0 0 20px #87ceeb;
     }
 
+    /* Back Button Top-Left */
+    .back-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      padding: 12px 18px;
+      background-color: #003366;
+      color: white;
+      border-radius: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 1000;
+      transition: 0.3s;
+    }
+    .back-btn:hover {
+      background-color: #00509e;
+      box-shadow: 0 0 20px #87ceeb;
+      transform: translateY(-2px);
+    }
+
   </style>
 </head>
 <body>
 
-  <div class="container">
+<!-- Back button -->
+<a href="sanmathi_port.html" class="back-btn">Back</a>
+
+<div class="container">
     <h1>AQI Monitoring for Students</h1>
 
     <h2>Problem Statement</h2>
@@ -176,7 +199,7 @@
        View Dataset
       </a>
     </div>
-  </div>
+</div>
 
 </body>
 </html>
