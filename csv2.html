@@ -13,9 +13,29 @@
       padding: 0;
     }
 
+    /* ===== Top-left Back Button ===== */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      text-decoration: none;
+      padding: 10px 18px;
+      background-color: #003366;
+      color: white;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      background-color: #00509e;
+      box-shadow: 0 0 15px #87ceeb, 0 0 30px #87ceeb;
+    }
+
     .container {
       width: 85%;
-      margin: 50px auto;
+      margin: 100px auto 50px auto; /* push container below fixed button */
       padding: 40px;
       background: #e6f4ff;
       border-radius: 15px;
@@ -111,6 +131,9 @@
 </head>
 <body>
 
+  <!-- ===== Back Button Top-Left ===== -->
+  <a href="sanmathi_port.html" class="back-btn">Back</a>
+
   <div class="container">
     <h1>Vishalnagari Candidate Selection Module</h1>
 
@@ -166,9 +189,6 @@
     </p>
 
     <div class="buttons">
-      <a href="sanmathi_port.html" class="cpp-btn">
-       Back
-      </a>
       <a href="#" class="cpp-btn">
        View Sample Candidate Dataset
       </a>
