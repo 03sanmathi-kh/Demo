@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Collaboration – Vishalanagari Project</title>
 
-  <!-- Cartoon handwriting font -->
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
-      font-family: "Patrick Hand", cursive;
+      font-family: "Segoe UI", Arial, sans-serif;
       background: linear-gradient(135deg, #1a1a2e, #162447);
       color: #f5e6d3;
       padding-bottom: 40px;
@@ -53,8 +50,9 @@
     .lav-title {
       font-size: 2.8rem;
       text-align: center;
-      color: #e6ac00; /* deep gold */
-      text-shadow: 0 0 8px #ffd700; /* crisp glow without blur */
+      color: #e6ac00;
+      text-shadow: 0 0 8px #ffd700;
+      font-weight: bold;
     }
 
     h2 {
@@ -62,7 +60,7 @@
       font-size: 2rem;
       margin-top: 45px;
       margin-bottom: 10px;
-      color: #ff7f50; /* dark coral */
+      color: #ff7f50;
       text-shadow: 0 0 6px #ffb347;
     }
 
@@ -71,7 +69,7 @@
       margin: 12px auto;
       font-size: 1.25rem;
       line-height: 2rem;
-      color: #f3d1b3; /* warm beige */
+      color: #f3d1b3;
       text-shadow: 0 0 3px #ffb347;
     }
 
@@ -117,7 +115,7 @@
       border: none; 
       cursor: pointer; 
       transition: 0.3s; 
-      font-family: "Patrick Hand", cursive; 
+      font-family: "Segoe UI", Arial, sans-serif; 
       text-decoration: none;
       text-shadow: 0 0 3px #fff;
     }
@@ -139,95 +137,99 @@
 
 <body>
 
-  <button class="back-btn" onclick="window.location.href='collabs.html'">Back</button>
+<button class="back-btn" onclick="window.location.href='collabs.html'">Back</button>
 
-  <div class="lav-box">
-    <div class="lav-title">Hey there!! Vasavi & Akshata Collaborating!!</div>
+<div class="lav-box">
+  <div class="lav-title">Hey there!! Vasavi & Akshata Collaborating!!</div>
 
-    <div class="collab-image">
-      <img src="city_project2.png" alt="Collaboration Image">
-    </div>
-
-    <h2> Focus Areas</h2>
-    <p>• This collaboration combines Traffic & Transport System Intelligence with Commerce and Governance Analytics.</p>
-    <p>• Akshata contributes expertise in traffic flow optimization, transport networks, and mobility systems, while Vasavi focuses on commerce efficiency, policy-driven governance, and economic optimization.</p>
-    <p>• Together, the project addresses how transport infrastructure directly impacts trade efficiency, public services, and regulatory decision-making.</p>
-
-    <h2> Project Goal / Problem Statement</h2>
-    <p><strong>Smart Urban Trade & Mobility Governance System</strong></p>
-    <p><em>(Graph + Flow Optimization + Policy-Aware Routing)</em></p>
-
-    <p>
-      Modern cities face inefficiencies where traffic congestion, poor transport planning, and weak coordination with governance systems
-      slow down commercial activities such as goods delivery, market access, and public services.
-    </p>
-
-    <p>
-      Design a data-driven transport–commerce governance model that optimizes the movement of goods, public service vehicles,
-      and regulated commercial flows while minimizing delays, economic losses, and governance bottlenecks.
-    </p>
-
-    <h2>Input /  Output Definition</h2>
-    <p><strong>Input:</strong> A city transport graph where edges represent roads and transit corridors weighted by traffic density,
-      congestion, time-based restrictions, vehicle regulations, toll costs, emissions penalties, and inspection delays.</p>
-
-    <p><strong>Output:</strong> An optimized routing and scheduling plan that minimizes cost and time, respects governance rules,
-      ensures fair zone access, and prioritizes essential and regulated transport flows.</p>
-
-    <h2> Approach</h2>
-    <p>• Model the urban transport system as a directed weighted graph</p>
-    <p>• Integrate commerce flows with governance constraints such as zones, timings, and permissions</p>
-    <p>• Apply shortest-path algorithms to identify efficient and compliant trade routes</p>
-    <p>• Use flow optimization to distribute traffic without overloading key junctions</p>
-    <p>• Dynamically update edge weights based on congestion, policy changes, and emergencies</p>
-
-    <h2>⚙ Algorithms Used</h2>
-    <p>• Dijkstra’s Algorithm – Fastest compliant routes for goods & services</p>
-    <p>• Bellman-Ford Algorithm – Handles regulation-adjusted and penalty-based paths</p>
-    <p>• Floyd-Warshall Algorithm – City-wide accessibility analysis</p>
-    <p>• Min Cost Max Flow – Optimal commercial traffic allocation</p>
-    <p>• BFS / DFS – Governance coverage and connectivity monitoring</p>
-
-    <h2>⏱ Efficiency of Each Algorithm</h2>
-    <p>• <b>Dijkstra:</b> O(E log V), Space – O(V)</p>
-    <p>• <b>Bellman-Ford:</b> O(V × E), Space – O(V)</p>
-    <p>• <b>Floyd-Warshall:</b> O(V³), Space – O(V²)</p>
-    <p>• <b>Min Cost Max Flow:</b> O(V × E²) (implementation dependent)</p>
-
-    <div class="collab-image">
-      <img src="city_project.png" alt="Urban Trade & Mobility Visualization">
-    </div>
-
-    <h2> Benefits</h2>
-    <p>• Faster and predictable commercial deliveries</p>
-    <p>• Reduced congestion in business districts</p>
-    <p>• Strong coordination between transport and governance</p>
-    <p>• Lower economic losses due to delays</p>
-    <p>• Transparent and data-backed policy enforcement</p>
-
-    <h2> SDG Alignment</h2>
-    <p>• SDG 9 – Industry, Innovation & Infrastructure</p>
-    <p>• SDG 11 – Sustainable Cities & Communities</p>
-    <p>• SDG 12 – Responsible Consumption & Production</p>
-    <p>• SDG 16 – Strong Institutions & Governance</p>
-    <p>• SDG 13 – Climate Action</p>
-
-    <h2> C++ Implementations</h2>
-    <div class="button-row">
-      <a href="https://github.com/akshatap297/akshata_daa/blob/main/m3dijkstra's.cpp" target="_blank" class="cpp-btn">
-         Dijkstra's-trade route optimization(C++)
-      </a>
-      <a href="https://github.com/akshatap297/akshata_daa/blob/main/mmin.cpp" target="_blank" class="cpp-btn">Min Cost Max Flow – Traffic Distribution</a>
-      <a href="https://github.com/akshatap297/akshata_daa/blob/main/m5dfs.cpp" target="_blank" class="cpp-btn">
-        DFS-Governance coverage
-      </a>
-      <a href="https://github.com/akshatap297/akshata_daa/blob/main/mfloyd.cpp" target="_blank" class="cpp-btn">Floyd-Warshall – City Trade Mapping</a>
-      <a href="https://github.com/akshatap297/akshata_daa/blob/main/m4BFS.cpp" target="_blank" class="cpp-btn">
-     BFS-Governance coverage
-      </a>
-    </div>
-
+  <div class="collab-image">
+    <img src="city_project2.png" alt="Collaboration Image">
   </div>
+
+  <h2>Focus Areas</h2>
+  <p>• This collaboration combines Traffic & Transport System Intelligence with Commerce and Governance Analytics.</p>
+  <p>• Akshata contributes expertise in traffic flow optimization, transport networks, and mobility systems, while Vasavi focuses on commerce efficiency, policy-driven governance, and economic optimization.</p>
+  <p>• Together, the project addresses how transport infrastructure directly impacts trade efficiency, public services, and regulatory decision-making.</p>
+
+  <h2>Project Goal / Problem Statement</h2>
+  <p><strong>Smart Urban Trade & Mobility Governance System</strong></p>
+  <p><em>(Graph + Flow Optimization + Policy-Aware Routing)</em></p>
+
+  <p>
+    Modern cities face inefficiencies where traffic congestion, poor transport planning, and weak coordination with governance systems
+    slow down commercial activities such as goods delivery, market access, and public services.
+  </p>
+
+  <p>
+    Design a data-driven transport–commerce governance model that optimizes the movement of goods, public service vehicles,
+    and regulated commercial flows while minimizing delays, economic losses, and governance bottlenecks.
+  </p>
+
+  <h2>Input / Output Definition</h2>
+  <p><strong>Input:</strong> A city transport graph where edges represent roads and transit corridors weighted by traffic density,
+    congestion, time-based restrictions, vehicle regulations, toll costs, emissions penalties, and inspection delays.</p>
+
+  <p><strong>Output:</strong> An optimized routing and scheduling plan that minimizes cost and time, respects governance rules,
+    ensures fair zone access, and prioritizes essential and regulated transport flows.</p>
+
+  <h2>Approach</h2>
+  <p>• Model the urban transport system as a directed weighted graph</p>
+  <p>• Integrate commerce flows with governance constraints such as zones, timings, and permissions</p>
+  <p>• Apply shortest-path algorithms to identify efficient and compliant trade routes</p>
+  <p>• Use flow optimization to distribute traffic without overloading key junctions</p>
+  <p>• Dynamically update edge weights based on congestion, policy changes, and emergencies</p>
+
+  <h2>⚙ Algorithms Used</h2>
+  <p>• Dijkstra’s Algorithm – Fastest compliant routes for goods & services</p>
+  <p>• Bellman-Ford Algorithm – Handles regulation-adjusted and penalty-based paths</p>
+  <p>• Floyd-Warshall Algorithm – City-wide accessibility analysis</p>
+  <p>• Min Cost Max Flow – Optimal commercial traffic allocation</p>
+  <p>• BFS / DFS – Governance coverage and connectivity monitoring</p>
+
+  <h2>⏱ Efficiency of Each Algorithm</h2>
+  <p>• <b>Dijkstra:</b> O(E log V), Space – O(V)</p>
+  <p>• <b>Bellman-Ford:</b> O(V × E), Space – O(V)</p>
+  <p>• <b>Floyd-Warshall:</b> O(V³), Space – O(V²)</p>
+  <p>• <b>Min Cost Max Flow:</b> O(V × E²)</p>
+
+  <div class="collab-image">
+    <img src="city_project.png" alt="Urban Trade & Mobility Visualization">
+  </div>
+
+  <h2>Benefits</h2>
+  <p>• Faster and predictable commercial deliveries</p>
+  <p>• Reduced congestion in business districts</p>
+  <p>• Strong coordination between transport and governance</p>
+  <p>• Lower economic losses due to delays</p>
+  <p>• Transparent and data-backed policy enforcement</p>
+
+  <h2>SDG Alignment</h2>
+  <p>• SDG 9 – Industry, Innovation & Infrastructure</p>
+  <p>• SDG 11 – Sustainable Cities & Communities</p>
+  <p>• SDG 12 – Responsible Consumption & Production</p>
+  <p>• SDG 16 – Strong Institutions & Governance</p>
+  <p>• SDG 13 – Climate Action</p>
+
+  <h2>C++ Implementations</h2>
+  <div class="button-row">
+    <a href="https://github.com/akshatap297/akshata_daa/blob/main/m3dijkstra's.cpp" target="_blank" class="cpp-btn">
+      Dijkstra's – Trade Route Optimization (C++)
+    </a>
+    <a href="https://github.com/akshatap297/akshata_daa/blob/main/mmin.cpp" target="_blank" class="cpp-btn">
+      Min Cost Max Flow – Traffic Distribution
+    </a>
+    <a href="https://github.com/akshatap297/akshata_daa/blob/main/m5dfs.cpp" target="_blank" class="cpp-btn">
+      DFS – Governance Coverage
+    </a>
+    <a href="https://github.com/akshatap297/akshata_daa/blob/main/mfloyd.cpp" target="_blank" class="cpp-btn">
+      Floyd-Warshall – City Trade Mapping
+    </a>
+    <a href="https://github.com/akshatap297/akshata_daa/blob/main/m4BFS.cpp" target="_blank" class="cpp-btn">
+      BFS – Governance Coverage
+    </a>
+  </div>
+
+</div>
 
 </body>
 </html>
