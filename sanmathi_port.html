@@ -320,6 +320,30 @@ section.card:last-of-type .subheading {
   border-radius: 12px;
   box-shadow: 0 0 25px silver;
 }
+    /* ===== CHANGE EDUCATION & HEALTH BUTTONS TO SPHERES ===== */
+.section-problem-card .module-btn {
+    all: unset;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: #001f4d;   /* dark blue */
+    color: white;                /* white text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 128, 0.8);
+}
+
+.section-problem-card .module-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 25px silver, 0 0 45px silver;
+}
+
   </style>
 </head>
 <body class="light">
@@ -455,7 +479,7 @@ section.card:last-of-type .subheading {
 </style>
 
 <section class="section-problem-card">
-    <h2>Education and Health Insights empowered by datase Click to explore!</h2>
+    <h2> Education and Health Insights[Datasets Included]. Click below to explore!</h2>
     <div class="problem-spheres">
      
        <a href="csv1.html" class="module-btn">AQI Monitoring for Students </a>
@@ -464,6 +488,7 @@ section.card:last-of-type .subheading {
       <a href="csv4.html" class="module-btn">Senior Citizen Healthcare</a>
     </div>
 </section>
+  
 
 <section class="card">
     <h2>Reflection on my learning!</h2>
