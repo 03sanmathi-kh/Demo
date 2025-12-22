@@ -38,7 +38,7 @@
     /* ===== BACK BUTTON ===== */
     .back-btn {
       position: fixed;
-      top: 55px;  /* below toggle button */
+      top: 55px;
       left: 10px;
       display: inline-block;
       text-decoration: none;
@@ -141,13 +141,11 @@
 
 <body class="light">
 
-  <!-- Theme Toggle -->
   <button class="theme-toggle"
     onclick="document.body.classList.toggle('light'); document.body.classList.toggle('dark');">
     Switch Theme
   </button>
 
-  <!-- Back Button -->
   <a href="isha_port.html" class="back-btn">⬅ Back</a>
 
   <div class="module-card">
@@ -156,7 +154,7 @@
 
     <h2 class="section-title">Problem Statement</h2>
     <div class="content-box">
-       <p> <strong>Farmers struggle to find the best buyers for their crops at fair prices..</strong></p>
+       <p><strong>Farmers struggle to find the best buyers for their crops at fair prices..</strong></p>
     </div>
 
     <h2 class="section-title">Solution</h2>
@@ -166,34 +164,46 @@
 
     <h2 class="section-title">Algorithms Used</h2>
     <div class="content-box">
-       <p><strong>Algorithm:</strong> Merge Sort – Sort crops by price (O(n log n))</p>
+      <p><strong>Algorithm:</strong> Merge Sort</p>
+      <p><strong>Time Complexity:</strong> O(n log n)</p>
+      <p><strong>Purpose:</strong> Displays best-priced crops first</p>
+    </div>
 
-   
-    <h2 class="section-title">How This Innovation Powers the SDGs</h2>
-<div class="content-box">
- <div class="sdg-box">
-<b>🌍 SDGs Addressed:</b>
-<ul>
-<li>SDG 8 – Economic Growth</li>
-<li>SDG 10 – Reduced Inequalities</li>
-</ul>
-<b>Impact Analysis:</b>
-<p>Ensures transparent pricing and empowers farmers economically.</p>
-</div>
-</div>  
+    <h2 class="section-title">Dataset & Documentation</h2>
+    <div class="content-box">
+      <b>Dataset:</b>
+      <a href="prob6.csv" download style="color:#F875AA;text-decoration:underline;">Download CSV</a><br><br>
+      <b>Project Documentation:</b>
+      <a href="raedme6.md" download style="color:#F875AA;text-decoration:underline;">Download README</a>
+    </div>
 
+    <h2 class="section-title">SDGs Used</h2>
+    <div class="content-box">
+      <ul>
+        <li>SDG 8 – Economic Growth</li>
+        <li>SDG 10 – Reduced Inequalities</li>
+      </ul>
+    </div>
 
-<!-- Extra HTML Feature -->
-<div style="padding:10px;border:2px dashed #F875AA;border-radius:8px;">
-Top Deal of the Day: <b>Tomatoes - ₹22/kg</b>
-</div>
+    <h2 class="section-title">Impact Analysis</h2>
+    <div class="content-box">
+      <p>Ensures transparent pricing, removes middlemen, and empowers farmers economically.</p>
+    </div>
+
+    <h2 class="section-title">System Status</h2>
+    <div class="content-box">
+      <p>🟢 Marketplace Active | Live Crop Prices Available</p>
+    </div>
+
+    <div style="padding:10px;border:2px dashed #F875AA;border-radius:8px;">
+      Top Deal of the Day: <b>Tomatoes - ₹22/kg</b>
+    </div>
 
     <div class="cpp-heading">C++ Implementation</div>
     <div class="button-row">
       <a href="https://github.com/shetisha77/isha/blob/main/i6.cpp" target="_blank" class="cpp-btn">
         Greedy Algorithm (C++)
       </a>
-     
     </div>
 
   </div>
