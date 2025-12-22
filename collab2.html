@@ -4,15 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Collaboration – Vishalanagari Project</title>
-  
-
-  <!-- Cartoon handwriting font -->
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: "Patrick Hand", cursive;
+      font-family: "Segoe UI", Arial, sans-serif;
       background: linear-gradient(135deg, #1a1a2e, #162447, #1f4068);
       color: #f0e6f6;
       padding-bottom: 40px;
@@ -20,7 +16,6 @@
       transition: background 0.5s, color 0.5s;
     }
 
-    /* Back Button */
     .back-btn {
       position: fixed;
       top: 15px;
@@ -42,7 +37,6 @@
       transform: translateY(-2px);
     }
 
-    /* Lavender box */
     .lav-box {
       width: 85%;
       margin: 70px auto;
@@ -57,31 +51,29 @@
       box-shadow: 0 0 45px #ff69b4, 0 0 35px rgba(255,182,193,0.7);
     }
 
-    /* Title */
     .lav-title {
       font-size: 3.2rem;
       text-align: center;
-      color: #d4a066;  /* subtle gold */
-      text-shadow: 0 0 4px #d4a066; /* small glow only */
+      color: #d4a066;
+      text-shadow: 0 0 4px #d4a066;
       font-weight: bold;
       transition: 0.3s;
     }
     .lav-title:hover {
-      text-shadow: 0 0 6px #ffd700; /* small hover glow */
+      text-shadow: 0 0 6px #ffd700;
     }
 
-    /* Headings */
     h2 { 
       text-align:center; 
       font-size:2.3rem; 
       margin-top:50px; 
       margin-bottom:14px; 
       font-weight:bold;
-      color:#d4a066;  /* subtle gold */
-      text-shadow: 0 0 3px #d4a066; /* small glow */
+      color:#d4a066;
+      text-shadow: 0 0 3px #d4a066;
       transition: 0.3s;
     }
-    h2:hover { text-shadow: 0 0 6px #ffd700; } /* small hover glow */
+    h2:hover { text-shadow: 0 0 6px #ffd700; }
 
     p { 
       width:78%; 
@@ -110,7 +102,7 @@
       border:none; 
       cursor:pointer; 
       transition:0.3s; 
-      font-family:"Patrick Hand", cursive; 
+      font-family:"Segoe UI", Arial, sans-serif; 
       text-decoration:none;
       font-weight:bold;
       text-shadow: 0 0 4px #fff, 0 0 6px #ffb347;
@@ -121,7 +113,6 @@
       transform: translateY(-3px);
     }
 
-    /* Images centered with glow */
     .lav-img {
       display:block;
       margin: 25px auto;
@@ -135,7 +126,6 @@
       transform: scale(1.03);
     }
 
-    /* Responsive */
     @media (max-width:720px) {
       .lav-box { width: 94%; padding: 24px; }
       p { width: 92%; font-size:1.3rem; line-height:1.8rem; }
@@ -147,79 +137,76 @@
 
 <body>
 
-  <button class="back-btn" onclick="window.location.href='collabs.html'">Back</button>
+<button class="back-btn" onclick="window.location.href='collabs.html'">Back</button>
 
-  <div class="lav-box">
-    <div class="lav-title">Sanmathi & Isha – Tourism x Eco-Innovation</div>
+<div class="lav-box">
+  <div class="lav-title">Sanmathi & Isha – Tourism x Eco-Innovation</div>
 
-    <img src="ecoo.jpg" alt="Project Image" class="lav-img">
+  <img src="ecoo.jpg" alt="Project Image" class="lav-img">
 
-    <h2>Focus Areas</h2>
-    <p>
-      • This collaboration blends my domain – Industries, Infrastructure & Tourism – 
-      with Isha’s focus area of Agriculture & Eco-Innovation to design a sustainable 
-      eco-tourism engine for our smart city Vishalanagari.
-    </p>
+  <h2>Focus Areas</h2>
+  <p>
+    • This collaboration blends my domain – Industries, Infrastructure & Tourism – 
+    with Isha’s focus area of Agriculture & Eco-Innovation to design a sustainable 
+    eco-tourism engine for our smart city Vishalanagari.
+  </p>
 
-    <h2>Project Goal / Problem Statement</h2>
-    <p><strong>Eco-Tourism Route Balancing using Searching & Sorting Algorithms</strong></p>
+  <h2>Project Goal / Problem Statement</h2>
+  <p><strong>Eco-Tourism Route Balancing using Searching & Sorting Algorithms</strong></p>
 
-    <p>
-      Vishalanagari’s tourism routes pass through biodiverse agricultural belts, 
-      innovation farms, spice valleys, and bio-parks. During peak visitor seasons, 
-      excess tourist movement disturbs soil-healing beds, pollinator pathways, and 
-      eco-innovation test zones.  
-    </p>
-    
-    <p>
-      The city needs a system that <b>sorts all eco-corridors by environmental load</b> 
-      and <b>searches the safest available route</b> for each tourist batch—ensuring 
-      minimal ecological impact while maintaining tourism flow.
-    </p>
+  <p>
+    Vishalanagari’s tourism routes pass through biodiverse agricultural belts, 
+    innovation farms, spice valleys, and bio-parks. During peak visitor seasons, 
+    excess tourist movement disturbs soil-healing beds, pollinator pathways, and 
+    eco-innovation test zones.  
+  </p>
 
-    <p>
-      Input: A list of eco-corridors, each marked with a live “eco-strain score” 
-      (soil stress, visitor density, noise footprint, and habitat sensitivity).  
-      Output: A dynamically assigned route that keeps strain under safe thresholds by 
-      sorting zones by sensitivity and searching the next viable corridor.
-    </p>
+  <p>
+    The city needs a system that <b>sorts all eco-corridors by environmental load</b> 
+    and <b>searches the safest available route</b> for each tourist batch—ensuring 
+    minimal ecological impact while maintaining tourism flow.
+  </p>
 
-    <h2>Algorithms Used</h2>
-    <p>• <b>Merge Sort</b> – Sort eco-corridors by environmental strain (low → high)</p>
-    <p>• <b>Quick Sort</b> – Fast re-ranking of tourist batches by disturbance level</p>
-    <p>• <b>Binary Search</b> – Find the first route with strain below safety threshold</p>
-    <p>• <b>Linear Search</b> – Scan for emergency overload zones</p>
+  <p>
+    <b>Input:</b> A list of eco-corridors, each marked with a live “eco-strain score” 
+    (soil stress, visitor density, noise footprint, and habitat sensitivity).
+  </p>
 
-    <h2>Efficiency of Each Algorithm</h2>
-    <p><b>Merge Sort:</b> Time – O(n log n), Space – O(n) — stable ordering</p>
-    <p><b>Quick Sort:</b> Time – O(n log n) average, O(n²) worst-case — very fast in practice</p>
-    <p><b>Binary Search:</b> Time – O(log n), Space – O(1) — efficient safe-route lookup</p>
-    <p><b>Linear Search:</b> Time – O(n), Space – O(1) — real-time hazard scanning</p>
+  <p>
+    <b>Output:</b> A dynamically assigned route that keeps strain under safe thresholds by 
+    sorting zones by sensitivity and searching the next viable corridor.
+  </p>
 
-    <img src="flow.png" alt="Project Image" class="lav-img">
+  <h2>Algorithms Used</h2>
+  <p>• <b>Merge Sort</b> – Sort eco-corridors by environmental strain (low → high)</p>
+  <p>• <b>Quick Sort</b> – Fast re-ranking of tourist batches by disturbance level</p>
+  <p>• <b>Binary Search</b> – Find the first route with strain below safety threshold</p>
+  <p>• <b>Linear Search</b> – Scan for emergency overload zones</p>
 
-    <h2>SDG Alignment</h2>
-    <p>• SDG 9 – Innovation & Infrastructure (smart eco-routing)</p>
-    <p>• SDG 11 – Sustainable Cities (reduced ecological damage)</p>
-    <p>• SDG 12 – Responsible Consumption (controlled tourist load)</p>
-    <p>• SDG 13 – Climate Action (lower emissions & habitat protection)</p>
+  <h2>Efficiency of Each Algorithm</h2>
+  <p><b>Merge Sort:</b> Time – O(n log n), Space – O(n)</p>
+  <p><b>Quick Sort:</b> Time – O(n log n) average, O(n²) worst-case</p>
+  <p><b>Binary Search:</b> Time – O(log n), Space – O(1)</p>
+  <p><b>Linear Search:</b> Time – O(n), Space – O(1)</p>
 
-    <h2>C++ Implementations:Merge and Selection Sort arrange eco-corridors based on environmental strain, Binary Search assigns the safest route efficiently, and Linear Search detects emergency overload conditions</h2>
+  <img src="flow.png" alt="Project Image" class="lav-img">
 
-   <div class="button-row">
-      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/Merge.cpp" target="_blank" class="cpp-btn">
-        Merge Sort(C++)
-      </a>
-      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/Bsearch.cpp" target="_blank" class="cpp-btn">
-       Binary Search (C++)
-      </a>
-      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/Selection.cpp" target="_blank" class="cpp-btn">
-       Selection Sort (C++)
-      </a>
-      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/Linear.cpp" target="_blank" class="cpp-btn">
-       Linear Search (C++)
-      </a>
+  <h2>SDG Alignment</h2>
+  <p>• SDG 9 – Innovation & Infrastructure</p>
+  <p>• SDG 11 – Sustainable Cities</p>
+  <p>• SDG 12 – Responsible Consumption</p>
+  <p>• SDG 13 – Climate Action</p>
+
+  <h2>C++ Implementations:Merge and Selection Sort arrange eco-corridors based on environmental strain, Binary Search assigns the safest route efficiently, and Linear Search detects emergency overload conditions</h2>
+
+  <div class="button-row">
+    <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/Merge.cpp" target="_blank" class="cpp-btn">Merge Sort(C++)</a>
+    <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/Bsearch.cpp" target="_blank" class="cpp-btn">Binary Search (C++)</a>
+    <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/Selection.cpp" target="_blank" class="cpp-btn">Selection Sort (C++)</a>
+    <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/Linear.cpp" target="_blank" class="cpp-btn">Linear Search (C++)</a>
   </div>
+
+</div>
 
 </body>
 </html>
