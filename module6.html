@@ -25,12 +25,14 @@
       box-shadow:
         0 10px 30px rgba(0,0,0,0.15),
         0 0 18px rgba(255,200,0,0.28);
+      transition: background 0.3s, color 0.3s;
     }
 
     h1, h2 {
       color: #b8860b;
       text-align: center;
       margin-top: 0;
+      transition: color 0.3s;
     }
 
     .section-title {
@@ -38,6 +40,7 @@
       font-weight: 700;
       margin-top: 30px;
       color: #cc8a00;
+      transition: color 0.3s;
     }
 
     .content-box {
@@ -46,6 +49,7 @@
       border-radius: 12px;
       box-shadow: 0 6px 16px rgba(0,0,0,0.15);
       margin-top: 10px;
+      transition: background 0.3s, color 0.3s;
     }
 
     /* ===== BUTTONS ===== */
@@ -114,6 +118,26 @@
     .back-btn:hover {
       background: #ffcc33;
       color: #333;
+    }
+
+    /* ===== DARK THEME ===== */
+    .dark-theme {
+      background: #2e2e2e; /* Slightly dark, not pitch black */
+      color: #f5f5f5;
+    }
+
+    .dark-theme .module-card {
+      background: #444; /* Darker content box */
+      color: #f5f5f5;
+    }
+
+    .dark-theme .content-box {
+      background: #555; /* Slightly lighter than module card */
+      color: #f5f5f5;
+    }
+
+    .dark-theme h1, .dark-theme h2, .dark-theme .section-title {
+      color: #ffd700;
     }
 
   </style>
@@ -233,13 +257,6 @@
   <script>
     function toggleTheme() {
       document.body.classList.toggle('dark-theme');
-      if(document.body.style.background === 'black') {
-        document.body.style.background = '#fff9dc';
-        document.body.style.color = '#333';
-      } else {
-        document.body.style.background = 'black';
-        document.body.style.color = 'white';
-      }
     }
   </script>
 
