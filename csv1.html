@@ -85,7 +85,6 @@
       box-shadow: 0 0 20px #87ceeb, 0 0 40px #87ceeb;
     }
 
-    /* Additional efficiency info styling */
     .efficiency {
       font-size: 1em;
       font-weight: bold;
@@ -99,6 +98,15 @@
     .efficiency:hover {
       text-shadow: 0 0 4px #87ceeb;
     }
+
+    .center-img {
+      display: block;
+      margin: 30px auto;
+      max-width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #87ceeb;
+    }
+
   </style>
 </head>
 <body>
@@ -108,7 +116,14 @@
 
     <h2>Problem Statement</h2>
     <p>
-      Design a system to monitor air quality in school environments and notify students and staff when the AQI exceeds safe levels. The system should allow easy tracking of historical data and generate alerts for high pollution events.
+      In a rapidly growing smart city, schools are surrounded by traffic congestion,
+      industrial emissions, and construction activity that silently degrade air quality.
+      Students spend long hours inside classrooms, often unaware of invisible pollutants
+      affecting their health and concentration. An intelligent AQI monitoring system is
+      required to continuously analyze air quality around educational institutions.
+      The system should identify pollution spikes, warn students and staff in real time,
+      and maintain historical AQI trends. By doing so, schools can make informed decisions
+      such as restricting outdoor activities or issuing health advisories.
     </p>
 
     <h2>Algorithm Used</h2>
@@ -118,6 +133,39 @@
 
     <p class="efficiency">
       Algorithm Efficiency: O(n) time for sliding window processing, pre-computation reduces repeated calculations
+    </p>
+
+    <!-- ===== NEW DETAILED ALGORITHM SECTION ===== -->
+    <h2>Algorithm Explanation</h2>
+    <p>
+      The system reads AQI sensor values at fixed time intervals and stores them in a data stream.
+      A sliding window of fixed size moves across this stream to calculate average AQI levels
+      over recent time periods. Pre-computation is used to store cumulative AQI values so that
+      window calculations can be done efficiently without recomputing sums repeatedly.
+      This allows real-time AQI monitoring with minimal delay and optimal performance.
+    </p>
+
+    <!-- ===== ALGORITHM FLOW IMAGE ===== -->
+    <h2>Algorithm Flow</h2>
+    <img src="image.jpg" alt="Algorithm Flow Diagram" class="center-img">
+
+    <!-- ===== DESIGN TECHNIQUES ===== -->
+    <h2>Design Techniques Used</h2>
+    <p>
+      <strong>Sliding Window:</strong> Continuously processes AQI data over recent intervals.<br>
+      <strong>Pre-Computing:</strong> Stores intermediate results to avoid repeated calculations.<br>
+      <strong>Space and Time Trade-off:</strong> Uses extra memory to achieve faster execution.<br>
+      <strong>Pattern Recognition:</strong> Detects pollution trends and sudden AQI spikes.<br>
+      <strong>Decomposition:</strong> Breaks the system into sensing, processing, and alert modules.<br>
+      <strong>Abstraction:</strong> Represents complex AQI data using simplified indices.
+    </p>
+
+    <!-- ===== SDGs ===== -->
+    <h2>Relevant Sustainable Development Goals (SDGs)</h2>
+    <p>
+      <strong>SDG 3 – Good Health and Well-being:</strong> Protects students from air pollution risks.<br>
+      <strong>SDG 11 – Sustainable Cities and Communities:</strong> Promotes healthy urban school environments.<br>
+      <strong>SDG 13 – Climate Action:</strong> Encourages awareness and response to environmental changes.
     </p>
 
     <div class="buttons">
