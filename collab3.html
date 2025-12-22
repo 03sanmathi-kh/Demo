@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Collaboration – Vishalanagari Project</title>
 
-  <!-- Cartoon handwriting font -->
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
-      font-family: "Patrick Hand", cursive;
+      font-family: "Segoe UI", Arial, sans-serif;
       background: linear-gradient(135deg, #1b1b2f, #2c2c54);
       color: #e0d4b7;
       padding-bottom: 40px;
@@ -59,38 +56,35 @@
     .lav-title {
       font-size: 3rem;
       text-align: center;
-      color: #d4a066;  /* subtle gold */
-      text-shadow: 0 0 4px #d4a066; /* small glow only */
+      color: #d4a066;
+      text-shadow: 0 0 4px #d4a066;
       font-weight: bold;
-      transition: 0.3s;
     }
 
     .subtitle {
       text-align: center;
-      font-size: 1.3rem; /* increased from 1.1rem */
+      font-size: 1.3rem;
       margin-top: 6px;
       color: #b57f4f;
       font-weight: 600;
       text-shadow: 0 0 3px rgba(180,130,80,0.6);
     }
 
-    /* Headings */
     h2 {
       text-align:center; 
       font-size:2rem; 
       margin-top:35px; 
       margin-bottom:10px; 
       font-weight:bold;
-      color:#d4a066;  /* subtle gold */
-      text-shadow: 0 0 3px #d4a066; /* small glow */
-      transition: 0.3s;
+      color:#d4a066;
+      text-shadow: 0 0 3px #d4a066;
     }
-    h2:hover { text-shadow: 0 0 6px #ffd700; } /* small hover glow */
+    h2:hover { text-shadow: 0 0 6px #ffd700; }
 
     p { 
       width:75%; 
       margin:12px auto; 
-      font-size:1.18rem; /* increased from 1.14rem */
+      font-size:1.18rem; 
       line-height:2rem; 
       color:#d4b483; 
       text-shadow: 0 0 2px #b57f4f;
@@ -99,10 +93,9 @@
     .small-note { 
       width:75%; 
       margin:6px auto; 
-      font-size:1.1rem; /* increased from 1rem */
+      font-size:1.1rem; 
       color:#b57f4f; 
       font-style:italic;
-      text-shadow: 0 0 2px #a6694e;
     }
 
     .button-row {
@@ -123,7 +116,7 @@
       border:none; 
       cursor:pointer; 
       transition:0.3s; 
-      font-family:"Patrick Hand", cursive; 
+      font-family:"Segoe UI", Arial, sans-serif; 
       text-decoration:none;
       font-weight:bold;
       text-shadow: 0 0 4px #fff, 0 0 6px #ffb347;
@@ -134,19 +127,17 @@
       box-shadow: 0 0 16px #ffda6b, 0 0 20px #ff4500;
     }
 
-    /* Images */
     img {
       border-radius:12px;
       max-width:70%;
       transition: 0.3s;
-      box-shadow: 0 0 10px #ffd700, 0 0 15px rgba(255,215,0,0.3);
+      box-shadow: 0 0 10px #ffd700;
     }
     img:hover { 
       box-shadow: 0 0 25px #ffda6b, 0 0 35px #ff7f50; 
       transform: scale(1.03);
     }
 
-    /* Responsive */
     @media (max-width:720px) {
       .lav-box { width: 94%; padding: 24px; }
       p { width: 92%; font-size:1.05rem; line-height:1.6rem; }
@@ -159,77 +150,58 @@
 
 <body>
 
-  <button class="back-btn" onclick="window.location.href='collabs.html'">Back</button>
+<button class="back-btn" onclick="window.location.href='collabs.html'">Back</button>
 
-  <div class="lav-box">
-    <div class="lav-title">Sanmathi & Vasavi – Tech Parks × Governance</div>
-    <div class="subtitle">Technology Development, Smart Infrastructure & Transparent Governance for Vishalanagari</div>
+<div class="lav-box">
+  <div class="lav-title">Sanmathi & Vasavi – Tech Parks × Governance</div>
+  <div class="subtitle">Technology Development, Smart Infrastructure & Transparent Governance for Vishalanagari</div>
 
-    <h2>Focus Areas</h2>
-    <p>
-      • This collaboration combines my focus on Technology,Smart Infrastructure and TechPark design
-      with my partner Vasavi’s focus shifting towards in public administration, compliance, and transparent city services.
-    </p>
-    <div style="text-align:center; margin:20px 0;">
-      <img src="Park.png" alt="Description">
-    </div>
+  <h2>Focus Areas</h2>
+  <p>
+    • This collaboration combines my focus on Technology, Smart Infrastructure and TechPark design
+    with my partner Vasavi’s focus shifting towards public administration, compliance, and transparent city services.
+  </p>
 
-    <h2>Problem Statement</h2>
-    <p><strong>Digital Integrity Monitoring for Vishalanagari Tech Parks (Pattern Detection & Log Scanning)</strong></p>
-
-    <p>
-      Vishalanagari’s tech parks and public portals generate huge volumes of textual logs — entry records, vendor registrations,
-      project updates, service tickets, and audit trails. Governance teams need an automated engine that scans these text streams
-      to detect repeated fraud patterns, duplicate identities, disguised spam, and unusual access signatures quickly and reliably.
-    </p>
-
-    <p>
-      The system must search for suspicious patterns across millions of records and produce high-confidence alerts for governance
-      officers so they can act swiftly. Use string-patterning and fast text-search algorithms (Rabin–Karp, KMP, Boyer–Moore, Z)
-      to build a lightweight, scalable monitoring layer.
-    </p>
-
-    <h2>Algorithms Used</h2>
-    <p>• <b>Rabin–Karp</b> — Hash-based batch detection of repeated / copied text patterns across logs</p>
-    <p>• <b>KMP (Knuth–Morris–Pratt)</b> — Linear-time exact pattern matching for structured IDs and signatures</p>
-    <p>• <b>Boyer–Moore</b> — Fast searching for rare malware / malicious signature strings</p>
-    <p>• <b>Z-Algorithm</b> — Prefix-similarity & template-detection for spotting cloned or templated fake requests</p>
-
-    <h2>Efficiency of Each Algorithm</h2>
-    <p><b>Rabin–Karp:</b> Average Time – O(n + m), allows efficient multiple-pattern checks via rolling hash; Space – O(1) extra per pattern</p>
-    <p><b>KMP:</b> Time – O(n + m), Space – O(m) for prefix table — ideal for repeated streaming checks</p>
-    <p><b>Boyer–Moore:</b> Average Time – sublinear in practice (skips), Worst-case – O(n + m); Space – O(alphabet)</p>
-    <p><b>Z-Algorithm:</b> Time – O(n + m) for combined string preprocessing; Space – O(n) for Z array — useful for similarity detection</p>
-
-    <div style="text-align:center; margin:20px 0;">
-      <img src="flowww.png" alt="Description">
-    </div>
-
-    <h2>SDG Alignment</h2>
-    <p>• SDG 9 – Industry, Innovation & Infrastructure (secure tech ecosystem)</p>
-    <p>• SDG 11 – Sustainable & Transparent Cities (responsible governance)</p>
-    <p>• SDG 16 – Peace, Justice & Strong Institutions (fraud detection & accountability)</p>
-    <p>• SDG 17 – Partnerships for the Goals (city + tech + governance collaboration)</p>
-
-    <h2>C++ Implementations</h2>
-    <p class="small-note">We tried Z algorithm here to identify cloned requests by measuring prefix similarity in governance log strings. </p>
-
-    <div class="button-row">
-      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/RKarp.cpp" target="_blank" class="cpp-btn">
-        Rabin Karp(C++)
-      </a>
-      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/KMP.cpp" target="_blank" class="cpp-btn">
-       KMP(C++)
-      </a>
-      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/BM.cpp" target="_blank" class="cpp-btn">
-       Boyer Moore (C++)
-      </a>
-      <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/Z.cpp" target="_blank" class="cpp-btn">
-       Z Algorithm (C++)
-      </a>
-    </div>
-
+  <div style="text-align:center; margin:20px 0;">
+    <img src="Park.png" alt="Tech Park">
   </div>
+
+  <h2>Problem Statement</h2>
+  <p><strong>Digital Integrity Monitoring for Vishalanagari Tech Parks (Pattern Detection & Log Scanning)</strong></p>
+
+  <p>
+    Vishalanagari’s tech parks and public portals generate huge volumes of textual logs — entry records,
+    vendor registrations, project updates, service tickets, and audit trails.
+  </p>
+
+  <p>
+    The system must search for suspicious patterns across millions of records using Rabin–Karp,
+    KMP, Boyer–Moore, and Z algorithms.
+  </p>
+
+  <h2>Algorithms Used</h2>
+  <p>• <b>Rabin–Karp</b> — Hash-based batch detection</p>
+  <p>• <b>KMP</b> — Linear-time exact matching</p>
+  <p>• <b>Boyer–Moore</b> — Fast rare-pattern searching</p>
+  <p>• <b>Z-Algorithm</b> — Prefix similarity detection</p>
+
+  <h2>SDG Alignment</h2>
+  <p>• SDG 9 – Industry, Innovation & Infrastructure</p>
+  <p>• SDG 11 – Sustainable Cities</p>
+  <p>• SDG 16 – Strong Institutions</p>
+
+  <h2>C++ Implementations</h2>
+  <p class="small-note">
+    We used the Z algorithm to identify cloned governance requests by prefix similarity.
+  </p>
+
+  <div class="button-row">
+    <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/RKarp.cpp" target="_blank" class="cpp-btn">Rabin Karp (C++)</a>
+    <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/KMP.cpp" target="_blank" class="cpp-btn">KMP (C++)</a>
+    <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/BM.cpp" target="_blank" class="cpp-btn">Boyer Moore (C++)</a>
+    <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/Z.cpp" target="_blank" class="cpp-btn">Z Algorithm (C++)</a>
+  </div>
+</div>
 
 </body>
 </html>
