@@ -1,20 +1,182 @@
-<section class="section-problem-card">
-    <h2> Blood Bank Optimization</h2>
-    <p>
-        This module focuses on optimizing blood allocation across hospitals to meet demands efficiently. 
-        The goal is to reduce wastage, meet urgent demands, and ensure all hospitals have the required blood units.
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Bank Optimization System</title>
 
-    <h3>Algorithm Used:</h3>
-    <p>
-        Partitioning, Edge Relaxation, and Search Space Exploration are applied to efficiently distribute blood units. 
-    </p>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fffbea; /* light yellow */
+      color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+    }
 
-    <p class="efficiency">
-        Algorithm Efficiency: O(n) per hospital allocation; edge relaxation ensures optimal distribution with minimal computation
-    </p>
+    .container {
+      width: 85%;
+      margin: 50px auto;
+      padding: 40px;
+      background: #fff3c4; /* soft yellow */
+      border-radius: 15px;
+      box-shadow: 0 0 18px #f1c40f, 0 0 36px #f1c40f;
+      transition: all 0.3s ease;
+    }
 
-    <div class="problem-buttons">
+    .container:hover {
+      box-shadow: 0 0 28px #f1c40f, 0 0 50px #f1c40f;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.6em;
+      color: #8a5a00;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      font-size: 1.85em;
+      margin-top: 25px;
+      margin-bottom: 12px;
+      color: #8a5a00;
+    }
+
+    p {
+      font-size: 1.15em;
+      line-height: 1.7em;
+      margin-bottom: 20px;
+    }
+
+    .efficiency {
+      font-size: 1em;
+      font-weight: bold;
+      color: #8a5a00;
+      text-align: center;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
+
+    .center-img {
+      display: block;
+      margin: 30px auto;
+      max-width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #f1c40f;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 35px;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      padding: 16px 28px;
+      background-color: #8a5a00;
+      color: white;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .buttons a:hover {
+      background-color: #b97a00;
+      box-shadow: 0 0 20px #f1c40f, 0 0 40px #f1c40f;
+    }
+
+    /* Back Button */
+    .back-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      padding: 12px 18px;
+      background-color: #8a5a00;
+      color: white;
+      border-radius: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 1000;
+      transition: 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #b97a00;
+      box-shadow: 0 0 20px #f1c40f;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Back Button -->
+<a href="sanmathi_port.html" class="back-btn">Back</a>
+
+<div class="container">
+
+  <h1>Blood Bank Optimization System</h1>
+
+  <!-- ===== PROBLEM STATEMENT ===== -->
+  <h2>Problem Statement</h2>
+  <p>
+    In a densely populated smart city, hospitals and emergency centers rely heavily on
+    blood banks to save lives during surgeries, accidents, and medical emergencies.
+    However, blood is a perishable resource with limited shelf life, and improper storage
+    or distribution can lead to shortages during critical situations and wastage during
+    low demand periods. Emergency requests often require immediate availability of the
+    correct blood group, making manual coordination inefficient and error-prone.
+    A smart blood bank optimization system is required to monitor blood inventory levels,
+    prioritize urgent demands, and efficiently allocate blood units to hospitals in
+    real time, ensuring maximum utilization and minimum wastage.
+  </p>
+
+  <!-- ===== ALGORITHM USED ===== -->
+  <h2>Algorithm Used</h2>
+  <p>
+    Greedy Algorithm combined with Priority Queue
+  </p>
+
+  <p class="efficiency">
+    Algorithm Efficiency: O(n log n) time due to priority queue operations and O(n) space
+  </p>
+
+  <!-- ===== ALGORITHM EXPLANATION ===== -->
+  <h2>Algorithm Explanation</h2>
+  <p>
+    The system maintains blood unit records for different blood groups along with their
+    expiry dates and urgency levels. Incoming blood requests from hospitals are inserted
+    into a priority queue based on urgency and compatibility. The greedy approach ensures
+    that the most urgent requests are fulfilled first using the closest-to-expiry blood
+    units, thereby reducing wastage. The priority queue allows efficient selection of the
+    highest-priority request while maintaining optimal performance even as data scales.
+  </p>
+
+  <!-- ===== FLOW IMAGE ===== -->
+  <h2>Algorithm Flow</h2>
+  <img src="blood_flow.png" alt="Blood Bank Algorithm Flow" class="center-img">
+
+  <!-- ===== DESIGN TECHNIQUES ===== -->
+  <h2>Design Techniques Used</h2>
+  <p>
+    <strong>Greedy Strategy:</strong> Selects optimal blood allocation at each step.<br>
+    <strong>Priority Queue:</strong> Handles emergency requests efficiently.<br>
+    <strong>Decomposition:</strong> Separates inventory management and request handling.<br>
+    <strong>Abstraction:</strong> Represents complex medical data using priority values.<br>
+    <strong>Optimization:</strong> Minimizes blood wastage and response time.
+  </p>
+
+  <!-- ===== SDGs ===== -->
+  <h2>Relevant Sustainable Development Goals (SDGs)</h2>
+  <p>
+    <strong>SDG 3 – Good Health and Well-Being:</strong> Ensures timely medical support and saves lives.<br>
+    <strong>SDG 9 – Industry, Innovation and Infrastructure:</strong> Promotes smart healthcare systems.<br>
+    <strong>SDG 11 – Sustainable Cities and Communities:</strong> Strengthens emergency healthcare response.
+  </p>
+
+ <div class="problem-buttons">
         <div class="buttons">
             <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/code3.cpp" target="_blank" class="cpp-btn">
                 View code
@@ -26,100 +188,5 @@
     </div>
 </section>
 
-<style>
-/* Module 3 Section Styling – Pink Theme (Updated) */
-.section-problem-card {
-    padding: 40px; /* slightly bigger */
-    width: 90%;    /* wider container */
-    background-color: #ffe4ec; /* soft pink */
-    border-radius: 16px;
-    margin: 40px auto;
-    text-align: center;
-    box-shadow: 0 0 18px #ffb6c1, 0 0 36px #ff69b4; /* heavier pink glow */
-    transition: all 0.3s ease;
-}
-
-.section-problem-card:hover {
-    box-shadow: 0 0 28px #ffb6c1, 0 0 50px #ff69b4; /* stronger pink glow on hover */
-}
-
-/* Headings */
-.section-problem-card h2 {
-    font-size: 2em;
-    margin-bottom: 18px;
-    font-weight: bold;
-    color: #5a1f3d;
-    transition: text-shadow 0.3s ease;
-}
-
-.section-problem-card h2:hover {
-    text-shadow: 0 0 8px #ff69b4;
-}
-
-.section-problem-card h3 {
-    font-size: 1.45em;
-    margin-bottom: 12px;
-    font-weight: bold;
-    color: #5a1f3d;
-    transition: text-shadow 0.3s ease;
-}
-
-.section-problem-card h3:hover {
-    text-shadow: 0 0 6px #ff69b4;
-}
-
-/* Paragraphs */
-.section-problem-card p {
-    font-size: 1.08em;
-    color: #5c3a4a;
-    line-height: 1.8em;
-    margin-bottom: 22px;
-    max-width: 950px;
-    margin-left: auto;
-    margin-right: auto;
-    transition: text-shadow 0.3s ease;
-}
-
-.section-problem-card p:hover {
-    text-shadow: 0 0 5px #ffb6c1;
-}
-
-/* Algorithm efficiency styling */
-.efficiency {
-    font-size: 1em;
-    font-weight: bold;
-    color: #5a1f3d;
-    margin-bottom: 20px;
-    transition: text-shadow 0.3s ease;
-}
-
-.efficiency:hover {
-    text-shadow: 0 0 4px #ffb6c1;
-}
-
-/* Buttons */
-.problem-buttons {
-    display: flex;
-    gap: 25px;
-    justify-content: center;
-    margin-top: 25px;
-}
-
-.buttons a {
-    display: inline-block;
-    padding: 16px 28px;
-    background-color: #ff9eb5;
-    color: #3a0f22;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    font-size: 1em;
-}
-
-.buttons a:hover {
-    background-color: #ff7aa2;
-    box-shadow: 0 0 20px #ffb6c1, 0 0 40px #ff69b4;
-    transform: translateY(-3px);
-}
-</style>
+</body>
+</html>
