@@ -1,126 +1,176 @@
-<section class="section-problem-card">
-    <h2> Ayushman Bharat – Hospital Appointment Optimization</h2>
-    <p>
-        This module focuses on optimizing hospital appointments and resource allocation for beneficiaries of the Ayushman Bharat scheme. 
-        The challenge is to minimize patient waiting times, efficiently allocate doctors and beds, and ensure timely care for high-priority patients.
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayushman Bharat Appointment Optimization</title>
 
-    <h3>Algorithm Used:</h3>
-    <p>
-        Greedy Algorithm with Priority Queue and Dynamic Programming is applied to assign patients to optimal time slots. 
-        Graph-based shortest path and reachability checks are optionally used to assign patients to the nearest available hospitals.
-    </p>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6e6fa; /* Lavender */
+      color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+    }
 
-    <p class="efficiency">
-        Algorithm Efficiency: O(n log n) for scheduling via priority queue; Dynamic Programming reduces repeated computations for time slot optimization
-    </p>
+    /* Back Button */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      text-decoration: none;
+      padding: 10px 18px;
+      background-color: #4b0082;
+      color: white;
+      border-radius: 50px;
+      font-weight: bold;
+      z-index: 1000;
+      transition: 0.3s;
+    }
 
-   <div class="problem-buttons">
-        <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/code4.cpp" target="_blank" class="problem-button">
-            View Code
-        </a>
-        <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/hospital_id,hospital_name,blood_typ.csv" target="_blank" class="problem-button">
-            View Dataset
-        </a>
-    </div>
-</section>
+    .back-btn:hover {
+      background-color: #6a5acd;
+      box-shadow: 0 0 15px #b39ddb;
+    }
 
-<style>
-/* Green Theme Styling – Hospital Appointment */
-.section-problem-card {
-    padding: 40px;  /* slightly bigger */
-    width: 90%;     /* wider container */
-    background-color: #d4f4dd; /* soft green */
-    border-radius: 16px;
-    margin: 40px auto;
-    text-align: center;
-    box-shadow: 0 0 18px #a8e6a1, 0 0 36px #6fcf6f; /* heavier green glow */
-    transition: all 0.3s ease;
-}
+    .container {
+      width: 85%;
+      margin: 100px auto 50px auto;
+      padding: 40px;
+      background: #f4f0ff;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #c3b7e6;
+      transition: 0.3s;
+    }
 
-.section-problem-card:hover {
-    box-shadow: 0 0 28px #a8e6a1, 0 0 50px #6fcf6f; /* stronger green glow on hover */
-}
+    h1 {
+      text-align: center;
+      font-size: 2.6em;
+      color: #4b0082;
+      margin-bottom: 25px;
+    }
 
-/* Headings */
-.section-problem-card h2 {
-    font-size: 2em;
-    margin-bottom: 18px;
-    font-weight: bold;
-    color: #2b5d34;
-    transition: text-shadow 0.3s ease;
-}
+    h2 {
+      font-size: 1.9em;
+      margin-top: 30px;
+      color: #4b0082;
+    }
 
-.section-problem-card h2:hover {
-    text-shadow: 0 0 8px #6fcf6f;
-}
+    p, li {
+      font-size: 1.15em;
+      line-height: 1.7em;
+    }
 
-.section-problem-card h3 {
-    font-size: 1.45em;
-    margin-bottom: 12px;
-    font-weight: bold;
-    color: #2b5d34;
-    transition: text-shadow 0.3s ease;
-}
+    ul {
+      margin-left: 25px;
+    }
 
-.section-problem-card h3:hover {
-    text-shadow: 0 0 6px #6fcf6f;
-}
+    .efficiency {
+      font-weight: bold;
+      color: #4b0082;
+      text-align: center;
+      margin-top: 20px;
+    }
 
-/* Paragraphs */
-.section-problem-card p {
-    font-size: 1.08em;
-    color: #3b6b42;
-    line-height: 1.8em;
-    margin-bottom: 22px;
-    max-width: 950px;
-    margin-left: auto;
-    margin-right: auto;
-    transition: text-shadow 0.3s ease;
-}
+    .center-img {
+      display: block;
+      margin: 30px auto;
+      max-width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #b39ddb;
+    }
 
-.section-problem-card p:hover {
-    text-shadow: 0 0 5px #a8e6a1;
-}
+    .buttons {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 35px;
+    }
 
-/* Algorithm efficiency styling */
-.efficiency {
-    font-size: 1em;
-    font-weight: bold;
-    color: #2b5d34;
-    margin-bottom: 20px;
-    transition: text-shadow 0.3s ease;
-}
+    .buttons a {
+      text-decoration: none;
+      padding: 16px 28px;
+      background-color: #4b0082;
+      color: white;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
 
-.efficiency:hover {
-    text-shadow: 0 0 4px #6fcf6f;
-}
+    .buttons a:hover {
+      background-color: #6a5acd;
+      box-shadow: 0 0 20px #b39ddb;
+    }
+  </style>
+</head>
 
-/* Buttons */
-.problem-buttons {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 25px;
-    flex-wrap: wrap;
-}
+<body>
 
-.problem-button {
-    display: inline-block;
-    padding: 16px 28px;
-    background-color: #7edb84;
-    color: #1f4226;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    font-size: 1em;
-    box-shadow: 0 0 12px #a8e6a1, 0 0 24px #6fcf6f; /* box effect */
-}
+<a href="sanmathi_port.html" class="back-btn">Back</a>
 
-.problem-button:hover {
-    background-color: #57c65f;
-    box-shadow: 0 0 20px #a8e6a1, 0 0 40px #6fcf6f;
-    transform: translateY(-3px);
-}
-</style>
+<div class="container">
+
+  <h1>Healthcare Appointment Optimization</h1>
+
+  <h2>Problem Statement</h2>
+  <p>
+    In an Ayushman Bharat health camp set up in a semi-urban region, a limited number of
+    doctors are available for a fixed duration each day. Patients arrive with different
+    medical needs, and each consultation requires a specific time interval.
+  </p>
+  <p>
+    Since doctor availability is limited, not every patient can be treated. The challenge
+    is to schedule appointments in such a way that the **maximum number of patients**
+    receive treatment without overlapping time slots.
+  </p>
+  <p>
+    The system must ensure efficient utilization of doctor time while maintaining fairness
+    and avoiding appointment conflicts.
+  </p>
+
+  <h2>Algorithm Used</h2>
+  <p><strong>Interval Scheduling Algorithm</strong></p>
+
+  <ul>
+    <li>Each patient appointment is treated as a time interval.</li>
+    <li>Appointments are sorted based on their finishing times.</li>
+    <li>Patients are selected such that no two appointments overlap.</li>
+    <li>This ensures maximum patient coverage within available time.</li>
+  </ul>
+
+  <p class="efficiency">
+    Algorithm Efficiency: O(n log n) due to sorting of appointment intervals
+  </p>
+
+  <!-- You will add image -->
+  <img src="fchart.png" alt="Algorithm Flow Diagram" class="center-img">
+
+  <h2>Design Techniques Used</h2>
+  <ul>
+    <li><strong>Greedy Choice:</strong> Select earliest finishing appointment</li>
+    <li><strong>Sorting:</strong> Orders intervals efficiently</li>
+    <li><strong>Decomposition:</strong> Divides scheduling into simple steps</li>
+    <li><strong>Abstraction:</strong> Represents patients as time intervals</li>
+  </ul>
+
+  <h2>Relevant Sustainable Development Goals (SDGs)</h2>
+  <ul>
+    <li><strong>SDG 3 – Good Health and Well-being:</strong> Improves access to healthcare</li>
+    <li><strong>SDG 10 – Reduced Inequalities:</strong> Fair distribution of medical services</li>
+    <li><strong>SDG 9 – Industry, Innovation & Infrastructure:</strong> Efficient system design</li>
+  </ul>
+
+  <div class="buttons">
+    <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/code4.cpp" target="_blank">
+      View Code
+    </a>
+    <a href="https://github.com/03sanmathi-kh/DAA_code_sanmathi/blob/main/hospital.csv" target="_blank">
+      View Dataset
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>
